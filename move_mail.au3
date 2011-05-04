@@ -2,6 +2,8 @@
 #include <Array.au3>
 #include <file.au3>
 #include <Process.au3>
+#include <Date.au3>
+
 Dim	$min=@MIN
 Dim	$hour=@HOUR
 Dim $day=@MDAY
