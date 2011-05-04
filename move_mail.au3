@@ -14,7 +14,7 @@ dim $today=$year&$month&$day
 dim $day_peroid=2
 
 dim $test_mode=1
-
+;; Test mode is not test by a file
 
 if $test_mode=1 then 
 	dim $mail_path="D:\downloads\eml"
