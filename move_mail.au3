@@ -3,6 +3,8 @@
 #include <file.au3>
 #include <Process.au3>
 #include <Date.au3>
+; Add date compare. 
+;
 
 Dim	$min=@MIN
 Dim	$hour=@HOUR
