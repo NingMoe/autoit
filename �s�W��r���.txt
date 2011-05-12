@@ -11,3 +11,12 @@
 
 
 呂常淳的輸入檔案
+
+A.1:
+在所屬的 folder上開 git bash 
+Execute following command in your remote repository folder:
+ "git config --bool core.bare true"
+Then delete all the files except .git in that folder. and then you will be able to perform git push to the remote repository without any errors.
+
+2. Server上的 git repository 最好用下列指令
+在初始化時最好使用 git --bare init
