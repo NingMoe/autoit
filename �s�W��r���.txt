@@ -1,4 +1,7 @@
-﻿這是中文字的說明檔
+﻿4. 綠角財經筆記: 海外券商停售Vanguard基金之現況與對策
+http://greenhornfinancefootnote.blogspot.com/2010/01/vanguard.html
+
+這是中文字的說明檔
 
 這是中文字的說明檔
 
@@ -11,3 +14,12 @@
 
 
 呂常淳的輸入檔案
+
+A.1:
+在所屬的 folder上開 git bash 
+Execute following command in your remote repository folder:
+ "git config --bool core.bare true"
+Then delete all the files except .git in that folder. and then you will be able to perform git push to the remote repository without any errors.
+
+2. Server上的 git repository 最好用下列指令
+在初始化時最好使用 git --bare init
