@@ -4,7 +4,8 @@
 #include <Process.au3>
 #include <Date.au3>
 ; Add date compare. 
-;
+; Not yet write a dame lin of code.
+; 只有加入一些說明而已。
 
 Dim	$min=@MIN
 Dim	$hour=@HOUR
