@@ -21,17 +21,14 @@ Global $test_mode
 Global $magic_word = "民權國小天文社專用發簡訊密碼"
 Global $astronomy = "astronomy.txt"
 Dim $os_partial
-Global $version
+
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
 
 ;MsgBox(0,"on info",$os_partial)
 Dim $aData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm")
 Dim $aBytesRead = @extended
-;MsgBox(4096, "", "Bytes read: " & $aBytesRead & @CRLF & @CRLF & StringLeft( BinaryToString($aData),3) & @CRLF & StringTrimLeft( BinaryToString($aData),4) )
-$version=StringLeft( BinaryToString($aData),3)
-
-If $aBytesRead = 0 Or $version = "000" Then
-	MsgBox(0, "錯誤", "這個程式己經失效了，"&@CRLF&"請重新下載。")
+If $aBytesRead = 0 Or BinaryToString($aData) = "GoodBye" Then
+	MsgBox(0, "錯誤", "這個程式己經失效了")
 	Exit
 EndIf
 
@@ -39,13 +36,13 @@ If Not FileExists(@ScriptDir & "\" & $astronomy) Then
 	$os_partial = _get_os_partial()
 	Local $sData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm") ;http://202.133.232.82:8080/upload/
 	Local $nBytesRead = @extended
-	MsgBox(4096, "", "Bytes read: " & $nBytesRead & @CRLF & @CRLF & BinaryToString($sData) &@CRLF &StringLeft( BinaryToString($sData),4) & $os_partial )
+	;MsgBox(4096, "", "Bytes read: " & $nBytesRead & @CRLF & @CRLF & BinaryToString($sData))
 	
 	If $nBytesRead > 0 Then
 		;dim $magicfile_name=BinaryToString($sData)&".txt"
 		Dim $magicfile = FileOpen(@ScriptDir & "\" & $astronomy, 10)
-		FileWriteLine($magicfile, StringLeft( BinaryToString($sData),4) & $os_partial & @CRLF)
-		FileWriteLine($magicfile, StringTrimLeft( BinaryToString($sData),4))
+		FileWriteLine($magicfile, $os_partial & @CRLF)
+		FileWriteLine($magicfile, BinaryToString($sData))
 		FileClose($magicfile)
 		;$magic_word=BinaryToString($sData)
 
@@ -55,10 +52,8 @@ EndIf
 If FileExists(@ScriptDir & "\" & $astronomy) Then
 	Local $pass
 	Local $line1 = FileReadLine(@ScriptDir & "\" & $astronomy, 1)
-	if $version <>  StringLeft ($line1,3) then  MsgBox(0, "警告", "這個程式己經過期了，"&@CRLF&"請儘速重新下載。")
-	 
 	$os_partial = _get_os_partial()
-	If  StringTrimLeft ($line1,4)  <> $os_partial Then
+	If $os_partial <> $line1 Then
 		FileDelete(@ScriptDir & "\" & $astronomy)
 		MsgBox(0, "Restart the program", "請重開這個程式", 10)
 		Exit
@@ -67,9 +62,9 @@ If FileExists(@ScriptDir & "\" & $astronomy) Then
 	Local $line2 = FileReadLine(@ScriptDir & "\" & $astronomy, 2)
 	;MsgBox(0,"stringinstring of line2",StringInStr ( $magic_word,  $line2 ))
 	If StringInStr($magic_word, $line2) = 0 Then
-		$input_pass = InputBox("發送簡訊所使用的密碼", "請輸入")
+		$pass = InputBox("發送簡訊的使用密碼", "請輸入")
 		
-		If $magic_word <> $input_pass Then
+		If $magic_word <> $pass Then
 			FileDelete(@ScriptDir & "\" & $astronomy)
 			MsgBox(0, "錯誤", "密碼錯誤")
 			Exit
@@ -78,74 +73,22 @@ If FileExists(@ScriptDir & "\" & $astronomy) Then
 	
 EndIf
 
-;;
-;; Now is to open SMS Text file and name list
-;; And show them is a msg box
-;;
-dim $SMS_text_file=@ScriptDir&"\SMS_text.txt"
-dim $name_list = @ScriptDir& "\SMS_name_list.csv"
-;$name_list=$name_list
-;$name_list = "D:\AUTO\script\AE\2nd_1500.csv"
-Dim $name_list_array
-dim $name_colume
-dim $mobile_colume
-
-If FileExists($name_list) Then
-	;$file=FileOpen(@ScriptDir&"\"&$name_list)
-	$name_list_array = _file2Array($name_list, 4, ",")
-	for $x=0 to 3
-
-		if StringInStr($name_list_array[0][$x], "學生姓名"  ) then $name_colume=$x
-		if StringInStr($name_list_array[0][$x], "姓名"  ) then $name_colume=$x
-		if StringInStr($name_list_array[0][$x], "手機"  ) then $mobile_colume=$x
-		if StringInStr($name_list_array[0][$x], "行動電話"  ) then $mobile_colume=$x
-	next
-	MsgBox(0,"name and mobile", $name_colume & "  " & $mobile_colume)
-	_ArrayDisplay($name_list_array)
-	;MsgBox (0,"This is mobile table ", UBound($name_list_array,1) & @CRLF & " Record in total")
+$txt_file = "D:\AUTO\script\AE\2nd_1500.csv"
+Dim $extramail_array
+;if FileExists(@ScriptDir&"\"&$txt_file) then
+If FileExists($txt_file) Then
+	;$file=FileOpen(@ScriptDir&"\"&$txt_file)
+	$extramail_array = _file2Array($txt_file, 3, ",")
+	_ArrayDisplay($extramail_array)
+	;MsgBox (0,"This is mobile table ", UBound($extramail_array,1) & @CRLF & " Record in total")
 Else
-	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $name_list & " is not at " & @ScriptDir)
+	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $txt_file & " is not at " & @ScriptDir)
 	
 EndIf
 
 
 
-if FileExists ($SMS_text_file) then 
-	dim $message=""
-	Dim $a_SMS_text_file
-	If Not _FileReadToArray($SMS_text_file,$a_SMS_text_file) Then
-		MsgBox(4096,"Error", " Error reading log to Array     error:" & @error)
-		Exit
-	EndIf
-	For $x = 1 to $a_SMS_text_file[0]
-		$message=$message&$a_SMS_text_file[$x]
-		;Msgbox(0,'Record:' & $x, $$a_SMS_text_file[$x])
-	Next
-	if StringLen($message) > 70 then 
-		$button_return=MsgBox(1,"目前簡訊文字長度:" & @CRLF&StringLen($message), "1. 簡訊原文:"& @CRLF & @CRLF & $message & @CRLF & @CRLF & @CRLF & @CRLF& "2. 簡訊發出會被截斷成為:" & @CRLF& @CRLF &Stringleft ($message, 70) )	
-	else 
-		$button_return=MsgBox(1,"目前簡訊文字長度:" & @CRLF&StringLen($message), $message & @CRLF  )	
-	EndIf
-	if $button_return = 2 then 
-		MsgBox(0,"","請再檢查簡訊內容")
-		run( "notepad.exe " &$SMS_text_file ) 
-		exit
-	EndIf
-	if $button_return = 1 then $message=Stringleft ($message, 70)
-	
-EndIf
 
-;_ArrayDisplay($a_SMS_text_file)
-
-
-
-
-
-
-
-
-MsgBox(0,"","It is correct now.")
-Exit
 
 ; This is send gmail  function
 ;
@@ -164,7 +107,7 @@ $s_CcAddress = "" ; address for cc - leave blank if not needed
 $s_BccAddress = "" ; address for bcc - leave blank if not needed
 ;$s_Username = _Base64Encode("ae_direct_fly")                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
 ;$s_Password = _Base64Encode("pkpkpk")                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-$s_Password = "1qazxsw2"
+$s_Password = "1234"
 $s_Username = "ae_backup"
 $s_IPPort = 25 ; port used for sending the mail
 $s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer sending - put to 1 if using httpS
@@ -203,7 +146,7 @@ Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 ;dim $3rd= "myonlinebookingst3@gmail.com"
 Dim $mymailbody = "使用者必須能夠 註冊/登入，登入後才可以發表Post，不然只能瀏覽。只有自己的Post才能進行修改與刪除。"
 
-For $r = 0 To 1 ;(UBound($name_list_array,1)-1)
+For $r = 0 To 1 ;(UBound($extramail_array,1)-1)
 	
 	Dim $day = @MDAY
 	Dim $month = @MON
@@ -211,21 +154,21 @@ For $r = 0 To 1 ;(UBound($name_list_array,1)-1)
 	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 	;$as_Body=$mymailbody
 	
-	;MsgBox (0,"This is mobile",$name_list_array[$r][2] & @CRLF & " This is going to send mail. Stop if you want")
+	;MsgBox (0,"This is mobile",$extramail_array[$r][2] & @CRLF & " This is going to send mail. Stop if you want")
 	$s_ToAddress = "sms@onlinebooking.com.tw"
-	If StringInStr($name_list_array[$r][2], "_") Then
-		$s_Subject = StringReplace($name_list_array[$r][2], "_", "")
+	If StringInStr($extramail_array[$r][2], "_") Then
+		$s_Subject = StringReplace($extramail_array[$r][2], "_", "")
 		;$as_Body=StringReplace($as_Body,"[user_email]","ae@delta.com.tw") ; For test only.
 		
 	EndIf
 	;MsgBox (0,"This is mobile",$s_Subject & @CRLF & " This is going to send mail. Stop if you want")
 	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
-	;$m_ToAddress =	$name_list_array[$r][0] ;
-	;$s_ToAddress = $name_list_array[$r][0] ;Correct mail to
+	;$m_ToAddress =	$extramail_array[$r][0] ;
+	;$s_ToAddress = $extramail_array[$r][0] ;Correct mail to
 	
 	;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
 	
-	;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $name_list_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
+	;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $extramail_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
 	
 	;if mod($r, 3)=1 	then
 	;$s_Username =$1st
@@ -249,6 +192,7 @@ For $r = 0 To 1 ;(UBound($name_list_array,1)-1)
 	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
 	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", " Mail Send to " & $s_Subject & "  " & $s_ToAddress)
+;### Tidy Error: If/ElseIf statement without a then..
 	If $r > 0 And Mod($r, 3) = 0 Then
 		Sleep(5000)
 	EndIf
