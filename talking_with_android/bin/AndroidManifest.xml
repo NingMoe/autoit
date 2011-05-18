@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.devx.SMSExample">
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".BaseScreen" android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.devx.SMSExample.WAKE_UP"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    <receiver android:name=".SmsIntentReceiver"
+			android:enabled="true">
+			<intent-filter>
+				<action
+					android:name="android.provider.Telephony.SMS_RECEIVED" />
+			</intent-filter>
+	</receiver>
+	</application>
+</manifest> 
