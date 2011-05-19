@@ -19,12 +19,13 @@ Dim $year = @YEAR
 Global $test_mode
 
 Global $magic_word = "民權國小天文社專用發簡訊密碼"
-Global $astronomy = "astronomy.txt"
+Global $astronomy = ".astronomy.txt"
 Dim $os_partial
 Global $version
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
 
 ;MsgBox(0,"on info",$os_partial)
+;MsgBox(0,"",@UserProfileDir)
 Dim $aData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm")
 Dim $aBytesRead = @extended
 ;MsgBox(4096, "", "Bytes read: " & $aBytesRead & @CRLF & @CRLF & StringLeft( BinaryToString($aData),3) & @CRLF & StringTrimLeft( BinaryToString($aData),4) )
@@ -35,17 +36,19 @@ If $aBytesRead = 0 Or $version = "000" Then
 	Exit
 EndIf
 
-If Not FileExists(@ScriptDir & "\" & $astronomy) Then
+;If Not FileExists(@ScriptDir & "\" & $astronomy) Then
+If Not FileExists(@UserProfileDir & "\" & $astronomy) Then	
 	$os_partial = _get_os_partial()
-	Local $sData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm") ;http://202.133.232.82:8080/upload/
-	Local $nBytesRead = @extended
-	MsgBox(4096, "", "Bytes read: " & $nBytesRead & @CRLF & @CRLF & BinaryToString($sData) &@CRLF &StringLeft( BinaryToString($sData),4) & $os_partial )
+	;Local $sData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm") ;http://202.133.232.82:8080/upload/
+	;Local $nBytesRead = @extended
+	;MsgBox(4096, "", "Bytes read: " & $nBytesRead & @CRLF & @CRLF & BinaryToString($sData) &@CRLF &StringLeft( BinaryToString($sData),4) & $os_partial )
 	
-	If $nBytesRead > 0 Then
+	If $aBytesRead > 0 Then
 		;dim $magicfile_name=BinaryToString($sData)&".txt"
-		Dim $magicfile = FileOpen(@ScriptDir & "\" & $astronomy, 10)
-		FileWriteLine($magicfile, StringLeft( BinaryToString($sData),4) & $os_partial & @CRLF)
-		FileWriteLine($magicfile, StringTrimLeft( BinaryToString($sData),4))
+		;Dim $magicfile = FileOpen(@ScriptDir & "\" & $astronomy, 10)
+		Dim $magicfile = FileOpen(@UserProfileDir & "\" & $astronomy, 10)
+		FileWriteLine($magicfile, StringLeft( BinaryToString($aData),4) & $os_partial & @CRLF)
+		FileWriteLine($magicfile, StringTrimLeft( BinaryToString($aData),4))
 		FileClose($magicfile)
 		;$magic_word=BinaryToString($sData)
 
@@ -100,13 +103,24 @@ If FileExists($name_list) Then
 		if StringInStr($name_list_array[0][$x], "手機"  ) then $mobile_colume=$x
 		if StringInStr($name_list_array[0][$x], "行動電話"  ) then $mobile_colume=$x
 	next
-	MsgBox(0,"name and mobile", $name_colume & "  " & $mobile_colume)
-	_ArrayDisplay($name_list_array)
+	;MsgBox(0,"name and mobile", $name_colume & "  " & $mobile_colume)
+	;_ArrayDisplay($name_list_array)
 	;MsgBox (0,"This is mobile table ", UBound($name_list_array,1) & @CRLF & " Record in total")
+	
+	for $y=1 to UBound($name_list_array)-1
+		local $mobile_phone_no=$name_list_array[$y][$mobile_colume]
+		;if StringLeft ($mobile_phone_no,1)<>0 then $mobile_phone_no="0"&$mobile_phone_no
+		;if StringLeft ($mobile_phone_no,2)<>09
+		MsgBox (0,"Array index"& $y =1 , $name_list_array[$y][$name_colume] &" <> "& $name_list_array[$y][$mobile_colume])
+		
+	Next	
 Else
 	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $name_list & " is not at " & @ScriptDir)
 	
 EndIf
+
+
+
 
 
 
