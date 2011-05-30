@@ -1,0 +1,4 @@
+1. Use date time on text file name to schedule send.  User can use up to minute.
+2. Also date time on name_list. 
+3. Every sender Need a folder ? Should be Yes. In this case, then there will be a user name and email, sms phone no in the folder.
+4. Name list has columes : name , contact phone, email these info.
