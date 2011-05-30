@@ -16,7 +16,7 @@
 ;;
 
 Global $SMS_text_file ; =@ScriptDir&"\SMS_text.txt"
-Global $name_list ; = @ScriptDir& "\SMS_name_list.csv"
+Global $name_list  ; = @ScriptDir& "\SMS_name_list.csv"
 Global $oMyRet[2]
 
 Dim $sec = @SEC
@@ -38,18 +38,18 @@ Global $version
 Dim $aData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm")
 Dim $aBytesRead = @extended
 ;MsgBox(4096, "", "Bytes read: " & $aBytesRead & @CRLF & @CRLF & StringLeft( BinaryToString($aData),3) & @CRLF & StringTrimLeft( BinaryToString($aData),4) )
-$version = StringLeft(BinaryToString($aData), 3)
+$version=StringLeft( BinaryToString($aData),3)
 
 If $aBytesRead = 0 Or $version = "000" Then
-	MsgBox(0, "錯誤", "這個程式己經失效了，" & @CRLF & "請重新下載。")
+	MsgBox(0, "錯誤", "這個程式己經失效了，"&@CRLF&"請重新下載。")
 	Exit
 EndIf
 
 
-_SelectFileGUI()
+ _SelectFileGUI()
 
 ;If Not FileExists(@ScriptDir & "\" & $astronomy) Then
-If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
+If Not FileExists(@UserProfileDir & "\" & $astronomy) Then	
 	$os_partial = _get_os_partial()
 	;Local $sData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm") ;http://202.133.232.82:8080/upload/
 	;Local $nBytesRead = @extended
@@ -59,8 +59,8 @@ If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 		;dim $magicfile_name=BinaryToString($sData)&".txt"
 		;Dim $magicfile = FileOpen(@ScriptDir & "\" & $astronomy, 10)
 		Dim $magicfile = FileOpen(@UserProfileDir & "\" & $astronomy, 10)
-		FileWriteLine($magicfile, StringLeft(BinaryToString($aData), 4) & $os_partial & @CRLF)
-		FileWriteLine($magicfile, StringTrimLeft(BinaryToString($aData), 4))
+		FileWriteLine($magicfile, StringLeft( BinaryToString($aData),4) & $os_partial & @CRLF)
+		FileWriteLine($magicfile, StringTrimLeft( BinaryToString($aData),4))
 		FileClose($magicfile)
 		;$magic_word=BinaryToString($sData)
 
@@ -70,13 +70,13 @@ EndIf
 If FileExists(@ScriptDir & "\" & $astronomy) Then
 	Local $pass
 	Local $line1 = FileReadLine(@ScriptDir & "\" & $astronomy, 1)
-	If $version <> StringLeft($line1, 3) Then
+	if $version <>  StringLeft ($line1,3) then  
 		;FileMove(@ScriptDir&"\mail_sms.exe")
-		InetGet("http://ivan:9ps5678@202.133.232.82:8080/upload/mail_sms.exe", @ScriptDir & "\mail_sms_1.exe", 1)
-		MsgBox(0, "警告", "這個程式己經過期了，" & @CRLF & "請儘速重新下載。")
-	EndIf
+		inetget("http://ivan:9ps5678@202.133.232.82:8080/upload/mail_sms.exe",@ScriptDir&"\mail_sms_1.exe",1)
+		MsgBox(0, "警告", "這個程式己經過期了，"&@CRLF&"請儘速重新下載。")
+	EndIf 
 	$os_partial = _get_os_partial()
-	If StringTrimLeft($line1, 4) <> $os_partial Then
+	If  StringTrimLeft ($line1,4)  <> $os_partial Then
 		FileDelete(@ScriptDir & "\" & $astronomy)
 		MsgBox(0, "Restart the program", "請重開這個程式", 10)
 		Exit
@@ -104,40 +104,40 @@ EndIf
 ;$name_list=$name_list
 ;$name_list = "D:\AUTO\script\AE\2nd_1500.csv"
 Dim $name_list_array
-Dim $name_colume
-Dim $mobile_colume
+dim $name_colume
+dim $mobile_colume
 
-Dim $Show_name_phone = ""
-Dim $button_return = 0
+dim $Show_name_phone=""
+dim $button_return=0
 
 If FileExists($name_list) Then
 	;$file=FileOpen(@ScriptDir&"\"&$name_list)
 	$name_list_array = _file2Array($name_list, 4, ",")
-	For $x = 0 To 3
+	for $x=0 to 3
 
-		If StringInStr($name_list_array[0][$x], "學生姓名") Then $name_colume = $x
-		If StringInStr($name_list_array[0][$x], "姓名") Then $name_colume = $x
-		If StringInStr($name_list_array[0][$x], "手機") Then $mobile_colume = $x
-		If StringInStr($name_list_array[0][$x], "行動電話") Then $mobile_colume = $x
-	Next
+		if StringInStr($name_list_array[0][$x], "學生姓名"  ) then $name_colume=$x
+		if StringInStr($name_list_array[0][$x], "姓名"  ) then $name_colume=$x
+		if StringInStr($name_list_array[0][$x], "手機"  ) then $mobile_colume=$x
+		if StringInStr($name_list_array[0][$x], "行動電話"  ) then $mobile_colume=$x
+	next
 	;MsgBox(0,"name and mobile", $name_colume & "  " & $mobile_colume)
 	;_ArrayDisplay($name_list_array)
 	;MsgBox (0,"This is mobile table ", UBound($name_list_array,1) & @CRLF & " Record in total")
 	
-	For $y = 1 To UBound($name_list_array) - 1
-		Local $mobile_phone_no = $name_list_array[$y][$mobile_colume]
+	for $y=1 to UBound($name_list_array)-1
+		local $mobile_phone_no=$name_list_array[$y][$mobile_colume]
 		;if StringLeft ($mobile_phone_no,1)<>0 then $mobile_phone_no="0"&$mobile_phone_no
 		;if StringLeft ($mobile_phone_no,2)<>09
 		;MsgBox (0,"Array index : "& $y  , $name_list_array[$y][$name_colume] &" <> "& $name_list_array[$y][$mobile_colume])
-		$Show_name_phone = $Show_name_phone & $name_list_array[$y][$name_colume] & "  :  " & $name_list_array[$y][$mobile_colume] & @CRLF
+		$Show_name_phone=$Show_name_phone & $name_list_array[$y][$name_colume] &"  :  "& $name_list_array[$y][$mobile_colume] & @CRLF
 	Next
-	$button_return = MsgBox(1, "Show Name and Phone for Check:", "目前是從這個  " & $name_list & @CRLF & "檔案中取得人名與電話  :  " & @CRLF & @CRLF & $Show_name_phone)
-	If $button_return = 2 Then
-		MsgBox(0, "請再檢查", "請重新執行程式")
+	$button_return=MsgBox(1,"Show Name and Phone for Check:", "目前是從這個  "& $name_list & @CRLF &"檔案中取得人名與電話  :  "& @CRLF & @CRLF &$Show_name_phone)
+	if $button_return=2 then 
+		MsgBox(0,"請再檢查", "請重新執行程式")
 		Exit
 	EndIf
 
-	;_ArrayDisplay($name_list_array)
+	;_ArrayDisplay($name_list_array)	
 Else
 	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $name_list & " is not at " & @ScriptDir)
 	
@@ -145,28 +145,28 @@ EndIf
 
 
 
-If FileExists($SMS_text_file) Then
-	Dim $message = ""
+if FileExists ($SMS_text_file) then 
+	dim $message=""
 	Dim $a_SMS_text_file
-	If Not _FileReadToArray($SMS_text_file, $a_SMS_text_file) Then
-		MsgBox(4096, "Error", " Error reading log to Array     error:" & @error)
+	If Not _FileReadToArray($SMS_text_file,$a_SMS_text_file) Then
+		MsgBox(4096,"Error", " Error reading log to Array     error:" & @error)
 		Exit
 	EndIf
-	For $x = 1 To $a_SMS_text_file[0]
-		$message = $message & $a_SMS_text_file[$x]
+	For $x = 1 to $a_SMS_text_file[0]
+		$message=$message&$a_SMS_text_file[$x]
 		;Msgbox(0,'Record:' & $x, $$a_SMS_text_file[$x])
 	Next
-	If StringLen($message) > 63 Then
-		$button_return = MsgBox(1, "目前簡訊文字長度:" & @CRLF & StringLen($message), "目前是從 " & $SMS_text_file & "  這個檔案中取得簡訊: " & @CRLF & @CRLF & "1. 簡訊原文:" & @CRLF & @CRLF & $message & @CRLF & @CRLF & @CRLF & @CRLF & "2. 簡訊發出會被截斷成為:" & @CRLF & @CRLF & StringLeft($message, 70))
-	Else
-		$button_return = MsgBox(1, "目前簡訊文字長度:" & @CRLF & StringLen($message), "目前是從 " & $SMS_text_file & "  這個檔案中取得簡訊: " & @CRLF & @CRLF & $message & @CRLF)
+	if StringLen($message) > 63 then 
+		$button_return=MsgBox(1,"目前簡訊文字長度:" & @CRLF&StringLen($message),  "目前是從 "&$SMS_text_file & "  這個檔案中取得簡訊: "& @CRLF & @CRLF & "1. 簡訊原文:"& @CRLF & @CRLF & $message & @CRLF & @CRLF & @CRLF & @CRLF& "2. 簡訊發出會被截斷成為:" & @CRLF& @CRLF &Stringleft ($message, 70) )	
+	else 
+		$button_return=MsgBox(1,"目前簡訊文字長度:" & @CRLF&StringLen($message),   "目前是從 "&$SMS_text_file & "  這個檔案中取得簡訊: "& @CRLF& @CRLF &$message & @CRLF  )	
 	EndIf
-	If $button_return = 2 Then
-		MsgBox(0, "", "請再檢查簡訊內容")
-		Run("notepad.exe " & $SMS_text_file)
-		Exit
+	if $button_return = 2 then 
+		MsgBox(0,"","請再檢查簡訊內容")
+		run( "notepad.exe " &$SMS_text_file ) 
+		exit
 	EndIf
-	If $button_return = 1 Then $message = StringLeft($message, 63)
+	if $button_return = 1 then $message=Stringleft ($message, 63)
 	
 EndIf
 
@@ -179,7 +179,7 @@ EndIf
 
 
 
-MsgBox(0, "", "It is correct now. Process Send mail Now")
+MsgBox(0,"","It is correct now. Process Send mail Now")
 ;Exit
 
 ; This is send gmail  function
@@ -207,25 +207,6 @@ $s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer se
 ;$ssl=1                                 ; GMAILenables/disables secure socket layer sending - put to 1 if using httpS
 ;
 ;
-;$s_SmtpServer = "smtp.gmail.com" ;"maild.digitshuttle.com"              ; address for the smtp-server to use - REQUIRED
-;$s_FromName = "changtun" ;"bryant@dynalab.com.tw"                      ; name from who the email was sent
-;$s_FromAddress = "changtun@gmail.com";"bryant@dynalab.com.tw" ;  address from where the mail should come
-;$s_ToAddress = "sms@onlinebooking.com.tw" ; destination address of the email - REQUIRED
-;$s_Subject = "0928837823"
-;$as_Body = "主旨" ; the messagebody from the mail - can be left blank but then you get a blank mail
-;$s_AttachFiles = "" ; the file you want to attach- leave blank if not needed
-;$s_CcAddress = "" ; address for cc - leave blank if not needed
-;$s_BccAddress = "" ; address for bcc - leave blank if not needed
-;;$s_Username = _Base64Encode("ae_direct_fly")                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-;;$s_Password = _Base64Encode("pkpkpk")                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-;$s_Password = "9ps567*9"
-;$s_Username = "changtun@gmail.com"
-;$s_IPPort = 465 ; port used for sending the mail
-;$s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer sending - put to 1 if using httpS
-;;$IPPort=465                            ; GMAIL port used for sending the mail
-;;$ssl=1     
-
-
 ;
 $m_SmtpServer = "smtp.gmail.com" ; address for the smtp-server to use - REQUIRED
 $m_FromName = "DSC" ; name from who the email was sent
@@ -257,13 +238,13 @@ Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 ;dim $3rd= "myonlinebookingst3@gmail.com"
 ;Dim $mymailbody = "使用者必須能夠 註冊/登入，登入後才可以發表Post，不然只能瀏覽。只有自己的Post才能進行修改與刪除。"
 
-For $r = 1 To (UBound($name_list_array, 1) - 1)
+For $r = 1 To (UBound($name_list_array,1)-1)
 	
 	Dim $day = @MDAY
 	Dim $month = @MON
 	Dim $year = @YEAR
 	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
-	$as_Body = $name_list_array[$r][$name_colume] & "您好: " & $message
+	$as_Body= $name_list_array[$r][$name_colume] &"您好: " &$message
 	
 	;MsgBox (0,"This is mobile",$name_list_array[$r][2] & @CRLF & " This is going to send mail. Stop if you want")
 	;$s_ToAddress = "sms@onlinebooking.com.tw"
@@ -296,7 +277,7 @@ For $r = 1 To (UBound($name_list_array, 1) - 1)
 	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;### This is for Corrrect SMS
 	;$s_Subject="0919585516"
-	MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
+	MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
 	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;### This is mail Test
 	;$s_ToAddress="bryant@dynalab.com.tw"
@@ -304,14 +285,14 @@ For $r = 1 To (UBound($name_list_array, 1) - 1)
 	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
 	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", " Mail Send to " & $s_Subject & "  " & $s_ToAddress)
-	If $r > 0 And Mod($r, 2) = 0 Then
-		Sleep(20000)
+	If $r > 0 And Mod($r, 5) = 0 Then
+		Sleep(5000)
 	EndIf
-	If $r = (UBound($name_list_array, 1) - 1) Then
+	If $r =(UBound($name_list_array,1)-1) Then
 		Dim $day = @MDAY
 		Dim $month = @MON
 		Dim $year = @YEAR
-		Local $m_AttachFiles = @ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log"
+		local $m_AttachFiles=@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 		$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
 		;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 
@@ -324,7 +305,7 @@ Next
 
 
 
-Exit
+exit
 ;##################################
 ; Send gmail Script Sample
 ;##################################
@@ -514,14 +495,14 @@ Func _SelectFileGUI()
 	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
 
 	GUICreate("輸入檔案", 320, 210, @DesktopWidth / 3 - 320, @DesktopHeight / 3 - 240, -1, 0x00000018); WS_EX_ACCEPTFILES
-	GUICtrlCreateLabel("1.拖放簡訊內容檔案到這個框，預設為 SMS_text.txt", 10, 10, 300, 40)
+	GUICtrlCreateLabel("1.拖放簡訊內容檔案到這個框，預設為 SMS_text.txt",10,10,300,40)
 	$file_txt = GUICtrlCreateInput("", 10, 25, 300, 40)
 	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
-	GUICtrlCreateLabel("2.拖放簡訊內容檔案到這個框，預設為 SMS_name_list.csv", 10, 85, 300, 40)
+	GUICtrlCreateLabel("2.拖放簡訊內容檔案到這個框，預設為 SMS_name_list.csv",10,85,300,40)
 	$file_csv = GUICtrlCreateInput("", 10, 100, 300, 40)
 	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
 	;GUICtrlCreateInput("", 10, 35, 300, 20) 	; will not accept drag&drop files
-	$btn = GUICtrlCreateButton("OK", 90, 180, 60, 20, 0x0001) ; Default button
+	$btn = GUICtrlCreateButton("OK", 90, 180, 60, 20,0x0001) ; Default button
 	$btn_n = GUICtrlCreateButton("Exit", 160, 180, 60, 20)
 	GUISetState()
 
@@ -530,19 +511,19 @@ Func _SelectFileGUI()
 		$msg = GUIGetMsg()
 		Select
 			Case $msg = $btn
-				If Not (GUICtrlRead($file_txt) = "" And GUICtrlRead($file_csv) = "") Then
-					;MsgBox(4096, "drag drop file", GUICtrlRead($file_txt) & "  " & GUICtrlRead($file_csv))
-					$SMS_text_file = GUICtrlRead($file_txt)
+				if not (GUICtrlRead($file_txt)="" and GUICtrlRead($file_csv)="" ) then  
+				;MsgBox(4096, "drag drop file", GUICtrlRead($file_txt) & "  " & GUICtrlRead($file_csv))
+					$SMS_text_file=GUICtrlRead($file_txt)
 					$name_list = GUICtrlRead($file_csv)
 				Else
-					$SMS_text_file = @ScriptDir & "\SMS_text.txt"
-					$name_list = @ScriptDir & "\SMS_name_list.csv"
-				EndIf
+					 $SMS_text_file=@ScriptDir&"\SMS_text.txt"
+					 $name_list = @ScriptDir& "\SMS_name_list.csv"
+				EndIf				
 				ExitLoop
-			Case $msg = $btn_n
+			case $msg = $btn_n
 				Exit
 		EndSelect
 	WEnd
 
 	
-EndFunc   ;==>_SelectFileGUI
+EndFunc   ;==>Example
