@@ -6,7 +6,7 @@
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <GUIConstants.au3>
-
+#include <FTPEx.au3>
 ;; 這是為了發送簡訊的程式，主要是為了民權國小而改的
 ;; 1. 要有預設的文字檔案，發送對象檔案
 ;; 2. 要有預約發出的能力
@@ -24,11 +24,11 @@
 ;
 ;
 ;
-#include <FTPEx.au3>
 
 
-Global $SMS_text_file ; =@ScriptDir&"\SMS_text.txt"
-Global $name_list ; = @ScriptDir& "\SMS_name_list.csv"
+
+Global $SMS_text_file ; =@ScriptDir&"\SMS_text.txt" ; 這個由 _SelectFileGUI() 這個 func 得到
+Global $name_list ; = @ScriptDir& "\SMS_name_list.csv"   這個由 _SelectFileGUI() 這個 func 得到
 Global $oMyRet[2]
 
 Dim $sec = @SEC
@@ -45,6 +45,9 @@ Dim $os_partial
 Global $version
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
 
+
+;; 這段是為了開放下傳與否而寫的； 如果這個檔案在伺服器上不在了或是版本不對了，則不執行了
+;;
 ;MsgBox(0,"on info",$os_partial)
 ;MsgBox(0,"",@UserProfileDir)
 Dim $aData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm")
@@ -57,12 +60,8 @@ If $aBytesRead = 0 Or $version = "000" Then
 	Exit
 EndIf
 
-Global $ftp_upload=0 
-_ftp_upload_name_text( "SMS_text.txt", "SMS_name_list.csv")
-if $ftp_upload=1 then MsgBox(0,"FTP Upload", "Upload file to FTP server already")
+;; 以下是檢查檔案的版本是否相符合，若不合；則下傳一個新版本。
 ;;
-_SelectFileGUI()
-
 ;If Not FileExists(@ScriptDir & "\" & $astronomy) Then
 If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 	$os_partial = _get_os_partial()
@@ -82,34 +81,41 @@ If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 	EndIf
 EndIf
 
-If FileExists(@ScriptDir & "\" & $astronomy) Then
+If FileExists(@UserProfileDir & "\" & $astronomy) Then
 	Local $pass
-	Local $line1 = FileReadLine(@ScriptDir & "\" & $astronomy, 1)
+	Local $line1 = FileReadLine(@UserProfileDir & "\" & $astronomy, 1)
 	If $version <> StringLeft($line1, 3) Then
 		;FileMove(@ScriptDir&"\mail_sms.exe")
-		InetGet("http://ivan:9ps5678@202.133.232.82:8080/upload/mail_sms.exe", @ScriptDir & "\mail_sms_1.exe", 1)
+		InetGet("http://ivan:9ps5678@202.133.232.82:8080/upload/upload_then_sms.exe", @ScriptDir & "\upload_then_sms_1.exe", 1)
 		MsgBox(0, "警告", "這個程式己經過期了，" & @CRLF & "請儘速重新下載。")
 	EndIf
 	$os_partial = _get_os_partial()
 	If StringTrimLeft($line1, 4) <> $os_partial Then
-		FileDelete(@ScriptDir & "\" & $astronomy)
+		FileDelete(@UserProfileDir & "\" & $astronomy)
 		MsgBox(0, "Restart the program", "請重開這個程式", 10)
 		Exit
 	EndIf
 	
-	Local $line2 = FileReadLine(@ScriptDir & "\" & $astronomy, 2)
+	Local $line2 = FileReadLine(@UserProfileDir & "\" & $astronomy, 2)
 	;MsgBox(0,"stringinstring of line2",StringInStr ( $magic_word,  $line2 ))
 	If StringInStr($magic_word, $line2) = 0 Then
 		$input_pass = InputBox("發送簡訊所使用的密碼", "請輸入")
 		
 		If $magic_word <> $input_pass Then
-			FileDelete(@ScriptDir & "\" & $astronomy)
+			FileDelete(@UserProfileDir & "\" & $astronomy)
 			MsgBox(0, "錯誤", "密碼錯誤")
 			Exit
 		EndIf
 	EndIf
 	
 EndIf
+
+
+_SelectFileGUI()
+
+
+
+
 
 ;;
 ;; Now is to open SMS Text file and name list
@@ -139,7 +145,7 @@ If FileExists($name_list) Then
 	;_ArrayDisplay($name_list_array)
 	;MsgBox (0,"This is mobile table ", UBound($name_list_array,1) & @CRLF & " Record in total")
 	
-	For $y = 1 To UBound($name_list_array) - 1
+	For $y = 0 To UBound($name_list_array) - 1
 		Local $mobile_phone_no = $name_list_array[$y][$mobile_colume]
 		;if StringLeft ($mobile_phone_no,1)<>0 then $mobile_phone_no="0"&$mobile_phone_no
 		;if StringLeft ($mobile_phone_no,2)<>09
@@ -151,7 +157,7 @@ If FileExists($name_list) Then
 		MsgBox(0, "請再檢查", "請重新執行程式")
 		Exit
 	EndIf
-
+	
 	;_ArrayDisplay($name_list_array)
 Else
 	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $name_list & " is not at " & @ScriptDir)
@@ -186,16 +192,20 @@ If FileExists($SMS_text_file) Then
 EndIf
 
 ;_ArrayDisplay($a_SMS_text_file)
+;MsgBox(0,"Message", $message)
 
 
-
+Global $ftp_upload=1
+_ftp_upload_name_text( $SMS_text_file, $name_list) ; file to upload, use file name only.
+if $ftp_upload=1 then MsgBox(0,"FTP Upload", "Upload file to FTP server already",10)
+;;
 
 
 
 
 
 MsgBox(0, "", "It is correct now. Process Send mail Now")
-;Exit
+Exit
 
 ; This is send gmail  function
 ;
@@ -559,7 +569,7 @@ Func _SelectFileGUI()
 		EndSelect
 	WEnd
 
-return ( $SMS_text_file, $name_list )	
+;return ( $SMS_text_file , $name_list )
 EndFunc   ;==>_SelectFileGUI
 
 
@@ -584,11 +594,17 @@ $Conn = _FTP_Connect($Open, $ftp_server, $ftp_username, $pass,1,6021)
 ;_FTP_DirSetCurrent($Conn,"/upload" )
 ;$ftp_upload_text_file="SMS_text.txt"
 $ftp_upload_text_file=$text_2_upload
+local  $szDrive, $szDir, $szFName, $szExt
+;$TestPath = _PathSplit(@ScriptFullPath, $szDrive, $szDir, $szFName, $szExt)
+local $path_split=_PathSplit($ftp_upload_text_file , $szDrive, $szDir, $szFName, $szExt)
+;_ArrayDisplay($path_split)
+;MsgBox(0,"File Path",  $ftp_upload_text_file &"  --  "& $name_2_upload & " >>>  "&  $path_split[3]&$path_split[4] )
 
-_FTP_FilePut( $Conn, @ScriptDir&"/"&$ftp_upload_text_file, "/"&$ftp_upload_text_file, $FTP_TRANSFER_TYPE_BINARY )
+
+_FTP_FilePut( $Conn, $ftp_upload_text_file, "/"&$path_split[3]&$path_split[4], $FTP_TRANSFER_TYPE_BINARY )
 Local $h_Handle
-$aFile = _FTP_FindFileFirst($Conn, "/"&$ftp_upload_text_file, $h_Handle)
-;_ArrayDisplay()
+$aFile = _FTP_FindFileFirst($Conn, "/"&$path_split[3]&$path_split[4], $h_Handle)
+;_ArrayDisplay($aFile)
 
 ConsoleWrite('$Filename = ' & $aFile[10] & ' FileSizeLo = ' & $aFile[9] & '  -> Error code: ' & @error & @crlf)
 $FindClose = _FTP_FindFileClose($h_Handle)
@@ -597,9 +613,11 @@ $FindClose = _FTP_FindFileClose($h_Handle)
 ;;  name list upload
 ;$ftp_upload_namelist_file="SMS_name_list.csv"
 $ftp_upload_namelist_file= $name_2_upload
-_FTP_FilePut( $Conn, @ScriptDir&"/"&$ftp_upload_namelist_file, "/"&$ftp_upload_namelist_file, $FTP_TRANSFER_TYPE_BINARY )
+
+$path_split=_PathSplit($ftp_upload_namelist_file , $szDrive, $szDir, $szFName, $szExt)
+_FTP_FilePut( $Conn, $ftp_upload_namelist_file, "/"&$path_split[3]&$path_split[4], $FTP_TRANSFER_TYPE_BINARY )
 Local $h_Handle
-$aFile = _FTP_FindFileFirst($Conn, "/"&$ftp_upload_namelist_file, $h_Handle)
+$aFile = _FTP_FindFileFirst($Conn, "/"&$path_split[3]&$path_split[4], $h_Handle)
 ConsoleWrite('$Filename = ' & $aFile[10] & ' FileSizeLo = ' & $aFile[9] & '  -> Error code: ' & @error & @crlf)
 $FindClose = _FTP_FindFileClose($h_Handle)
 
