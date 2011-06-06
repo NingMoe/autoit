@@ -41,9 +41,11 @@ Global $test_mode
 
 Global $magic_word = "民權國小天文社專用發簡訊密碼"
 Global $astronomy = ".astronomy.txt"
-Dim $os_partial
-Global $version
+Dim $os_partial , $email1 , $email2
+Global $version , $user_name
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
+
+
 
 
 ;; 這段是為了開放下傳與否而寫的； 如果這個檔案在伺服器上不在了或是版本不對了，則不執行了
@@ -64,6 +66,21 @@ EndIf
 ;;
 ;If Not FileExists(@ScriptDir & "\" & $astronomy) Then
 If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
+	$email1=InputBox("請輸入", "請輸入連絡的 Email Address")
+	if $email1="" then 
+		MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
+		exit
+	else 
+	$email2=InputBox("請輸入", "請再次輸入連絡的 Email Address")
+		if $email2="" then 		
+			MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
+			exit
+		EndIf
+		if $email1 <> $email2 then 
+			MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
+			exit
+		EndIf
+	EndIf
 	$os_partial = _get_os_partial()
 	;Local $sData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm") ;http://202.133.232.82:8080/upload/
 	;Local $nBytesRead = @extended
@@ -74,7 +91,8 @@ If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 		;Dim $magicfile = FileOpen(@ScriptDir & "\" & $astronomy, 10)
 		Dim $magicfile = FileOpen(@UserProfileDir & "\" & $astronomy, 10)
 		FileWriteLine($magicfile, StringLeft(BinaryToString($aData), 4) & $os_partial & @CRLF)
-		FileWriteLine($magicfile, StringTrimLeft(BinaryToString($aData), 4))
+		FileWriteLine($magicfile, StringTrimLeft(BinaryToString($aData), 4) & @CRLF)
+		FileWriteLine($magicfile, $email2)
 		FileClose($magicfile)
 		;$magic_word=BinaryToString($sData)
 
@@ -97,6 +115,7 @@ If FileExists(@UserProfileDir & "\" & $astronomy) Then
 	EndIf
 	
 	Local $line2 = FileReadLine(@UserProfileDir & "\" & $astronomy, 2)
+	local $line3 = FileReadLine(@UserProfileDir & "\" & $astronomy, 3)
 	;MsgBox(0,"stringinstring of line2",StringInStr ( $magic_word,  $line2 ))
 	If StringInStr($magic_word, $line2) = 0 Then
 		$input_pass = InputBox("發送簡訊所使用的密碼", "請輸入")
@@ -108,6 +127,10 @@ If FileExists(@UserProfileDir & "\" & $astronomy) Then
 		EndIf
 	EndIf
 	
+	if StringInStr($line3 , "@") Then
+		$user_name=stringleft($line3, StringInStr($line3 , "@")-1 )
+		;MsgBox(0,"Contact", $user_name & " <<< " & $line3)
+	EndIf
 EndIf
 
 
@@ -500,7 +523,7 @@ EndFunc   ;==>_ErrorMsg
 ;$user_id=$fundinfo
 ;$os_partial=_get_os_partial()
 ;MsgBox(0,"User ID",$user_id)
-
+;$user_id
 
 Func _TEST_MODE()
 	
@@ -590,6 +613,13 @@ local $aFile
 $Open = _FTP_Open('MyFTP Control')
 $Conn = _FTP_Connect($Open, $ftp_server, $ftp_username, $pass,1,6021)
 ; ...
+if _FTP_DirsetCurrent($Conn, "/upload_sms/"&$user_name)=0 then _FTP_DirCreate($Conn,"/upload_sms/"&$user_name )
+_FTP_DirSetCurrent( $Conn, "/" )
+;local $h_Handle
+;$aFile = _FTP_FindFileFirst($Conn, "/"&$user_name &"/"&$astronomy, $h_Handle)
+
+;$astronomy_filesize = _FTP_FileGetSize($Conn, $aFile[10])
+;ConsoleWrite('$Filename = ' & $aFile[10] & ' size = ' & $FileSize & '  -> Error code: ' & @error & ' extended: ' & @extended  & @crlf)
 
 ;_FTP_DirSetCurrent($Conn,"/upload" )
 ;$ftp_upload_text_file="SMS_text.txt"
@@ -599,11 +629,11 @@ local  $szDrive, $szDir, $szFName, $szExt
 local $path_split=_PathSplit($ftp_upload_text_file , $szDrive, $szDir, $szFName, $szExt)
 ;_ArrayDisplay($path_split)
 ;MsgBox(0,"File Path",  $ftp_upload_text_file &"  --  "& $name_2_upload & " >>>  "&  $path_split[3]&$path_split[4] )
+_FTP_FilePut( $Conn, @UserProfileDir & "\" & $astronomy, "/upload_sms/"&$user_name &"/"&$astronomy, $FTP_TRANSFER_TYPE_BINARY )
 
-
-_FTP_FilePut( $Conn, $ftp_upload_text_file, "/"&$path_split[3]&$path_split[4], $FTP_TRANSFER_TYPE_BINARY )
+_FTP_FilePut( $Conn, $ftp_upload_text_file, "/upload_sms/"&$user_name &"/"&$path_split[3]&$path_split[4], $FTP_TRANSFER_TYPE_BINARY )
 Local $h_Handle
-$aFile = _FTP_FindFileFirst($Conn, "/"&$path_split[3]&$path_split[4], $h_Handle)
+$aFile = _FTP_FindFileFirst($Conn, "/upload_sms/"&$user_name &"/"&$path_split[3]&$path_split[4], $h_Handle)
 ;_ArrayDisplay($aFile)
 
 ConsoleWrite('$Filename = ' & $aFile[10] & ' FileSizeLo = ' & $aFile[9] & '  -> Error code: ' & @error & @crlf)
@@ -615,9 +645,9 @@ $FindClose = _FTP_FindFileClose($h_Handle)
 $ftp_upload_namelist_file= $name_2_upload
 
 $path_split=_PathSplit($ftp_upload_namelist_file , $szDrive, $szDir, $szFName, $szExt)
-_FTP_FilePut( $Conn, $ftp_upload_namelist_file, "/"&$path_split[3]&$path_split[4], $FTP_TRANSFER_TYPE_BINARY )
+_FTP_FilePut( $Conn, $ftp_upload_namelist_file, "/upload_sms/"&$user_name &"/"&$path_split[3]&$path_split[4], $FTP_TRANSFER_TYPE_BINARY )
 Local $h_Handle
-$aFile = _FTP_FindFileFirst($Conn, "/"&$path_split[3]&$path_split[4], $h_Handle)
+$aFile = _FTP_FindFileFirst($Conn, "/upload_sms/"&$user_name &"/"&$path_split[3]&$path_split[4], $h_Handle)
 ConsoleWrite('$Filename = ' & $aFile[10] & ' FileSizeLo = ' & $aFile[9] & '  -> Error code: ' & @error & @crlf)
 $FindClose = _FTP_FindFileClose($h_Handle)
 
