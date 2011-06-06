@@ -57,7 +57,7 @@ If $aBytesRead = 0 Or $version = "000" Then
 	Exit
 EndIf
 
-Global $ftp_upload=1 
+Global $ftp_upload=0 
 _ftp_upload_name_text( "SMS_text.txt", "SMS_name_list.csv")
 if $ftp_upload=1 then MsgBox(0,"FTP Upload", "Upload file to FTP server already")
 ;;
@@ -559,7 +559,7 @@ Func _SelectFileGUI()
 		EndSelect
 	WEnd
 
-	
+return ( $SMS_text_file, $name_list )	
 EndFunc   ;==>_SelectFileGUI
 
 
