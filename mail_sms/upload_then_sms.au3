@@ -24,40 +24,7 @@
 ;
 ;
 ;
-;
-
 #include <FTPEx.au3>
-
-$server = '202.133.232.82'
-$username = 'ivan'
-$pass = '9ps5678'
-dim $aFile
-$Open = _FTP_Open('MyFTP Control')
-$Conn = _FTP_Connect($Open, $server, $username, $pass,1,6021)
-; ...
-;_FTP_DirSetCurrent($Conn,"/upload" )
-
-;$aFile = _FTP_ListToArrayEx($Conn, 0)
-;MsgBox(0,"return", UBound ($aFile))
-;_ArrayDisplay($aFile)
-
-
-_FTP_FilePut( $Conn, @ScriptDir&"/1_text.txt", "/1_text.txt",$FTP_TRANSFER_TYPE_BINARY )
-
-Local $h_Handle
-$aFile = _FTP_FindFileFirst($Conn, "/1_text.txt", $h_Handle)
-ConsoleWrite('$Filename = ' & $aFile[10] & ' FileSizeLo = ' & $aFile[9] & '  -> Error code: ' & @error & @crlf)
-
-$FindClose = _FTP_FindFileClose($h_Handle)
-
-
-
-$Ftpc = _FTP_Close($Open)
-
-
-
-
-Exit
 
 
 Global $SMS_text_file ; =@ScriptDir&"\SMS_text.txt"
@@ -90,7 +57,10 @@ If $aBytesRead = 0 Or $version = "000" Then
 	Exit
 EndIf
 
-
+Global $ftp_upload=1 
+_ftp_upload_name_text( "SMS_text.txt", "SMS_name_list.csv")
+if $ftp_upload=1 then MsgBox(0,"FTP Upload", "Upload file to FTP server already")
+;;
 _SelectFileGUI()
 
 ;If Not FileExists(@ScriptDir & "\" & $astronomy) Then
@@ -591,3 +561,51 @@ Func _SelectFileGUI()
 
 	
 EndFunc   ;==>_SelectFileGUI
+
+
+
+
+
+
+func _ftp_upload_name_text( $text_2_upload, $name_2_upload )
+if $ftp_upload=1 then 
+	
+local $ftp_server = '202.133.232.82'
+local $ftp_username = 'ivan'
+local $pass = '9ps5678'
+local $ftp_upload_text_file
+local $ftp_upload_namelist_file
+local $aFile
+
+$Open = _FTP_Open('MyFTP Control')
+$Conn = _FTP_Connect($Open, $ftp_server, $ftp_username, $pass,1,6021)
+; ...
+
+;_FTP_DirSetCurrent($Conn,"/upload" )
+;$ftp_upload_text_file="SMS_text.txt"
+$ftp_upload_text_file=$text_2_upload
+
+_FTP_FilePut( $Conn, @ScriptDir&"/"&$ftp_upload_text_file, "/"&$ftp_upload_text_file, $FTP_TRANSFER_TYPE_BINARY )
+Local $h_Handle
+$aFile = _FTP_FindFileFirst($Conn, "/"&$ftp_upload_text_file, $h_Handle)
+;_ArrayDisplay()
+
+ConsoleWrite('$Filename = ' & $aFile[10] & ' FileSizeLo = ' & $aFile[9] & '  -> Error code: ' & @error & @crlf)
+$FindClose = _FTP_FindFileClose($h_Handle)
+
+
+;;  name list upload
+;$ftp_upload_namelist_file="SMS_name_list.csv"
+$ftp_upload_namelist_file= $name_2_upload
+_FTP_FilePut( $Conn, @ScriptDir&"/"&$ftp_upload_namelist_file, "/"&$ftp_upload_namelist_file, $FTP_TRANSFER_TYPE_BINARY )
+Local $h_Handle
+$aFile = _FTP_FindFileFirst($Conn, "/"&$ftp_upload_namelist_file, $h_Handle)
+ConsoleWrite('$Filename = ' & $aFile[10] & ' FileSizeLo = ' & $aFile[9] & '  -> Error code: ' & @error & @crlf)
+$FindClose = _FTP_FindFileClose($h_Handle)
+
+;;
+$Ftpc = _FTP_Close($Open)
+
+
+EndIf
+EndFunc
