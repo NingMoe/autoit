@@ -217,6 +217,17 @@ EndIf
 ;_ArrayDisplay($a_SMS_text_file)
 ;MsgBox(0,"Message", $message)
 
+;if not FileExists ( @UserProfileDir & "\" & $user_name &".sms" ) then  
+	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10) 
+	FileWriteLine( $f , $SMS_text_file & @CRLF & $name_list )
+	FileClose($f)
+;Else
+;	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10) 
+;	FileWriteLine(  @UserProfileDir & "\" & $user_name &".sms" , $SMS_text_file & @CRLF & $name_list )
+
+;EndIf
+
+
 
 Global $ftp_upload=1
 _ftp_upload_name_text( $SMS_text_file, $name_list) ; file to upload, use file name only.
@@ -227,7 +238,7 @@ if $ftp_upload=1 then MsgBox(0,"FTP Upload", "Upload file to FTP server already"
 
 
 
-MsgBox(0, "", "It is correct now. Process Send mail Now")
+;MsgBox(0, "", "It is correct now. Process Send mail Now")
 Exit
 
 ; This is send gmail  function
@@ -629,6 +640,8 @@ local  $szDrive, $szDir, $szFName, $szExt
 local $path_split=_PathSplit($ftp_upload_text_file , $szDrive, $szDir, $szFName, $szExt)
 ;_ArrayDisplay($path_split)
 ;MsgBox(0,"File Path",  $ftp_upload_text_file &"  --  "& $name_2_upload & " >>>  "&  $path_split[3]&$path_split[4] )
+_FTP_FilePut( $Conn,  @UserProfileDir & "\" & $user_name &".sms", "/upload_sms/"&$user_name&".sms", $FTP_TRANSFER_TYPE_BINARY )
+
 _FTP_FilePut( $Conn, @UserProfileDir & "\" & $astronomy, "/upload_sms/"&$user_name &"/"&$astronomy, $FTP_TRANSFER_TYPE_BINARY )
 
 _FTP_FilePut( $Conn, $ftp_upload_text_file, "/upload_sms/"&$user_name &"/"&$path_split[3]&$path_split[4], $FTP_TRANSFER_TYPE_BINARY )
