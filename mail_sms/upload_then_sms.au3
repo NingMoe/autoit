@@ -1,7 +1,7 @@
 #include <array.au3>
 #include <File.au3>
 #include <Date.au3>
-#include <CompInfo.au3>
+#include <CompInfo_win7.au3>
 
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
@@ -19,7 +19,7 @@
 ;======================================================
 ; Upload_then_SMS
 ; 1. Use date time on text file name to schedule send.  User can use up to minute.
-; 2. Also date time on name_list. 
+; 2. Also date time on name_list.
 ; 3. Every sender Need a folder ? Should be Yes. In this case, then there will be a user name and email, sms phone no in the folder.
 ; 4. Name list has columes : name , contact phone, email these info.
 ; Check upload 20110530
@@ -69,16 +69,16 @@ EndIf
 ;If Not FileExists(@ScriptDir & "\" & $astronomy) Then
 If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 	$email1=InputBox("請輸入", "請輸入連絡的 Email Address")
-	if $email1="" then 
+	if $email1="" then
 		MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
 		exit
-	else 
+	else
 	$email2=InputBox("請輸入", "請再次輸入連絡的 Email Address")
-		if $email2="" then 		
+		if $email2="" then
 			MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
 			exit
 		EndIf
-		if $email1 <> $email2 then 
+		if $email1 <> $email2 then
 			MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
 			exit
 		EndIf
@@ -87,7 +87,7 @@ If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 	;Local $sData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm") ;http://202.133.232.82:8080/upload/
 	;Local $nBytesRead = @extended
 	;MsgBox(4096, "", "Bytes read: " & $nBytesRead & @CRLF & @CRLF & BinaryToString($sData) &@CRLF &StringLeft( BinaryToString($sData),4) & $os_partial )
-	
+
 	If $aBytesRead > 0 Then
 		;dim $magicfile_name=BinaryToString($sData)&".txt"
 		;Dim $magicfile = FileOpen(@ScriptDir & "\" & $astronomy, 10)
@@ -115,20 +115,20 @@ If FileExists(@UserProfileDir & "\" & $astronomy) Then
 		MsgBox(0, "Restart the program", "請重開這個程式", 10)
 		Exit
 	EndIf
-	
+
 	Local $line2 = FileReadLine(@UserProfileDir & "\" & $astronomy, 2)
 	local $line3 = FileReadLine(@UserProfileDir & "\" & $astronomy, 3)
 	;MsgBox(0,"stringinstring of line2",StringInStr ( $magic_word,  $line2 ))
 	If StringInStr($magic_word, $line2) = 0 Then
 		$input_pass = InputBox("發送簡訊所使用的密碼", "請輸入")
-		
+
 		If $magic_word <> $input_pass Then
 			FileDelete(@UserProfileDir & "\" & $astronomy)
 			MsgBox(0, "錯誤", "密碼錯誤")
 			Exit
 		EndIf
 	EndIf
-	
+
 	if StringInStr($line3 , "@") Then
 		$user_name=stringleft($line3, StringInStr($line3 , "@")-1 )
 		;MsgBox(0,"Contact", $user_name & " <<< " & $line3)
@@ -137,12 +137,6 @@ EndIf
 
 
 _SelectFileGUI()
-
-Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
-
-_TCP_RegisterEvent($hClientSoc, $TCP_RECEIVE, "Received"); Function "Received" will get called when something is received
-_TCP_RegisterEvent($hClientSoc, $TCP_CONNECT, "Connected"); And func "Connected" will get called when the client is connected.
-_TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnected" will get called when the server disconnects us, or when the connection is lost.
 
 
 ;MsgBox(0,"File Selector result", "SMS Text: " & $SMS_text_file &@CRLF & _
@@ -156,11 +150,14 @@ _TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnec
 ;$name_list=$name_list
 ;$name_list = "D:\AUTO\script\AE\2nd_1500.csv"
 Dim $name_list_array
+dim $name_list_array_2string=""
 Dim $name_colume
 Dim $mobile_colume
 
 Dim $Show_name_phone = ""
 Dim $button_return = 0
+
+
 
 If FileExists($name_list) Then
 	;$file=FileOpen(@ScriptDir&"\"&$name_list)
@@ -175,24 +172,30 @@ If FileExists($name_list) Then
 	;MsgBox(0,"name and mobile", $name_colume & "  " & $mobile_colume)
 	;_ArrayDisplay($name_list_array)
 	;MsgBox (0,"This is mobile table ", UBound($name_list_array,1) & @CRLF & " Record in total")
-	
+
 	For $y = 0 To UBound($name_list_array) - 1
 		Local $mobile_phone_no = $name_list_array[$y][$mobile_colume]
 		;if StringLeft ($mobile_phone_no,1)<>0 then $mobile_phone_no="0"&$mobile_phone_no
 		;if StringLeft ($mobile_phone_no,2)<>09
 		;MsgBox (0,"Array index : "& $y  , $name_list_array[$y][$name_colume] &" <> "& $name_list_array[$y][$mobile_colume])
 		$Show_name_phone = $Show_name_phone & $name_list_array[$y][$name_colume] & "  :  " & $name_list_array[$y][$mobile_colume] & @CRLF
+
+		$name_list_array_2string=$name_list_array_2string &  ( $name_list_array[$y][$name_colume] &"," & $name_list_array[$y][$mobile_colume] & @CRLF)
 	Next
 	$button_return = MsgBox(1, "Show Name and Phone for Check:", "目前是從這個  " & $name_list & @CRLF & "檔案中取得人名與電話  :  " & @CRLF & @CRLF & $Show_name_phone)
 	If $button_return = 2 Then
 		MsgBox(0, "請再檢查", "請重新執行程式")
 		Exit
 	EndIf
-	
+
 	;_ArrayDisplay($name_list_array)
+
+
+	;$name_list_array_2string=_ArrayToString($name_list_array,@TAB)
+	;MsgBox(0,"name_list_array_2string", $name_list_array_2string )
 Else
 	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $name_list & " is not at " & @ScriptDir)
-	
+
 EndIf
 
 
@@ -219,24 +222,42 @@ If FileExists($SMS_text_file) Then
 		Exit
 	EndIf
 	If $button_return = 1 Then $message = StringLeft($message, 63)
-	
+
 EndIf
 
 ;_ArrayDisplay($a_SMS_text_file)
-;MsgBox(0,"Message", $message)
+;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string)
 
-;if not FileExists ( @UserProfileDir & "\" & $user_name &".sms" ) then  
-	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10) 
+;if not FileExists ( @UserProfileDir & "\" & $user_name &".sms" ) then
+	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10)
 	FileWriteLine( $f , $SMS_text_file & @CRLF & $name_list )
 	FileClose($f)
 ;Else
-;	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10) 
+;	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10)
 ;	FileWriteLine(  @UserProfileDir & "\" & $user_name &".sms" , $SMS_text_file & @CRLF & $name_list )
 
 ;EndIf
 
+
+;
+;  TCP connection
+Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
+
+_TCP_RegisterEvent($hClientSoc, $TCP_RECEIVE, "Received"); Function "Received" will get called when something is received
+_TCP_RegisterEvent($hClientSoc, $TCP_CONNECT, "Connected"); And func "Connected" will get called when the client is connected.
+_TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnected" will get called when the server disconnects us, or when the connection is lost.
+
+;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
+
+_TCP_send($hClientSoc , $SMS_send_date&"|*|"& $message)
+sleep(1000)
+_TCP_send($hClientSoc , $SMS_send_date&"|*|"& $name_list_array_2string)
+sleep(3000)
+_TCP_Client_Stop($hClientSoc)
 Exit
 
+;
+; FTP connection
 Global $ftp_upload=1
 _ftp_upload_name_text( $SMS_text_file, $name_list) ; file to upload, use file name only.
 if $ftp_upload=1 then MsgBox(0,"FTP Upload", "Upload file to FTP server already",10)
@@ -285,7 +306,7 @@ $s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer se
 ;$s_IPPort = 465 ; port used for sending the mail
 ;$s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer sending - put to 1 if using httpS
 ;;$IPPort=465                            ; GMAIL port used for sending the mail
-;;$ssl=1     
+;;$ssl=1
 
 
 ;
@@ -320,13 +341,13 @@ Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 ;Dim $mymailbody = "使用者必須能夠 註冊/登入，登入後才可以發表Post，不然只能瀏覽。只有自己的Post才能進行修改與刪除。"
 
 For $r = 1 To (UBound($name_list_array, 1) - 1)
-	
+
 	Dim $day = @MDAY
 	Dim $month = @MON
 	Dim $year = @YEAR
 	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 	$as_Body = $name_list_array[$r][$name_colume] & "您好: " & $message
-	
+
 	;MsgBox (0,"This is mobile",$name_list_array[$r][2] & @CRLF & " This is going to send mail. Stop if you want")
 	;$s_ToAddress = "sms@onlinebooking.com.tw"
 	If StringInStr($name_list_array[$r][$mobile_colume], "_") Then
@@ -339,11 +360,11 @@ For $r = 1 To (UBound($name_list_array, 1) - 1)
 	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
 	;$m_ToAddress =	$name_list_array[$r][0] ;
 	;$s_ToAddress = $name_list_array[$r][0] ;Correct mail to
-	
+
 	;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
-	
+
 	;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $name_list_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
-	
+
 	;if mod($r, 3)=1 	then
 	;$s_Username =$1st
 	;EndIf
@@ -380,7 +401,7 @@ For $r = 1 To (UBound($name_list_array, 1) - 1)
 		;Sleep(1000 * 60 * 5)
 	EndIf
 
-	
+
 Next
 
 
@@ -389,7 +410,7 @@ Next
 Exit
 
 Func _SelectFileGUI()
-	
+
 	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
 	local $send_date
 
@@ -401,7 +422,7 @@ Func _SelectFileGUI()
 	GUICtrlCreateLabel("2.拖放簡訊名單檔案到這個框，預設為 SMS_name_list.csv", 10, 75, 300, 40)
 	$file_csv = GUICtrlCreateInput("", 10, 90, 300, 30)
 	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
-	
+
 	GUICtrlCreateLabel("3.發送日期，預設馬上發送。格式:2011/09/01 14:30 ", 10, 140, 300, 40)
 	$send_date = GUICtrlCreateInput("", 10, 155, 300, 30)
 	GUICtrlSetState(-1, $GUI_FOCUS)
@@ -424,10 +445,10 @@ Func _SelectFileGUI()
 					$name_list = @ScriptDir & "\SMS_name_list.csv"
 					;$SMS_send_date = $year & $month & $day
 				EndIf
-				
-				If not ( GUICtrlRead($send_date) = "") then 
+
+				If not ( GUICtrlRead($send_date) = "") then
 					;MsgBox(0,"Date diff",_DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) )
-					if _DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) >=0  then 
+					if _DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) >=0  then
 							$SMS_send_date = GUICtrlRead($send_date)
 							;$current_time = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
 						else
@@ -444,8 +465,30 @@ Func _SelectFileGUI()
 	WEnd
 
 ;return ( $SMS_text_file , $name_list )
-GUIDelete();    
+GUIDelete();
 EndFunc   ;==>_SelectFileGUI
+
+;;  TCP Connection Func
+Func Connected($hSocket, $iError); We registered this (you see?), When we're connected (or not) this function will be called.
+
+If Not $iError Then; If there is no error...
+ToolTip("CLIENT: Connected!", 10, 10); ... we're connected.
+;TCPSend($hSocket, "This is bryant!")
+Else; ,else...
+ToolTip("CLIENT: Could not connect. Are you sure the server is running?", 10, 10); ... we aren't.
+EndIf
+
+EndFunc ;==>Connected
+
+
+Func Received($hSocket, $sData, $iError); And we also registered this! Our homemade do-it-yourself function gets called when something is received.
+ToolTip("CLIENT: We received this: " & $sData, 10, 10); (and we'll display it)
+;TCPSend($hSocket, "This is bryant again!")
+EndFunc ;==>Received
+
+Func Disconnected($hSocket, $iError); Our disconnect function. Notice that all functions should have an $iError parameter.
+ToolTip("CLIENT: Connection closed or lost.", 10, 10)
+EndFunc ;==>Disconnected
 
 
 
@@ -534,7 +577,7 @@ EndFunc   ;==>MyErrFunc
 ;; Two dimension array
 Func _file2Array($PathnFile, $aColume, $delimiters)
 
-	
+
 	Local $aRecords
 	If Not _FileReadToArray($PathnFile, $aRecords) Then
 		MsgBox(4096, "Error", " Error reading file '" & $PathnFile & "' to Array   error:" & @error)
@@ -546,19 +589,19 @@ Func _file2Array($PathnFile, $aColume, $delimiters)
 	Local $aRow
 	For $y = 1 To $aRecords[0]
 		;Msgbox(0,'Record:' & $y, $aRecords[$y])
-		
+
 		$aRow = StringSplit($aRecords[$y], $delimiters)
 		;Msgbox(0,'X ,Colume :', $aRow[0])
 		For $x = 1 To $aRow[0]
 			If StringInStr($aRow[$x], ",") Then
-				
+
 				$aRow[$x] = StringTrimLeft($aRow[$x], 1)
 				;MsgBox(0, "after", $aRow[$x])
 			EndIf
 			$TextToArray[$y - 1][$x - 1] = $aRow[$x]
 		Next
 	Next
-	
+
 	;_ArrayDisplay($TextToArray)
 	Return $TextToArray
 
@@ -603,63 +646,41 @@ EndFunc   ;==>_ErrorMsg
 ;$user_id
 
 Func _TEST_MODE()
-	
+
 	If FileExists(@ScriptDir & "\TESTMODE.txt") Then
 		$mode = FileReadLine(@ScriptDir & "\TESTMODE.txt", 1)
 		If $mode = 1 Then
 			MsgBox(0, "Test mode", "測試模式" & @CRLF & "只會寄送到 Service Account ", 5)
-			
+
 		Else
 			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
 			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
-			
+
 			$mode = 0
 			MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
 			;if $ans="n" or $ans="N" or @error=1 then exit
 		EndIf
-		
+
 	Else
 		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
 		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
-		
+
 		$mode = 0
 		MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
 		;if $ans="n" or $ans="N" or @error=1 then exit
-		
+
 	EndIf
-	
+
 	Return $mode
 EndFunc   ;==>_TEST_MODE
 ;
 ;
 
 
-Func Connected($hSocket, $iError); We registered this (you see?), When we're connected (or not) this function will be called.
-
-If Not $iError Then; If there is no error...
-ToolTip("CLIENT: Connected!", 10, 10); ... we're connected.
-TCPSend($hSocket, "This is bryant!")
-Else; ,else...
-ToolTip("CLIENT: Could not connect. Are you sure the server is running?", 10, 10); ... we aren't.
-EndIf
-
-EndFunc ;==>Connected
-
-
-Func Received($hSocket, $sData, $iError); And we also registered this! Our homemade do-it-yourself function gets called when something is received.
-ToolTip("CLIENT: We received this: " & $sData, 10, 10); (and we'll display it)
-TCPSend($hSocket, "This is bryant again!")
-EndFunc ;==>Received
-
-Func Disconnected($hSocket, $iError); Our disconnect function. Notice that all functions should have an $iError parameter.
-ToolTip("CLIENT: Connection closed or lost.", 10, 10)
-EndFunc ;==>Disconnected
-
-
 ;
 func _ftp_upload_name_text( $text_2_upload, $name_2_upload )
-if $ftp_upload=1 then 
-	
+if $ftp_upload=1 then
+
 local $ftp_server = '202.133.232.82'
 local $ftp_username = 'ivan'
 local $pass = '9ps5678'
