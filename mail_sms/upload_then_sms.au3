@@ -6,7 +6,9 @@
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <GUIConstants.au3>
+#include <TCP.au3>
 #include <FTPEx.au3>
+
 ;; 這是為了發送簡訊的程式，主要是為了民權國小而改的
 ;; 1. 要有預設的文字檔案，發送對象檔案
 ;; 2. 要有預約發出的能力
@@ -22,13 +24,14 @@
 ; 4. Name list has columes : name , contact phone, email these info.
 ; Check upload 20110530
 ;
-;
-;
+; Modified  2011/09/17 Use Socket to transfer data including send text and name list.
+; Write log for the transmit.
 
 
 
 Global $SMS_text_file ; =@ScriptDir&"\SMS_text.txt" ; 這個由 _SelectFileGUI() 這個 func 得到
 Global $name_list ; = @ScriptDir& "\SMS_name_list.csv"   這個由 _SelectFileGUI() 這個 func 得到
+Global $SMS_send_date  ;這個由 _SelectFileGUI() 這個 func 得到 default value is now
 Global $oMyRet[2]
 
 Dim $sec = @SEC
@@ -39,12 +42,11 @@ Dim $month = @MON
 Dim $year = @YEAR
 Global $test_mode
 
-Global $magic_word = "民權國小天文社專用發簡訊密碼"
+Global $magic_word = "民權國小社團專用發簡訊密碼"
 Global $astronomy = ".astronomy.txt"
 Dim $os_partial , $email1 , $email2
 Global $version , $user_name
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
-
 
 
 
@@ -136,10 +138,16 @@ EndIf
 
 _SelectFileGUI()
 
+Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
+
+_TCP_RegisterEvent($hClientSoc, $TCP_RECEIVE, "Received"); Function "Received" will get called when something is received
+_TCP_RegisterEvent($hClientSoc, $TCP_CONNECT, "Connected"); And func "Connected" will get called when the client is connected.
+_TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnected" will get called when the server disconnects us, or when the connection is lost.
 
 
-
-
+;MsgBox(0,"File Selector result", "SMS Text: " & $SMS_text_file &@CRLF & _
+;								 "Name List: "& $name_list & @CRLF & _
+;								 "Send Date: "& $SMS_send_date)
 ;;
 ;; Now is to open SMS Text file and name list
 ;; And show them is a msg box
@@ -227,19 +235,14 @@ EndIf
 
 ;EndIf
 
-
+Exit
 
 Global $ftp_upload=1
 _ftp_upload_name_text( $SMS_text_file, $name_list) ; file to upload, use file name only.
 if $ftp_upload=1 then MsgBox(0,"FTP Upload", "Upload file to FTP server already",10)
 ;;
-
-
-
-
-
 ;MsgBox(0, "", "It is correct now. Process Send mail Now")
-Exit
+
 
 ; This is send gmail  function
 ;
@@ -384,6 +387,69 @@ Next
 
 
 Exit
+
+Func _SelectFileGUI()
+	
+	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
+	local $send_date
+
+	GUICreate("輸入檔案", 320, 220, @DesktopWidth / 3 - 320, @DesktopHeight / 3 - 240, -1, 0x00000018); WS_EX_ACCEPTFILES
+	GUICtrlCreateLabel("1.拖放簡訊內容檔案到這個框，預設為 SMS_text.txt", 10, 10, 300, 40)
+	$file_txt = GUICtrlCreateInput("", 10, 25, 300, 30)
+	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
+
+	GUICtrlCreateLabel("2.拖放簡訊名單檔案到這個框，預設為 SMS_name_list.csv", 10, 75, 300, 40)
+	$file_csv = GUICtrlCreateInput("", 10, 90, 300, 30)
+	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
+	
+	GUICtrlCreateLabel("3.發送日期，預設馬上發送。格式:2011/09/01 14:30 ", 10, 140, 300, 40)
+	$send_date = GUICtrlCreateInput("", 10, 155, 300, 30)
+	GUICtrlSetState(-1, $GUI_FOCUS)
+	;GUICtrlCreateInput("", 10, 35, 300, 20) 	; will not accept drag&drop files
+	$btn = GUICtrlCreateButton("OK", 90, 190, 60, 20, 0x0001) ; Default button
+	$btn_n = GUICtrlCreateButton("Exit", 160, 190, 60, 20)
+	GUISetState()
+
+	;$msg = 0
+	While $msg <> $GUI_EVENT_CLOSE
+		$msg = GUIGetMsg()
+		Select
+			Case $msg = $btn
+				If Not (GUICtrlRead($file_txt) = "" And GUICtrlRead($file_csv) = "") Then
+					;MsgBox(4096, "drag drop file", GUICtrlRead($file_txt) & "  " & GUICtrlRead($file_csv))
+					$SMS_text_file = GUICtrlRead($file_txt)
+					$name_list = GUICtrlRead($file_csv)
+				Else
+					$SMS_text_file = @ScriptDir & "\SMS_text.txt"
+					$name_list = @ScriptDir & "\SMS_name_list.csv"
+					;$SMS_send_date = $year & $month & $day
+				EndIf
+				
+				If not ( GUICtrlRead($send_date) = "") then 
+					;MsgBox(0,"Date diff",_DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) )
+					if _DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) >=0  then 
+							$SMS_send_date = GUICtrlRead($send_date)
+							;$current_time = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
+						else
+							$SMS_send_date = $year & $month & $day
+					EndIf
+				Else
+					$SMS_send_date = $year & $month & $day
+				EndIf
+				;
+				ExitLoop
+			Case $msg = $btn_n
+				Exit
+		EndSelect
+	WEnd
+
+;return ( $SMS_text_file , $name_list )
+GUIDelete();    
+EndFunc   ;==>_SelectFileGUI
+
+
+
+
 ;##################################
 ; Send gmail Script Sample
 ;##################################
@@ -564,53 +630,33 @@ Func _TEST_MODE()
 	
 	Return $mode
 EndFunc   ;==>_TEST_MODE
+;
+;
 
 
+Func Connected($hSocket, $iError); We registered this (you see?), When we're connected (or not) this function will be called.
+
+If Not $iError Then; If there is no error...
+ToolTip("CLIENT: Connected!", 10, 10); ... we're connected.
+TCPSend($hSocket, "This is bryant!")
+Else; ,else...
+ToolTip("CLIENT: Could not connect. Are you sure the server is running?", 10, 10); ... we aren't.
+EndIf
+
+EndFunc ;==>Connected
 
 
-Func _SelectFileGUI()
-	
-	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
+Func Received($hSocket, $sData, $iError); And we also registered this! Our homemade do-it-yourself function gets called when something is received.
+ToolTip("CLIENT: We received this: " & $sData, 10, 10); (and we'll display it)
+TCPSend($hSocket, "This is bryant again!")
+EndFunc ;==>Received
 
-	GUICreate("輸入檔案", 320, 210, @DesktopWidth / 3 - 320, @DesktopHeight / 3 - 240, -1, 0x00000018); WS_EX_ACCEPTFILES
-	GUICtrlCreateLabel("1.拖放簡訊內容檔案到這個框，預設為 SMS_text.txt", 10, 10, 300, 40)
-	$file_txt = GUICtrlCreateInput("", 10, 25, 300, 40)
-	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
-	GUICtrlCreateLabel("2.拖放簡訊內容檔案到這個框，預設為 SMS_name_list.csv", 10, 85, 300, 40)
-	$file_csv = GUICtrlCreateInput("", 10, 100, 300, 40)
-	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
-	;GUICtrlCreateInput("", 10, 35, 300, 20) 	; will not accept drag&drop files
-	$btn = GUICtrlCreateButton("OK", 90, 180, 60, 20, 0x0001) ; Default button
-	$btn_n = GUICtrlCreateButton("Exit", 160, 180, 60, 20)
-	GUISetState()
-
-	;$msg = 0
-	While $msg <> $GUI_EVENT_CLOSE
-		$msg = GUIGetMsg()
-		Select
-			Case $msg = $btn
-				If Not (GUICtrlRead($file_txt) = "" And GUICtrlRead($file_csv) = "") Then
-					;MsgBox(4096, "drag drop file", GUICtrlRead($file_txt) & "  " & GUICtrlRead($file_csv))
-					$SMS_text_file = GUICtrlRead($file_txt)
-					$name_list = GUICtrlRead($file_csv)
-				Else
-					$SMS_text_file = @ScriptDir & "\SMS_text.txt"
-					$name_list = @ScriptDir & "\SMS_name_list.csv"
-				EndIf
-				ExitLoop
-			Case $msg = $btn_n
-				Exit
-		EndSelect
-	WEnd
-
-;return ( $SMS_text_file , $name_list )
-EndFunc   ;==>_SelectFileGUI
+Func Disconnected($hSocket, $iError); Our disconnect function. Notice that all functions should have an $iError parameter.
+ToolTip("CLIENT: Connection closed or lost.", 10, 10)
+EndFunc ;==>Disconnected
 
 
-
-
-
-
+;
 func _ftp_upload_name_text( $text_2_upload, $name_2_upload )
 if $ftp_upload=1 then 
 	

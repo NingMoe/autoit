@@ -24,7 +24,7 @@ Dim $year = @YEAR
 
 Global $test_mode , $current_time
 
-Global $magic_word = "民權國小天文社專用發簡訊密碼"
+Global $magic_word = "民權國小社團專用發簡訊密碼"
 Global $astronomy = ".astronomy.txt"
 Dim $os_partial , $email1 , $email2
 Global $version , $user_name
