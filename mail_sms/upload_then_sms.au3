@@ -212,7 +212,7 @@ If FileExists($SMS_text_file) Then
 		;Msgbox(0,'Record:' & $x, $$a_SMS_text_file[$x])
 	Next
 	If StringLen($message) > 63 Then
-		$button_return = MsgBox(1, "目前簡訊文字長度:" & @CRLF & StringLen($message), "目前是從 " & $SMS_text_file & "  這個檔案中取得簡訊: " & @CRLF & @CRLF & "1. 簡訊原文:" & @CRLF & @CRLF & $message & @CRLF & @CRLF & @CRLF & @CRLF & "2. 簡訊發出會被截斷成為:" & @CRLF & @CRLF & StringLeft($message, 70))
+		$button_return = MsgBox(1, "目前簡訊文字長度:" & @CRLF & StringLen($message), "目前是從 " & $SMS_text_file & "  這個檔案中取得簡訊: " & @CRLF & @CRLF & "1. 簡訊原文:" & @CRLF & @CRLF & $message & @CRLF & @CRLF & @CRLF & @CRLF & "2. 簡訊發出會被截斷成為:" & @CRLF & @CRLF & StringLeft($message, 63))
 	Else
 		$button_return = MsgBox(1, "目前簡訊文字長度:" & @CRLF & StringLen($message), "目前是從 " & $SMS_text_file & "  這個檔案中取得簡訊: " & @CRLF & @CRLF & $message & @CRLF)
 	EndIf
@@ -221,7 +221,7 @@ If FileExists($SMS_text_file) Then
 		Run("notepad.exe " & $SMS_text_file)
 		Exit
 	EndIf
-	;If $button_return = 1 Then $message = StringLeft($message, 63)
+	If $button_return = 1 Then $message = StringLeft($message, 63)
 	;If $button_return = 1 Then $message =  $message ; StringLeft($message, 63)
 
 EndIf
@@ -250,11 +250,11 @@ _TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnec
 
 MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
 
-_TCP_send($hClientSoc , $SMS_send_date&"|*|"& StringToBinary ($message,4) )
-;sleep(500)
-;_TCP_send($hClientSoc ,  stringtrimleft ($message,30) )
+_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$message) )
+;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$message) &@CRLF)
 sleep(500)
-_TCP_send($hClientSoc , $SMS_send_date&"|*|"& $name_list_array_2string )
+_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) )
+;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) &@CRLF)
 sleep(500)
 _TCP_Client_Stop($hClientSoc)
 Exit
@@ -487,6 +487,7 @@ EndFunc ;==>Connected
 Func Received($hSocket, $sData, $iError); And we also registered this! Our homemade do-it-yourself function gets called when something is received.
 ToolTip("CLIENT: We received this: " & $sData, 10, 10); (and we'll display it)
 ;TCPSend($hSocket, "This is bryant again!")
+ConsoleWrite("CLIENT: We received this: " & $sData)
 EndFunc ;==>Received
 
 Func Disconnected($hSocket, $iError); Our disconnect function. Notice that all functions should have an $iError parameter.
