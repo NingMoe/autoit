@@ -2,7 +2,7 @@
 #include <File.au3>
 #include <Date.au3>
 #include <CompInfo_win7.au3>
-
+#include <string.au3>
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <GUIConstants.au3>
@@ -221,7 +221,8 @@ If FileExists($SMS_text_file) Then
 		Run("notepad.exe " & $SMS_text_file)
 		Exit
 	EndIf
-	If $button_return = 1 Then $message = StringLeft($message, 63)
+	;If $button_return = 1 Then $message = StringLeft($message, 63)
+	;If $button_return = 1 Then $message =  $message ; StringLeft($message, 63)
 
 EndIf
 
@@ -247,12 +248,14 @@ _TCP_RegisterEvent($hClientSoc, $TCP_RECEIVE, "Received"); Function "Received" w
 _TCP_RegisterEvent($hClientSoc, $TCP_CONNECT, "Connected"); And func "Connected" will get called when the client is connected.
 _TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnected" will get called when the server disconnects us, or when the connection is lost.
 
-;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
+MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
 
-_TCP_send($hClientSoc , $SMS_send_date&"|*|"& $message)
-sleep(1000)
-_TCP_send($hClientSoc , $SMS_send_date&"|*|"& $name_list_array_2string)
-sleep(3000)
+_TCP_send($hClientSoc , $SMS_send_date&"|*|"& StringToBinary ($message,4) )
+;sleep(500)
+;_TCP_send($hClientSoc ,  stringtrimleft ($message,30) )
+sleep(500)
+_TCP_send($hClientSoc , $SMS_send_date&"|*|"& $name_list_array_2string )
+sleep(500)
 _TCP_Client_Stop($hClientSoc)
 Exit
 
