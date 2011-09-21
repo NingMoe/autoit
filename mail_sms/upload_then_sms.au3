@@ -232,10 +232,9 @@ If FileExists($SMS_text_file) Then
 
 EndIf
 
-$SMS_send_date_EPOCH=_EPOCH( $SMS_send_date)
-$SMS_send_date = StringReplace( StringReplace( $SMS_send_date ,"/","") ,":", "" )
 
-MsgBox(0,"Time format 5", $SMS_send_date & "   " & $SMS_send_date_EPOCH)
+
+;MsgBox(0,"Time format 5", $SMS_send_date & "   " & $SMS_send_date_EPOCH)
 ;for 
 ;;_ArrayDisplay($a_SMS_text_file)
 ;;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string)
@@ -265,12 +264,17 @@ sleep(1000)
 ;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
 if $connected=1 then
 sleep(500)	
-_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$message&"|*|"&$name_list_array_2string) )
+	$SMS_send_date_EPOCH=_EPOCH( $SMS_send_date)
+	$SMS_send_date = StringReplace( StringReplace( $SMS_send_date ,"/","") ,":", "" )
+_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name & "|*|" &$message&"|*|"&$name_list_array_2string) )
+;_TCP_send($hClientSoc ,  _StringToHex ("|*|"& $SMS_send_date_EPOCH& @CRLF & $user_name & @CRLF  &$message& @CRLF &$name_list_array_2string) )
+
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$message) &@CRLF)
 ;sleep(500)
 ;_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) )
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) &@CRLF)
 	sleep(2000)
+
 	if $pointika=1 then 
 		_TCP_Client_Stop($hClientSoc)
 		$connected=0
@@ -284,6 +288,9 @@ _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$message&"|*|"&$name
 		FileWriteLine($writefile, $name_list_array_2string)
 		FileClose($writefile)
 		
+		$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date_EPOCH&".sms",10)
+		FileWriteLine($writefile, $SMS_send_date_EPOCH&"|*|"&$message&"|*|"&$name_list_array_2string)
+		FileClose($writefile)
 	EndIf
 EndIf
 Exit
@@ -536,7 +543,7 @@ EndFunc ;==>Connected
 
 
 Func Received($hSocket, $sData, $iError); And we also registered this! Our homemade do-it-yourself function gets called when something is received.
-ToolTip("CLIENT: We received this: " & $sData, 10, 10); (and we'll display it)
+;ToolTip("CLIENT: We received this: " & $sData, 10, 10); (and we'll display it)
 ;TCPSend($hSocket, "This is bryant again!")
 ConsoleWrite("CLIENT: We received this: " & $sData& @CRLF)
 
