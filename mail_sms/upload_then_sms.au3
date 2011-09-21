@@ -6,8 +6,9 @@
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <GUIConstants.au3>
-#include <TCP.au3>
+#include <TCP_V3.au3>
 #include <FTPEx.au3>
+#include <mail_variable.au3>
 
 ;; 這是為了發送簡訊的程式，主要是為了民權國小而改的
 ;; 1. 要有預設的文字檔案，發送對象檔案
@@ -41,12 +42,13 @@ Dim $hour = @HOUR
 Dim $day = @MDAY
 Dim $month = @MON
 Dim $year = @YEAR
-Global $test_mode
-
+Global $test_mode 
+;Global $Transmit_user_info_status=0
 Global $magic_word = "民權國小社團專用發簡訊密碼"
 Global $astronomy = ".astronomy.txt"
-Dim $os_partial , $email1 , $email2
+Dim $os_partial ;, $email1 , $email2
 Global $version , $user_name
+Global $User_Mobile , $User_Email 
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
 
 
@@ -69,21 +71,35 @@ EndIf
 ;;
 ;If Not FileExists(@ScriptDir & "\" & $astronomy) Then
 If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
-	$email1=InputBox("請輸入", "請輸入連絡的 Email Address")
-	if $email1="" then
-		MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
-		exit
-	else
-	$email2=InputBox("請輸入", "請再次輸入連絡的 Email Address")
-		if $email2="" then
-			MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
-			exit
-		EndIf
-		if $email1 <> $email2 then
-			MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
-			exit
-		EndIf
-	EndIf
+	
+	
+		dim $basicinfo
+		dim $Pressed
+	while 1
+		$basicinfo=_BasicInfoGUI( StringTrimLeft(BinaryToString($aData), 4) )
+		;MsgBox(4,"Basic Info","電子信箱 : "& $Email_Address  & @CRLF& "行動電話 : " &$Inform_Mobile &@CRLF& "初始密碼 : " &$Init_Password)
+		$Pressed=MsgBox(4,"Basic Info","電子信箱 : "& $basicinfo[0]  & @CRLF& "行動電話 : " & $basicinfo[1] &@CRLF& "初始密碼 : " & $basicinfo[2])
+		ConsoleWrite ("Current $Pressed value" & $Pressed & @CRLF)
+		if  $Pressed=6 then ExitLoop
+	WEnd
+
+	;$email2= $basicinfo[0]
+	
+;	$email1=InputBox("請輸入", "請輸入連絡的 Email Address")
+;	if $email1="" then
+;		MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
+;		exit
+;	else
+;	$email2=InputBox("請輸入", "請再次輸入連絡的 Email Address")
+;		if $email2="" then
+;			MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
+;			exit
+;		EndIf
+;		if $email1 <> $email2 then
+;			MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
+;			exit
+;		EndIf
+;	EndIf
 	$os_partial = _get_os_partial()
 	;Local $sData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm") ;http://202.133.232.82:8080/upload/
 	;Local $nBytesRead = @extended
@@ -95,7 +111,8 @@ If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 		Dim $magicfile = FileOpen(@UserProfileDir & "\" & $astronomy, 10)
 		FileWriteLine($magicfile, StringLeft(BinaryToString($aData), 4) & $os_partial & @CRLF)
 		FileWriteLine($magicfile, StringTrimLeft(BinaryToString($aData), 4) & @CRLF)
-		FileWriteLine($magicfile, $email2)
+		FileWriteLine($magicfile, $basicinfo[0])
+		FileWriteLine($magicfile, $basicinfo[1])
 		FileClose($magicfile)
 		;$magic_word=BinaryToString($sData)
 
@@ -117,8 +134,9 @@ If FileExists(@UserProfileDir & "\" & $astronomy) Then
 		Exit
 	EndIf
 
-	Local $line2 = FileReadLine(@UserProfileDir & "\" & $astronomy, 2)
-	local $line3 = FileReadLine(@UserProfileDir & "\" & $astronomy, 3)
+	Local $line2 = FileReadLine(@UserProfileDir & "\" & $astronomy, 2) ; password from web page
+	local $line3 = FileReadLine(@UserProfileDir & "\" & $astronomy, 3)  ; User's email
+	local $line4 = FileReadLine(@UserProfileDir & "\" & $astronomy, 4)  ; User's mobile
 	;MsgBox(0,"stringinstring of line2",StringInStr ( $magic_word,  $line2 ))
 	If StringInStr($magic_word, $line2) = 0 Then
 		$input_pass = InputBox("發送簡訊所使用的密碼", "請輸入")
@@ -134,6 +152,10 @@ If FileExists(@UserProfileDir & "\" & $astronomy) Then
 		$user_name=stringleft($line3, StringInStr($line3 , "@")-1 )
 		;MsgBox(0,"Contact", $user_name & " <<< " & $line3)
 	EndIf
+	
+	$User_Mobile = $line4
+	$User_Email =$line3
+	
 EndIf
 
 
@@ -252,7 +274,8 @@ EndIf
 
 ;
 ;  TCP connection
-Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
+;Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
+Global $hClientSoc = _TCP_Client_Create("127.0.0.1", 88); Create the client. Which will connect to the local ip address on port 88
 Global $connected=0
 Global $pointika=0
 dim $writefile
@@ -266,7 +289,7 @@ if $connected=1 then
 sleep(500)	
 	$SMS_send_date_EPOCH=_EPOCH( $SMS_send_date)
 	$SMS_send_date = StringReplace( StringReplace( $SMS_send_date ,"/","") ,":", "" )
-_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name & "|*|" &$message&"|*|"&$name_list_array_2string) )
+_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string) )
 ;_TCP_send($hClientSoc ,  _StringToHex ("|*|"& $SMS_send_date_EPOCH& @CRLF & $user_name & @CRLF  &$message& @CRLF &$name_list_array_2string) )
 
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$message) &@CRLF)
@@ -307,81 +330,11 @@ if $ftp_upload=1 then MsgBox(0,"FTP Upload", "Upload file to FTP server already"
 ;MsgBox(0, "", "It is correct now. Process Send mail Now")
 
 
-; This is send gmail  function
-;
-;##################################
-; Variables
-;##################################
-;
-$s_SmtpServer = "onlinebooking.com.tw" ;"maild.digitshuttle.com"              ; address for the smtp-server to use - REQUIRED
-$s_FromName = "ae_backup@onlinebooking.com.tw" ;"bryant@dynalab.com.tw"                      ; name from who the email was sent
-$s_FromAddress = "ae_backup@onlinebooking.com.tw";"bryant@dynalab.com.tw" ;  address from where the mail should come
-$s_ToAddress = "sms@onlinebooking.com.tw" ; destination address of the email - REQUIRED
-$s_Subject = "0928837823"
-$as_Body = "主旨" ; the messagebody from the mail - can be left blank but then you get a blank mail
-$s_AttachFiles = "" ; the file you want to attach- leave blank if not needed
-$s_CcAddress = "" ; address for cc - leave blank if not needed
-$s_BccAddress = "" ; address for bcc - leave blank if not needed
-;$s_Username = _Base64Encode("ae_direct_fly")                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-;$s_Password = _Base64Encode("pkpkpk")                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-$s_Password = "1qazxsw2"
-$s_Username = "ae_backup"
-$s_IPPort = 25 ; port used for sending the mail
-$s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer sending - put to 1 if using httpS
-;$IPPort=465                            ; GMAIL port used for sending the mail
-;$ssl=1                                 ; GMAILenables/disables secure socket layer sending - put to 1 if using httpS
-;
-;
-;$s_SmtpServer = "smtp.gmail.com" ;"maild.digitshuttle.com"              ; address for the smtp-server to use - REQUIRED
-;$s_FromName = "changtun" ;"bryant@dynalab.com.tw"                      ; name from who the email was sent
-;$s_FromAddress = "changtun@gmail.com";"bryant@dynalab.com.tw" ;  address from where the mail should come
-;$s_ToAddress = "sms@onlinebooking.com.tw" ; destination address of the email - REQUIRED
-;$s_Subject = "0928837823"
-;$as_Body = "主旨" ; the messagebody from the mail - can be left blank but then you get a blank mail
-;$s_AttachFiles = "" ; the file you want to attach- leave blank if not needed
-;$s_CcAddress = "" ; address for cc - leave blank if not needed
-;$s_BccAddress = "" ; address for bcc - leave blank if not needed
-;;$s_Username = _Base64Encode("ae_direct_fly")                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-;;$s_Password = _Base64Encode("pkpkpk")                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-;$s_Password = "9ps567*9"
-;$s_Username = "changtun@gmail.com"
-;$s_IPPort = 465 ; port used for sending the mail
-;$s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer sending - put to 1 if using httpS
-;;$IPPort=465                            ; GMAIL port used for sending the mail
-;;$ssl=1
-
-
-;
-$m_SmtpServer = "smtp.gmail.com" ; address for the smtp-server to use - REQUIRED
-$m_FromName = "DSC" ; name from who the email was sent
-$m_FromAddress = "bryant@digtishuttle.com" ;  address from where the mail should come
-
-$m_ToAddress = "bryant@dynalab.com.tw" ; destination address of the email - REQUIRED
-$m_Subject = "SMS-mail-status" ; subject from the email - can be anything you want it to be
-$m_as_Body = "SMS-mail-status" ; the messagebody from the mail - can be left blank but then you get a blank mail
-$m_AttachFiles = @ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log" ; the file you want to attach- leave blank if not needed sample :"d:\ibm240KB.jpg"
-$m_CcAddress = "" ; address for cc - leave blank if not needed
-$m_BccAddress = "" ; address for bcc - leave blank if not needed
-$m_Username = "changtun@gmail.com" ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-$m_Password = "9ps567*9" ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-;$IPPort = 25                              ; port used for sending the mail
-;$ssl = 0                                  ; enables/disables secure socket layer sending - put to 1 if using httpS
-$IPPort = 465 ; GMAIL port used for sending the mail
-$ssl = 1 ; GMAILenables/disables secure socket layer sending - put to 1 if using httpS
-;
-;
 
 
 Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 ;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $IPPort, $ssl)
 ;
-;;
-;;
-;dim $1st= "MyOnlineBookingST1@gmail.com"
-;dim $2nd= "myonlinebookingst2@gmail.com"
-;dim $3rd= "myonlinebookingst3@gmail.com"
-;Dim $mymailbody = "使用者必須能夠 註冊/登入，登入後才可以發表Post，不然只能瀏覽。只有自己的Post才能進行修改與刪除。"
-
 For $r = 1 To (UBound($name_list_array, 1) - 1)
 
 	Dim $day = @MDAY
@@ -563,84 +516,79 @@ $iDateCalc = _DateDiff( 's',"1970/01/01 00:00:00",$DateToCalc ) ;_NowCalc())
 return $iDateCalc
 EndFunc
 
-;##################################
-; Send gmail Script Sample
-;##################################
-Global $oMyRet[2]
-;Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
-;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $IPPort, $ssl)
-;
-;If @error Then
-;    MsgBox(0, "Error sending message", "Error code:" & @error & "  Rc:" & $rc)
-;EndIf
-;    MsgBox(0, "sending message", "Error code:" & @error & "  Rc:" & $rc)
-;
-;
 
 
-Func _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject = "", $as_Body = "", $s_AttachFiles = "", $s_CcAddress = "", $s_BccAddress = "", $s_Username = "", $s_Password = "", $IPPort = 25, $ssl = 0)
-	$objEmail = ObjCreate("CDO.Message")
-	$objEmail.From = '"' & $s_FromName & '" <' & $s_FromAddress & '>'
-	$objEmail.To = $s_ToAddress
-	Local $i_Error = 0
-	Local $i_Error_desciption = ""
-	If $s_CcAddress <> "" Then $objEmail.Cc = $s_CcAddress
-	If $s_BccAddress <> "" Then $objEmail.Bcc = $s_BccAddress
-	$objEmail.Subject = $s_Subject
-	If StringInStr($as_Body, "<") And StringInStr($as_Body, ">") Then
-		;$objEmail.HTMLBodyPart.Charset="utf8";
-		;$objEmail.BodyPart.Charset="utf-8";
-		$objEmail.HTMLBody = $as_Body
-	Else
-		;$objEmail.bodyPart.Charset="utf8";
-		$objEmail.Textbody = $as_Body & @CRLF
-	EndIf
-	If $s_AttachFiles <> "" Then
-		Local $S_Files2Attach = StringSplit($s_AttachFiles, ";")
-		For $x = 1 To $S_Files2Attach[0]
-			$S_Files2Attach[$x] = _PathFull($S_Files2Attach[$x])
-			If FileExists($S_Files2Attach[$x]) Then
-				$objEmail.AddAttachment($S_Files2Attach[$x])
-			Else
-				$i_Error_desciption = $i_Error_desciption & @LF & 'File not found to attach: ' & $S_Files2Attach[$x]
-				SetError(1)
-				Return 0
-			EndIf
-		Next
-	EndIf
-	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
-	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = $s_SmtpServer
-	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = $IPPort
-	;Authenticated SMTP
-	If $s_Username <> "" Then
-		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 0
-		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendusername") = $s_Username
-		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = $s_Password
-	EndIf
-	If $ssl Then
-		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = False
-	EndIf
-	;Update settings
-	$objEmail.BodyPart.Charset = "utf-8";
-	$objEmail.Configuration.Fields.Update
-	; Sent the Message
-	$objEmail.Send
-	If @error Then
-		SetError(2)
-		Return $oMyRet[1]
-	EndIf
-EndFunc   ;==>_INetSmtpMailCom
-;
-;
-; Com Error Handler
-Func MyErrFunc()
-	$HexNumber = Hex($oMyError.number, 8)
-	$oMyRet[0] = $HexNumber
-	$oMyRet[1] = StringStripWS($oMyError.description, 3)
-	ConsoleWrite("### COM Error !  Number: " & $HexNumber & "   ScriptLine: " & $oMyError.scriptline & "   Description:" & $oMyRet[1] & @LF)
-	SetError(1); something to check for when this function returns
-	Return
-EndFunc   ;==>MyErrFunc
+
+Func _BasicInfoGUI($very_first_pass)
+
+	Local $email, $mobile, $btn, $msg, $btn_n, $aEnc_info, $rc,  $password
+	local $Email_Address , $Inform_Mobile , $Init_Password
+	local $return_info[3]
+	
+	GUICreate("輸入基本資料", 320, 220, @DesktopWidth / 3 - 320, @DesktopHeight / 3 - 240, -1, 0x00000018); WS_EX_ACCEPTFILES
+	GUICtrlCreateLabel("1.Your Email Address. Ex. abc@abc.com", 10, 10, 300, 40)
+	$email = GUICtrlCreateInput("", 10, 25, 300, 30)
+	GUICtrlSetState(-1, $GUI_FOCUS)
+
+	GUICtrlCreateLabel("2.Your Mobile Phone to inform. Ex. 0928123456", 10, 75, 300, 40)
+	$mobile = GUICtrlCreateInput("", 10, 90, 300, 30)
+	GUICtrlSetState(-1, $GUI_NODROPACCEPTED)
+	
+	GUICtrlCreateLabel("3.Init Password ", 10, 140, 300, 40)
+	$password = GUICtrlCreateInput("", 10, 155, 300, 30)
+	GUICtrlSetState(-1, $GUI_NODROPACCEPTED)
+	;GUICtrlCreateInput("", 10, 35, 300, 20) 	; will not accept drag&drop files
+	$btn = GUICtrlCreateButton("OK", 90, 190, 60, 20, 0x0001) ; Default button
+	$btn_n = GUICtrlCreateButton("Exit", 160, 190, 60, 20)
+	GUISetState()
+	;$msg = 0
+	While $msg <> $GUI_EVENT_CLOSE
+
+		$msg = GUIGetMsg()
+		Select
+			Case $msg = $btn
+				If Not (GUICtrlRead($email) = "" And GUICtrlRead($mobile) = "" and  GUICtrlRead($password) = "")Then
+					;MsgBox(4096, "drag drop file", GUICtrlRead($email) & "  " & GUICtrlRead($mobile))
+					$Email_Address= GUICtrlRead($email)
+					$Inform_Mobile = GUICtrlRead($mobile)
+					$Init_Password = GUICtrlRead($password)
+					
+					if not ( StringInStr ($Email_Address , "@") and StringInStr ($Email_Address , ".") )then 
+							MsgBox(0,"錯誤","E-mail 輸入錯誤，請重新執行程式")
+							Exit
+					EndIf
+					
+					if not ( StringLeft($Inform_Mobile ,2)= 09  and StringLen ($Inform_Mobile)=10 ) then 
+							MsgBox(0,"錯誤","行動電話輸入錯誤，請重新執行程式")
+							Exit
+					EndIf
+					
+					if $Init_Password <> $very_first_pass then 
+						MsgBox(0,"錯誤","啟用密碼輸入錯誤，請重新執行程式")
+						Exit
+					EndIf
+				Else
+					MsgBox(0,"錯誤","輸入錯誤，請重新執行程式")
+					Exit
+				EndIf
+				ExitLoop
+			Case $msg = $btn_n
+				Exit
+		EndSelect
+		
+	WEnd
+
+GUIDelete();
+
+	$return_info[0]=$Email_Address
+	$return_info[1]=$Inform_Mobile
+	$return_info[2]=$Init_Password
+return (  $return_info  )
+EndFunc   ;==>_BasicInfoGUI
+
+
+
+
 
 
 

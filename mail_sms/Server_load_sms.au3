@@ -1,19 +1,16 @@
 #include <array.au3>
 #include <File.au3>
 #include <Date.au3>
-#include <CompInfo.au3>
-
+#include <CompInfo_win7.au3>
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <GUIConstants.au3>
 #include <FTPEx.au3>
 
+;; 2011_0921 不再維護了，下一版本是 Server_load_sms_2.au3
 
-
-Global $SMS_text_file ; =@ScriptDir&"\SMS_text.txt" ; 這個由 _SelectFileGUI() 這個 func 得到
+Global $SMS_file  =@ScriptDir&"\1316641706.sms" ; 這個由 _SelectFileGUI() 這個 func 得到
 Global $name_list ; = @ScriptDir& "\SMS_name_list.csv"   這個由 _SelectFileGUI() 這個 func 得到
-Global $oMyRet[2]
-Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 
 Dim $sec = @SEC
 Dim $min = @MIN
@@ -22,7 +19,7 @@ Dim $day = @MDAY
 Dim $month = @MON
 Dim $year = @YEAR
 
-Global $test_mode , $current_time
+Global $test_mode ;, $current_time
 
 Global $magic_word = "民權國小社團專用發簡訊密碼"
 Global $astronomy = ".astronomy.txt"
@@ -33,17 +30,147 @@ Global $Final_level_sms_list[1]
 ;$Final_level_sms_list[0]=0
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
 
-
-
-
 while 1
-
-scan_allow_SMS_list()
-check_SMS_list()
+;scan_allow_SMS_list()
+;check_SMS_list()
 ;_open_sms_text_name(@ScriptDir&"\SMS_text.txt", @ScriptDir&"\SMS_name_list.csv")
 
 WEnd
 
+Dim $name_list_array
+Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
+;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $IPPort, $ssl)
+;
+while 0
+For $r = 1 To (UBound($name_list_array, 1) - 1)
+
+	Dim $day = @MDAY
+	Dim $month = @MON
+	Dim $year = @YEAR
+	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
+	$as_Body = $name_list_array[$r][$name_colume] & "您好: " & $message
+
+	;MsgBox (0,"This is mobile",$name_list_array[$r][2] & @CRLF & " This is going to send mail. Stop if you want")
+	;$s_ToAddress = "sms@onlinebooking.com.tw"
+	If StringInStr($name_list_array[$r][$mobile_colume], "_") Then
+		$s_Subject = StringReplace($name_list_array[$r][$mobile_colume], "_", "")
+		;$as_Body=StringReplace($as_Body,"[user_email]","ae@delta.com.tw") ; For test only.
+	Else
+		$s_Subject = $name_list_array[$r][$mobile_colume]
+	EndIf
+	;MsgBox (0,"This is mobile",$s_Subject & @CRLF & " This is going to send mail. Stop if you want")
+	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
+	;$m_ToAddress =	$name_list_array[$r][0] ;
+	;$s_ToAddress = $name_list_array[$r][0] ;Correct mail to
+
+	;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
+
+	;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $name_list_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
+
+	;if mod($r, 3)=1 	then
+	;$s_Username =$1st
+	;EndIf
+	;
+	;if mod($r, 3)=2 	Then
+	;$s_Username =$2nd
+	;EndIf
+	;
+	;if mod($r, 3)=0		then
+	;$s_Username = $3rd
+	;EndIf
+	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	;### This is for Corrrect SMS
+	;$s_Subject="0919585516"
+	MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
+	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	;### This is mail Test
+	;$s_ToAddress="bryant@dynalab.com.tw"
+	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
+	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
+	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", " Mail Send to " & $s_Subject & "  " & $s_ToAddress)
+	If $r > 0 And Mod($r, 2) = 0 Then
+		Sleep(20000)
+	EndIf
+	If $r = (UBound($name_list_array, 1) - 1) Then
+		Dim $day = @MDAY
+		Dim $month = @MON
+		Dim $year = @YEAR
+		Local $m_AttachFiles = @ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log"
+		$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
+		;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+
+		;Sleep(1000 * 60 * 5)
+	EndIf
+
+
+Next
+
+WEnd
+Exit
+
+;; Two dimension array
+Func _file2Array($PathnFile, $aColume, $delimiters)
+
+	
+	Local $aRecords
+	If Not _FileReadToArray($PathnFile, $aRecords) Then
+		MsgBox(4096, "Error", " Error reading file '" & $PathnFile & "' to Array   error:" & @error)
+		Exit
+	EndIf
+	;c
+	Local $TextToArray[$aRecords[0]][$aColume + 1]
+	;$TextToArray[0][0]=$aRecords[0]
+	Local $aRow
+	For $y = 1 To $aRecords[0]
+		;Msgbox(0,'Record:' & $y, $aRecords[$y])
+		
+		$aRow = StringSplit($aRecords[$y], $delimiters)
+		;Msgbox(0,'X ,Colume :', $aRow[0])
+		For $x = 1 To $aRow[0]
+			If StringInStr($aRow[$x], ",") Then
+				
+				$aRow[$x] = StringTrimLeft($aRow[$x], 1)
+				;MsgBox(0, "after", $aRow[$x])
+			EndIf
+			$TextToArray[$y - 1][$x - 1] = $aRow[$x]
+		Next
+	Next
+	
+	;_ArrayDisplay($TextToArray)
+	Return $TextToArray
+
+EndFunc   ;==>_file2Array
+
+
+Func _TEST_MODE()
+	
+	If FileExists(@ScriptDir & "\TESTMODE.txt") Then
+		$mode = FileReadLine(@ScriptDir & "\TESTMODE.txt", 1)
+		If $mode = 1 Then
+			MsgBox(0, "Test mode", "測試模式" & @CRLF & "只會寄送到 Service Account ", 5)
+			
+		Else
+			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+			
+			$mode = 0
+			MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
+			;if $ans="n" or $ans="N" or @error=1 then exit
+		EndIf
+		
+	Else
+		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+		
+		$mode = 0
+		MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
+		;if $ans="n" or $ans="N" or @error=1 then exit
+		
+	EndIf
+	
+	Return $mode
+EndFunc   ;==>_TEST_MODE
 
 func check_SMS_list()
 	local $current_name , $current_name_status ,$check_no
@@ -55,8 +182,6 @@ func check_SMS_list()
 		EndIf
 	next
 EndFunc
-
-
 
 Func scan_allow_SMS_list()
 	; Scan new request and add to Final level sms list array
@@ -126,11 +251,7 @@ Func scan_allow_SMS_list()
 	if  IsArray($Final_level_sms_list)=1  then _ArrayDisplay($Final_level_sms_list)
 EndFunc
 
-
-
-
-
-Func _open_sms_text_name( $SMS_text_file , $name_list )
+Func _open_sms_file( $SMS_file )
 
 ;;
 ;; Now is to open SMS Text file and name list
@@ -215,143 +336,4 @@ EndIf
 ;_ArrayDisplay($a_SMS_text_file)
 
 EndFunc
-
-
-
-
-
-
-;; Two dimension array
-Func _file2Array($PathnFile, $aColume, $delimiters)
-
-	
-	Local $aRecords
-	If Not _FileReadToArray($PathnFile, $aRecords) Then
-		MsgBox(4096, "Error", " Error reading file '" & $PathnFile & "' to Array   error:" & @error)
-		Exit
-	EndIf
-	;c
-	Local $TextToArray[$aRecords[0]][$aColume + 1]
-	;$TextToArray[0][0]=$aRecords[0]
-	Local $aRow
-	For $y = 1 To $aRecords[0]
-		;Msgbox(0,'Record:' & $y, $aRecords[$y])
-		
-		$aRow = StringSplit($aRecords[$y], $delimiters)
-		;Msgbox(0,'X ,Colume :', $aRow[0])
-		For $x = 1 To $aRow[0]
-			If StringInStr($aRow[$x], ",") Then
-				
-				$aRow[$x] = StringTrimLeft($aRow[$x], 1)
-				;MsgBox(0, "after", $aRow[$x])
-			EndIf
-			$TextToArray[$y - 1][$x - 1] = $aRow[$x]
-		Next
-	Next
-	
-	;_ArrayDisplay($TextToArray)
-	Return $TextToArray
-
-EndFunc   ;==>_file2Array
-
-
-
-Func _TEST_MODE()
-	
-	If FileExists(@ScriptDir & "\TESTMODE.txt") Then
-		$mode = FileReadLine(@ScriptDir & "\TESTMODE.txt", 1)
-		If $mode = 1 Then
-			MsgBox(0, "Test mode", "測試模式" & @CRLF & "只會寄送到 Service Account ", 5)
-			
-		Else
-			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
-			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
-			
-			$mode = 0
-			MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
-			;if $ans="n" or $ans="N" or @error=1 then exit
-		EndIf
-		
-	Else
-		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
-		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
-		
-		$mode = 0
-		MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
-		;if $ans="n" or $ans="N" or @error=1 then exit
-		
-	EndIf
-	
-	Return $mode
-EndFunc   ;==>_TEST_MODE
-
-
-
-
-
-
-Func _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject = "", $as_Body = "", $s_AttachFiles = "", $s_CcAddress = "", $s_BccAddress = "", $s_Username = "", $s_Password = "", $IPPort = 25, $ssl = 0)
-	$objEmail = ObjCreate("CDO.Message")
-	$objEmail.From = '"' & $s_FromName & '" <' & $s_FromAddress & '>'
-	$objEmail.To = $s_ToAddress
-	Local $i_Error = 0
-	Local $i_Error_desciption = ""
-	If $s_CcAddress <> "" Then $objEmail.Cc = $s_CcAddress
-	If $s_BccAddress <> "" Then $objEmail.Bcc = $s_BccAddress
-	$objEmail.Subject = $s_Subject
-	If StringInStr($as_Body, "<") And StringInStr($as_Body, ">") Then
-		;$objEmail.HTMLBodyPart.Charset="utf8";
-		;$objEmail.BodyPart.Charset="utf-8";
-		$objEmail.HTMLBody = $as_Body
-	Else
-		;$objEmail.bodyPart.Charset="utf8";
-		$objEmail.Textbody = $as_Body & @CRLF
-	EndIf
-	If $s_AttachFiles <> "" Then
-		Local $S_Files2Attach = StringSplit($s_AttachFiles, ";")
-		For $x = 1 To $S_Files2Attach[0]
-			$S_Files2Attach[$x] = _PathFull($S_Files2Attach[$x])
-			If FileExists($S_Files2Attach[$x]) Then
-				$objEmail.AddAttachment($S_Files2Attach[$x])
-			Else
-				$i_Error_desciption = $i_Error_desciption & @LF & 'File not found to attach: ' & $S_Files2Attach[$x]
-				SetError(1)
-				Return 0
-			EndIf
-		Next
-	EndIf
-	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
-	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = $s_SmtpServer
-	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = $IPPort
-	;Authenticated SMTP
-	If $s_Username <> "" Then
-		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 0
-		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendusername") = $s_Username
-		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = $s_Password
-	EndIf
-	If $ssl Then
-		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = False
-	EndIf
-	;Update settings
-	$objEmail.BodyPart.Charset = "utf-8";
-	$objEmail.Configuration.Fields.Update
-	; Sent the Message
-	$objEmail.Send
-	If @error Then
-		SetError(2)
-		Return $oMyRet[1]
-	EndIf
-EndFunc   ;==>_INetSmtpMailCom
-;
-;
-; Com Error Handler
-Func MyErrFunc()
-	$HexNumber = Hex($oMyError.number, 8)
-	$oMyRet[0] = $HexNumber
-	$oMyRet[1] = StringStripWS($oMyError.description, 3)
-	ConsoleWrite("### COM Error !  Number: " & $HexNumber & "   ScriptLine: " & $oMyError.scriptline & "   Description:" & $oMyRet[1] & @LF)
-	SetError(1); something to check for when this function returns
-	Return
-EndFunc   ;==>MyErrFunc
-
 
