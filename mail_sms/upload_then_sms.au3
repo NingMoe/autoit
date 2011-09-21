@@ -32,6 +32,7 @@
 Global $SMS_text_file ; =@ScriptDir&"\SMS_text.txt" ; 這個由 _SelectFileGUI() 這個 func 得到
 Global $name_list ; = @ScriptDir& "\SMS_name_list.csv"   這個由 _SelectFileGUI() 這個 func 得到
 Global $SMS_send_date  ;這個由 _SelectFileGUI() 這個 func 得到 default value is now
+Global $SMS_send_date_EPOCH
 Global $oMyRet[2]
 
 Dim $sec = @SEC
@@ -151,8 +152,8 @@ _SelectFileGUI()
 ;$name_list = "D:\AUTO\script\AE\2nd_1500.csv"
 Dim $name_list_array
 dim $name_list_array_2string=""
-Dim $name_colume
-Dim $mobile_colume
+Dim $name_colume=""
+Dim $mobile_colume=""
 
 Dim $Show_name_phone = ""
 Dim $button_return = 0
@@ -163,12 +164,17 @@ If FileExists($name_list) Then
 	;$file=FileOpen(@ScriptDir&"\"&$name_list)
 	$name_list_array = _file2Array($name_list, 4, ",")
 	For $x = 0 To 3
-
+		if StringInStr($name_list_array[0][$x], "姓名") Then     $name_colume = $x
 		If StringInStr($name_list_array[0][$x], "學生姓名") Then $name_colume = $x
-		If StringInStr($name_list_array[0][$x], "姓名") Then $name_colume = $x
-		If StringInStr($name_list_array[0][$x], "手機") Then $mobile_colume = $x
-		If StringInStr($name_list_array[0][$x], "行動電話") Then $mobile_colume = $x
+		If StringInStr($name_list_array[0][$x], "手機") Then  $mobile_colume = $x
+		if StringInStr($name_list_array[0][$x], "行動電話") Then $mobile_colume = $x
+		
 	Next
+	if $mobile_colume="" or $name_colume ="" Then
+		MsgBox(0,"錯誤!", '檔案 " ' & $name_list & ' " 中，找不到 "手機" 或是 "姓名" 資訊' )
+		Run("notepad.exe " & $name_list)
+		Exit
+	EndIf
 	;MsgBox(0,"name and mobile", $name_colume & "  " & $mobile_colume)
 	;_ArrayDisplay($name_list_array)
 	;MsgBox (0,"This is mobile table ", UBound($name_list_array,1) & @CRLF & " Record in total")
@@ -226,40 +232,66 @@ If FileExists($SMS_text_file) Then
 
 EndIf
 
-;_ArrayDisplay($a_SMS_text_file)
-;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string)
+$SMS_send_date_EPOCH=_EPOCH( $SMS_send_date)
+$SMS_send_date = StringReplace( StringReplace( $SMS_send_date ,"/","") ,":", "" )
 
-;if not FileExists ( @UserProfileDir & "\" & $user_name &".sms" ) then
-	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10)
-	FileWriteLine( $f , $SMS_text_file & @CRLF & $name_list )
-	FileClose($f)
-;Else
+MsgBox(0,"Time format 5", $SMS_send_date & "   " & $SMS_send_date_EPOCH)
+;for 
+;;_ArrayDisplay($a_SMS_text_file)
+;;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string)
+
+;;if not FileExists ( @UserProfileDir & "\" & $user_name &".sms" ) then
 ;	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10)
-;	FileWriteLine(  @UserProfileDir & "\" & $user_name &".sms" , $SMS_text_file & @CRLF & $name_list )
+;	FileWriteLine( $f , $SMS_text_file & @CRLF & $name_list )
+;	FileClose($f)
+;;Else
+;;	$f= FileOpen(@UserProfileDir & "\" &  $user_name &".sms", 10)
+;;	FileWriteLine(  @UserProfileDir & "\" & $user_name &".sms" , $SMS_text_file & @CRLF & $name_list )
 
-;EndIf
-
+;;EndIf
+;Next
 
 ;
 ;  TCP connection
 Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
+Global $connected=0
+Global $pointika=0
+dim $writefile
 
 _TCP_RegisterEvent($hClientSoc, $TCP_RECEIVE, "Received"); Function "Received" will get called when something is received
 _TCP_RegisterEvent($hClientSoc, $TCP_CONNECT, "Connected"); And func "Connected" will get called when the client is connected.
 _TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnected" will get called when the server disconnects us, or when the connection is lost.
-
-MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
-
-_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$message) )
+sleep(1000)
+;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
+if $connected=1 then
+sleep(500)	
+_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$message&"|*|"&$name_list_array_2string) )
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$message) &@CRLF)
-sleep(500)
-_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) )
+;sleep(500)
+;_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) )
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) &@CRLF)
-sleep(500)
-_TCP_Client_Stop($hClientSoc)
+	sleep(2000)
+	if $pointika=1 then 
+		_TCP_Client_Stop($hClientSoc)
+		$connected=0
+		$pointika=0
+		
+		$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date&"_SMS_Message.txt",10)
+		FileWriteLine($writefile, $message  )
+		FileClose($writefile)
+		sleep(500)
+		$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date&"_SMS_namelist.txt",10)
+		FileWriteLine($writefile, $name_list_array_2string)
+		FileClose($writefile)
+		
+	EndIf
+EndIf
 Exit
+;; 
+;; Not use now
+if 1 then ;
+	
 
-;
 ; FTP connection
 Global $ftp_upload=1
 _ftp_upload_name_text( $SMS_text_file, $name_list) ; file to upload, use file name only.
@@ -407,10 +439,9 @@ For $r = 1 To (UBound($name_list_array, 1) - 1)
 
 Next
 
-
-
-
 Exit
+Endif 
+
 
 Func _SelectFileGUI()
 
@@ -426,7 +457,7 @@ Func _SelectFileGUI()
 	$file_csv = GUICtrlCreateInput("", 10, 90, 300, 30)
 	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
 
-	GUICtrlCreateLabel("3.發送日期，預設馬上發送。格式:2011/09/01 14:30 ", 10, 140, 300, 40)
+	GUICtrlCreateLabel("3.發送日期，預設馬上發送。格式:2011/09/01 10:20 ", 10, 140, 300, 40)
 	$send_date = GUICtrlCreateInput("", 10, 155, 300, 30)
 	GUICtrlSetState(-1, $GUI_FOCUS)
 	;GUICtrlCreateInput("", 10, 35, 300, 20) 	; will not accept drag&drop files
@@ -436,6 +467,13 @@ Func _SelectFileGUI()
 
 	;$msg = 0
 	While $msg <> $GUI_EVENT_CLOSE
+		 $sec = @SEC
+		 $min = @MIN
+		 $hour = @HOUR
+		 $day = @MDAY
+		 $month = @MON
+		 $year = @YEAR
+
 		$msg = GUIGetMsg()
 		Select
 			Case $msg = $btn
@@ -451,14 +489,26 @@ Func _SelectFileGUI()
 
 				If not ( GUICtrlRead($send_date) = "") then
 					;MsgBox(0,"Date diff",_DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) )
-					if _DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) >=0  then
+					if _DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) >0  then
 							$SMS_send_date = GUICtrlRead($send_date)
+							if not StringInStr($SMS_send_date ,":") then $SMS_send_date=_DateAdd('h', '10' ,$SMS_send_date & " 00:00:00")
+							;MsgBox (0,"Time" , $SMS_send_date )
 							;$current_time = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
+							;MsgBox (0,"Time Lap 1" ,  ( _EPOCH($send_date ) - _EPOCH(_NowCalc()) ) )
+							;_EPOCH( $SMS_send_date)
+							;$SMS_send_date = StringReplace( StringReplace( GUICtrlRead($send_date) ,"/","") ,":", "" )
+							
 						else
-							$SMS_send_date = $year & $month & $day
+							$SMS_send_date =  _DateAdd('s', '90' ,_NowCalc() )
+							;_EPOCH($SMS_send_date)
+							;MsgBox (0,"Time Lap 2" , _EPOCH($send_date ) - _EPOCH(_NowCalc())  )
+							;$SMS_send_date = StringReplace( StringReplace( GUICtrlRead($SMS_send_date) ,"/","") ,":", "" )
 					EndIf
 				Else
-					$SMS_send_date = $year & $month & $day
+						$SMS_send_date =  _DateAdd('s', '90' ,_NowCalc() )
+						;_EPOCH($SMS_send_date)
+						;MsgBox (0,"Time Lap 2" , _EPOCH($send_date ) - _EPOCH(_NowCalc())  )
+						;$SMS_send_date = StringReplace( StringReplace( GUICtrlRead($SMS_send_date) ,"/","") ,":", "" )
 				EndIf
 				;
 				ExitLoop
@@ -477,6 +527,7 @@ Func Connected($hSocket, $iError); We registered this (you see?), When we're con
 If Not $iError Then; If there is no error...
 ToolTip("CLIENT: Connected!", 10, 10); ... we're connected.
 ;TCPSend($hSocket, "This is bryant!")
+$connected=1
 Else; ,else...
 ToolTip("CLIENT: Could not connect. Are you sure the server is running?", 10, 10); ... we aren't.
 EndIf
@@ -487,15 +538,23 @@ EndFunc ;==>Connected
 Func Received($hSocket, $sData, $iError); And we also registered this! Our homemade do-it-yourself function gets called when something is received.
 ToolTip("CLIENT: We received this: " & $sData, 10, 10); (and we'll display it)
 ;TCPSend($hSocket, "This is bryant again!")
-ConsoleWrite("CLIENT: We received this: " & $sData)
+ConsoleWrite("CLIENT: We received this: " & $sData& @CRLF)
+
+if $sData="pointika" then $pointika =1
 EndFunc ;==>Received
 
 Func Disconnected($hSocket, $iError); Our disconnect function. Notice that all functions should have an $iError parameter.
 ToolTip("CLIENT: Connection closed or lost.", 10, 10)
+$connected=0
 EndFunc ;==>Disconnected
 
+Func _EPOCH ($DateToCalc)
+; Calculated the number of seconds since EPOCH (1970/01/01 00:00:00) 
+$iDateCalc = _DateDiff( 's',"1970/01/01 00:00:00",$DateToCalc ) ;_NowCalc())
 
-
+;MsgBox( 4096, "_EPOCH Func", "EPOCH Time to send : " & $iDateCalc  & @CRLF  & "time lap to Current : " & ($iDateCalc - _DateDiff( 's',"1970/01/01 00:00:00", _NowCalc()) ) )
+return $iDateCalc
+EndFunc
 
 ;##################################
 ; Send gmail Script Sample
