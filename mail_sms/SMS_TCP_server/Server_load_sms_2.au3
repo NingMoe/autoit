@@ -41,7 +41,7 @@ while 1
 	EndIf
 	if  $SMS_Feed_List[0] > 0 then 
 		$now_DateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
-		MsgBox(0,"EPOCH", $now_DateCalc,3)
+		;MsgBox(0,"EPOCH", $now_DateCalc,3)
 		if  ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) < -120 Then
 			_ArrayDelete ($SMS_Feed_List,1)
 			$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
@@ -50,8 +50,10 @@ while 1
 		if UBound($SMS_Feed_List )>1	then 
 			if ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) >= -120  or ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) < 300 Then
 				MsgBox(0, "Now and SendSMS time diff: " & $now_DateCalc , (   StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc  )  ,5)
-				;$SMS_detail= _SMS_detail($SMS_file,1,5)
-				;$Name_list= _newFile2Array($SMS_file,2, ",", 6) 
+				$SMS_file = @ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms" 
+				MsgBox (0,"SMS file: ",$SMS_file)
+				$SMS_detail= _SMS_detail($SMS_file,1,5)
+				$Name_list= _newFile2Array($SMS_file,2, ",", 6) 
 			EndIf	
 		EndIf
 		
@@ -80,7 +82,7 @@ While 1
 	EndIf
 
 WEnd
-
+_ArrayDisplay ( $aRecords)
 return ($aRecords)
 EndFunc
 
@@ -99,7 +101,7 @@ Func _SMS_detail ($PathnFile, $Start_line, $End_line)
 		_ArrayDelete($aRecords,$x)
 	Next
 	$aRecords[0]= $End_line
-	;_ArrayDisplay ($aRecords)
+	_ArrayDisplay ($aRecords)
 
 return $aRecords
 EndFunc
