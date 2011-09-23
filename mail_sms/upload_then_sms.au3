@@ -631,6 +631,7 @@ EndFunc   ;==>_TEST_MODE
 
 ;
 func _ftp_upload_name_text( $text_2_upload, $name_2_upload )
+	$ftp_upload=0
 if $ftp_upload=1 then
 
 local $ftp_server = '202.133.232.82'

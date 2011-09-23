@@ -1,3 +1,9 @@
+;
+;
+;
+; Once receive the upload , Send a text SMS to user. And then a mail.
+; After send all the SMS, Send a mail for the bill. and a SMS for notice.
+;
 #include <array.au3>
 #include <File.au3>
 #include <Date.au3>
@@ -23,6 +29,12 @@ Global $SMS_Feed_FileTime=0
 Global $SMS_Feed_List_PreProcess , $SMS_Feed_List[1]
 Global $now_DateCalc
 $SMS_Feed_List[0]=0
+
+$test_mode = _TEST_MODE()
+if $test_mode then _Gen_Test_Data()
+if not FileExists (@ScriptDir & "\sms_feed") then MsgBox(0, "Warning", "No test data Generated!")
+MsgBox(0,"Wait", "Wait for check")
+
 while 1
 	if FileExists (@ScriptDir &"\sms_feed") then 
 		;MsgBox(0,"File Get time", FileGetTime (@ScriptDir &"\sms_feed",0,1) )
@@ -54,6 +66,7 @@ while 1
 				MsgBox (0,"SMS file: ",$SMS_file)
 				$SMS_detail= _SMS_detail($SMS_file,1,5)
 				$Name_list= _newFile2Array($SMS_file,2, ",", 6) 
+				_ProcessSendMail_to_SMS($Name_list ,$SMS_detail )
 			EndIf	
 		EndIf
 		
@@ -69,50 +82,31 @@ exit
 
 
 
-Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
-;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $IPPort, $ssl)
-;
-Func _ProcessSendMail()
-For $r = 1 To (UBound($name_list_array, 1) - 1)
 
-	Dim $day = @MDAY
-	Dim $month = @MON
-	Dim $year = @YEAR
+Func _ProcessSendMail_to_SMS($name_list_array_parameter, $SMS_detail_parameter)  ;$name_list_array_parameter 是二維的 array  $SMS_detail_parameter 是一維的 Array.
+	local $message , $sender_email_address , $sender_mobile
+	
+	$name_list_array =$name_list_array_parameter   ; $name_list_array第一欄是名字，第二欄是電話
+	$sender_email_address = $SMS_detail_parameter[3]
+	$sender_mobile = $SMS_detail_parameter[4]
+	$message = $SMS_detail_parameter[5]
+	
+For $r = 0 To (UBound($name_list_array, 1) - 1)
+
 	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
-	$as_Body = $name_list_array[$r][$name_colume] & "您好: " & $message
+	$as_Body = $name_list_array[$r][0] & "您好: " & $message
 
-	;MsgBox (0,"This is mobile",$name_list_array[$r][2] & @CRLF & " This is going to send mail. Stop if you want")
+	MsgBox (0,"This is name list array", "Send to Name : " & $name_list_array[$r][0]  & @CRLF & "Send to Mobile: " & $name_list_array[$r][1]  & @CRLF & " Mail body: " &$as_Body)
 	;$s_ToAddress = "sms@onlinebooking.com.tw"
-	If StringInStr($name_list_array[$r][$mobile_colume], "_") Then
-		$s_Subject = StringReplace($name_list_array[$r][$mobile_colume], "_", "")
+	If StringInStr($name_list_array[$r][1], "_") Then
+		$s_Subject = StringReplace($name_list_array[$r][1], "_", "")
 		;$as_Body=StringReplace($as_Body,"[user_email]","ae@delta.com.tw") ; For test only.
 	Else
-		$s_Subject = $name_list_array[$r][$mobile_colume]
+		$s_Subject = $name_list_array[$r][1]
 	EndIf
-	;MsgBox (0,"This is mobile",$s_Subject & @CRLF & " This is going to send mail. Stop if you want")
-	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
-	;$m_ToAddress =	$name_list_array[$r][0] ;
-	;$s_ToAddress = $name_list_array[$r][0] ;Correct mail to
-
-	;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
-
-	;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $name_list_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
-
-	;if mod($r, 3)=1 	then
-	;$s_Username =$1st
-	;EndIf
-	;
-	;if mod($r, 3)=2 	Then
-	;$s_Username =$2nd
-	;EndIf
-	;
-	;if mod($r, 3)=0		then
-	;$s_Username = $3rd
-	;EndIf
-	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;### This is for Corrrect SMS
 	;$s_Subject="0919585516"
-	MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
+	;MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
 	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;### This is mail Test
 	;$s_ToAddress="bryant@dynalab.com.tw"
@@ -120,8 +114,8 @@ For $r = 1 To (UBound($name_list_array, 1) - 1)
 	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
 	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", " Mail Send to " & $s_Subject & "  " & $s_ToAddress)
-	If $r > 0 And Mod($r, 2) = 0 Then
-		Sleep(20000)
+	If $r > 0 And Mod($r, 5) = 0 Then
+		Sleep(5000)
 	EndIf
 	If $r = (UBound($name_list_array, 1) - 1) Then
 		Dim $day = @MDAY
@@ -219,36 +213,6 @@ Func _newFile2Array($PathnFile, $aColume, $delimiters, $Start_line)
 
 EndFunc   ;==>_file2Array
 
-
-Func _TEST_MODE()
-	
-	If FileExists(@ScriptDir & "\TESTMODE.txt") Then
-		$mode = FileReadLine(@ScriptDir & "\TESTMODE.txt", 1)
-		If $mode = 1 Then
-			MsgBox(0, "Test mode", "測試模式" & @CRLF & "只會寄送到 Service Account ", 5)
-			
-		Else
-			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
-			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
-			
-			$mode = 0
-			MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
-			;if $ans="n" or $ans="N" or @error=1 then exit
-		EndIf
-		
-	Else
-		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
-		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
-		
-		$mode = 0
-		MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
-		;if $ans="n" or $ans="N" or @error=1 then exit
-		
-	EndIf
-	
-	Return $mode
-EndFunc   ;==>_TEST_MODE
-
 Func _EPOCH ($DateToCalc)
 ; Calculated the number of seconds since EPOCH (1970/01/01 00:00:00) 
 $iDateCalc = _DateDiff( 's',"1970/01/01 00:00:00",$DateToCalc ) ;_NowCalc())
@@ -256,3 +220,59 @@ $iDateCalc = _DateDiff( 's',"1970/01/01 00:00:00",$DateToCalc ) ;_NowCalc())
 ;MsgBox( 4096, "_EPOCH Func", "EPOCH Time to send : " & $iDateCalc  & @CRLF  & "time lap to Current : " & ($iDateCalc - _DateDiff( 's',"1970/01/01 00:00:00", _NowCalc()) ) )
 return $iDateCalc
 EndFunc
+
+Func _TEST_MODE()
+
+	If FileExists(@ScriptDir & "\TESTMODE.txt") Then
+		$mode = FileReadLine(@ScriptDir & "\TESTMODE.txt", 1)
+		If $mode = 1 Then
+			MsgBox(0, "Test mode", "測試模式" & @CRLF & "只會寄送到 Service Account ", 5)
+
+		Else
+			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+
+			$mode = 0
+			MsgBox(0, "Test mode", "正式模式" & @CRLF & "SMS 會寄送到所屬人的 Mobile", 5)
+			;if $ans="n" or $ans="N" or @error=1 then exit
+		EndIf
+
+	Else
+		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+
+		$mode = 0
+		MsgBox(0, "Test mode", "正式模式" & @CRLF & "SMS 會寄送到所屬人的 Mobile", 5)
+		;if $ans="n" or $ans="N" or @error=1 then exit
+
+	EndIf
+
+	Return $mode
+EndFunc   ;==>_TEST_MODE
+
+Func _Gen_Test_Data()
+	local $Data , $infome_data , $now_DateCalc , $file
+	$now_DateCalc = ( _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc()) ) + 100
+	$data=$now_DateCalc &@CRLF &  _
+			"2011/09/23 14:37:27" &@CRLF &  _
+			"changtun@gmail.com"  &@CRLF & _
+			"0928837823"  &@CRLF & _
+			"當你有多個外面線路想要同時間對映到內部的某一台Server時，或許你是為了備援或Load Balance的考量。在Router" &@CRLF & _
+			"姓名,行動電話"  &@CRLF &  _
+			"changtun,_0928837823"  &@CRLF & _
+			"sean,_0956330560"  &@CRLF & _
+			"bryant,_0928837823"  &@CRLF & _ 
+			"seanlu,_0968269170" 
+	
+	$infome_data=$now_DateCalc &",changtun"
+	
+	$file=fileopen (@ScriptDir & "\changtun\"& $now_DateCalc& ".sms",10)
+	FileWrite($file, $data )
+	FileClose($file)
+	sleep(100)
+	$file=fileopen (@ScriptDir & "\sms_feed",10)
+	FileWrite($file,$infome_data)
+	FileClose($file)
+	sleep(100)
+EndFunc
+
