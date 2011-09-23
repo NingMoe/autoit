@@ -49,8 +49,9 @@ while 1
 		$SMS_Feed_List_PreProcess=''
 		_ArraySort ($SMS_Feed_List,0,1)
 		$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
-		_ArrayDisplay ($SMS_Feed_List)
+		;_ArrayDisplay ($SMS_Feed_List)
 	EndIf
+	
 	if  $SMS_Feed_List[0] > 0 then 
 		$now_DateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
 		;MsgBox(0,"EPOCH", $now_DateCalc,3)
