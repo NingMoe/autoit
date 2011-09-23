@@ -53,8 +53,8 @@ If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 	$os_partial = _get_os_partial()
 	;Local $sData = InetRead("http://ivan:9ps5678@202.133.232.82:8080/upload/astronomy.htm") ;http://202.133.232.82:8080/upload/
 	;Local $nBytesRead = @extended
-	;MsgBox(4096, "", "Bytes read: " & $nBytesRead & @CRLF & @CRLF & BinaryToString($sData) &@CRLF &StringLeft( BinaryToString($sData),4) & $os_partial )
-	
+	MsgBox(4096, "", "Bytes read: " & $nBytesRead & @CRLF & @CRLF & BinaryToString($sData) &@CRLF &StringLeft( BinaryToString($sData),4) & $os_partial )
+
 	If $aBytesRead > 0 Then
 		;dim $magicfile_name=BinaryToString($sData)&".txt"
 		;Dim $magicfile = FileOpen(@ScriptDir & "\" & $astronomy, 10)
@@ -81,19 +81,19 @@ If FileExists(@ScriptDir & "\" & $astronomy) Then
 		MsgBox(0, "Restart the program", "請重開這個程式", 10)
 		Exit
 	EndIf
-	
+
 	Local $line2 = FileReadLine(@ScriptDir & "\" & $astronomy, 2)
 	;MsgBox(0,"stringinstring of line2",StringInStr ( $magic_word,  $line2 ))
 	If StringInStr($magic_word, $line2) = 0 Then
 		$input_pass = InputBox("發送簡訊所使用的密碼", "請輸入")
-		
+
 		If $magic_word <> $input_pass Then
 			FileDelete(@ScriptDir & "\" & $astronomy)
 			MsgBox(0, "錯誤", "密碼錯誤")
 			Exit
 		EndIf
 	EndIf
-	
+
 EndIf
 
 ;;
@@ -123,7 +123,7 @@ If FileExists($name_list) Then
 	;MsgBox(0,"name and mobile", $name_colume & "  " & $mobile_colume)
 	;_ArrayDisplay($name_list_array)
 	;MsgBox (0,"This is mobile table ", UBound($name_list_array,1) & @CRLF & " Record in total")
-	
+
 	For $y = 1 To UBound($name_list_array) - 1
 		Local $mobile_phone_no = $name_list_array[$y][$mobile_colume]
 		;if StringLeft ($mobile_phone_no,1)<>0 then $mobile_phone_no="0"&$mobile_phone_no
@@ -140,7 +140,7 @@ If FileExists($name_list) Then
 	;_ArrayDisplay($name_list_array)
 Else
 	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $name_list & " is not at " & @ScriptDir)
-	
+
 EndIf
 
 
@@ -167,7 +167,7 @@ If FileExists($SMS_text_file) Then
 		Exit
 	EndIf
 	If $button_return = 1 Then $message = StringLeft($message, 63)
-	
+
 EndIf
 
 ;_ArrayDisplay($a_SMS_text_file)
@@ -223,7 +223,7 @@ $s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer se
 ;$s_IPPort = 465 ; port used for sending the mail
 ;$s_ssl = 1 ; Always use 1              ; enables/disables secure socket layer sending - put to 1 if using httpS
 ;;$IPPort=465                            ; GMAIL port used for sending the mail
-;;$ssl=1     
+;;$ssl=1
 
 
 ;
@@ -258,13 +258,13 @@ Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 ;Dim $mymailbody = "使用者必須能夠 註冊/登入，登入後才可以發表Post，不然只能瀏覽。只有自己的Post才能進行修改與刪除。"
 
 For $r = 1 To (UBound($name_list_array, 1) - 1)
-	
+
 	Dim $day = @MDAY
 	Dim $month = @MON
 	Dim $year = @YEAR
 	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 	$as_Body = $name_list_array[$r][$name_colume] & "您好: " & $message
-	
+
 	;MsgBox (0,"This is mobile",$name_list_array[$r][2] & @CRLF & " This is going to send mail. Stop if you want")
 	;$s_ToAddress = "sms@onlinebooking.com.tw"
 	If StringInStr($name_list_array[$r][$mobile_colume], "_") Then
@@ -277,11 +277,11 @@ For $r = 1 To (UBound($name_list_array, 1) - 1)
 	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
 	;$m_ToAddress =	$name_list_array[$r][0] ;
 	;$s_ToAddress = $name_list_array[$r][0] ;Correct mail to
-	
+
 	;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
-	
+
 	;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $name_list_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
-	
+
 	;if mod($r, 3)=1 	then
 	;$s_Username =$1st
 	;EndIf
@@ -318,7 +318,7 @@ For $r = 1 To (UBound($name_list_array, 1) - 1)
 		;Sleep(1000 * 60 * 5)
 	EndIf
 
-	
+
 Next
 
 
@@ -409,7 +409,7 @@ EndFunc   ;==>MyErrFunc
 ;; Two dimension array
 Func _file2Array($PathnFile, $aColume, $delimiters)
 
-	
+
 	Local $aRecords
 	If Not _FileReadToArray($PathnFile, $aRecords) Then
 		MsgBox(4096, "Error", " Error reading file '" & $PathnFile & "' to Array   error:" & @error)
@@ -421,19 +421,19 @@ Func _file2Array($PathnFile, $aColume, $delimiters)
 	Local $aRow
 	For $y = 1 To $aRecords[0]
 		;Msgbox(0,'Record:' & $y, $aRecords[$y])
-		
+
 		$aRow = StringSplit($aRecords[$y], $delimiters)
 		;Msgbox(0,'X ,Colume :', $aRow[0])
 		For $x = 1 To $aRow[0]
 			If StringInStr($aRow[$x], ",") Then
-				
+
 				$aRow[$x] = StringTrimLeft($aRow[$x], 1)
 				;MsgBox(0, "after", $aRow[$x])
 			EndIf
 			$TextToArray[$y - 1][$x - 1] = $aRow[$x]
 		Next
 	Next
-	
+
 	;_ArrayDisplay($TextToArray)
 	Return $TextToArray
 
@@ -478,31 +478,31 @@ EndFunc   ;==>_ErrorMsg
 
 
 Func _TEST_MODE()
-	
+
 	If FileExists(@ScriptDir & "\TESTMODE.txt") Then
 		$mode = FileReadLine(@ScriptDir & "\TESTMODE.txt", 1)
 		If $mode = 1 Then
 			MsgBox(0, "Test mode", "測試模式" & @CRLF & "只會寄送到 Service Account ", 5)
-			
+
 		Else
 			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
 			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
-			
+
 			$mode = 0
 			MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
 			;if $ans="n" or $ans="N" or @error=1 then exit
 		EndIf
-		
+
 	Else
 		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
 		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
-		
+
 		$mode = 0
 		MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
 		;if $ans="n" or $ans="N" or @error=1 then exit
-		
+
 	EndIf
-	
+
 	Return $mode
 EndFunc   ;==>_TEST_MODE
 
@@ -510,7 +510,7 @@ EndFunc   ;==>_TEST_MODE
 
 
 Func _SelectFileGUI()
-	
+
 	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
 
 	GUICreate("輸入檔案", 320, 210, @DesktopWidth / 3 - 320, @DesktopHeight / 3 - 240, -1, 0x00000018); WS_EX_ACCEPTFILES
@@ -544,5 +544,5 @@ Func _SelectFileGUI()
 		EndSelect
 	WEnd
 
-	
+
 EndFunc   ;==>_SelectFileGUI

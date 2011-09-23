@@ -1,1 +1,1 @@
-�O�I�~�B�O�I�N�z�H�B�g���H�M���ҤH�i�H�]����~�ȩһݡA�øg�ӤH��ƥ��H�ѭ��P�N�A�`���B�B�z�ΧQ�ίf���B�����B���d�ˬd����T�F�B�O�I�~�Y������O�I�Ǹo�Τ��@�Q�q���o�Ӹ�A�i�K�i���d���C
+﻿當你有多個外面線路想要同時間對映到內部的某一台Server時，或許你是為了備援或Load Balance的考量。在RouterOS下你可以很簡單的達成，首先，我們本次範例的網路架構圖如下，目標是把2條PPPoE對映到內部的那台Server

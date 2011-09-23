@@ -266,7 +266,6 @@ Func _ComputerGetEventLogs(ByRef $aEventLogInfo)
 			$aEventLogInfo[$i][14] = $objItem.Extension
 			$aEventLogInfo[$i][15] = $objItem.FileName
 			$aEventLogInfo[$i][16] = $objItem.FileSize
-
 			$aEventLogInfo[$i][17] = $objItem.FileType
 			$aEventLogInfo[$i][18] = $objItem.FSCreationClassName
 			$aEventLogInfo[$i][19] = $objItem.FSName
