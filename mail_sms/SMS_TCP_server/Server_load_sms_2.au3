@@ -67,6 +67,79 @@ WEnd
 ;;_ArrayDisplay ( $Name_list )
 exit
 
+
+
+Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
+;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $IPPort, $ssl)
+;
+Func _ProcessSendMail()
+For $r = 1 To (UBound($name_list_array, 1) - 1)
+
+	Dim $day = @MDAY
+	Dim $month = @MON
+	Dim $year = @YEAR
+	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
+	$as_Body = $name_list_array[$r][$name_colume] & "±z¦n: " & $message
+
+	;MsgBox (0,"This is mobile",$name_list_array[$r][2] & @CRLF & " This is going to send mail. Stop if you want")
+	;$s_ToAddress = "sms@onlinebooking.com.tw"
+	If StringInStr($name_list_array[$r][$mobile_colume], "_") Then
+		$s_Subject = StringReplace($name_list_array[$r][$mobile_colume], "_", "")
+		;$as_Body=StringReplace($as_Body,"[user_email]","ae@delta.com.tw") ; For test only.
+	Else
+		$s_Subject = $name_list_array[$r][$mobile_colume]
+	EndIf
+	;MsgBox (0,"This is mobile",$s_Subject & @CRLF & " This is going to send mail. Stop if you want")
+	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
+	;$m_ToAddress =	$name_list_array[$r][0] ;
+	;$s_ToAddress = $name_list_array[$r][0] ;Correct mail to
+
+	;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
+
+	;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $name_list_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
+
+	;if mod($r, 3)=1 	then
+	;$s_Username =$1st
+	;EndIf
+	;
+	;if mod($r, 3)=2 	Then
+	;$s_Username =$2nd
+	;EndIf
+	;
+	;if mod($r, 3)=0		then
+	;$s_Username = $3rd
+	;EndIf
+	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	;### This is for Corrrect SMS
+	;$s_Subject="0919585516"
+	MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
+	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	;### This is mail Test
+	;$s_ToAddress="bryant@dynalab.com.tw"
+	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
+	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
+	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", " Mail Send to " & $s_Subject & "  " & $s_ToAddress)
+	If $r > 0 And Mod($r, 2) = 0 Then
+		Sleep(20000)
+	EndIf
+	If $r = (UBound($name_list_array, 1) - 1) Then
+		Dim $day = @MDAY
+		Dim $month = @MON
+		Dim $year = @YEAR
+		Local $m_AttachFiles = @ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log"
+		$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
+		;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+
+		;Sleep(1000 * 60 * 5)
+	EndIf
+
+
+Next
+EndFunc
+
+
+
 Func _Move_SMS_feed( $PathnFile)
 	Local $aRecords
 ; Another sample which automatically creates the directory structure
@@ -82,7 +155,7 @@ While 1
 	EndIf
 
 WEnd
-_ArrayDisplay ( $aRecords)
+;_ArrayDisplay ( $aRecords)
 return ($aRecords)
 EndFunc
 
@@ -101,7 +174,7 @@ Func _SMS_detail ($PathnFile, $Start_line, $End_line)
 		_ArrayDelete($aRecords,$x)
 	Next
 	$aRecords[0]= $End_line
-	_ArrayDisplay ($aRecords)
+	;_ArrayDisplay ($aRecords)
 
 return $aRecords
 EndFunc
