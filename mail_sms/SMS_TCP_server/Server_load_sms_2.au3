@@ -1,9 +1,9 @@
 ;
 ;
 ;
-; Once receive the upload , Send a text SMS to user. And then a mail.
-; After send all the SMS, Send a mail for the bill. and a SMS for notice.
-;
+; Once receive the upload , Send a text SMS to user. And then a mail.  Done
+; After send all the SMS, Send a mail for the bill. and a SMS for notice.  Done
+; After send mail , remove the Epoch.sms files. 
 #include <array.au3>
 #include <File.au3>
 #include <Date.au3>
@@ -43,6 +43,8 @@ while 1
 		EndIf
 		_ArrayDelete($SMS_Feed_List_PreProcess,0 )
 		;_ArrayDisplay ($SMS_Feed_List_PreProcess)
+		_make_sender_SMS_detail($SMS_Feed_List_PreProcess) ;; Think this is only one-dimention array, and with one record only.
+		
 	EndIf	
 	if  IsArray( $SMS_Feed_List_PreProcess ) then 
 		_ArrayConcatenate ( $SMS_Feed_List , $SMS_Feed_List_PreProcess )
@@ -81,8 +83,16 @@ WEnd
 ;;_ArrayDisplay ( $Name_list )
 exit
 
-
-
+Func _make_sender_SMS_detail($sender_sms_feed)
+	local $SMS_file_senders, $SMS_detail_senders , $Name_list_senders
+			;if ( StringLeft ( $sender_sms_feed[0] ,10 ) - $now_DateCalc ) >= -120  or ( StringLeft ( $sender_sms_feed[0] ,10 ) - $now_DateCalc ) < 300 Then
+				;MsgBox(0, "Now and SendSMS time diff: " & $now_DateCalc , (   StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc  )  ,5)
+				$SMS_file_senders = @ScriptDir & "\" &  StringTrimLeft ($sender_sms_feed[0], StringInStr ( $sender_sms_feed[0],"," ) ) & "\" & StringLeft ($sender_sms_feed[0], StringInStr ( $sender_sms_feed[0],"," )-1 ) &".sms" 
+				if not FileExists ($SMS_file_senders) then  MsgBox (0,"SMS file: ", "File is not exist :" & @CRLF &$SMS_file_senders)
+				$SMS_detail_senders= _SMS_detail($SMS_file_senders,1,5)
+				$Name_list_senders= _newFile2Array($SMS_file_senders,2, ",", 6) ;; 這一行有問題，必需改為送件人的名字和行動電話
+				_ProcessSendMail_to_SMS($Name_list_senders , $SMS_detail_senders )
+EndFunc
 
 Func _ProcessSendMail_to_SMS($name_list_array_parameter, $SMS_detail_parameter)  ;$name_list_array_parameter 是二維的 array  $SMS_detail_parameter 是一維的 Array.
 	local $message , $sender_email_address , $sender_mobile
@@ -107,14 +117,20 @@ For $r = 0 To (UBound($name_list_array, 1) - 1)
 	EndIf
 	;### This is for Corrrect SMS
 	;$s_Subject="0919585516"
+	if $test_mode=1 then 
+		;$m_AttachFiles = ""
+		$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
+
+	Else	
 	;MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
 	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	EndIf
 	;### This is mail Test
 	;$s_ToAddress="bryant@dynalab.com.tw"
 	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
 	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
-	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", " Mail Send to " & $s_Subject & "  " & $s_ToAddress)
+	_FileWriteLog(@ScriptDir & "\" & $sender_mobile & "_" & $year & $month & $day & ".log", " Mail Send to " & $s_Subject & "  " & $s_ToAddress)
 	If $r > 0 And Mod($r, 5) = 0 Then
 		Sleep(5000)
 	EndIf
@@ -122,7 +138,9 @@ For $r = 0 To (UBound($name_list_array, 1) - 1)
 		Dim $day = @MDAY
 		Dim $month = @MON
 		Dim $year = @YEAR
-		Local $m_AttachFiles = @ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log"
+		
+		$m_ToAddress= $sender_email_address
+		$m_AttachFiles = @ScriptDir & "\" & $sender_mobile  & "_" & $year & $month & $day & ".log"
 		$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
 		;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 
