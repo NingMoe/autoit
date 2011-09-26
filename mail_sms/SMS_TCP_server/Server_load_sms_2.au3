@@ -33,7 +33,7 @@ $SMS_Feed_List[0]=0
 $test_mode = _TEST_MODE()
 if $test_mode then _Gen_Test_Data()
 if not FileExists (@ScriptDir & "\sms_feed") then MsgBox(0, "Warning", "No test data Generated!")
-MsgBox(0,"Wait", "Wait for check")
+;MsgBox(0,"Wait", "Wait for check")
 
 while 1
 	if FileExists (@ScriptDir &"\sms_feed") then 
@@ -69,7 +69,10 @@ while 1
 				MsgBox (0,"SMS file: ",$SMS_file)
 				$SMS_detail= _SMS_detail($SMS_file,1,5)
 				$Name_list= _newFile2Array($SMS_file,2, ",", 6) 
-				_ProcessSendMail_to_SMS($Name_list ,$SMS_detail )
+				_ProcessSendMail_to_SMS($Name_list ,$SMS_detail ,0)
+				FileMove ($SMS_file,@ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms.out")
+				_ArrayDelete ($SMS_Feed_List,1)
+				$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
 			EndIf	
 		EndIf
 		
@@ -84,17 +87,23 @@ WEnd
 exit
 
 Func _make_sender_SMS_detail($sender_sms_feed)
-	local $SMS_file_senders, $SMS_detail_senders , $Name_list_senders
-			;if ( StringLeft ( $sender_sms_feed[0] ,10 ) - $now_DateCalc ) >= -120  or ( StringLeft ( $sender_sms_feed[0] ,10 ) - $now_DateCalc ) < 300 Then
-				;MsgBox(0, "Now and SendSMS time diff: " & $now_DateCalc , (   StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc  )  ,5)
+	local $SMS_file_senders, $SMS_detail_senders , $Name_list_senders[1][2] , $sender  
+	
 				$SMS_file_senders = @ScriptDir & "\" &  StringTrimLeft ($sender_sms_feed[0], StringInStr ( $sender_sms_feed[0],"," ) ) & "\" & StringLeft ($sender_sms_feed[0], StringInStr ( $sender_sms_feed[0],"," )-1 ) &".sms" 
-				if not FileExists ($SMS_file_senders) then  MsgBox (0,"SMS file: ", "File is not exist :" & @CRLF &$SMS_file_senders)
-				$SMS_detail_senders= _SMS_detail($SMS_file_senders,1,5)
-				$Name_list_senders= _newFile2Array($SMS_file_senders,2, ",", 6) ;; 這一行有問題，必需改為送件人的名字和行動電話
-				_ProcessSendMail_to_SMS($Name_list_senders , $SMS_detail_senders )
+				if not FileExists ($SMS_file_senders) then  MsgBox (0,"SMS file: ", "File is not exist :" & @CRLF &$SMS_file_senders) ; 需要再處理一下 error handeling.
+				
+				$SMS_detail_senders= _SMS_detail($SMS_file_senders,1,5)  ; 取得要發出的簡訊內容
+				;_ArrayDisplay($SMS_detail_senders)
+				$sender= StringSplit("使用者,"&$SMS_detail_senders[4],"," )
+				$Name_list_senders[0][0]= $sender[1]
+				$Name_list_senders[0][1]= $sender[2]
+				;$Name_list_senders= _newFile2Array($SMS_file_senders,2, ",", 6) ;; 這一行有問題，必需改為送件人的名字和行動電話
+				;_ArrayDisplay($Name_list_senders)
+				
+				_ProcessSendMail_to_SMS($Name_list_senders , $SMS_detail_senders , 1)
 EndFunc
 
-Func _ProcessSendMail_to_SMS($name_list_array_parameter, $SMS_detail_parameter)  ;$name_list_array_parameter 是二維的 array  $SMS_detail_parameter 是一維的 Array.
+Func _ProcessSendMail_to_SMS($name_list_array_parameter, $SMS_detail_parameter, $sender_feedback)  ;$name_list_array_parameter 是二維的 array  $SMS_detail_parameter 是一維的 Array.
 	local $message , $sender_email_address , $sender_mobile
 	
 	$name_list_array =$name_list_array_parameter   ; $name_list_array第一欄是名字，第二欄是電話
@@ -103,7 +112,7 @@ Func _ProcessSendMail_to_SMS($name_list_array_parameter, $SMS_detail_parameter) 
 	$message = $SMS_detail_parameter[5]
 	
 For $r = 0 To (UBound($name_list_array, 1) - 1)
-
+	
 	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 	$as_Body = $name_list_array[$r][0] & "您好: " & $message
 
@@ -118,8 +127,10 @@ For $r = 0 To (UBound($name_list_array, 1) - 1)
 	;### This is for Corrrect SMS
 	;$s_Subject="0919585516"
 	if $test_mode=1 then 
-		;$m_AttachFiles = ""
+		$m_Subject = "簡訊發送測試信件: " & $s_Subject ; subject from the email - can be anything you want it to be
+		
 		$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
+		;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 
 	Else	
 	;MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
@@ -134,7 +145,7 @@ For $r = 0 To (UBound($name_list_array, 1) - 1)
 	If $r > 0 And Mod($r, 5) = 0 Then
 		Sleep(5000)
 	EndIf
-	If $r = (UBound($name_list_array, 1) - 1) Then
+	If $r = (UBound($name_list_array, 1) - 1) and $sender_feedback=0 Then
 		Dim $day = @MDAY
 		Dim $month = @MON
 		Dim $year = @YEAR
@@ -149,6 +160,8 @@ For $r = 0 To (UBound($name_list_array, 1) - 1)
 
 
 Next
+
+
 EndFunc
 
 
@@ -278,10 +291,10 @@ Func _Gen_Test_Data()
 			"0928837823"  &@CRLF & _
 			"當你有多個外面線路想要同時間對映到內部的某一台Server時，或許你是為了備援或Load Balance的考量。在Router" &@CRLF & _
 			"姓名,行動電話"  &@CRLF &  _
-			"changtun,_0928837823"  &@CRLF & _
-			"sean,_0956330560"  &@CRLF & _
-			"bryant,_0928837823"  &@CRLF & _ 
-			"seanlu,_0968269170" 
+			"changtun1,_0928837823"  &@CRLF & _
+			"sean2,_0956330560"  &@CRLF & _
+			"seanlu3,_0968269170"  &@CRLF & _ 
+			"bryant4,_0928837823" 
 	
 	$infome_data=$now_DateCalc &",changtun"
 	
