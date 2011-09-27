@@ -37,9 +37,11 @@ if not FileExists (@ScriptDir & "\sms_feed") then MsgBox(0, "Warning", "No test 
 
 while 1
 	if FileExists (@ScriptDir &"\sms_feed") then 
+		;$now_DateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
 		;MsgBox(0,"File Get time", FileGetTime (@ScriptDir &"\sms_feed",0,1) )
 		if $SMS_Feed_FileTime < FileGetTime (@ScriptDir &"\sms_feed",0,1)  then 
 			$SMS_Feed_List_PreProcess=_Move_SMS_feed(@ScriptDir &"\sms_feed")
+			$SMS_Feed_FileTime = FileGetTime (@ScriptDir &"\sms_feed",0,1)
 		EndIf
 		_ArrayDelete($SMS_Feed_List_PreProcess,0 )
 		;_ArrayDisplay ($SMS_Feed_List_PreProcess)
@@ -66,9 +68,11 @@ while 1
 		
 		if UBound($SMS_Feed_List )>1	then 
 			if ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) >= -120  or ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) < 300 Then
-				MsgBox(0, "Now and SendSMS time diff: " & $now_DateCalc , (   StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc  )  ,5)
+				ToolTip("Now and SendSMS time diff: " &  StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc ,800,700)
+				;MsgBox(0, "Now and SendSMS time diff: " & $now_DateCalc , (   StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc  )  ,5)
 				$SMS_file = @ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms" 
-				MsgBox (0,"SMS file: ",$SMS_file)
+				;MsgBox (0,"SMS file: ",$SMS_file)
+				ToolTip("Now Send SendSMS file: " & $SMS_file ,800,700)
 				$SMS_detail= _SMS_detail($SMS_file,1,5)
 				$Name_list= _newFile2Array($SMS_file,2, ",", 6) 
 				_ProcessSendMail_to_SMS($Name_list ,$SMS_detail ,0)
@@ -92,8 +96,10 @@ Func _make_sender_SMS_detail($sender_sms_feed)
 	local $SMS_file_senders, $SMS_detail_senders , $Name_list_senders[1][2] , $sender  
 	
 				$SMS_file_senders = @ScriptDir & "\" &  StringTrimLeft ($sender_sms_feed[0], StringInStr ( $sender_sms_feed[0],"," ) ) & "\" & StringLeft ($sender_sms_feed[0], StringInStr ( $sender_sms_feed[0],"," )-1 ) &".sms" 
-				if not FileExists ($SMS_file_senders) then  MsgBox (0,"SMS file: ", "File is not exist :" & @CRLF &$SMS_file_senders) ; 需要再處理一下 error handeling.
-				
+				if not FileExists ($SMS_file_senders) then  
+					;MsgBox (0,"SMS file: ", "File is not exist :" & @CRLF &$SMS_file_senders,3)	; 需要再處理一下 error handeling.
+					_FileWriteLog(@ScriptDir & "\logs\" & StringTrimRight(@ScriptName,4) & "_" & $year & $month & $day & ".log", " File is not exist : " & $SMS_file_senders )
+				EndIf
 				$SMS_detail_senders= _SMS_detail($SMS_file_senders,1,5)  ; 取得要發出的簡訊內容
 				;_ArrayDisplay($SMS_detail_senders)
 				$sender= StringSplit("使用者,"&$SMS_detail_senders[4],"," )
@@ -106,19 +112,20 @@ Func _make_sender_SMS_detail($sender_sms_feed)
 EndFunc
 
 Func _ProcessSendMail_to_SMS($name_list_array_parameter, $SMS_detail_parameter, $sender_feedback)  ;$name_list_array_parameter 是二維的 array  $SMS_detail_parameter 是一維的 Array.
+	$m_BccAddress=""
 	local $message , $sender_email_address , $sender_mobile
 	
 	$name_list_array =$name_list_array_parameter   ; $name_list_array第一欄是名字，第二欄是電話
 	$sender_email_address = $SMS_detail_parameter[3]
 	$sender_mobile = $SMS_detail_parameter[4]
 	$message = $SMS_detail_parameter[5]
-	
+	if not FileExists(@ScriptDir&"\logs") then FileOpen(@ScriptDir&"\logs",10)
 For $r = 0 To (UBound($name_list_array, 1) - 1)
 	
 	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 	$as_Body = $name_list_array[$r][0] & "您好: " & $message
 
-	MsgBox (0,"This is name list array", "Send to Name : " & $name_list_array[$r][0]  & @CRLF & "Send to Mobile: " & $name_list_array[$r][1]  & @CRLF & " Mail body: " &$as_Body)
+	;MsgBox (0,"This is name list array", "Send to Name : " & $name_list_array[$r][0]  & @CRLF & "Send to Mobile: " & $name_list_array[$r][1]  & @CRLF & " Mail body: " &$as_Body ,5)
 	;$s_ToAddress = "sms@onlinebooking.com.tw"
 	If StringInStr($name_list_array[$r][1], "_") Then
 		$s_Subject = StringReplace($name_list_array[$r][1], "_", "")
@@ -136,14 +143,14 @@ For $r = 0 To (UBound($name_list_array, 1) - 1)
 
 	Else	
 	;MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
-	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	$rc = _INetSmtpMailCom_utf8($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	EndIf
 	;### This is mail Test
 	;$s_ToAddress="bryant@dynalab.com.tw"
 	;MsgBox (0,"mail parameter", $s_SmtpServer&" / "& $s_FromName&" / "& $s_FromAddress&" / "& $s_ToAddress&" / "& $s_Subject&" / "& $as_Body&" / "& $s_AttachFiles&" / "& $s_CcAddress&" / "& $s_BccAddress&" / "& $s_Username&" / "& $s_Password&" / "& $s_IPPort&" / "& $s_ssl)
 	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
-	_FileWriteLog(@ScriptDir & "\" & $sender_mobile & "_" & $year & $month & $day & ".log", " Mail Send to " & $s_Subject & "  " & $s_ToAddress)
+	_FileWriteLog(@ScriptDir & "\logs\" & $sender_mobile & "_" & $year & $month & $day & ".log", $SMS_detail_parameter[1]& " SMS Send to : " & $s_Subject &" "& $name_list_array[$r][0])
 	If $r > 0 And Mod($r, 5) = 0 Then
 		Sleep(5000)
 	EndIf
@@ -153,7 +160,8 @@ For $r = 0 To (UBound($name_list_array, 1) - 1)
 		Dim $year = @YEAR
 		
 		$m_ToAddress= $sender_email_address
-		$m_AttachFiles = @ScriptDir & "\" & $sender_mobile  & "_" & $year & $month & $day & ".log"
+		$m_BccAddress = "bryant@net1.com.tw"
+		$m_AttachFiles = @ScriptDir & "\logs\" & $sender_mobile  & "_" & $year & $month & $day & ".log"
 		$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
 		;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 

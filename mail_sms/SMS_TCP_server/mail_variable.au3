@@ -81,7 +81,58 @@ $ssl = 1 ; GMAILenables/disables secure socket layer sending - put to 1 if using
 ;
 ;
 
-
+Func _INetSmtpMailCom_utf8($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject = "", $as_Body = "", $s_AttachFiles = "", $s_CcAddress = "", $s_BccAddress = "", $s_Username = "", $s_Password = "", $IPPort = 25, $ssl = 0)
+	$objEmail = ObjCreate("CDO.Message")
+	$objEmail.From = '"' & $s_FromName & '" <' & $s_FromAddress & '>'
+	$objEmail.To = $s_ToAddress
+	Local $i_Error = 0
+	Local $i_Error_desciption = ""
+	If $s_CcAddress <> "" Then $objEmail.Cc = $s_CcAddress
+	If $s_BccAddress <> "" Then $objEmail.Bcc = $s_BccAddress
+	$objEmail.Subject = $s_Subject
+	If StringInStr($as_Body, "<") And StringInStr($as_Body, ">") Then
+		;$objEmail.HTMLBodyPart.Charset="utf8";
+		;$objEmail.BodyPart.Charset="utf-8";
+		$objEmail.HTMLBody = $as_Body
+	Else
+		;$objEmail.bodyPart.Charset="utf8";
+		$objEmail.Textbody = $as_Body & @CRLF
+	EndIf
+	If $s_AttachFiles <> "" Then
+		Local $S_Files2Attach = StringSplit($s_AttachFiles, ";")
+		For $x = 1 To $S_Files2Attach[0]
+			$S_Files2Attach[$x] = _PathFull($S_Files2Attach[$x])
+			If FileExists($S_Files2Attach[$x]) Then
+				$objEmail.AddAttachment($S_Files2Attach[$x])
+			Else
+				$i_Error_desciption = $i_Error_desciption & @LF & 'File not found to attach: ' & $S_Files2Attach[$x]
+				SetError(1)
+				Return 0
+			EndIf
+		Next
+	EndIf
+	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
+	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = $s_SmtpServer
+	$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = $IPPort
+	;Authenticated SMTP
+	If $s_Username <> "" Then
+		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 0
+		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendusername") = $s_Username
+		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = $s_Password
+	EndIf
+	If $ssl Then
+		$objEmail.Configuration.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = False
+	EndIf
+	;Update settings
+	$objEmail.BodyPart.Charset = "utf-8";
+	$objEmail.Configuration.Fields.Update
+	; Sent the Message
+	$objEmail.Send
+	If @error Then
+		SetError(2)
+		Return $oMyRet[1]
+	EndIf
+EndFunc   ;==>_INetSmtpMailCom
 
 
 

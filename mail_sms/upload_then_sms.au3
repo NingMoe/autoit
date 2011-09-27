@@ -63,7 +63,7 @@ Dim $aBytesRead = @extended
 $version = StringLeft(BinaryToString($aData), 3)
 
 If $aBytesRead = 0 Or $version = "000" Then
-	MsgBox(0, "錯誤", "這個程式己經失效了，" & @CRLF & "請重新下載。")
+	MsgBox(0, "錯誤", "這個程式己經失效了，" & @CRLF & "謝謝支持。")
 	Exit
 EndIf
 
@@ -118,14 +118,16 @@ If Not FileExists(@UserProfileDir & "\" & $astronomy) Then
 
 	EndIf
 EndIf
-
+;
 If FileExists(@UserProfileDir & "\" & $astronomy) Then
 	Local $pass
 	Local $line1 = FileReadLine(@UserProfileDir & "\" & $astronomy, 1)
 	If $version <> StringLeft($line1, 3) Then
 		;FileMove(@ScriptDir&"\mail_sms.exe")
-		InetGet("http://ivan:9ps5678@202.133.232.82:8080/upload/upload_then_sms.exe", @ScriptDir & "\upload_then_sms_1.exe", 1)
-		MsgBox(0, "警告", "這個程式己經過期了，" & @CRLF & "請儘速重新下載。")
+		InetGet("http://ivan:9ps5678@202.133.232.82:8080/upload/upload_then_sms.exe", @ScriptDir & "\upload_then_sms_new.exe", 1)
+		MsgBox(0, "警告", "這個程式己經過期了，" & @CRLF & "已下載新檔案 upload_then_sms_new.exe")
+		if FileExists (@ScriptDir & "\upload_then_sms_new.exe") then run ( @ScriptDir & "\file_rename.bat")
+		Exit
 	EndIf
 	$os_partial = _get_os_partial()
 	If StringTrimLeft($line1, 4) <> $os_partial Then
@@ -274,8 +276,8 @@ EndIf
 
 ;
 ;  TCP connection
-;Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
-Global $hClientSoc = _TCP_Client_Create("127.0.0.1", 88); Create the client. Which will connect to the local ip address on port 88
+Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
+;Global $hClientSoc = _TCP_Client_Create("127.0.0.1", 88); Create the client. Which will connect to the local ip address on port 88
 Global $connected=0
 Global $pointika=0
 dim $writefile
@@ -319,9 +321,8 @@ EndIf
 Exit
 ;; 
 ;; Not use now
-if 1 then ;
+;if 1 then ;
 	
-
 ; FTP connection
 ;Global $ftp_upload=1
 ;_ftp_upload_name_text( $SMS_text_file, $name_list) ; file to upload, use file name only.
@@ -333,11 +334,11 @@ if 1 then ;
 
 
 
-Exit
-Endif 
+;Exit
+;Endif 
 
 
-Func _SelectFileGUI()
+Func _SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
 
 	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
 	local $send_date
@@ -589,6 +590,7 @@ Func _get_os_partial()
 	;MsgBox(0,"Info", $OSs_partial)
 	Return (StringStripWS($OSs_partial, 8))
 EndFunc   ;==>_get_os_partial
+;
 Func _ErrorMsg($message, $time = 0)
 	MsgBox(48 + 262144, "Error!", $message, $time)
 EndFunc   ;==>_ErrorMsg
