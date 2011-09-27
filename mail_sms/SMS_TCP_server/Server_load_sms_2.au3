@@ -57,7 +57,9 @@ while 1
 	if  $SMS_Feed_List[0] > 0 then 
 		$now_DateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
 		;MsgBox(0,"EPOCH", $now_DateCalc,3)
+		ToolTip("Load_to_sms. Next load: "& ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) & " Sec ",800,700 )
 		if  ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) < -120 Then
+			FileMove ($SMS_file,@ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms.omit")
 			_ArrayDelete ($SMS_Feed_List,1)
 			$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
 		EndIf
@@ -75,7 +77,7 @@ while 1
 				$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
 			EndIf	
 		EndIf
-		
+		ToolTip("")
 	EndIf
 	sleep(333)
 WEnd
