@@ -4,6 +4,7 @@
 ; Once receive the upload , Send a text SMS to user. And then a mail.  Done
 ; After send all the SMS, Send a mail for the bill. and a SMS for notice.  Done
 ; After send mail , remove the Epoch.sms files. 
+; Need to test array delete feature at line 50
 #include <array.au3>
 #include <File.au3>
 #include <Date.au3>
@@ -23,7 +24,7 @@ Dim $hour = @HOUR
 Dim $day = @MDAY
 Dim $month = @MON
 Dim $year = @YEAR
-
+dim $array_component_to_hunt, $is_delete_feed=0
 Global $test_mode ;, $current_time
 Global $SMS_Feed_FileTime=0
 Global $SMS_Feed_List_PreProcess , $SMS_Feed_List[1]
@@ -34,7 +35,7 @@ $test_mode = _TEST_MODE()
 if $test_mode then _Gen_Test_Data()
 if not FileExists (@ScriptDir & "\sms_feed") then MsgBox(0, "Warning", "No test data Generated!")
 ;MsgBox(0,"Wait", "Wait for check")
-
+;
 while 1
 	if FileExists (@ScriptDir &"\sms_feed") then 
 		;$now_DateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
@@ -45,8 +46,17 @@ while 1
 		EndIf
 		_ArrayDelete($SMS_Feed_List_PreProcess,0 )
 		;_ArrayDisplay ($SMS_Feed_List_PreProcess)
+		$is_delete_feed=_check_sender_SMS_detail ($SMS_Feed_List_PreProcess)
+		if not $is_delete_feed then 
 		_make_sender_SMS_detail($SMS_Feed_List_PreProcess) ;; Think this is only one-dimention array, and with one record only.
-		
+		else 
+			$array_component_to_hunt =_ArraySearch($SMS_Feed_List,$SMS_Feed_List_PreProcess[1],1,$SMS_Feed_List[0],1) 
+			if  $array_component_to_hunt >=1 then 
+				_ArrayDelete($SMS_Feed_List, $array_component_to_hunt )
+				$SMS_Feed_List[0]-=1
+			EndIf
+				_ArrayDisplay ($SMS_Feed_List)
+		EndIf
 	EndIf	
 	if  IsArray( $SMS_Feed_List_PreProcess ) then 
 		_ArrayConcatenate ( $SMS_Feed_List , $SMS_Feed_List_PreProcess )
@@ -54,6 +64,8 @@ while 1
 		_ArraySort ($SMS_Feed_List,0,1)
 		$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
 		;_ArrayDisplay ($SMS_Feed_List)
+	else 
+		$SMS_Feed_List_PreProcess=''	
 	EndIf
 	
 	if  $SMS_Feed_List[0] > 0 then 
@@ -73,8 +85,10 @@ while 1
 				$SMS_file = @ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms" 
 				;MsgBox (0,"SMS file: ",$SMS_file)
 				ToolTip("Now Send SendSMS file: " & $SMS_file ,800,700)
-				$SMS_detail= _SMS_detail($SMS_file,1,5)
-				$Name_list= _newFile2Array($SMS_file,2, ",", 6) 
+				$SMS_detail= _SMS_detail($SMS_file,1,5)			  ; 	
+				$Name_list= _newFile2Array($SMS_file,2, ",", 6)   ;  _newFile2Array($PathnFile, $aColume, $delimiters, $Start_line)
+				
+				
 				_ProcessSendMail_to_SMS($Name_list ,$SMS_detail ,0)
 				FileMove ($SMS_file,@ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms.out")
 				_ArrayDelete ($SMS_Feed_List,1)
@@ -92,6 +106,21 @@ WEnd
 ;;_ArrayDisplay ( $Name_list )
 exit
 
+Func _check_sender_SMS_detail ($sender_sms_feed)
+	local $SMS_file_senders, $SMS_detail_senders , $Name_list_senders[1][2] , $sender  , $delete_feed=0
+	
+				$SMS_file_senders = @ScriptDir & "\" &  StringTrimLeft ($sender_sms_feed[0], StringInStr ( $sender_sms_feed[0],"," ) ) & "\" & StringLeft ($sender_sms_feed[0], StringInStr ( $sender_sms_feed[0],"," )-1 ) &".sms" 
+				if not FileExists ($SMS_file_senders) then  
+					;MsgBox (0,"SMS file: ", "File is not exist :" & @CRLF &$SMS_file_senders,3)	; 需要再處理一下 error handeling.
+					_FileWriteLog(@ScriptDir & "\logs\" & StringTrimRight(@ScriptName,4) & "_" & $year & $month & $day & ".log", " File is not exist : " & $SMS_file_senders )
+				EndIf
+				$SMS_detail_senders= _SMS_detail($SMS_file_senders,1,6)  ; 取得要發出的簡訊內容
+			if $SMS_detail_senders[5]='' and $SMS_detail_senders[6]='' then
+				$delete_mode=1
+			EndIf		
+return $delete_feed
+EndFunc
+
 Func _make_sender_SMS_detail($sender_sms_feed)
 	local $SMS_file_senders, $SMS_detail_senders , $Name_list_senders[1][2] , $sender  
 	
@@ -101,6 +130,8 @@ Func _make_sender_SMS_detail($sender_sms_feed)
 					_FileWriteLog(@ScriptDir & "\logs\" & StringTrimRight(@ScriptName,4) & "_" & $year & $month & $day & ".log", " File is not exist : " & $SMS_file_senders )
 				EndIf
 				$SMS_detail_senders= _SMS_detail($SMS_file_senders,1,5)  ; 取得要發出的簡訊內容
+	
+					
 				;_ArrayDisplay($SMS_detail_senders)
 				$sender= StringSplit("使用者,"&$SMS_detail_senders[4],"," )
 				$Name_list_senders[0][0]= $sender[1]
@@ -111,14 +142,17 @@ Func _make_sender_SMS_detail($sender_sms_feed)
 				_ProcessSendMail_to_SMS($Name_list_senders , $SMS_detail_senders , 1)
 EndFunc
 
+
+
 Func _ProcessSendMail_to_SMS($name_list_array_parameter, $SMS_detail_parameter, $sender_feedback)  ;$name_list_array_parameter 是二維的 array  $SMS_detail_parameter 是一維的 Array.
 	$m_BccAddress=""
-	local $message , $sender_email_address , $sender_mobile
+	local $message , $sender_email_address , $sender_mobile, $name_list_title
 	
 	$name_list_array =$name_list_array_parameter   ; $name_list_array第一欄是名字，第二欄是電話
 	$sender_email_address = $SMS_detail_parameter[3]
 	$sender_mobile = $SMS_detail_parameter[4]
 	$message = $SMS_detail_parameter[5]
+	$name_list_title = $SMS_detail_parameter[6]
 	if not FileExists(@ScriptDir&"\logs") then FileOpen(@ScriptDir&"\logs",10)
 For $r = 0 To (UBound($name_list_array, 1) - 1)
 	
