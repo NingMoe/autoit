@@ -10,6 +10,8 @@
 #include <FTPEx.au3>
 #include <mail_variable.au3>
 
+
+;Opt('MustDeclareVars', 1)
 ;; 這是為了發送簡訊的程式，主要是為了民權國小而改的
 ;; 1. 要有預設的文字檔案，發送對象檔案
 ;; 2. 要有預約發出的能力
@@ -50,7 +52,7 @@ Dim $os_partial ;, $email1 , $email2
 Global $version , $user_name
 Global $User_Mobile , $User_Email 
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
-
+global $sms_delete=""
 
 
 ;; 這段是為了開放下傳與否而寫的； 如果這個檔案在伺服器上不在了或是版本不對了，則不執行了
@@ -159,10 +161,12 @@ If FileExists(@UserProfileDir & "\" & $astronomy) Then
 	$User_Email =$line3
 	
 EndIf
-
-
+;
+;_sms_maintain()
+;MsgBox (0,"temp and check ", "Pause here for a while. SMS to delete " & _sms_maintain())
+;MsgBox (0,"temp and check ", "Pause here for a while. SMS to delete " & $sms_delete)
 _SelectFileGUI()
-
+;MsgBox(0,"sms delete 1", $sms_delete)
 
 ;MsgBox(0,"File Selector result", "SMS Text: " & $SMS_text_file &@CRLF & _
 ;								 "Name List: "& $name_list & @CRLF & _
@@ -181,10 +185,10 @@ Dim $mobile_colume=""
 
 Dim $Show_name_phone = ""
 Dim $button_return = 0
+Dim $message = ""
 
 
-
-If FileExists($name_list) Then
+If FileExists($name_list) and $sms_delete= "" Then
 	;$file=FileOpen(@ScriptDir&"\"&$name_list)
 	$name_list_array = _file2Array($name_list, 4, ",")
 	For $x = 0 To 3
@@ -230,8 +234,8 @@ EndIf
 
 
 
-If FileExists($SMS_text_file) Then
-	Dim $message = ""
+If FileExists($SMS_text_file) and $sms_delete="" Then
+	;$message = ""
 	Dim $a_SMS_text_file
 	If Not _FileReadToArray($SMS_text_file, $a_SMS_text_file) Then
 		MsgBox(4096, "Error", " Error reading log to Array     error:" & @error)
@@ -257,7 +261,13 @@ If FileExists($SMS_text_file) Then
 EndIf
 
 
-
+if $sms_delete<> "" then
+	$message=""
+	$name_list_array_2string=""
+	$SMS_send_date=$sms_delete
+	;MsgBox(0,"sms send date", $SMS_send_date)
+EndIf
+	
 ;MsgBox(0,"Time format 5", $SMS_send_date & "   " & $SMS_send_date_EPOCH)
 ;for 
 ;;_ArrayDisplay($a_SMS_text_file)
@@ -291,6 +301,8 @@ if $connected=1 then
 sleep(500)	
 	$SMS_send_date_EPOCH=_EPOCH( $SMS_send_date)
 	$SMS_send_date = StringReplace( StringReplace( $SMS_send_date ,"/","") ,":", "" )
+	ConsoleWrite ( @CRLF&$SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string)
+	MsgBox(0,"TCP send message", $SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string) 
 _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string) )
 ;_TCP_send($hClientSoc ,  _StringToHex ("|*|"& $SMS_send_date_EPOCH& @CRLF & $user_name & @CRLF  &$message& @CRLF &$name_list_array_2string) )
 
@@ -339,11 +351,17 @@ Exit
 
 
 Func _SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
-
+	local $open_default
 	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
-	local $send_date
-
-	GUICreate("輸入檔案", 320, 220, @DesktopWidth / 3 - 320, @DesktopHeight / 3 - 240, -1, 0x00000018); WS_EX_ACCEPTFILES
+	local $send_date , $sms_to_delete
+	$open_default=_Open_default()
+	if $open_default=1 then 
+		run ("notepad.exe " & @ScriptDir & "\SMS_text.txt" )
+		run ("notepad.exe " & @ScriptDir & "\SMS_name_list.csv")
+	
+	EndIf
+		
+	GUICreate(" 新簡訊輸入檔案 ", 320, 220, @DesktopWidth / 3 - 320, @DesktopHeight / 3 - 240, -1, 0x00000018); WS_EX_ACCEPTFILES
 	GUICtrlCreateLabel("1.拖放簡訊內容檔案到這個框，預設為 SMS_text.txt", 10, 10, 300, 40)
 	$file_txt = GUICtrlCreateInput("", 10, 25, 300, 30)
 	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
@@ -356,8 +374,8 @@ Func _SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
 	$send_date = GUICtrlCreateInput("", 10, 155, 300, 30)
 	GUICtrlSetState(-1, $GUI_FOCUS)
 	;GUICtrlCreateInput("", 10, 35, 300, 20) 	; will not accept drag&drop files
-	$btn = GUICtrlCreateButton("OK", 90, 190, 60, 20, 0x0001) ; Default button
-	$btn_n = GUICtrlCreateButton("Exit", 160, 190, 60, 20)
+	$btn = GUICtrlCreateButton("是", 90, 190, 60, 20, 0x0001) ; Default button
+	$btn_n = GUICtrlCreateButton("否", 160, 190, 60, 20)
 	GUISetState()
 
 	;$msg = 0
@@ -371,6 +389,10 @@ Func _SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
 
 		$msg = GUIGetMsg()
 		Select
+			Case $msg = $GUI_EVENT_CLOSE
+                ;MsgBox(0, "", "Dialog was closed")
+                Exit
+
 			Case $msg = $btn
 				If Not (GUICtrlRead($file_txt) = "" And GUICtrlRead($file_csv) = "") Then
 					;MsgBox(4096, "drag drop file", GUICtrlRead($file_txt) & "  " & GUICtrlRead($file_csv))
@@ -408,7 +430,13 @@ Func _SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
 				;
 				ExitLoop
 			Case $msg = $btn_n
-				Exit
+				_sms_maintain()
+				;MsgBox(0,"Check in GUI select 2", $sms_delete)
+				$SMS_text_file = ""
+				$name_list = ""
+				ExitLoop
+				;Exit
+
 		EndSelect
 	WEnd
 
@@ -450,8 +478,6 @@ $iDateCalc = _DateDiff( 's',"1970/01/01 00:00:00",$DateToCalc ) ;_NowCalc())
 ;MsgBox( 4096, "_EPOCH Func", "EPOCH Time to send : " & $iDateCalc  & @CRLF  & "time lap to Current : " & ($iDateCalc - _DateDiff( 's',"1970/01/01 00:00:00", _NowCalc()) ) )
 return $iDateCalc
 EndFunc
-
-
 
 
 Func _BasicInfoGUI($very_first_pass)
@@ -522,11 +548,6 @@ return (  $return_info  )
 EndFunc   ;==>_BasicInfoGUI
 
 
-
-
-
-
-
 ;; Two dimension array
 Func _file2Array($PathnFile, $aColume, $delimiters)
 
@@ -561,7 +582,6 @@ Func _file2Array($PathnFile, $aColume, $delimiters)
 EndFunc   ;==>_file2Array
 
 
-
 Func _get_os_partial()
 	Dim $OSs
 	_ComputerGetOSs($OSs)
@@ -591,6 +611,7 @@ Func _get_os_partial()
 	Return (StringStripWS($OSs_partial, 8))
 EndFunc   ;==>_get_os_partial
 ;
+
 Func _ErrorMsg($message, $time = 0)
 	MsgBox(48 + 262144, "Error!", $message, $time)
 EndFunc   ;==>_ErrorMsg
@@ -611,7 +632,7 @@ Func _TEST_MODE()
 			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
 
 			$mode = 0
-			MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
+			MsgBox(0, "Active mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
 			;if $ans="n" or $ans="N" or @error=1 then exit
 		EndIf
 
@@ -620,7 +641,7 @@ Func _TEST_MODE()
 		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
 
 		$mode = 0
-		MsgBox(0, "Test mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
+		MsgBox(0, "Active mode", "正式模式" & @CRLF & "Order 備份檔案會寄送到所屬主人的信箱 ", 5)
 		;if $ans="n" or $ans="N" or @error=1 then exit
 
 	EndIf
@@ -630,8 +651,36 @@ EndFunc   ;==>_TEST_MODE
 ;
 ;
 
+Func _Open_default()
 
-;
+	If FileExists(@ScriptDir & "\open_default.txt") Then
+		$mode = FileReadLine(@ScriptDir & "\open_default.txt", 1)
+		If $mode = 1 Then
+			MsgBox(0, "Open Default", " 開啟檔案模式" , 5)
+
+		Else
+			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+
+			$mode = 0
+			MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
+			;if $ans="n" or $ans="N" or @error=1 then exit
+		EndIf
+
+	Else
+		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+
+		$mode = 0
+		MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
+		;if $ans="n" or $ans="N" or @error=1 then exit
+
+	EndIf
+
+	Return $mode
+EndFunc   ;==>_TEST_MODE
+
+
 func _ftp_upload_name_text( $text_2_upload, $name_2_upload )
 	$ftp_upload=0
 if $ftp_upload=1 then
@@ -692,3 +741,85 @@ $Ftpc = _FTP_Close($Open)
 
 EndIf
 EndFunc
+
+
+
+Func _sms_maintain()
+	Local $now_DateCalc_Epoch
+	local $sms_list ,$sms_to_delete
+	$now_DateCalc_Epoch = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
+	$sms_list= _FileListToArray( @ScriptDir & "\" & $user_name & "\", "*.sms" , 0)
+	_ArraySort( $sms_list,0,1 )
+	for $r=1 to UBound ($sms_list)-1 
+		if ( $now_DateCalc_Epoch - StringTrimRight( $sms_list[1] ,4) ) > 60 then 
+		 _ArrayDelete ($sms_list , 1)
+		 $sms_list[0] = $sms_list[0]-1
+			if $sms_list[0]=0 then 
+			 MsgBox (0, "Warning", "沒有待發的簡訊。")
+			 Exit
+			EndIf
+		EndIf
+	next	
+	;_ArrayDisplay ( $sms_list)
+	$sms_to_delete=_Array_select ($sms_list)
+	;Return $sms_to_delete
+	;Exit
+EndFunc
+;
+Func _Array_select($array)
+	
+	;Local $now_DateCalc_Epoch
+	;$now_DateCalc_Epoch = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
+
+	Local $menu1, $n1, $n2, $n3, $msg, $menustate, $menutext , $r ,$temp_file ,$sms_to_delete , $Filename
+	$sms_to_delete=""
+	GUICreate("刪除待發簡訊: 選取預計發出簡訊的時間 ") ; will create a dialog box that when displayed is centered
+
+	;$menu1 = GUICtrlCreateMenu("File")
+	;$sNewDate = _DateAdd( 's',1087497645, "1970/01/01 00:00:00")
+	$n1 = GUICtrlCreateList("刪除待發簡訊: 選取預計發出簡訊的時間 ", 10, 10, -1, 250)
+	for $r=1 to $array[0]
+		$menu1 = $menu1 &"|"&  _DateAdd( "s",StringTrimRight( $array[$r] ,4) , "1970/01/01 00:00:00" )
+	next
+		GUICtrlSetData(-1, $menu1)
+	
+	
+	$n2 = GUICtrlCreateButton("Read", 10, 270, 70)
+	GUICtrlSetState(-1, $GUI_FOCUS) ; the focus is on this button
+	$n3 = GUICtrlCreateButton("Delete", 100, 270, 70)
+
+	GUISetState() ; will display an empty dialog box
+	; Run the GUI until the dialog is closed
+	Do
+		$msg = GUIGetMsg()
+		If $msg = $n2 Then
+			;MsgBox(0, "Selected listbox entry",  GUICtrlRead($n1) ) ; display the selected listbox entry
+			;$menustate = GUICtrlRead($menu1) ; return the state of the menu item
+			;$menutext = GUICtrlRead($menu1, 1) ; return the text of the menu item
+			;MsgBox(0, "State and text of the menuitem", "state:" & $menustate & @LF & "text:" & $menutext)
+			$Filename= _EPOCH( GUICtrlRead($n1) ) & ".sms"
+			;MsgBox(0, "Selected listbox entry", @ScriptDir &"\"&$user_name& "\" & $Filename )
+			run( "notepad.exe " &  @ScriptDir &"\"&$user_name& "\" & $Filename)
+		EndIf
+		
+		if $msg = $n3 then 
+			
+			$Filename= _EPOCH( GUICtrlRead($n1) ) & ".sms"
+			$sms_to_delete = FileReadLine(  @ScriptDir &"\"&$user_name& "\" & $Filename ,1)
+			;MsgBox(0,"sms to delete" , GUICtrlRead($n1) & @CRLF& stringleft ($sms_to_delete , 10) )
+			$sms_delete= GUICtrlRead($n1) ;& " <> " &$Filename
+			
+			;$temp_file=fileopen( @ScriptDir &"\"&$user_name& "\" & $Filename ,10)
+			;FileWriteLine($temp_file , stringleft ($sms_to_delete , 13))
+			;fileclose($temp_file)
+			exitloop
+		EndIf
+	
+	Until $msg = $GUI_EVENT_CLOSE
+GUIDelete();
+;MsgBox(0,"SMS to Delete in Func", @ScriptDir &"\"&$user_name& "\" & $Filename)
+if $sms_to_delete='' then Exit
+;return    &$Filename
+;MsgBox(0,"SMS to Delete in Func", $sms_delete )
+
+EndFunc   ;==>Example
