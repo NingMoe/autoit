@@ -29,13 +29,32 @@ Global $test_mode ;, $current_time
 Global $SMS_Feed_FileTime=0
 Global $SMS_Feed_List_PreProcess , $SMS_Feed_List[1]
 Global $now_DateCalc
+
+Dim $read_from_feed_text
 $SMS_Feed_List[0]=0
 
 $test_mode = _TEST_MODE()
-if $test_mode then _Gen_Test_Data()
-if not FileExists (@ScriptDir & "\sms_feed") then MsgBox(0, "Warning", "No test data Generated!")
+if $test_mode then 
+_Gen_Test_Data()
+if not FileExists (@ScriptDir & "\sms_feed") then MsgBox(0, "Warning", "No test data Generated!" ,5)
+EndIf
 ;MsgBox(0,"Wait", "Wait for check")
 ;
+
+$read_from_feed_text= _read_feed_text(@ScriptDir & "\feed_text.txt")
+if IsArray($read_from_feed_text) then 
+	;_ArrayDisplay ($read_from_feed_text)
+	_ArrayDelete($read_from_feed_text , 0)
+	_ArrayConcatenate ( $SMS_Feed_List ,$read_from_feed_text )
+		;$SMS_Feed_List_PreProcess=''
+		_ArraySort ($SMS_Feed_List,0,1)
+		$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
+	;_ArrayDisplay($SMS_Feed_List, "First read from feed_text.txt")
+Else
+	MsgBox(0,"No feed_text.txt file to read", "No file at " & @ScriptDir & "\feed_text.txt" , 5)
+EndIf	
+	
+
 while 1
 	if FileExists (@ScriptDir &"\sms_feed") then 
 		;$now_DateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
@@ -45,7 +64,7 @@ while 1
 			$SMS_Feed_FileTime = FileGetTime (@ScriptDir &"\sms_feed",0,1)
 		EndIf
 		_ArrayDelete($SMS_Feed_List_PreProcess,0 )
-		_ArrayDisplay ($SMS_Feed_List_PreProcess)
+		;_ArrayDisplay ($SMS_Feed_List_PreProcess)
 		$is_delete_feed=_check_sender_SMS_detail ($SMS_Feed_List_PreProcess)
 		if not $is_delete_feed then 
 		_make_sender_SMS_detail($SMS_Feed_List_PreProcess) ;; Think this is only one-dimention array, and with one record only.
@@ -54,8 +73,9 @@ while 1
 			if  $array_component_to_hunt >=1 then 
 				_ArrayDelete($SMS_Feed_List, $array_component_to_hunt )
 				$SMS_Feed_List[0]-=1
+				$SMS_Feed_List_PreProcess=''
 			EndIf
-				_ArrayDisplay ($SMS_Feed_List)
+				;_ArrayDisplay ($SMS_Feed_List,"After delete_feed action")
 		EndIf
 	EndIf	
 	if  IsArray( $SMS_Feed_List_PreProcess ) then 
@@ -64,6 +84,7 @@ while 1
 		_ArraySort ($SMS_Feed_List,0,1)
 		$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
 		;_ArrayDisplay ($SMS_Feed_List)
+		_write_feed_text($SMS_Feed_List)
 	else 
 		$SMS_Feed_List_PreProcess=''	
 	EndIf
@@ -71,12 +92,14 @@ while 1
 	if  $SMS_Feed_List[0] > 0 then 
 		$now_DateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
 		;MsgBox(0,"EPOCH", $now_DateCalc,3)
-		ToolTip("Load_to_sms. Next load: "& ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) & " Sec ",300,700 )
+		_ArrayDisplay ($SMS_Feed_List)
+		ToolTip("Load_to_sms. Next load: "& ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) & " Sec " &@CRLF & $SMS_Feed_List[1],300,700 )
 		;MsgBox(0,"Time lap ", ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) )
 		if  ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) < -120 Then
 			FileMove ($SMS_file,@ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms.omit")
 			_ArrayDelete ($SMS_Feed_List,1)
 			$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
+			_write_feed_text($SMS_Feed_List)
 		EndIf
 		
 		if UBound($SMS_Feed_List )>1	then 
@@ -94,11 +117,14 @@ while 1
 				FileMove ($SMS_file,@ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms.out")
 				_ArrayDelete ($SMS_Feed_List,1)
 				$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
+				_write_feed_text($SMS_Feed_List)
 			EndIf	
 		EndIf
+		
 		sleep(1333)
 		ToolTip("")
 	EndIf
+	if $SMS_Feed_List[0]=0 then MsgBox(0,"Warning", "No sms_feed now" , 3)
 	sleep(333)
 	;_ArrayDisplay ($SMS_Feed_List)
 WEnd
@@ -108,6 +134,37 @@ WEnd
 ;;_ArrayDisplay ( $SMS_detail)
 ;;_ArrayDisplay ( $Name_list )
 exit
+
+Func _write_feed_text($write_array)
+	local $file , $r 
+	if isarray( $write_array) then 
+		$file = FileOpen(@ScriptDir & "\feed_text.txt",10)
+		for $r =1 to $write_array[0]
+			FileWriteLine($file, $write_array[$r])
+		Next	
+		FileClose ($file)
+	EndIf
+EndFunc
+
+Func _read_feed_text($PathnFile)
+	local $aRecords , $r ,$file
+	if FileExists ($PathnFile) then 
+		If Not _FileReadToArray($PathnFile, $aRecords) Then
+			MsgBox(4096, "Error on _feed_text() function", " Error reading file '" & $PathnFile & "' to Array   error:" & @error, 10)
+			;Exit
+		EndIf
+		;_ArrayDisplay($aRecords)
+		for $r = UBound($aRecords)-1 to 1 step -1
+			$file = @ScriptDir & "\" &  StringTrimLeft ($aRecords[$r], StringInStr ( $aRecords[$r],"," ) ) & "\" & StringLeft ($aRecords[$r], StringInStr ( $aRecords[$r],"," )-1 ) &".sms" 
+			if not FileExists($file) then 
+				_ArrayDelete( $aRecords, $r )
+				$aRecords[0]= $aRecords[0]-1
+			EndIf
+		Next
+	EndIf
+	;_ArrayDisplay($aRecords)
+return $aRecords
+EndFunc
 
 Func _check_sender_SMS_detail ($sender_sms_feed)
 	local $SMS_file_senders, $SMS_detail_senders , $Name_list_senders[1][2] , $sender  , $delete_feed=0
@@ -120,6 +177,7 @@ Func _check_sender_SMS_detail ($sender_sms_feed)
 				$SMS_detail_senders= _SMS_detail($SMS_file_senders,1,6)  ; 取得要發出的簡訊內容
 				_ArrayDisplay($SMS_detail)
 			if $SMS_detail_senders[5]=''  then
+				filemove( $SMS_file_senders , $SMS_file_senders &".SenderOmitted ")
 				$delete_feed=1
 			EndIf		
 return $delete_feed
