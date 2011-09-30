@@ -45,12 +45,12 @@ while 1
 			$SMS_Feed_FileTime = FileGetTime (@ScriptDir &"\sms_feed",0,1)
 		EndIf
 		_ArrayDelete($SMS_Feed_List_PreProcess,0 )
-		;_ArrayDisplay ($SMS_Feed_List_PreProcess)
+		_ArrayDisplay ($SMS_Feed_List_PreProcess)
 		$is_delete_feed=_check_sender_SMS_detail ($SMS_Feed_List_PreProcess)
 		if not $is_delete_feed then 
 		_make_sender_SMS_detail($SMS_Feed_List_PreProcess) ;; Think this is only one-dimention array, and with one record only.
 		else 
-			$array_component_to_hunt =_ArraySearch($SMS_Feed_List,$SMS_Feed_List_PreProcess[1],1,$SMS_Feed_List[0],1) 
+			$array_component_to_hunt =_ArraySearch($SMS_Feed_List,$SMS_Feed_List_PreProcess[0],1,$SMS_Feed_List[0],1) 
 			if  $array_component_to_hunt >=1 then 
 				_ArrayDelete($SMS_Feed_List, $array_component_to_hunt )
 				$SMS_Feed_List[0]-=1
@@ -71,7 +71,8 @@ while 1
 	if  $SMS_Feed_List[0] > 0 then 
 		$now_DateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
 		;MsgBox(0,"EPOCH", $now_DateCalc,3)
-		ToolTip("Load_to_sms. Next load: "& ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) & " Sec ",800,700 )
+		ToolTip("Load_to_sms. Next load: "& ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) & " Sec ",300,700 )
+		;MsgBox(0,"Time lap ", ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) )
 		if  ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) < -120 Then
 			FileMove ($SMS_file,@ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms.omit")
 			_ArrayDelete ($SMS_Feed_List,1)
@@ -79,12 +80,12 @@ while 1
 		EndIf
 		
 		if UBound($SMS_Feed_List )>1	then 
-			if ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) >= -120  or ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) < 300 Then
-				ToolTip("Now and SendSMS time diff: " &  StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc ,800,700)
+			if ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) >= -120  and ( StringLeft ( $SMS_Feed_List[1] ,10 ) - $now_DateCalc ) < 300 Then
+				ToolTip("Now and SendSMS time diff: " &  StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc ,300,700)
 				;MsgBox(0, "Now and SendSMS time diff: " & $now_DateCalc , (   StringLeft ( $SMS_Feed_List[1] ,10 ) -$now_DateCalc  )  ,5)
 				$SMS_file = @ScriptDir & "\" &  StringTrimLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," ) ) & "\" & StringLeft ($SMS_Feed_List[1], StringInStr ( $SMS_Feed_List[1],"," )-1 ) &".sms" 
 				;MsgBox (0,"SMS file: ",$SMS_file)
-				ToolTip("Now Send SendSMS file: " & $SMS_file ,800,700)
+				ToolTip("Now Send SendSMS file: " & $SMS_file ,300,700)
 				$SMS_detail= _SMS_detail($SMS_file,1,5)			  ; 	
 				$Name_list= _newFile2Array($SMS_file,2, ",", 6)   ;  _newFile2Array($PathnFile, $aColume, $delimiters, $Start_line)
 				
@@ -95,9 +96,11 @@ while 1
 				$SMS_Feed_List[0]= UBound ($SMS_Feed_List)-1
 			EndIf	
 		EndIf
+		sleep(1333)
 		ToolTip("")
 	EndIf
 	sleep(333)
+	;_ArrayDisplay ($SMS_Feed_List)
 WEnd
 
 ;$SMS_detail= _SMS_detail($SMS_file,1,5)
@@ -115,8 +118,9 @@ Func _check_sender_SMS_detail ($sender_sms_feed)
 					_FileWriteLog(@ScriptDir & "\logs\" & StringTrimRight(@ScriptName,4) & "_" & $year & $month & $day & ".log", " File is not exist : " & $SMS_file_senders )
 				EndIf
 				$SMS_detail_senders= _SMS_detail($SMS_file_senders,1,6)  ; 取得要發出的簡訊內容
-			if $SMS_detail_senders[5]='' and $SMS_detail_senders[6]='' then
-				$delete_mode=1
+				_ArrayDisplay($SMS_detail)
+			if $SMS_detail_senders[5]=''  then
+				$delete_feed=1
 			EndIf		
 return $delete_feed
 EndFunc
@@ -152,8 +156,8 @@ Func _ProcessSendMail_to_SMS($name_list_array_parameter, $SMS_detail_parameter, 
 	$sender_email_address = $SMS_detail_parameter[3]
 	$sender_mobile = $SMS_detail_parameter[4]
 	$message = $SMS_detail_parameter[5]
-	$name_list_title = $SMS_detail_parameter[6]
-	if not FileExists(@ScriptDir&"\logs") then FileOpen(@ScriptDir&"\logs",10)
+	;$name_list_title = $SMS_detail_parameter[6]
+	if not FileExists(@ScriptDir&"\logs\") then FileOpen(@ScriptDir&"\logs\",10)
 For $r = 0 To (UBound($name_list_array, 1) - 1)
 	
 	;$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
@@ -176,8 +180,8 @@ For $r = 0 To (UBound($name_list_array, 1) - 1)
 		;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 
 	Else	
-	;MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
-	$rc = _INetSmtpMailCom_utf8($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+	MsgBox(0, "mail parameter", $s_SmtpServer & " / " & $s_FromName & " / " & $s_FromAddress & " / " & $s_ToAddress & " / " & $s_Subject & " / " & $as_Body & " / " & $s_AttachFiles & " / " & $s_CcAddress & " / " & $s_BccAddress & " / " & $s_Username & " / " & $s_Password & " / " & $s_IPPort & " / " & $s_ssl)
+	;$rc = _INetSmtpMailCom_utf8($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	EndIf
 	;### This is mail Test
 	;$s_ToAddress="bryant@dynalab.com.tw"

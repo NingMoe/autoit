@@ -286,8 +286,8 @@ EndIf
 
 ;
 ;  TCP connection
-Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
-;Global $hClientSoc = _TCP_Client_Create("127.0.0.1", 88); Create the client. Which will connect to the local ip address on port 88
+;Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
+Global $hClientSoc = _TCP_Client_Create("127.0.0.1", 88); Create the client. Which will connect to the local ip address on port 88
 Global $connected=0
 Global $pointika=0
 dim $writefile
@@ -302,7 +302,7 @@ sleep(500)
 	$SMS_send_date_EPOCH=_EPOCH( $SMS_send_date)
 	$SMS_send_date = StringReplace( StringReplace( $SMS_send_date ,"/","") ,":", "" )
 	ConsoleWrite ( @CRLF&$SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string)
-	MsgBox(0,"TCP send message", $SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string) 
+	;MsgBox(0,"TCP send message", $SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string) 
 _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string) )
 ;_TCP_send($hClientSoc ,  _StringToHex ("|*|"& $SMS_send_date_EPOCH& @CRLF & $user_name & @CRLF  &$message& @CRLF &$name_list_array_2string) )
 
@@ -312,7 +312,7 @@ _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) &@CRLF)
 	sleep(2000)
 
-	if $pointika=1 then 
+	if $pointika=1 and $sms_delete= ""then 
 		_TCP_Client_Stop($hClientSoc)
 		$connected=0
 		$pointika=0
@@ -749,6 +749,11 @@ Func _sms_maintain()
 	local $sms_list ,$sms_to_delete
 	$now_DateCalc_Epoch = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
 	$sms_list= _FileListToArray( @ScriptDir & "\" & $user_name & "\", "*.sms" , 0)
+	;_ArrayDisplay($sms_list,"Uploader --> Before delete ")
+	if not IsArray($sms_list) then 
+		MsgBox (0, "Warning", "沒有待發的簡訊。")
+		Exit
+	EndIf
 	_ArraySort( $sms_list,0,1 )
 	for $r=1 to UBound ($sms_list)-1 
 		if ( $now_DateCalc_Epoch - StringTrimRight( $sms_list[1] ,4) ) > 60 then 
