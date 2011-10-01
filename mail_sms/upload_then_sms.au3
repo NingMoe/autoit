@@ -228,7 +228,7 @@ If FileExists($name_list) and $sms_delete= "" Then
 	;$name_list_array_2string=_ArrayToString($name_list_array,@TAB)
 	;MsgBox(0,"name_list_array_2string", $name_list_array_2string )
 Else
-	_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $name_list & " is not at " & @ScriptDir)
+	;_FileWriteLog(@ScriptDir & "\" & StringTrimRight(@ScriptName, 4) & "_" & $year & $month & $day & ".log", $name_list & " is not at " & @ScriptDir)
 
 EndIf
 
@@ -286,8 +286,8 @@ EndIf
 
 ;
 ;  TCP connection
-Global $hClientSoc = _TCP_Client_Create("192.168.1.67", 88); Create the client. Which will connect to the local ip address on port 88
-;Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
+;Global $hClientSoc = _TCP_Client_Create("192.168.1.67", 88); Create the client. Which will connect to the local ip address on port 88
+Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
 ;Global $hClientSoc = _TCP_Client_Create("127.0.0.1", 88); Create the client. Which will connect to the local ip address on port 88
 Global $connected=0
 Global $pointika=0
@@ -299,7 +299,7 @@ _TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnec
 sleep(500)
 ;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
 if $connected=1 then
-sleep(500)	
+sleep(200)	
 	$SMS_send_date_EPOCH=_EPOCH( $SMS_send_date)
 	$SMS_send_date = StringReplace( StringReplace( $SMS_send_date ,"/","") ,":", "" )
 	ConsoleWrite ( @CRLF&$SMS_send_date_EPOCH&"|*|"& $user_name& "|*|" &$User_Email& "|*|" &$User_Mobile & "|*|" &$message&"|*|"&$name_list_array_2string)
@@ -311,7 +311,7 @@ _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "
 ;sleep(500)
 ;_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) )
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) &@CRLF)
-	;sleep(500)
+	sleep(1000)
 	if $pointika=1  then
 		_TCP_Client_Stop($hClientSoc)
 		$connected=0
@@ -322,7 +322,7 @@ _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "
 			$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date&"_SMS_Message.txt",10)
 			FileWriteLine($writefile, $message  )
 			FileClose($writefile)
-			sleep(500)
+			sleep(200)
 			$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date&"_SMS_namelist.txt",10)
 			FileWriteLine($writefile, $name_list_array_2string)
 			FileClose($writefile)
@@ -476,7 +476,7 @@ Func Received($hSocket, $sData, $iError); And we also registered this! Our homem
 	;TCPSend($hSocket, "This is bryant again!")
 	ConsoleWrite("CLIENT: We received this: " & $sData& @CRLF)
 
-	if $sData="pointika" then $pointika =1 
+	if StringInStr($sData, "pointika") then $pointika =1 
 EndFunc ;==>Received
 
 Func Disconnected($hSocket, $iError); Our disconnect function. Notice that all functions should have an $iError parameter.
