@@ -74,6 +74,8 @@ while 1
 				_ArrayDelete($SMS_Feed_List, $array_component_to_hunt )
 				$SMS_Feed_List[0]-=1
 				$SMS_Feed_List_PreProcess=''
+				$is_delete_feed=0
+				_write_feed_text($SMS_Feed_List)
 			EndIf
 				;_ArrayDisplay ($SMS_Feed_List,"After delete_feed action")
 		EndIf

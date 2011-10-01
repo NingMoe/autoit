@@ -286,8 +286,9 @@ EndIf
 
 ;
 ;  TCP connection
+Global $hClientSoc = _TCP_Client_Create("192.168.1.67", 88); Create the client. Which will connect to the local ip address on port 88
 ;Global $hClientSoc = _TCP_Client_Create("202.133.232.82", 88); Create the client. Which will connect to the local ip address on port 88
-Global $hClientSoc = _TCP_Client_Create("127.0.0.1", 88); Create the client. Which will connect to the local ip address on port 88
+;Global $hClientSoc = _TCP_Client_Create("127.0.0.1", 88); Create the client. Which will connect to the local ip address on port 88
 Global $connected=0
 Global $pointika=0
 dim $writefile
@@ -295,7 +296,7 @@ dim $writefile
 _TCP_RegisterEvent($hClientSoc, $TCP_RECEIVE, "Received"); Function "Received" will get called when something is received
 _TCP_RegisterEvent($hClientSoc, $TCP_CONNECT, "Connected"); And func "Connected" will get called when the client is connected.
 _TCP_RegisterEvent($hClientSoc, $TCP_DISCONNECT, "Disconnected"); And "Disconnected" will get called when the server disconnects us, or when the connection is lost.
-sleep(1000)
+sleep(500)
 ;MsgBox(0,"Message", $message & @CRLF & @CRLF & $name_list_array_2string,5)
 if $connected=1 then
 sleep(500)	
@@ -310,25 +311,37 @@ _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "
 ;sleep(500)
 ;_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) )
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) &@CRLF)
-	sleep(2000)
-
-	if $pointika=1 and $sms_delete= ""then 
+	;sleep(500)
+	if $pointika=1  then
 		_TCP_Client_Stop($hClientSoc)
 		$connected=0
 		$pointika=0
 		
-		$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date&"_SMS_Message.txt",10)
-		FileWriteLine($writefile, $message  )
-		FileClose($writefile)
-		sleep(500)
-		$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date&"_SMS_namelist.txt",10)
-		FileWriteLine($writefile, $name_list_array_2string)
-		FileClose($writefile)
+		if  $sms_delete= ""then 
+
+			$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date&"_SMS_Message.txt",10)
+			FileWriteLine($writefile, $message  )
+			FileClose($writefile)
+			sleep(500)
+			$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date&"_SMS_namelist.txt",10)
+			FileWriteLine($writefile, $name_list_array_2string)
+			FileClose($writefile)
 		
-		$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date_EPOCH&".sms",10)
-		FileWriteLine($writefile, $SMS_send_date_EPOCH&"|*|"&$message&"|*|"&$name_list_array_2string)
-		FileClose($writefile)
+			$writefile=fileopen(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date_EPOCH&".sms",10)
+			FileWriteLine($writefile, $SMS_send_date_EPOCH&"|*|"&$message&"|*|"&$name_list_array_2string)
+			FileClose($writefile)
+			
+		Else
+			filemove(@ScriptDir&"\"&$user_name&"\"&$SMS_send_date_EPOCH&".sms",@ScriptDir&"\"&$user_name&"\"&$SMS_send_date_EPOCH&".sms.omitted")
+			$sms_delete =""
+			
+		EndIf
+	Elseif $pointika=0 then 
+		MsgBox(0,"Warning","Connection to server Error. No SMS will send" )
 	EndIf
+	
+	
+	
 EndIf
 Exit
 ;; 
@@ -463,7 +476,7 @@ Func Received($hSocket, $sData, $iError); And we also registered this! Our homem
 	;TCPSend($hSocket, "This is bryant again!")
 	ConsoleWrite("CLIENT: We received this: " & $sData& @CRLF)
 
-	if $sData="pointika" then $pointika =1
+	if $sData="pointika" then $pointika =1 
 EndFunc ;==>Received
 
 Func Disconnected($hSocket, $iError); Our disconnect function. Notice that all functions should have an $iError parameter.
@@ -759,6 +772,7 @@ Func _sms_maintain()
 		if ( $now_DateCalc_Epoch - StringTrimRight( $sms_list[1] ,4) ) > 60 then 
 		 _ArrayDelete ($sms_list , 1)
 		 $sms_list[0] = $sms_list[0]-1
+		  filemove(@ScriptDir & "\" & $user_name & "\" & $sms_list[$r], @ScriptDir & "\" & $user_name & "\" & $sms_list[$r]&".omitted")
 			if $sms_list[0]=0 then 
 			 MsgBox (0, "Warning", "沒有待發的簡訊。")
 			 Exit
@@ -812,18 +826,26 @@ Func _Array_select($array)
 			$Filename= _EPOCH( GUICtrlRead($n1) ) & ".sms"
 			$sms_to_delete = FileReadLine(  @ScriptDir &"\"&$user_name& "\" & $Filename ,1)
 			;MsgBox(0,"sms to delete" , GUICtrlRead($n1) & @CRLF& stringleft ($sms_to_delete , 10) )
-			$sms_delete= GUICtrlRead($n1) ;& " <> " &$Filename
-			
+			if FileExists( @ScriptDir &"\"&$user_name& "\" & $Filename) then 
+				$sms_delete= GUICtrlRead($n1) ;& " <> " &$Filename
+			Else
+					MsgBox(0,"Warning", "沒有選取刪除項目。" & @CRLF &@ScriptDir &"\"&$user_name& "\" & $Filename,10)
+					Exit
+			EndIf
 			;$temp_file=fileopen( @ScriptDir &"\"&$user_name& "\" & $Filename ,10)
 			;FileWriteLine($temp_file , stringleft ($sms_to_delete , 13))
 			;fileclose($temp_file)
+			;FileMove(@ScriptDir &"\"&$user_name& "\" & $Filename, @ScriptDir &"\"&$user_name& "\" & $Filename &".omitted")
 			exitloop
 		EndIf
 	
 	Until $msg = $GUI_EVENT_CLOSE
 GUIDelete();
 ;MsgBox(0,"SMS to Delete in Func", @ScriptDir &"\"&$user_name& "\" & $Filename)
-if $sms_to_delete='' then Exit
+if $sms_to_delete='' then 
+	MsgBox(0,"Warning", "沒有選取刪除項目。",10)
+	Exit
+EndIf
 ;return    &$Filename
 ;MsgBox(0,"SMS to Delete in Func", $sms_delete )
 
