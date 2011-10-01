@@ -33,9 +33,9 @@ Func NewClient($hSocket,$iError); Yo, check this out! It's a $iError parameter! 
 	  ;_TCP_Send($hSocket, "Bleh")
 	 $ip=_TCP_Server_ClientIP($hSocket)
 	 ToolTip("SERVER: New client connected."&$hSocket&@CRLF&" IP is: "&$ip,10,30)
-;	 if not ProcessExists("Server_load_sms_2.exe") then 
-;		run( @ScriptDir & "\Server_load_sms_2.exe" ) 
-;	 EndIf	 
+	 if not ProcessExists("Server_load_sms_2.exe") then 
+		run( @ScriptDir & "\Server_load_sms_2.exe" ) 
+	 EndIf	 
 	 ;sleep(3000)
 	 ;tooltip("")
 EndFunc
