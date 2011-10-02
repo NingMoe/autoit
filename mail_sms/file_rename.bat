@@ -1,0 +1,2 @@
+rename upload_then_sms.exe upload_then_sms_bak.exe
+rename upload_then_sms_new.exe upload_then_sms.exe
