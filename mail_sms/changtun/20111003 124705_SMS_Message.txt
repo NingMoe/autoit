@@ -1,0 +1,1 @@
+git gc # 整理前和整理後的差異, 可由: git count-objects 看到.。git fsck --full。

@@ -37,7 +37,7 @@ Global $name_list ; = @ScriptDir& "\SMS_name_list.csv"   這個由 _SelectFileGUI()
 Global $SMS_send_date  ;這個由 _SelectFileGUI() 這個 func 得到 default value is now
 Global $SMS_send_date_EPOCH
 Global $oMyRet[2]
-Global $king=1 ; this is only for Kingtitan
+Global $king ; this is only for Kingtitan
 Dim $sec = @SEC
 Dim $min = @MIN
 Dim $hour = @HOUR
@@ -54,7 +54,7 @@ Global $User_Mobile , $User_Email
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
 global $sms_delete=""
 
-
+$king= _king_mode()
 ;; 這段是為了開放下傳與否而寫的； 如果這個檔案在伺服器上不在了或是版本不對了，則不執行了
 ;;
 ;MsgBox(0,"on info",$os_partial)
@@ -795,6 +795,35 @@ Func _Open_default()
 	Return $mode
 EndFunc   ;==>_TEST_MODE
 
+
+Func _king_mode()
+
+	If FileExists(@ScriptDir & "\king.txt") Then
+		$mode = FileReadLine(@ScriptDir & "\king.txt", 1)
+		If $mode = 1 Then
+			MsgBox(0, "DefaultMode", " 貼入文字模式 " , 5)
+
+		Else
+			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+
+			$mode = 0
+			;MsgBox(0, "DefaultMode", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
+			;if $ans="n" or $ans="N" or @error=1 then exit
+		EndIf
+
+	Else
+		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+
+		$mode = 0
+		;MsgBox(0, "DefaultMode", "DefaultMode" & @CRLF & "貼入文字模式 ", 5)
+		;if $ans="n" or $ans="N" or @error=1 then exit
+
+	EndIf
+
+	Return $mode
+EndFunc   ;==>_TEST_MODE
 
 func _ftp_upload_name_text( $text_2_upload, $name_2_upload )
 	$ftp_upload=0

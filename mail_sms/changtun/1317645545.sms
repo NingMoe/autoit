@@ -1,0 +1,2 @@
+1317645545|*|git gc # 整理前和整理後的差異, 可由: git count-objects 看到.。git fsck --full。|*|姓名,行動電話
+changtun,_0928837823
