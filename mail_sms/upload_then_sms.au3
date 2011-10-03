@@ -315,7 +315,9 @@ _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "
 ;sleep(500)
 ;_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) )
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) &@CRLF)
-	sleep(1000)
+for $a =1 to 20
+	sleep(100)
+Next	
 	if $pointika=1  then
 		_TCP_Client_Stop($hClientSoc)
 		$connected=0
@@ -472,8 +474,8 @@ Func _King_SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
 	
 	EndIf
 		
-	GUICreate(" 新簡訊輸入 ", 480, 330, @DesktopWidth / 3 - 320, @DesktopHeight / 3 - 240  , -1, 0x00000018); WS_EX_ACCEPTFILES
-	GUICtrlCreateLabel("1.輸入簡訊內容檔案到這個框 ", 10, 10, 460, 40)
+	GUICreate(" 新簡訊輸入 ", 480, 330, @DesktopWidth / 3 - 335, @DesktopHeight / 3 - 255  , -1, 0x00000018); WS_EX_ACCEPTFILES
+	GUICtrlCreateLabel("1.輸入簡訊內容檔案到這個框，或是貼入。預設為 : "&@ScriptDir&"\SMS_text.txt", 10, 10, 460, 40)
 	$file_txt = GUICtrlCreateInput("", 10, 25, 460, 200, 0x0004)
 	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
 
@@ -771,14 +773,14 @@ Func _Open_default()
 	If FileExists(@ScriptDir & "\open_default.txt") Then
 		$mode = FileReadLine(@ScriptDir & "\open_default.txt", 1)
 		If $mode = 1 Then
-			MsgBox(0, "Open Default", " 開啟檔案模式" , 5)
+			;MsgBox(0, "Open Default", " 開啟檔案模式" , 5)
 
 		Else
 			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
 			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
 
 			$mode = 0
-			MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
+			;MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
 			;if $ans="n" or $ans="N" or @error=1 then exit
 		EndIf
 
@@ -787,7 +789,7 @@ Func _Open_default()
 		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
 
 		$mode = 0
-		MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
+		;MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
 		;if $ans="n" or $ans="N" or @error=1 then exit
 
 	EndIf
@@ -801,7 +803,7 @@ Func _king_mode()
 	If FileExists(@ScriptDir & "\king.txt") Then
 		$mode = FileReadLine(@ScriptDir & "\king.txt", 1)
 		If $mode = 1 Then
-			MsgBox(0, "DefaultMode", " 貼入文字模式 " , 5)
+			;MsgBox(0, "DefaultMode", " 貼入文字模式 " , 5)
 
 		Else
 			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
