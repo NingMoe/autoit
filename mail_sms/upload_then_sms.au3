@@ -239,7 +239,7 @@ EndIf
 
 
 If FileExists($SMS_text_file) and $sms_delete="" Then
-	;$message = ""
+	$message = ""
 	Dim $a_SMS_text_file
 	If Not _FileReadToArray($SMS_text_file, $a_SMS_text_file) Then
 		MsgBox(4096, "Error", " Error reading log to Array     error:" & @error)
@@ -464,7 +464,7 @@ EndFunc   ;==>_SelectFileGUI
 Func _King_SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
 	local $open_default
 	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
-	local $send_date , $sms_to_delete
+	local $send_date , $sms_to_delete ,$file
 	$open_default=_Open_default()
 	if $open_default=1 then 
 		run ("notepad.exe " & @ScriptDir & "\SMS_text.txt" )
@@ -506,9 +506,13 @@ Func _King_SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
 
 			Case $msg = $btn
 				If Not GUICtrlRead($file_txt) = ""  Then
-					;MsgBox(4096, "drag drop file", GUICtrlRead($file_txt) & "  " & GUICtrlRead($file_csv))
-					$SMS_text_file = GUICtrlRead($file_txt)
+					;StringReplace(  GUICtrlRead($file_txt) , @CRLF , "。")
+						$file=fileopen(@ScriptDir & "\SMS_text.txt",10)
+						FileWrite($file,StringReplace(  GUICtrlRead($file_txt) , @CRLF , "。") )
+						FileClose($file)
+					$SMS_text_file = @ScriptDir & "\SMS_text.txt"
 					$name_list = @ScriptDir & "\SMS_name_list.csv"
+					;MsgBox(4096, " 要寫入  file", GUICtrlRead($file_txt) & @CRLF& @CRLF&" 要寫入 " & @CRLF & @CRLF& $SMS_text_file)
 				Else
 					$SMS_text_file = @ScriptDir & "\SMS_text.txt"
 					$name_list = @ScriptDir & "\SMS_name_list.csv"
