@@ -29,7 +29,7 @@
 ;
 ; Modified  2011/09/17 Use Socket to transfer data including send text and name list.
 ; Write log for the transmit.
-
+; Add King_sleectFileGUI() for king' purpose. 2011/10/02
 
 
 Global $SMS_text_file ; =@ScriptDir&"\SMS_text.txt" ; 這個由 _SelectFileGUI() 這個 func 得到
@@ -37,7 +37,7 @@ Global $name_list ; = @ScriptDir& "\SMS_name_list.csv"   這個由 _SelectFileGUI()
 Global $SMS_send_date  ;這個由 _SelectFileGUI() 這個 func 得到 default value is now
 Global $SMS_send_date_EPOCH
 Global $oMyRet[2]
-
+Global $king ; this is only for Kingtitan
 Dim $sec = @SEC
 Dim $min = @MIN
 Dim $hour = @HOUR
@@ -54,7 +54,7 @@ Global $User_Mobile , $User_Email
 ;$test_mode=_TEST_MODE() ; return 1 means  Test mode.
 global $sms_delete=""
 
-
+$king= _king_mode()
 ;; 這段是為了開放下傳與否而寫的； 如果這個檔案在伺服器上不在了或是版本不對了，則不執行了
 ;;
 ;MsgBox(0,"on info",$os_partial)
@@ -162,10 +162,14 @@ If FileExists(@UserProfileDir & "\" & $astronomy) Then
 	
 EndIf
 ;
-;_sms_maintain()
-;MsgBox (0,"temp and check ", "Pause here for a while. SMS to delete " & _sms_maintain())
+if $king=1 then 
+_King_SelectFileGUI()
+
+;MsgBox (0,"temp and check ", "Pause here for a while. ")
 ;MsgBox (0,"temp and check ", "Pause here for a while. SMS to delete " & $sms_delete)
+Else
 _SelectFileGUI()
+EndIf
 ;MsgBox(0,"sms delete 1", $sms_delete)
 
 ;MsgBox(0,"File Selector result", "SMS Text: " & $SMS_text_file &@CRLF & _
@@ -235,7 +239,7 @@ EndIf
 
 
 If FileExists($SMS_text_file) and $sms_delete="" Then
-	;$message = ""
+	$message = ""
 	Dim $a_SMS_text_file
 	If Not _FileReadToArray($SMS_text_file, $a_SMS_text_file) Then
 		MsgBox(4096, "Error", " Error reading log to Array     error:" & @error)
@@ -311,7 +315,9 @@ _TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date_EPOCH&"|*|"& $user_name& "
 ;sleep(500)
 ;_TCP_send($hClientSoc ,  _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) )
 ;ConsoleWrite(@CRLF & "Hex to send to server: " & _StringToHex ($SMS_send_date&"|*|"&$name_list_array_2string) &@CRLF)
-	sleep(1000)
+for $a =1 to 20
+	sleep(100)
+Next	
 	if $pointika=1  then
 		_TCP_Client_Stop($hClientSoc)
 		$connected=0
@@ -456,6 +462,104 @@ Func _SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
 ;return ( $SMS_text_file , $name_list )
 GUIDelete();
 EndFunc   ;==>_SelectFileGUI
+
+Func _King_SelectFileGUI() ; 取得二個檔案的名字，文字內容，及名單。
+	local $open_default
+	Local $file_txt, $file_csv, $btn, $msg, $btn_n, $aEnc_info, $rc
+	local $send_date , $sms_to_delete ,$file
+	$open_default=_Open_default()
+	if $open_default=1 then 
+		run ("notepad.exe " & @ScriptDir & "\SMS_text.txt" )
+		;run ("notepad.exe " & @ScriptDir & "\SMS_name_list.csv")
+	
+	EndIf
+		
+	GUICreate(" 新簡訊輸入 ", 480, 330, @DesktopWidth / 3 - 335, @DesktopHeight / 3 - 255  , -1, 0x00000018); WS_EX_ACCEPTFILES
+	GUICtrlCreateLabel("1.輸入簡訊內容檔案到這個框，或是貼入。預設為 : "&@ScriptDir&"\SMS_text.txt", 10, 10, 460, 40)
+	$file_txt = GUICtrlCreateInput("", 10, 25, 460, 200, 0x0004)
+	GUICtrlSetState(-1, $GUI_DROPACCEPTED)
+
+	;GUICtrlCreateLabel("2.拖放簡訊名單檔案到這個框，預設為 SMS_name_list.csv", 10, 75, 300, 40)
+	;$file_csv = GUICtrlCreateInput("", 10, 90, 300, 30)
+	;GUICtrlSetState(-1, $GUI_DROPACCEPTED)
+
+	GUICtrlCreateLabel("2.發送日期，預設馬上發送。格式:2011/09/01 10:20 ", 10, 240, 460, 40)
+	$send_date = GUICtrlCreateInput("", 10, 255, 460, 30)
+	;GUICtrlSetState(-1, $GUI_FOCUS)
+	;GUICtrlCreateInput("", 10, 35, 300, 20) 	; will not accept drag&drop files
+	$btn = GUICtrlCreateButton("是", 90, 290, 60, 20, 0x0001) ; Default button
+	$btn_n = GUICtrlCreateButton("否", 160, 290, 60, 20)
+	GUISetState()
+
+	;$msg = 0
+	While $msg <> $GUI_EVENT_CLOSE
+		 $sec = @SEC
+		 $min = @MIN
+		 $hour = @HOUR
+		 $day = @MDAY
+		 $month = @MON
+		 $year = @YEAR
+
+		$msg = GUIGetMsg()
+		Select
+			Case $msg = $GUI_EVENT_CLOSE
+                ;MsgBox(0, "", "Dialog was closed")
+                Exit
+
+			Case $msg = $btn
+				If Not GUICtrlRead($file_txt) = ""  Then
+					;StringReplace(  GUICtrlRead($file_txt) , @CRLF , "。")
+						$file=fileopen(@ScriptDir & "\SMS_text.txt",10)
+						FileWrite($file,StringReplace(  GUICtrlRead($file_txt) , @CRLF , "。") )
+						FileClose($file)
+					$SMS_text_file = @ScriptDir & "\SMS_text.txt"
+					$name_list = @ScriptDir & "\SMS_name_list.csv"
+					;MsgBox(4096, " 要寫入  file", GUICtrlRead($file_txt) & @CRLF& @CRLF&" 要寫入 " & @CRLF & @CRLF& $SMS_text_file)
+				Else
+					$SMS_text_file = @ScriptDir & "\SMS_text.txt"
+					$name_list = @ScriptDir & "\SMS_name_list.csv"
+					;$SMS_send_date = $year & $month & $day
+				EndIf
+
+				If not ( GUICtrlRead($send_date) = "") then
+					;MsgBox(0,"Date diff",_DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) )
+					if _DateDiff( 'D',_NowCalcDate() ,GUICtrlRead($send_date)) >0  then
+							$SMS_send_date = GUICtrlRead($send_date)
+							if not StringInStr($SMS_send_date ,":") then $SMS_send_date=_DateAdd('h', '10' ,$SMS_send_date & " 00:00:00")
+							;MsgBox (0,"Time" , $SMS_send_date )
+							;$current_time = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
+							;MsgBox (0,"Time Lap 1" ,  ( _EPOCH($send_date ) - _EPOCH(_NowCalc()) ) )
+							;_EPOCH( $SMS_send_date)
+							;$SMS_send_date = StringReplace( StringReplace( GUICtrlRead($send_date) ,"/","") ,":", "" )
+							
+						else
+							$SMS_send_date =  _DateAdd('s', '90' ,_NowCalc() )
+							;_EPOCH($SMS_send_date)
+							;MsgBox (0,"Time Lap 2" , _EPOCH($send_date ) - _EPOCH(_NowCalc())  )
+							;$SMS_send_date = StringReplace( StringReplace( GUICtrlRead($SMS_send_date) ,"/","") ,":", "" )
+					EndIf
+				Else
+						$SMS_send_date =  _DateAdd('s', '90' ,_NowCalc() )
+						;_EPOCH($SMS_send_date)
+						;MsgBox (0,"Time Lap 2" , _EPOCH($send_date ) - _EPOCH(_NowCalc())  )
+						;$SMS_send_date = StringReplace( StringReplace( GUICtrlRead($SMS_send_date) ,"/","") ,":", "" )
+				EndIf
+				;
+				ExitLoop
+			Case $msg = $btn_n
+				_sms_maintain()
+				;MsgBox(0,"Check in GUI select 2", $sms_delete)
+				$SMS_text_file = ""
+				$name_list = ""
+				ExitLoop
+				;Exit
+
+		EndSelect
+	WEnd
+
+;return ( $SMS_text_file , $name_list )
+GUIDelete();
+EndFunc   ;==>_king_SelectFileGUI
 
 ;;  TCP Connection Func
 Func Connected($hSocket, $iError); We registered this (you see?), When we're connected (or not) this function will be called.
@@ -669,14 +773,14 @@ Func _Open_default()
 	If FileExists(@ScriptDir & "\open_default.txt") Then
 		$mode = FileReadLine(@ScriptDir & "\open_default.txt", 1)
 		If $mode = 1 Then
-			MsgBox(0, "Open Default", " 開啟檔案模式" , 5)
+			;MsgBox(0, "Open Default", " 開啟檔案模式" , 5)
 
 		Else
 			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
 			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
 
 			$mode = 0
-			MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
+			;MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
 			;if $ans="n" or $ans="N" or @error=1 then exit
 		EndIf
 
@@ -685,7 +789,7 @@ Func _Open_default()
 		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
 
 		$mode = 0
-		MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
+		;MsgBox(0, "Open Default", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
 		;if $ans="n" or $ans="N" or @error=1 then exit
 
 	EndIf
@@ -693,6 +797,35 @@ Func _Open_default()
 	Return $mode
 EndFunc   ;==>_TEST_MODE
 
+
+Func _king_mode()
+
+	If FileExists(@ScriptDir & "\king.txt") Then
+		$mode = FileReadLine(@ScriptDir & "\king.txt", 1)
+		If $mode = 1 Then
+			;MsgBox(0, "DefaultMode", " 貼入文字模式 " , 5)
+
+		Else
+			;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+			;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+
+			$mode = 0
+			;MsgBox(0, "DefaultMode", "手動模式" & @CRLF & " 手動開啟檔案模式", 5)
+			;if $ans="n" or $ans="N" or @error=1 then exit
+		EndIf
+
+	Else
+		;MsgBox(0,"Process mode", " 高鐵車次資料會輸入資料庫 ",10)
+		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
+
+		$mode = 0
+		;MsgBox(0, "DefaultMode", "DefaultMode" & @CRLF & "貼入文字模式 ", 5)
+		;if $ans="n" or $ans="N" or @error=1 then exit
+
+	EndIf
+
+	Return $mode
+EndFunc   ;==>_TEST_MODE
 
 func _ftp_upload_name_text( $text_2_upload, $name_2_upload )
 	$ftp_upload=0

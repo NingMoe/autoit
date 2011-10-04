@@ -157,7 +157,7 @@ Func _read_feed_text($PathnFile)
 	local $aRecords , $r ,$file
 	if FileExists ($PathnFile) then
 		If Not _FileReadToArray($PathnFile, $aRecords) Then
-			MsgBox(4096, "Error on _feed_text() function", " Error reading file '" & $PathnFile & "' to Array   error:" & @error, 5)
+			MsgBox(4096, "Error on _feed_text() function", " Error reading file '" & $PathnFile & "' to Array   error:" & @error, 1)
 			;Exit
 		EndIf
 		;_ArrayDisplay($aRecords)
