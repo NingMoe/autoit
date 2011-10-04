@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+/* CSS Document */
+/*本例中運用到一個永遠固定到頁腳的footer容器,這個層是獨立於主內容區的.*/
+*{
+	margin:0;
+	padding:0;
+}
+html, body, #wrapper {
+	height: 100%;
+	font-size:12px;
+}
+#wrapper{
+	width:100%;
+}
+body > #wrapper {
+	height:auto; 
+	min-height:100%;
+}
+#main {/* 必須使用和footer相同的高度,最小寬度ie6中加JS解決*/
+	padding-bottom: 54px;
+	min-width:960px;
+} 
+#header{
+	text-align:center;
+}
+#inheader{
+	width:960px;
+	height:50px;
+	line-height:110px;
+	margin:0 auto;
+	background:#CC9933;
+}
+h3{
+	font-size:24px;
+	line-height:50px;
+}
+#inheader p{
+	font-size:12px;
+	line-height:30px;
+}
+#inheader a:link{
+	text-decoration:none;
+	color:#00C;
+}
+#inheader a:visited{
+	text-decoration:none;
+	color:#00C;
+}
+#inheader a:hover{
+	background:#000;
+	color:#FFF;
+	text-decoration:none;
+}
+#footer {
+	position: relative;
+	margin-top: -30px; /* footer高度的負值 */
+	height: 30px;/* footer高度*/	
+	width:100%;
+	min-width:960px;/*最小寬度ie6中加JS解決*/
+	clear:both;
+	text-align:center;
+}
+#infoot{
+	height:30px;
+	line-height:30px;
+	width:960px;
+	margin:0 auto;
+	background:#CC9933;
+}
+#footer p{
+	line-height:26px;
+}
+#content{
+	background:#999;
+	width:960px;
+	margin:0 auto;
+}
+#content table td{
+	line-height:24px;
+	font-size:16px;
+	letter-spacing: 1pt;
+	padding-left:2px;
+	padding-right:2px;
+	color:#000;
+	background-color:#FFF;
+	border : 0px  ; /*框線*/
+}
+#content table td a:link{
+	text-decoration:none;
+	color:#00C;
+}
+#content table td a:visited{
+	text-decoration:none;
+	color:#00C;
+}
+#content table td a:hover{
+	background:#000;
+	color:#FFF;
+	text-decoration:none;
+}
+#content input{
+	font-size:16px;
+	letter-spacing: 1pt;
+}
+#content p{
+	line-height:30px;
+	padding:0 30px;
+	color:#fff;
+}
+/*說明: 需要注意的就是#main的padding值、footer的高度和負margin值，需要保持一致。下面是著名的萬能float閉合Clearfix Hack*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {
+	display: inline-block;
+}
+/* Hides from IE-mac \*/
+* html .clearfix { 
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
+/* End hide from IE-mac */
+
