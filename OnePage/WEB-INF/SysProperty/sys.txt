@@ -1,0 +1,10 @@
+ADMINname,Hello
+ADMINpwd,work
+SystemEmail,onepage@onepage.com
+MailServer,@onepage.com
+DB,59.124.45.93
+DBport,3306
+DBname,onepage
+CorpDBname,test
+DBuser,thispage
+DBpwd,0nepage

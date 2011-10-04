@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>OnePage</display-name>
+	
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+			<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+	
+	<context-param>
+		<param-name>sys</param-name>
+		<param-value>/WEB-INF/SysProperty/sys.txt</param-value>
+	</context-param>
+	<context-param>
+		<param-name>DBtxt</param-name>
+		<param-value>/WEB-INF/SysProperty/DB.txt</param-value>
+	</context-param>
+	<context-param>
+		<param-name>air</param-name>
+		<param-value>/WEB-INF/SysProperty/air.txt</param-value>
+	</context-param>
+	<!--  
+	<listener>
+		<listener-class>com.web.Hello</listener-class>
+	</listener>
+	-->
+	
+	<servlet>
+		<description>
+		</description>
+		<display-name>HelloDebug</display-name>
+		<servlet-name>HelloDebug</servlet-name>
+		<servlet-class>
+		com.debug.HelloDebug</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>GotoLogin</display-name>
+		<servlet-name>GotoLogin</servlet-name>
+		<servlet-class>
+		com.controller.GotoLogin</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>User</display-name>
+		<servlet-name>User</servlet-name>
+		<servlet-class>
+		com.controller.User</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Admin</display-name>
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>
+		com.controller.Admin</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Manager</display-name>
+		<servlet-name>Manager</servlet-name>
+		<servlet-class>
+		com.controller.Manager</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>TopUser</display-name>
+		<servlet-name>TopUser</servlet-name>
+		<servlet-class>
+		com.controller.TopUser</servlet-class>
+	</servlet>
+	
+	
+	
+	<servlet-mapping>
+		<servlet-name>HelloDebug</servlet-name>
+		<url-pattern>/debug/HelloDebug</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GotoLogin</servlet-name>
+		<url-pattern>/GotoLogin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>User</servlet-name>
+		<url-pattern>/User</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>/Admin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Manager</servlet-name>
+		<url-pattern>/Manager</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TopUser</servlet-name>
+		<url-pattern>/TopUser</url-pattern>
+	</servlet-mapping>
+	
+	
+	<welcome-file-list>
+		<welcome-file>GotoLogin</welcome-file>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
