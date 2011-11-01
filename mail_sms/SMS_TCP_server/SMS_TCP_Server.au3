@@ -25,6 +25,14 @@ While 1
 	if $hSocket_now<> -1 and $ip_now<> -1 Then
 		if $hSocket_in_loop= $hSocket_now and $ip_in_loop= $ip_now then 
 			$hSocket_count=$hSocket_count+1
+			if $hSocket_count>10 then 
+				_TCP_Server_DisconnectClient($hSocket_now)
+				ToolTip("")
+				;ConsoleWrite(@CRLF&"Server disconnect the client:"& $hSocket_now )
+				$hSocket_now=-1
+				$ip_now=-1
+				$hSocket_count=0
+			EndIf	
 		Else
 			$hSocket_in_loop=$hSocket_now
 			$ip_in_loop=$ip_now
@@ -34,11 +42,7 @@ While 1
 	
 	sleep(1000)
 	
-	if $hSocket_count>10 then 
-		_TCP_Server_DisconnectClient($hSocket_now)
-		$hSocket_now=-1
-		$ip_now=-1
-	EndIf	
+
 WEnd
 
 Func NewClient($hSocket,$iError); Yo, check this out! It's a $iError parameter! (In case you didn't noticed: It's in every function)
