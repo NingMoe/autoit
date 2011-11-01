@@ -8,6 +8,9 @@ Dim $day=@MDAY
 Dim $month=@MON
 DIM $year=@YEAR
 
+Global $hSocket_in_loop=-1 ,  $hSocket_now=-1
+Global $ip_in_loop=-1 , 	 $ip_now=-1
+Global $hSocket_count=0
 ;ToolTip("SERVER: Creating server...",10,30)
 ;traytip("TCP Server", "Port open at 88",5)
 ConsoleWrite("SERVER: Creating server...")
@@ -19,8 +22,23 @@ _TCP_RegisterEvent($hServer, $TCP_NEWCLIENT, "NewClient"); Whooooo! Now, this fu
 _TCP_RegisterEvent($hServer, $TCP_DISCONNECT, "Disconnect"); And this,... this will get called when a client disconnects.
 _TCP_RegisterEvent($hServer, $TCP_RECEIVE, "Received"); Function "Received" will get called when something is received
 While 1
-
+	if $hSocket_now<> -1 and $ip_now<> -1 Then
+		if $hSocket_in_loop= $hSocket_now and $ip_in_loop= $ip_now then 
+			$hSocket_count=$hSocket_count+1
+		Else
+			$hSocket_in_loop=$hSocket_now
+			$ip_in_loop=$ip_now
+			$hSocket_count=0
+		EndIf
+	EndIf
+	
 	sleep(1000)
+	
+	if $hSocket_count>10 then 
+		_TCP_Server_DisconnectClient($hSocket_now)
+		$hSocket_now=-1
+		$ip_now=-1
+	EndIf	
 WEnd
 
 Func NewClient($hSocket,$iError); Yo, check this out! It's a $iError parameter! (In case you didn't noticed: It's in every function)
@@ -35,7 +53,9 @@ Func NewClient($hSocket,$iError); Yo, check this out! It's a $iError parameter! 
 	 ToolTip("SERVER: New client connected."&$hSocket&@CRLF&" IP is: "&$ip,10,30)
 	 if not ProcessExists("Server_load_sms_2.exe") then 
 		run( @ScriptDir & "\Server_load_sms_2.exe" ) 
-	 EndIf	 
+	EndIf	 
+	$ip_now= $ip
+	$hSocket_now = $hSocket
 	 ;sleep(3000)
 	 ;tooltip("")
 EndFunc
