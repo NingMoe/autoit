@@ -1,0 +1,41 @@
+ADSL IP Info
+IP: 210.61.151.217~210.61.151.222
+mask: 255.255.255.0
+Gateway: 210.61.151.254
+½u¸ô¥N¸¹: 225Y123841
+«Ø¸m¤é´Á:100/22/10
+CHT contact 0937-341-148
+KIDsburgh contact 0930-266-408
+
+25176455
+
+NAS account
+alice,alicechen,³¯¬îµÓ,alicechen@kidsburgh.com.tw,5
+annie,anniewu,§d¤ª¨°,anniewu@kidsburgh.com.tw,5
+chihung,chihungwu,§d¨äÂE,chihungwu@kidsburgh.com.tw,5
+connie,connielin,ªLªY¾ì,connielin@kidsburgh.com.tw,5
+ding,dingding,¤B«ä²[,dingding@kidsburgh.com.tw,5
+dodo,dodolin,ªLÀRªâ,dodolin@kidsburgh.com.tw,5
+fiona,fionayang,·¨¾å´f,fionayang@kidsburgh.com.tw,5
+fufu,fufuhsu,³\¯\Ýõ,fufuhsu@kidsburgh.com.tw,5
+gaga,gagayeh,¸­®aºÂ,gagayeh@kidsburgh.com.tw,5
+hsinghui,hsinghuiweng,¯Î­Æ´f,hsinghuiweng@kidsburgh.com.tw,5
+ivy,ivytsai,½²©y¯ø,ivytsai@kidsburgh.com.tw,5
+judy,judyhuang,¶ÀÄR®S,judyhuang@kidsburgh.com.tw,5
+linda,lindalin,ªL²úã¸,lindalin@kidsburgh.com.tw,5
+lynn,lynnchen,³¯¬üµÙ,lynnchen@kidsburgh.com.tw,5
+maimai,maimaichen,³¯©É§¡,maimaichen@kidsburgh.com.tw,5
+mimi,mimishao,ªò¨Ø§¡,mimishao@kidsburgh.com.tw,5
+natallia,natallialiao,¹ù®R¸¦,natallialiao@kidsburgh.com.tw,5
+nina,ninahuang,¶ÀÃýæ¢,ninahuang@kidsburgh.com.tw,5
+pan,panpan,¼ï¹ÅÀM,panpan@kidsburgh.com.tw,5
+phil,philtsai,½²¬F¶¯,philtsai@kidsburgh.com.tw,5
+pin,pintsai,½²²QµÓ,pintsai@kidsburgh.com.tw,5
+sevenwang,seven,¤ý¤ß©É,seven@kidsburgh.com.tw,5
+shane,shanetseng,´¿ÄÉ½Ë,shanetseng@kidsburgh.com.tw,5
+sinbei,sinbeiho,¦ó¤ß»_,sinbeiho@kidsburgh.com.tw,5
+tako,takochang,±i·ì®x,takochang@kidsburgh.com.tw,5
+victor,victorchiang,¦¿©ÓÀM,victorchiang@kidsburgh.com.tw,5
+yenyen,yenyenchen,³¯¿P§g,yenyenchen@kidsburgh.com.tw,5
+yoyo,yoyochen,³¯¦ö´f,yoyochen@kidsburgh.com.tw,5
+zoe,zoetseng,´¿¨È´f,zoetseng@kidsburgh.com.tw,5
