@@ -1,0 +1,2 @@
+net use s:  \\192.168.0.250\home  alicechen  /user:alice
+net use p:  \\192.168.0.250\kshare alicechen  /user:alice

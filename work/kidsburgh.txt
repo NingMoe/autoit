@@ -39,3 +39,29 @@ victor,victorchiang,江承霖,victorchiang@kidsburgh.com.tw,5
 yenyen,yenyenchen,陳燕君,yenyenchen@kidsburgh.com.tw,5
 yoyo,yoyochen,陳佑惠,yoyochen@kidsburgh.com.tw,5
 zoe,zoetseng,曾亞惠,zoetseng@kidsburgh.com.tw,5
+
+
+
+PC info
+1	192.168.0.100	5C-F3-FC-29-BA-60	KISBERP_IBM_Server	 
+2	192.168.0.163	00-13-02-90-71-8D	speed-pc
+3	192.168.0.164	00-16-41-2B-CB-98	PC-20111009FTAO	王心怡 seven@kidsburgh.com.tw
+4	192.168.0.165	88-C6-63-B9-6B-32	PC-20111103IREH	楊曉惠 fionayang@kidsburgh.com.tw	 
+5	192.168.0.166	00-1D-7D-AF-CC-CE	TAIWAN-CDF62842	 
+6	192.168.0.167	00-13-A9-3D-10-FF		 
+7	192.168.0.168	14-DA-E9-08-64-82	PC-PC	林欣樺	connielin@kidsburgh.com.tw	 
+8	192.168.0.169	14-DA-E9-08-52-68	Owner-PC	蔡淑萍	pintsai@kidsburgh.com.tw	 
+9	192.168.0.170	14-DA-E9-08-52-92	PC-2-PC	 
+10	192.168.0.171	14-DA-E9-08-6A-4D	admin1-PC	翁倖惠	hsinghuiweng@kidsburgh.com.tw	 
+11	192.168.0.172	40-61-86-58-8A-5F	USER-MSI1	 黃麗娟 judyhuang@kidsburgh.com.tw
+12	192.168.0.173	40-61-86-58-8B-D4	USER-MSI	陳美菱	lynnchen@kidsburgh.com.tw	win7
+13	192.168.0.175	14-DA-E9-0C-5A-25	pc-1-PC	吳其鴻	chihungwu@kidsburgh.com.tw	 win7
+14	192.168.0.177	00-13-D3-A0-51-A0	PC-20111009TVQL	小新星 shanetseng@kidsburgh.com.tw
+15	192.168.0.180	00-23-6C-41-F8-E7	yenyen
+16	192.168.0.187	00-15-58-E5-A3-B8	PC-101	曾亞惠	zoetseng@kidsburgh.com.tw		 
+17	192.168.0.189	5C-F3-FC-29-BA-64	IMM-5CF3FC29BA64	 
+18	192.168.0.194	40-61-86-39-89-AA	USER-MSI	陳美菱	lynnchen@kidsburgh.com.tw  win7
+19	192.168.0.198	00-0D-60-92-AA-F3	PC-20111009VTKQ	 林莉蓁 lindalin@kidsburgh.com.tw
+20	192.168.0.199	00-16-41-2B-DF-D0	PC-100	陳燕君	yenyenchen@kidsburgh.com.tw	 
+21	192.168.0.200	00-26-73-2F-51-48	RNP2F5148	 
+22	192.168.0.250	00-11-32-0D-B7-3B	DiskStation_NAS
