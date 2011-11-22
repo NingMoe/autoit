@@ -1,3 +1,4 @@
+ªQ¦¿ 
 ADSL IP Info
 IP: 210.61.151.217~210.61.151.222
 mask: 255.255.255.0
@@ -8,6 +9,20 @@ CHT contact 0937-341-148
 KIDsburgh contact 0930-266-408
 
 25176455
+
+Wireless kidsburgh_520
+admin / 25176455
+Wireless pass 5cf3-fc29-ba60
+
+
+
+
+¤º´òkidsburgh 
+ADSL router
+admin / 0936-333-366
+Hinet info  73600503/fgqxolfx
+
+
 
 NAS account
 alice,alicechen,³¯¬îµÓ,alicechen@kidsburgh.com.tw,5
