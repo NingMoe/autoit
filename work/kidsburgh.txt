@@ -8,13 +8,13 @@ Gateway: 210.61.151.254
 CHT contact 0937-341-148
 KIDsburgh contact 0930-266-408
 
-25176455
+Draytek2910 192.168.0.1 admin/25176455
 
-Wireless kidsburgh_520
-admin / 25176455
+Asus WL-520GU Wireless kidsburgh_520
+admin/25176455
 Wireless pass 5cf3-fc29-ba60
 
-
+NAS 192.168.0.250 admin/25176455 
 
 
 ¤º´òkidsburgh 
