@@ -71,7 +71,7 @@ PC info
 11	192.168.0.172	40-61-86-58-8A-5F	USER-MSI1	 黃麗娟 judyhuang@kidsburgh.com.tw
 12	192.168.0.173	40-61-86-58-8B-D4	USER-MSI	陳美菱	lynnchen@kidsburgh.com.tw	win7
 13	192.168.0.175	14-DA-E9-0C-5A-25	pc-1-PC	吳其鴻	chihungwu@kidsburgh.com.tw	 win7
-14	192.168.0.177	00-13-D3-A0-51-A0	PC-20111009TVQL	小新星 shanetseng@kidsburgh.com.tw
+14	192.168.0.177	00-13-D3-A0-51-A0	PC-20111009TVQL	曾馨誼 shanetseng@kidsburgh.com.tw
 15	192.168.0.180	00-23-6C-41-F8-E7	yenyen
 16	192.168.0.187	00-15-58-E5-A3-B8	PC-101	曾亞惠	zoetseng@kidsburgh.com.tw		 
 17	192.168.0.189	5C-F3-FC-29-BA-64	IMM-5CF3FC29BA64	 
