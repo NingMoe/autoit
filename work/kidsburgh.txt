@@ -16,6 +16,16 @@ Wireless pass 5cf3-fc29-ba60
 
 NAS 192.168.0.250 admin/25176455 
 
+kidsburgh domain
+網域網址：http://domain.hinet.net/
+帳號：kidsburgh
+密碼： D24D5396
+
+dns.kidsburgh.com.tw 210.68.84.68 
+admin.kidsburgh.com.tw 210.68.84.67
+
+
+
 
 內湖kidsburgh 
 ADSL router
