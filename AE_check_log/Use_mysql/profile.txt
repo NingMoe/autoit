@@ -1,0 +1,10 @@
+-server maild.digitshuttle.com
+-serverPOP3 maild.digitshuttle.com
+-f bryant@dynalab.com.tw
+-i bryant@dynalab.com.tw
+-port 25
+-portPOP3 110
+-u bryant
+-pw 9ps56789
+-pu bryant
+-ppw 9ps56789

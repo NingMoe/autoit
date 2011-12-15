@@ -1,0 +1,1 @@
+blat -body "test mail from byrant 美國運通旅遊服務部24小時隨手查-兩岸直航班機資訊"  -charset big5 -subject 美國運通旅遊服務部24小時隨手查-兩岸直航班機資訊 -to changtun@gmail.com  -server onlinebooking.com.tw -f ae_direct_fly@onlinebooking.com.tw -i ae_direct_fly@onlinebooking.com.tw -port 25 -u ae_direct_fly -pw pkpkpk
