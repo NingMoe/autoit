@@ -121,7 +121,14 @@ $res = _MySQL_Store_Result($MysqlConn)
 ;MsgBox(0, '', "Zugriff Methode 3 - alles in ein 2D Array")
 $extramail_array = _MySQL_Fetch_Result_StringArray($res)
 ;_ArrayDisplay($extramail_array)
-MsgBox(0,"Select from DB " , "Record no. out-dated: " & UBound ($extramail_array)-1 )
+if UBound($extramail_array)-1 >0 then 
+	;for $x=1 to UBound($extramail_array)
+	;	
+	;Next	
+	
+	MsgBox(0,"Select from DB " , "Record no. out-dated: " & UBound ($extramail_array)-1  &@CRLF& "現在要刪除這些名單了。")
+	
+EndIf
 
 if UBound($extramail_array)-1 >0 then 
 	
@@ -132,7 +139,7 @@ if UBound($extramail_array)-1 >0 then
 	$extramail_array = _MySQL_Fetch_Result_StringArray($res2)
 	
 EndIf	
-if UBound($extramail_array)-1 <0 then MsgBox(0,"Report",  "NO outdated name in DB extra_mail table.")
+if UBound($extramail_array)-1 <0 then MsgBox(0,"Report",  "Now, no out-dated name in DB extra_mail table.", 5)
 ;===== If you select all from DB then you will need to use these code for filter.
 ; ; Y is from 1 X is from 0
 ; ;MsgBox(0,"Array((y,x)",$extramail_array[5][1])
