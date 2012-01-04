@@ -1,0 +1,92 @@
+ªQ¦¿ 
+ADSL IP Info
+IP: 210.61.151.217~210.61.151.222
+mask: 255.255.255.0
+Gateway: 210.61.151.254
+½u¸ô¥N¸¹: 225Y123841
+«Ø¸m¤é´Á:100/22/10
+CHT contact 0937-341-148
+KIDsburgh contact 0930-266-408
+
+Draytek2910 192.168.0.1 admin/25176455
+
+Asus WL-520GU Wireless kidsburgh_520
+admin/25176455
+Wireless pass 5cf3-fc29-ba60
+
+NAS 192.168.0.250 admin/25176455 
+
+kidsburgh domain
+ºô°ìºô§}¡Ghttp://domain.hinet.net/
+±b¸¹¡Gkidsburgh
+±K½X¡G D24D5396
+
+dns.kidsburgh.com.tw 210.68.84.68 
+admin.kidsburgh.com.tw 210.68.84.67
+
+
+
+
+¤º´òkidsburgh 
+ADSL router
+admin / 0936-333-366
+Hinet info  73600503/fgqxolfx
+
+
+
+NAS account
+alice,alicechen,³¯¬îµÓ,alicechen@kidsburgh.com.tw,5
+annie,anniewu,§d¤ª¨°,anniewu@kidsburgh.com.tw,5
+chihung,chihungwu,§d¨äÂE,chihungwu@kidsburgh.com.tw,5
+connie,connielin,ªLªY¾ì,connielin@kidsburgh.com.tw,5
+ding,dingding,¤B«ä²[,dingding@kidsburgh.com.tw,5
+dodo,dodolin,ªLÀRªâ,dodolin@kidsburgh.com.tw,5
+fiona,fionayang,·¨¾å´f,fionayang@kidsburgh.com.tw,5
+fufu,fufuhsu,³\¯\Ýõ,fufuhsu@kidsburgh.com.tw,5
+gaga,gagayeh,¸­®aºÂ,gagayeh@kidsburgh.com.tw,5
+hsinghui,hsinghuiweng,¯Î­Æ´f,hsinghuiweng@kidsburgh.com.tw,5
+ivy,ivytsai,½²©y¯ø,ivytsai@kidsburgh.com.tw,5
+judy,judyhuang,¶ÀÄR®S,judyhuang@kidsburgh.com.tw,5
+linda,lindalin,ªL²úã¸,lindalin@kidsburgh.com.tw,5
+lynn,lynnchen,³¯¬üµÙ,lynnchen@kidsburgh.com.tw,5
+maimai,maimaichen,³¯©É§¡,maimaichen@kidsburgh.com.tw,5
+mimi,mimishao,ªò¨Ø§¡,mimishao@kidsburgh.com.tw,5
+natallia,natallialiao,¹ù®R¸¦,natallialiao@kidsburgh.com.tw,5
+nina,ninahuang,¶ÀÃýæ¢,ninahuang@kidsburgh.com.tw,5
+pan,panpan,¼ï¹ÅÀM,panpan@kidsburgh.com.tw,5
+phil,philtsai,½²¬F¶¯,philtsai@kidsburgh.com.tw,5
+pin,pintsai,½²²QµÓ,pintsai@kidsburgh.com.tw,5
+sevenwang,seven,¤ý¤ß©É,seven@kidsburgh.com.tw,5
+shane,shanetseng,´¿ÄÉ½Ë,shanetseng@kidsburgh.com.tw,5
+sinbei,sinbeiho,¦ó¤ß»_,sinbeiho@kidsburgh.com.tw,5
+tako,takochang,±i·ì®x,takochang@kidsburgh.com.tw,5
+victor,victorchiang,¦¿©ÓÀM,victorchiang@kidsburgh.com.tw,5
+yenyen,yenyenchen,³¯¿P§g,yenyenchen@kidsburgh.com.tw,5
+yoyo,yoyochen,³¯¦ö´f,yoyochen@kidsburgh.com.tw,5
+zoe,zoetseng,´¿¨È´f,zoetseng@kidsburgh.com.tw,5
+
+
+
+PC info
+1	192.168.0.100	5C-F3-FC-29-BA-60	KISBERP_IBM_Server	 
+2	192.168.0.163	00-13-02-90-71-8D	speed-pc
+3	192.168.0.164	00-16-41-2B-CB-98	PC-20111009FTAO	¤ý¤ß©É seven@kidsburgh.com.tw
+4	192.168.0.165	88-C6-63-B9-6B-32	PC-20111103IREH	·¨¾å´f fionayang@kidsburgh.com.tw	 
+5	192.168.0.166	00-1D-7D-AF-CC-CE	TAIWAN-CDF62842	 
+6	192.168.0.167	00-13-A9-3D-10-FF		 
+7	192.168.0.168	14-DA-E9-08-64-82	PC-PC	ªLªY¾ì	connielin@kidsburgh.com.tw	 
+8	192.168.0.169	14-DA-E9-08-52-68	Owner-PC	½²²QµÓ	pintsai@kidsburgh.com.tw	 
+9	192.168.0.170	14-DA-E9-08-52-92	PC-2-PC	 
+10	192.168.0.171	14-DA-E9-08-6A-4D	admin1-PC	¯Î­Æ´f	hsinghuiweng@kidsburgh.com.tw	 
+11	192.168.0.172	40-61-86-58-8A-5F	USER-MSI1	 ¶ÀÄR®S judyhuang@kidsburgh.com.tw
+12	192.168.0.173	40-61-86-58-8B-D4	USER-MSI	³¯¬üµÙ	lynnchen@kidsburgh.com.tw	win7
+13	192.168.0.175	14-DA-E9-0C-5A-25	pc-1-PC	§d¨äÂE	chihungwu@kidsburgh.com.tw	 win7
+14	192.168.0.177	00-13-D3-A0-51-A0	PC-20111009TVQL	´¿ÄÉ½Ë shanetseng@kidsburgh.com.tw
+15	192.168.0.180	00-23-6C-41-F8-E7	yenyen
+16	192.168.0.187	00-15-58-E5-A3-B8	PC-101	´¿¨È´f	zoetseng@kidsburgh.com.tw		 
+17	192.168.0.189	5C-F3-FC-29-BA-64	IMM-5CF3FC29BA64	 
+18	192.168.0.194	40-61-86-39-89-AA	USER-MSI	³¯¬üµÙ	lynnchen@kidsburgh.com.tw  win7
+19	192.168.0.198	00-0D-60-92-AA-F3	PC-20111009VTKQ	 ªL²úã¸ lindalin@kidsburgh.com.tw
+20	192.168.0.199	00-16-41-2B-DF-D0	PC-100	³¯¿P§g	yenyenchen@kidsburgh.com.tw	 
+21	192.168.0.200	00-26-73-2F-51-48	RNP2F5148	 
+22	192.168.0.250	00-11-32-0D-B7-3B	DiskStation_NAS

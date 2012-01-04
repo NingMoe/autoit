@@ -1,0 +1,418 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>eXo_new</title>
+
+<SCRIPT language=JAVAScript>
+var timerID = null
+var timerRunning = false
+
+function stopclock(){
+if(timerRunning)
+clearTimeout(timerID)
+timerRunning = false
+}
+
+function startclock(){
+stopclock()
+showtime()
+}
+
+function showtime(){
+var now = new Date()
+var year=now.getYear()
+var month=now.getMonth()+1
+var date=now.getDate()
+var hours = now.getHours()
+var minutes = now.getMinutes()
+var seconds = now.getSeconds()
+var timeValue = year ;//+"年";
+timeValue +=((month < 10) ? "0" : "") + month ;//+ "月"
+timeValue +=((date < 10) ? "0" : "") + date ;//+ "日 "  
+timeValue +=((hours < 10) ? "0" : "") + hours ;//+ ":"   
+timeValue += ((minutes < 10) ? "0" : "") + minutes ;//+ ":"
+timeValue += ((seconds < 10) ? "0" : "") + seconds
+
+form1.send_Date.value = timeValue
+timerID = setTimeout("showtime()",1000)
+timerRunning = true
+}
+
+function pnr_change(){
+    
+	if(form1.pnr.value.length==6)
+	{
+		seg_result.innerHTML="讀取資料中...";
+		hiddenframe.location.href="xo_pnr_change.jsp?pnr="+form1.pnr.value;
+	}
+	
+}
+//除去字串中的空白 exp:注意下面的[/script]掛了,可能是jbuilder不懂這函數
+function trim(str){
+   var newstr="";
+   for (var i=0; i<str.length; i++){
+      if (str.charAt(i)!=" ")
+         newstr=newstr+str.charAt(i);
+   }
+   return newstr;
+}
+
+function isComplete(){
+var status = false;
+
+	if(trim(document.form1.pnr.value).length==0){
+	alert('pnr不可為空白！');
+	form1.pnr.focus();
+	return false;}
+
+if(trim(document.form1.staff_id.value).length==0){
+alert('ae服務人員不可為空白！');
+form1.staff_id.focus();
+return false;}
+if(trim(document.form1.customer_name.value).length==0){
+alert('旅客姓名不可為空白！');
+form1.customer_name.focus();
+return false;}
+if(trim(document.form1.seg_info.value).length==0){
+alert('行程不可為空白！');
+form1.seg_info.focus();
+return false;}
+if(trim(document.form1.send_Date.value).length==0){
+alert('日期不可為空白！');
+form1.send_Date.focus();
+return false;}
+if(trim(document.form1.send_TO.value).length==0){
+alert('TO不可為空白！');
+form1.send_TO.focus();
+return false;}
+if(trim(document.form1.Net.value).length==0){
+alert('Net不可為空白！');
+form1.Net.focus();
+return false;}
+if(trim(document.form1.Tax.value).length==0){
+alert('Tax不可為空白！');
+form1.Tax.focus();
+return false;}
+if(trim(document.form1.TEL.value).length==0){
+alert('TEL不可為空白！');
+form1.TEL.focus();
+return false;}
+
+	if(form1.ccx == null)
+ 	{
+ 		return true;
+ 	}
+	
+	for(i=0;i<form1.ccx.length;i++)
+	{
+			if(form1.ccx[i].checked)
+				return true
+	}	
+	alert('一定要選一個顧客！');	
+	return false;
+}
+
+function checker(obj)
+{
+	if(obj.checked)
+	{
+		var this_tr=obj.parentElement.parentElement;
+		this_tr.style.color="blue";
+		
+	}
+	else
+	{
+		var this_tr=obj.parentElement.parentElement;
+		this_tr.style.color="gray";
+	}
+}
+
+function will_send()
+{
+	for(i=0;i<span2.all.length;i++)
+    {
+    	if(span2.all[i].type=="checkbox")
+    	{
+ 			  		
+	    	if(!span2.all[i].checked)
+	    	{
+	    		var obj=span2.all[i].parentElement.parentElement;
+	    		for(i=0;i<maintb.rows.length;i++)
+    			{
+		    		if(maintb.rows[i]==obj)
+		    			maintb.deleteRow(i);
+	    		}
+	    	}
+    	}
+    }
+    for(i=0;i<maintb.rows.length;i++)
+    {
+    	maintb.rows[i].firstChild.innerText="";
+    	maintb.rows[i].firstChild.removeNode();
+	}
+}
+
+function my_submit() {
+  if (isComplete())
+  {
+  	form1.save.disabled="true";
+  	form1.save.value="存檔中請稍待...";
+  	will_send();
+  	
+  	if(form1.ccx!= null)
+ 	{
+ 	  	for(i=0;i<form1.ccx.length;i++)
+		{
+			if(form1.ccx[i].checked)
+			{
+				form1.customer_name.value=eval("form1.customer_name"+(i+1)+".value");
+				break;
+			}
+		}
+	}
+  	form1.seg_info.value=span2.innerHTML;
+    document.form1.submit();
+  }
+}
+
+</script>
+</head>
+<body>
+<form name="form1" method="post" action="xo_record_add.jsp" target="hiddenframe">
+<input type="hidden" name="debug" value="">
+<input type="hidden" name="trade_type" value="21">
+負責人: [staff_id]
+　pnr: <input type='text' name='pnr' size='8'  maxlength='6' value='' onkeyup="pnr_change()" >
+訊息:<span id="seg_result" style="color:red; width:100  "  >　　　　</span>
+<input type='hidden' name='customer_name'  value='no_data'>
+<input type='hidden' name='seg_info'  value='no_data' >
+<table width="644" border="1" >
+  <tr>
+    <td width="89"><img width="85" height="77" src="http://st1.onlinebooking.com.tw/images/xo/clip_image003.gif"></td>
+    <td width="267" align="center" style="font-size:20px ; font-weight:bold ">EXCHANGE ORDER</td>
+    <td width="268"><img width="268" height="53" src="http://st1.onlinebooking.com.tw/images/xo/clip_image004.gif"></td>
+  </tr>
+</table>
+
+<table width="674" border="0" bordercolor="#FFFFFF" 
+cellpadding="0" cellspacing="0" style=" font-size:11px; font-weight:bolder " >
+  <tr>
+    <td width="52"></td>
+    <td width="51"></td>
+    <td width="35"></td>
+    <td width="13"></td>
+    <td width="42"></td>
+    <td width="69"></td>
+    <td width="99"></td>
+    <td width="9"></td>
+    <td colspan="2">Date:</td>
+    <td>[send_Date]</td>
+  </tr>
+  <tr>
+    <td>TO:</td>
+    <td colspan="6">[send_TO]</td>
+	<td>&nbsp;</td>
+	<td colspan="2">XO No.</td>
+	<td>[XO_No]</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2">&nbsp;</td>
+    <td width="219">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>NAME:</td>
+    <td colspan="6" rowspan="4" valign="top" id="customer_names">[customer_name]
+	</td>
+	<td rowspan="4" >&nbsp;</td>
+	<td colspan="2">Urgent Cheque:</td>
+	<td>[Urgent_Cheque]</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2">A/C No.:</td>
+    <td>[A_C_No]</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2">ID:</td>
+    <td>[ID]</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">CR:</td>
+    <td>[CR]</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2">TR:</td>
+    <td>[TR]</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2">CC:</td>
+    <td>[CC]</td>
+  </tr>
+  <tr>
+    <td colspan="7" rowspan="13" valign="top" id="seg_info" >[seg_info]</td>
+    <td ></td>
+    <td colspan="2">Udid:</td>
+    <td>[Udid1]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">Udid:</td>
+    <td>[Udid2]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">Udid:</td>
+    <td>[Udid3]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2"><p>AX/VI/CA/DC/<br>
+    BTA/INV/DCV:</td>
+    <td>
+      [AX_VI_CA_DC_BTA]
+	</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">Credit Card No.:</td>
+    <td>[Credit_Card_No]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">Exp:(mmyy)</td>
+    <td>[Exp]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">Approval Code:</td>
+    <td>[Approval_Code]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">Fare:</td>
+    <td>[Fare]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">Net:</td>
+    <td>[Net]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">TC:</td>
+    <td>[TC]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td colspan="2">Tax:</td>
+    <td>[Tax]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td width="67">Mark-up:</td>
+    <td width="18">$</td>
+    <td>[Mark_up1]</td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td >&nbsp;</td>
+    <td >%</td>
+    <td>[Mark_up2]</td>
+  </tr>
+  <tr>
+    <td colspan="7" valign="top" >&nbsp;</td>
+    <td ></td>
+    <td colspan="2">Selling:</td>
+    <td>[Selling]</td>
+  </tr>
+  <tr>
+    <td colspan="7" valign="top" >&nbsp;</td>
+    <td ></td>
+    <td colspan="2">Transaction Fee:</td>
+    <td>[Transaction_Fee]</td>
+  </tr>
+  <tr>
+    <td height="">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2">Merchant Fee:</td>
+    <td>[Merchant_Fee]</td>
+  </tr>
+  <tr>
+    <td height="26">Ticket No.:</td>
+    <td colspan="3">[Ticket_No]</td>
+    <td>Cname:</td>
+    <td colspan="2">[Cname]</td>
+    <td>&nbsp;</td>
+    <td colspan="2">T/C</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="25" colspan="4">Customer Num:[customer_no]</td>
+    <td></td>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2">TEL</td>
+    <td>[TEL]</td>
+  </tr>
+  
+  <tr>
+    <td height="25" colspan="4"></td>
+    <td></td>
+    <td colspan="2">&nbsp;</td>
+    <td colspan="4"><img src="http://st1.onlinebooking.com.tw/images/xo/sign.jpg" height="120"></td>
+  </tr>
+</table>
+<input name="save" type="button" value="存檔" onclick="my_submit()">
+</form>
+<table width="200" border="1" style="visibility: hidden">
+  <tr>
+    <td height="17">&nbsp;</td>
+    <td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="17">&nbsp;</td>
+    <td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<IFRAME name="hiddenframe" height="600" width="0" src="about:blank"></IFRAME>
+</body>
+</html>
+<script>
+  	showtime();
+</script>

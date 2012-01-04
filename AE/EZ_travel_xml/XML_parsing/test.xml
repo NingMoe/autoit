@@ -1,0 +1,148 @@
+﻿<buddyList>
+ <name>Wojjie's Buddy List</name>
+<buddy>
+    <name>Wojjie</name>
+    <status>Online</status>
+    <game>
+        <shortname>bf2</shortname>
+        <longname>BattleField 2</longname>
+    </game>
+    <server>
+        <name>24/7 Wake - Krackhouse</name>
+        <fullip>69.28.221.211:16567</fullip>
+        <link>http://www.game-monitor.com/GameServer/69.28.221.211:16567/</link>
+        <players>37/40</players>
+        <map>Wake Island 2007</map>
+    </server>
+    <score>12</score>
+    <ping>20 ms</ping>
+    <duration></duration>
+</buddy>
+<buddy>
+    <name>=GSF=FreekBoy</name>
+    <status>Offline</status>
+    <game>
+        <shortname>all</shortname>
+        <longname>All</longname>
+    </game>
+    <server>
+        <name></name>
+        <fullip>0.0.0.0:</fullip>
+        <link>http://www.game-monitor.com/GameServer/0.0.0.0:/</link>
+        <players></players>
+        <map></map>
+    </server>
+    <score></score>
+    <ping></ping>
+    <duration></duration>
+</buddy>
+<buddy>
+    <name>EVO_Matt</name>
+    <status>Offline</status>
+    <game>
+        <shortname>all</shortname>
+        <longname>All</longname>
+    </game>
+    <server>
+        <name></name>
+        <fullip>0.0.0.0:</fullip>
+        <link>http://www.game-monitor.com/GameServer/0.0.0.0:/</link>
+        <players></players>
+        <map></map>
+    </server>
+    <score></score>
+    <ping></ping>
+    <duration></duration>
+</buddy>
+<buddy>
+    <name>i365|klaude</name>
+    <status>Offline</status>
+    <game>
+        <shortname>all</shortname>
+        <longname>All</longname>
+    </game>
+    <server>
+        <name></name>
+        <fullip>0.0.0.0:</fullip>
+        <link>http://www.game-monitor.com/GameServer/0.0.0.0:/</link>
+        <players></players>
+        <map></map>
+    </server>
+    <score></score>
+    <ping></ping>
+    <duration></duration>
+</buddy>
+<buddy>
+    <name>i365|lreese</name>
+    <status>Offline</status>
+    <game>
+        <shortname>all</shortname>
+        <longname>All</longname>
+    </game>
+    <server>
+        <name></name>
+        <fullip>0.0.0.0:</fullip>
+        <link>http://www.game-monitor.com/GameServer/0.0.0.0:/</link>
+        <players></players>
+        <map></map>
+    </server>
+    <score></score>
+    <ping></ping>
+    <duration></duration>
+</buddy>
+<buddy>
+    <name>Saboom</name>
+    <status>Offline</status>
+    <game>
+        <shortname>all</shortname>
+        <longname>All</longname>
+    </game>
+    <server>
+        <name></name>
+        <fullip>0.0.0.0:</fullip>
+        <link>http://www.game-monitor.com/GameServer/0.0.0.0:/</link>
+        <players></players>
+        <map></map>
+    </server>
+    <score></score>
+    <ping></ping>
+    <duration></duration>
+</buddy>
+<buddy>
+    <name>[BWC]Rabbit</name>
+    <status>Offline</status>
+    <game>
+        <shortname>bf2</shortname>
+        <longname>BattleField 2</longname>
+    </game>
+    <server>
+        <name></name>
+        <fullip>0.0.0.0:</fullip>
+        <link>http://www.game-monitor.com/GameServer/0.0.0.0:/</link>
+        <players></players>
+        <map></map>
+    </server>
+    <score></score>
+    <ping></ping>
+    <duration></duration>
+</buddy>
+<buddy>
+    <name>^-DRz-^Picchioni</name>
+    <status>Offline</status>
+    <game>
+        <shortname>all</shortname>
+        <longname>All</longname>
+    </game>
+    <server>
+        <name></name>
+        <fullip>0.0.0.0:</fullip>
+        <link>http://www.game-monitor.com/GameServer/0.0.0.0:/</link>
+        <players></players>
+        <map></map>
+    </server>
+    <score></score>
+    <ping></ping>
+    <duration></duration>
+</buddy>
+
+</buddyList>
