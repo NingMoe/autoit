@@ -1,0 +1,29 @@
+<HTML>
+<head><title>test</title>
+
+<script type="text/javascript">
+function check_length(item,size){
+//alert (item.value.length)
+if (item.value.length > size) {
+alert( "¦r¼Æ¹Lªø" );
+		context=document.item.value
+		context.value=context.value.substring(0,size);
+     //context=document.testform.input1;
+     //context.value=context.value.substring(0,20);
+
+}
+}
+
+
+</script>
+</head>
+
+<body>
+<form name=testform>
+<input type=text size=20 name="input1" MAXLENGTH=40 onblur=check_length(this,20)><br>
+<input type=text size=20 name="input2" MAXLENGTH=40 onblur=check_length(this,20)><br>
+
+
+</form>
+
+</body></html> 

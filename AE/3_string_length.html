@@ -1,0 +1,74 @@
+<html>
+<head>
+     <title>失去焦點時判斷文字長度</title>
+<script language="javascript" type="text/javascript">
+    <!--
+       function titleLimit()
+    {
+       if(document.myForm.textTitle.value.length>15)
+    {
+       window.alert("標題文字內容不能超過15");
+       return false;
+    }
+    }
+    function textLimit()
+    {
+       var titleCount=document.myForm.Context.value.length;
+    if(titleCount>100)
+    {
+      window.alert("內容文字不能超過100");
+      return false;
+    }
+   
+    }
+    function blurCheckTitle()
+    {
+      if(titleLimit()==false)
+    {
+     if(window.confirm("是否截斷文字？"))
+     {
+        context=document.myForm.textTitle;
+     context.value=context.value.substring(0,15);
+     }
+       }
+   
+    }
+    function blurCheckText()
+    {
+      if(textLimit()==false)
+    {
+     if(window.alert("是否截取文字？"))
+     {
+       context=document.myForm.context;
+     context.value=content.value.substring(0,100);
+     }
+    }
+    }
+    function checkText()
+    {
+      if(titleLimit()==false)
+    {
+     return false;
+    }
+    if(textLimit()==false)
+    {
+     return false;
+    }
+    }
+    -->
+</script>
+</head>
+<body>
+     <form name="myForm" onsubmit="return checkText()" action="cc.html">
+     標題：<input type="text" name="textTitle" size="30" onkeypress="return titleLimit()" onblur="blurCheckTitle()" />
+   限制輸入15漢字
+   <br />
+   內容：<textarea rows="10" cols="20" name="Context" onkeypress="return textLimit()" onblur="blurCheckText()"></textarea>
+   限制輸入100漢字
+   <br />
+   <input type="submit" value="提交" />
+   <input type="reset" value="重置 " />
+</form>
+</body>
+
+</html>

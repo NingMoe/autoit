@@ -1,0 +1,215 @@
+COPO 台南的成本價格不對
+
+
+Abacus 
+Steven Hsieh 謝明宏  2751-6988 #237  0911-823-741
+Savvy Feng 馮金財  2751-6988 #235  0937-887-728
+
+AE
+
+pam 0931090439
+BRWHTG
+
+
+	
+ST1 web login  PAM/gbt2008    a/wowwow
+copo  web login  11223344/amexh001
+
+Server ST1 /  and shadow ( Server )
+6 web server 
+	ST1	
+	OnePage	
+	Hispeed
+	
+Another PC --- OnlineBooking _ MailD
+			-- Log analysis ?
+	
+Server ST2 /  back of ST1 web site ( PC XP )
+	DB server 
+	Apache
+	高鐵產品同?
+	Direct班表
+	追位系統
+	兩岸三地表
+	
+	Copy 票價表 (Faresheet1 Faresheet2 Faresheet )
+	
+PC2 (XP)
+	Copy file base Data to NAS_DiskArray 
+	Copy file base Data to ST1
+	
+	
+	
+DNS 由 abcus 代管
+	Steven has a config
+	
+	
+台達 615
+	台達 Mail CC 上傳表單 RTF
+	Rita提供一個表單
+
+Apache And Tomcat
+
+	Application Bean
+
+
+amex amextravel	
+	
+簡訊若無法發送:
+若有故障請重開Tomcat 
+遠端連線
+140.119.116.245:17999
+account   administrator
+passwd  *)^$9795	                                                                     
+                                                                     
+                                                                     
+Server
+                                      
+60.250.18.181	Windows 2003 Server-1-LAN 1(10.112.55.1) Service界面 -->> 與18.182同一機器
+60.250.18.182	Windows 2003 Server-1-LAN 2(10.112.55.2) Standby界面 -->> 與18.181同一機器
+60.250.18.183	Windows 2003 Server-2-LAN 1(10.112.55.3) Service界面 -->> 與18.184同一機器
+60.250.18.184	Windows 2003 Server-2-LAN 2(10.112.55.4) Standby界面 -->> 與18.183同一機器
+60.250.18.186	AX Server-1(st1)(Online Booking；10.112.55.101) -->> ping to 60.250.18.181
+59.124.45.90	AX Server-3(test)(Online Booking；10.112.55.103)
+59.124.45.91	AX Server-4(Peipei)(Online Booking；10.112.55.104)
+59.124.45.92	AX Server-5(Rita)(emailcenter.com.tw Mail Server；10.112.55.105) mail server alongbird
+59.124.45.93	AX Server-2(st2)(Online Booking；10.112.55.102)
+NAS IP：10.112.55.100
+
+2009/Nov
+Server Naming						
+PrivateIP		Public IP		MachineName	Install OS	Domain	ArrangedPrivateIP	ArrangedPublicIP
+10.112.55.3		60.250.18.183	AE-AB-Srv-AP2	Win2k3 			10.112.55.3		60.250.18.183
+10.112.55.4		60.250.18.184									10.112.55.83	59.124.45.83
+10.112.55.1		60.250.18.181	AE-AB-Srv-AP1	Win2k3	St1		10.112.55.1		60.250.18.181
+10.112.55.2		60.250.18.182									10.112.55.81	59.124.45.81
+10.112.55.100	N/A				AE-AB-NAS				N/A
+10.112.55.101	60.250.18.186	AE-AB-Srv-maild	WinXP 			10.112.55.5		60.250.18.185
+																10.112.55.85	59.124.45.85
+10.112.55.106	N/A				AE-AB-Srv-AP3	WinXP 			10.112.55.6		60.250.18.186
+																10.112.55.86	59.124.45.86
+10.112.55.107	N/A				AE-AB-Srv-AP4	Win2k3			10.112.55.7		60.250.18.187
+																10.112.55.87	59.124.45.87
+10.112.55.103	59.124.45.90	AE-AB-PC-Test2	WinXP 			
+10.112.55.105	59.124.45.92	AE-AB-PC-maild	WinXP 			
+10.112.55.102	59.124.45.93	AE-AB-PC-Test1	WinXP	St2		
+10.112.55.104	59.124.45.91	AE-AB-PC-Backup	WinXP 			
+
+2010/OCT
+10.112.55.2		--> 59.124.45.82
+10.112.55.8		--> 59.124.45.88
+
+
+2011/July
+10.112.55.9 / 60.250.18.188 (Service : HTTP / HTTPS / RDP / PING)    Administrator/Amex@traveL   amex/A@mextravel
+vm: 10.112.55.10 / 59.124.45.89 (Service : HTTP / HTTPS / RDP / PING)    Administrator/Amex@traveL   amex/A@mextravel
+IPMI :  http://10.112.55.249   IPMI: ADMIN/ADMIN
+Vmware : 10.112.55.248  root/amextravel
+
+
+Electronic Power Comtrol
+10.112.55.250/60.250.18.180 amex/amextravel 
+
+
+
+連線Firewall之URL為：http://10.112.4.234:4096
+			   帳號：netscreen  密碼：1bNS7581
+
+AE related system mail account of onlinebooking
+pkpkpk
+amexamex
+
+
+DB server account and password
+10.112.55.102
+10.112.55.87 backup db
+
+acc alongbird
+pass pkpkpk
+
+
+高鐵
+http://www.copo.com.tw/
+11223344
+amexh001
+--> EZ travel 2509-3661 #655 Jeff
+
+Price change 
+Date delete  D:\jsp\copo\src3\job\ez_query.java ;  D:\jsp\copo\WebContent\order\ticket_new.jsp
+管理入口
+http://www.copo.com.tw/other/
+	ae_admin / 168
+
+
+
+24小時隨手查
+http://st1.onlinebooking.com.tw/index_all.jsp   ,,,   a/wowwow
+D:\jsp\st2\WebContent\aexp_admin\mail\direct_fly.htm
+
+
+reftkt 不會產生 送到 aemx-modify@gmail.com 的 mail 
+Reftkt  這件事只有在 st2.onlinebooking.com.tw上才有處理，因此重開 st2的web  server之後就可以進行了。
+
+
+
+http://www.onepage.com.tw
+
+員工          RL        8665
+核准人        PP1        8616
+決行者        GL1        8624
+管理人        A9        3828 
+
+
+
+
+
+Gino Li                (O)271789624
+                (M)0933753578
+                Email : gino.s.li@aexp.com
+
+Peipei Tang        (O)27178682
+                (M)0932947317
+                Email : peipei.tang@aexp.com
+
+Rita Liu        (O)27178665
+                (M)0933776069
+                Email : rita.j.liu@aexp.com
+
+Pamela Pan        (O)27178776
+                (M)0931090439
+                Email : pamela.h.pan@aexp.com
+
+Vivian Hsieh        (O)25143828
+                (M)0936899055
+                Email : vivian.v.hsieh@aexp.com
+
+Mandy Chen        (O)27178682
+                (M)0921880063
+				MAC : 00:23:76:0c:be:7a
+                Email : mandy.h.chen@aexp.com 
+				
+
+Clare    2717-8736				
+				
+				
+				
+Mail wakeup in mail server				
+ -cp D:\jsp\st2\WebContent\WEB-INF\classes\ job.mail_wakeup http://st1.onlinebooking.com.tw/ResponseServer/receive3.jsp?account_name=%A
+				  
+				  
+GBT-520GC	admin /admin			  
+WiFI MAC Address for ADSL		   
+002243257954 bryant
+0023760cbe7a mendy
+001B77A28AF9
+0015AFBA6A32
+00184120AE78
+000cf1194a19
+0022fb6fe356
+e806888ffe7d
+00215d0e285c
+002354185495	   
+
+GBT-520GU
+amex/amextravel
+WPA: 00235411577d
