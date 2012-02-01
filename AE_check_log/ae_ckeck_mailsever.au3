@@ -27,8 +27,8 @@ $test_mode=_TEST_MODE() ; return 1 means  Test mode.
 Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 Global $oMyRet[2]
 
-dim $batpath_a=@ScriptDir
-dim $bat1="tomcat.bat"
+Global $batpath=@ScriptDir
+Global $bat="tomcat.bat"
 ;
 
 
@@ -69,8 +69,13 @@ while 1
 				
 				if $restart_tomcat=0 then 
 					WinMinimizeAll()
-					_batch($batpath_a,$bat1)
+					_kill_tomcat()
 					$restart_tomcat=1
+					$s_Subject = "AE SMS server己經重開了"                   ; subject from the email - can be anything you want it to be
+					$as_Body =  _now() &" AE SMS server己經重開了"    
+					$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $IPPort, $ssl)
+				
+					sleep(10000) ; Wait tomcat to restart
 				EndIf	
 			EndIf
 			
@@ -98,6 +103,25 @@ while 1
 	EndSelect
 sleep(1000* $sleep_interval)
 WEnd
+
+
+
+Func _kill_tomcat()
+	Opt("WinTitleMatchMode", 3) 
+if ProcessExists("java.exe") and WinExists ("Start Tomcat") then 
+	
+	MsgBox(0,"Hi there", "tomcat is there.",5)
+	WinKill("Start Tomcat","")
+	sleep(500)
+	run($batpath&"\"&$bat,$batpath)
+	
+	sleep(200)
+	WinSetTitle("C:\WINNT\system32\cmd.exe","","Start Tomcat")
+	WinSetTitle("C:\WINDOWS\system32\cmd.exe","","Start Tomcat")	
+	;_batch($batpath,$bat)
+EndIf
+	
+EndFunc
 
 
 Func _TEST_MODE()

@@ -29,10 +29,16 @@ admin.kidsburgh.com.tw 210.68.84.67
 
 內湖kidsburgh 
 ADSL router
-admin / 0936-333-366
+admin / 0936-333-366  ---> 改為 25176455
+wireless pass : 25176455
 Hinet info  73600503/fgqxolfx
 
 
+桃園kidsburgh
+router 192.168.4.1
+admin/25176455
+wireless pass : 25176455
+Hinet info 74120001/vpqmpvmh
 
 NAS account
 alice,alicechen,陳秋萍,alicechen@kidsburgh.com.tw,5

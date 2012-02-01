@@ -36,6 +36,7 @@
 #include <array.au3>
 #include <mysql.au3>
 #Include <File.au3>
+#include <_array2string.au3>
 
 dim $sec=@SEC
 dim $min=@MIN
@@ -44,7 +45,7 @@ Dim $day=@MDAY
 Dim $month=@MON
 DIM $year=@YEAR
 DIM $today= $year& $month & $day
-
+dim $mailbody_in_main
 
 ;
 Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
@@ -63,15 +64,20 @@ dim  $my_http_base="st1.onlinebooking.com.tw"
 ;; This is to prepare mail body 
 ;; Need to change [user_email] bracket in the string
 ;dim $single_email="bryant@dynalab.com.tw"
-dim  $mymailbody=_read_direct_fly(@ScriptDir&"\direct_fly.htm", $my_http_base)
-dim $mymailsubject=_tract_mail_subject(@ScriptDir&"\direct_fly.htm")
+dim  $mymailbody="";_read_direct_fly(@ScriptDir&"\direct_fly.htm", $my_http_base)
+dim $mymailsubject="";_tract_mail_subject(@ScriptDir&"\direct_fly.htm")
 ;	if StringInStr($mymailbody,"[user_email]") then 
 ;	$mymailbody=StringReplace($mymailbody,"[user_email]",$single_email)
 ;	;MsgBox(0,"Message",$aRecords[$x])
 ;	EndIf
 ;MsgBox(0,"mail body",$mymailbody)
 ;;=============
-
+If  FileExists(@ScriptDir & "\extra_email.csv")  Then
+	$extramail_array =  _file2Array(@ScriptDir&"\extra_email.csv",2,";")
+	;_ArrayDisplay($extramail_array)
+	
+	;MsgBox(0,"_array2string", _array2string($extramail_array,2) )
+Else
 ;;
 ;; This is  connect to My SQL for user email
 ;;
@@ -105,7 +111,7 @@ Endif
 
 ;$today="20120312"
 $query = 'select * from extra_email where corp_id="tinfo" and deadline< ' & $today
-
+$query = 'select * from extra_email where corp_id="tinfo" and deadline> ' & $today
 
 _MySQL_Real_Query($MysqlConn, $query)
 
@@ -121,25 +127,30 @@ $res = _MySQL_Store_Result($MysqlConn)
 ;MsgBox(0, '', "Zugriff Methode 3 - alles in ein 2D Array")
 $extramail_array = _MySQL_Fetch_Result_StringArray($res)
 ;_ArrayDisplay($extramail_array)
-if UBound($extramail_array)-1 >0 then 
-	;for $x=1 to UBound($extramail_array)
-	;	
-	;Next	
-	
-	MsgBox(0,"Select from DB " , "Record no. out-dated: " & UBound ($extramail_array)-1  &@CRLF& "現在要刪除這些名單了。")
-	
-EndIf
 
-if UBound($extramail_array)-1 >0 then 
-	
-	$query2 = 'delete from extra_email where corp_id="tinfo" and deadline< ' & $today
-	_MySQL_Real_Query($MysqlConn, $query2)
-	$res2 = _MySQL_Store_Result($MysqlConn)
 
-	$extramail_array = _MySQL_Fetch_Result_StringArray($res2)
+
+	if UBound($extramail_array)-1 >0 then 
+		;for $x=1 to UBound($extramail_array)
+		;	
+		;Next	
+		
+		MsgBox(0,"Select from DB " , "Record no. out-dated: " & UBound ($extramail_array)-1  &@CRLF& "現在要刪除這些名單了。")
 	
-EndIf	
-if UBound($extramail_array)-1 <0 then MsgBox(0,"Report",  "Now, no out-dated name in DB extra_mail table.", 5)
+	
+	
+	
+	;	$query2 = 'delete from extra_email where corp_id="tinfo" and deadline< ' & $today
+	;	_MySQL_Real_Query($MysqlConn, $query2)
+	;	$res2 = _MySQL_Store_Result($MysqlConn)
+	
+	;	$extramail_array = _MySQL_Fetch_Result_StringArray($res2)
+		
+		$mailbody_in_main= "Extra_mail-清單刪除"& @CRLF &_array2string($extramail_array, 7)
+		_sendmail_func($mailbody_in_main)
+	
+	EndIf	
+	if UBound($extramail_array)-1 <0 then MsgBox(0,"Report",  "Now, no out-dated name in DB extra_mail table.", 5)
 ;===== If you select all from DB then you will need to use these code for filter.
 ; ; Y is from 1 X is from 0
 ; ;MsgBox(0,"Array((y,x)",$extramail_array[5][1])
@@ -158,41 +169,43 @@ if UBound($extramail_array)-1 <0 then MsgBox(0,"Report",  "Now, no out-dated nam
 ;_ArrayDisplay($email)
 
 ; Abfrage freigeben
-_MySQL_Free_Result($res)
-; Verbindung beenden
-_MySQL_Close($MysqlConn)
-; MYSQL beenden
-_MySQL_EndLibrary()
+	_MySQL_Free_Result($res)
+	; Verbindung beenden
+	_MySQL_Close($MysqlConn)
+	; MYSQL beenden
+	_MySQL_EndLibrary()
 
 ;MsgBox(0,"Email", "There are :" & (UBound($extramail_array,1)-1) &" email addresses")
 
 ;_ArrayDisplay($extramail_array)
-
+EndIf
 exit
 
+
+Func _sendmail_func($mailbody_infunc)
 ; This is send gmail  function
 ;
 ;##################################
 ; Variables
 ;##################################
 ;
-$s_SmtpServer = "onlinebooking.com.tw" ;"maild.digitshuttle.com"              ; address for the smtp-server to use - REQUIRED
-$s_FromName = "ae_direct_fly@onlinebooking.com.tw" ;"bryant@dynalab.com.tw"                      ; name from who the email was sent
-$s_FromAddress = "ae_direct_fly@onlinebooking.com.tw";"bryant@dynalab.com.tw" ;  address from where the mail should come
-$s_ToAddress = "direct_send@onlinebooking.com.tw"   ; destination address of the email - REQUIRED
-$s_Subject = "美國運通旅遊服務部－24小時隨手查"   
-$as_Body = "24小時隨手查"                             ; the messagebody from the mail - can be left blank but then you get a blank mail
-$s_AttachFiles = ""                       ; the file you want to attach- leave blank if not needed
-$s_CcAddress = ""					      ; address for cc - leave blank if not needed
-$s_BccAddress = ""     					  ; address for bcc - leave blank if not needed
-;$s_Username = _Base64Encode("ae_direct_fly")                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-;$s_Password = _Base64Encode("pkpkpk")                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
-$s_Password = "pkpkpk"
-$s_Username = "ae_direct_fly"
-$s_IPPort = 25                              ; port used for sending the mail
-$s_ssl = 1     ; Always use 1              ; enables/disables secure socket layer sending - put to 1 if using httpS
-;$IPPort=465                            ; GMAIL port used for sending the mail
-;$ssl=1                                 ; GMAILenables/disables secure socket layer sending - put to 1 if using httpS
+;$s_SmtpServer = "onlinebooking.com.tw" ;"maild.digitshuttle.com"              ; address for the smtp-server to use - REQUIRED
+;$s_FromName = "ae_direct_fly@onlinebooking.com.tw" ;"bryant@dynalab.com.tw"                      ; name from who the email was sent
+;$s_FromAddress = "ae_direct_fly@onlinebooking.com.tw";"bryant@dynalab.com.tw" ;  address from where the mail should come
+;$s_ToAddress = "direct_send@onlinebooking.com.tw"   ; destination address of the email - REQUIRED
+;$s_Subject = "美國運通旅遊服務部－24小時隨手查"   
+;$as_Body = "24小時隨手查"                             ; the messagebody from the mail - can be left blank but then you get a blank mail
+;$s_AttachFiles = ""                       ; the file you want to attach- leave blank if not needed
+;$s_CcAddress = ""					      ; address for cc - leave blank if not needed
+;$s_BccAddress = ""     					  ; address for bcc - leave blank if not needed
+;;$s_Username = _Base64Encode("ae_direct_fly")                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
+;;$s_Password = _Base64Encode("pkpkpk")                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
+;$s_Password = "pkpkpk"
+;$s_Username = "ae_direct_fly"
+;$s_IPPort = 25                              ; port used for sending the mail
+;$s_ssl = 1     ; Always use 1              ; enables/disables secure socket layer sending - put to 1 if using httpS
+;;$IPPort=465                            ; GMAIL port used for sending the mail
+;;$ssl=1                                 ; GMAILenables/disables secure socket layer sending - put to 1 if using httpS
 ;
 ;
 ;
@@ -200,18 +213,18 @@ $m_SmtpServer = "smtp.gmail.com"              ; address for the smtp-server to u
 $m_FromName = "DSC"                      ; name from who the email was sent
 $m_FromAddress = "bryant@digtishuttle.com" ;  address from where the mail should come
 
-$m_ToAddress = "bryant@dynalab.com.tw"   ; destination address of the email - REQUIRED
-$m_Subject =  "24小時隨手查-mail-status"                   ; subject from the email - can be anything you want it to be
-$m_as_Body =  "24小時隨手查-mail-status"             ; the messagebody from the mail - can be left blank but then you get a blank mail
-$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"             ; the file you want to attach- leave blank if not needed sample :"d:\ibm240KB.jpg"   
-$m_CcAddress = "rita.j.liu@aexp.com"       ; address for cc - leave blank if not needed
+$m_ToAddress = "bryant@net1.com.tw"   ; destination address of the email - REQUIRED
+$m_Subject =  "Extra_mail-清單刪除"                   ; subject from the email - can be anything you want it to be
+$m_as_Body = $mailbody_infunc          ; the messagebody from the mail - can be left blank but then you get a blank mail
+$m_AttachFiles = "";@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"             ; the file you want to attach- leave blank if not needed sample :"d:\ibm240KB.jpg"   
+$m_CcAddress =""; "rita.j.liu@aexp.com"       ; address for cc - leave blank if not needed
 $m_BccAddress = ""     ; address for bcc - leave blank if not needed
 $m_Username = "changtun@gmail.com"                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
 $m_Password = "9ps567*9"                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
 ;$IPPort = 25                              ; port used for sending the mail
 ;$ssl = 0                                  ; enables/disables secure socket layer sending - put to 1 if using httpS
-$IPPort=465                            ; GMAIL port used for sending the mail
-$ssl=1                                 ; GMAILenables/disables secure socket layer sending - put to 1 if using httpS
+$m_IPPort=465                            ; GMAIL port used for sending the mail
+$m_ssl=1                                 ; GMAILenables/disables secure socket layer sending - put to 1 if using httpS
 ;
 ;
 
@@ -225,34 +238,34 @@ Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 ;dim $2nd= "myonlinebookingst2@gmail.com"
 ;dim $3rd= "myonlinebookingst3@gmail.com"
 
-	if $test_mode=1 then 
-		$end_point=10
-	Else
-		$end_point=(UBound($extramail_array,1)-1)
-	EndIf
+	;if $test_mode=1 then 
+	;	$end_point=10
+	;Else
+	;	$end_point=(UBound($extramail_array,1)-1)
+	;EndIf
 
-for $r=1 to $end_point  
+;for $r=1 to $end_point  
 	
-		Dim $day=@MDAY
-		Dim $month=@MON
-		DIM $year=@YEAR
-		$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
-		$as_Body=$mymailbody
-		if StringInStr($as_Body,"[user_email]") then 
-			$as_Body=StringReplace($as_Body,"[user_email]",$extramail_array[$r][0])
-			;$as_Body=StringReplace($as_Body,"[user_email]","ae@delta.com.tw") ; For test only.
+;		Dim $day=@MDAY
+;		Dim $month=@MON
+;		DIM $year=@YEAR
+;		$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
+;		$as_Body=$mymailbody
+;		if StringInStr($as_Body,"[user_email]") then 
+;			$as_Body=StringReplace($as_Body,"[user_email]",$extramail_array[$r][0])
+;			;$as_Body=StringReplace($as_Body,"[user_email]","ae@delta.com.tw") ; For test only.
 			
-		EndIf
-		If $test_mode=1 then
-			MsgBox(0, "TestMode","Mails should send to "&$extramail_array[$r][0]&@CRLF&" Now send to direct_send@onlinebooking.com",5)
-		else	
-			$s_ToAddress = $extramail_array[$r][0] ;Correct mail to 
-		EndIf
-		;$m_ToAddress =	$extramail_array[$r][0] ; 
-		$s_Subject = $mymailsubject
-		;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
+;		EndIf
+;		If $test_mode=1 then
+;			MsgBox(0, "TestMode","Mails should send to "&$extramail_array[$r][0]&@CRLF&" Now send to direct_send@onlinebooking.com",5)
+;		else	
+;			$s_ToAddress = $extramail_array[$r][0] ;Correct mail to 
+;		EndIf
+;		;$m_ToAddress =	$extramail_array[$r][0] ; 
+;		$s_Subject = $mymailsubject
+;		;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
 		
-		;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $extramail_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
+;		;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $extramail_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
 		
 		;if mod($r, 3)=1 	then	
 		;$s_Username =$1st		
@@ -266,27 +279,27 @@ for $r=1 to $end_point
 		;$s_Username = $3rd			
 		;EndIf
 	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
-	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+;	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 		;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
-		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," Mail Send to "& $extramail_array[$r][0])
-		if mod($r, 3)=0		then 
-			sleep(5000)
-		EndIf
-		if mod($r, 1000)=0 Then
-			Dim $day=@MDAY
-			Dim $month=@MON
-			DIM $year=@YEAR
-			;local $my_attach=@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
-		;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
-		$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
+;		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," Mail Send to "& $extramail_array[$r][0])
+;		if mod($r, 3)=0		then 
+;			sleep(5000)
+;		EndIf
+;		if mod($r, 1000)=0 Then
+;			Dim $day=@MDAY
+;			Dim $month=@MON
+;			DIM $year=@YEAR
+;			;local $my_attach=@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
+;		;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
+		$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $m_IPPort, $m_ssl)
 
-			sleep(1000*60*5)
-		EndIf
+;			sleep(1000*60*5)
+;		EndIf
 
 	
-Next
+;Next
 
-
+EndFunc
 
 
 
@@ -304,7 +317,7 @@ Next
 ;
 ;
 
-Func _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject = "", $as_Body = "", $s_AttachFiles = "", $s_CcAddress = "", $s_BccAddress = "", $s_Username = "", $s_Password = "",$IPPort=25, $ssl=0)
+Func _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject = "", $as_Body = "", $s_AttachFiles = "", $s_CcAddress = "", $s_BccAddress = "", $s_Username = "", $s_Password = "",$IPPort="", $ssl="")
     $objEmail = ObjCreate("CDO.Message")
     $objEmail.From = '"' & $s_FromName & '" <' & $s_FromAddress & '>'
     $objEmail.To = $s_ToAddress
@@ -318,7 +331,7 @@ Func _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, 
 		$objEmail.BodyPart.Charset="utf-8";
         $objEmail.HTMLBody = $as_Body
     Else
-		$objEmail.bodyPart.Charset="utf8";
+		;$objEmail.bodyPart.Charset="utf-8";
         $objEmail.Textbody = $as_Body & @CRLF
     EndIf
     If $s_AttachFiles <> "" Then
@@ -347,7 +360,7 @@ Func _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, 
         $objEmail.Configuration.Fields.Item ("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = false
     EndIf
 ;Update settings
-	$objEmail.BodyPart.Charset="utf-8";
+	;$objEmail.BodyPart.Charset="utf-8";
     $objEmail.Configuration.Fields.Update
 ; Sent the Message
     $objEmail.Send
@@ -432,7 +445,7 @@ Func _TEST_MODE()
 	IF FileExists(@ScriptDir&"\TESTMODE.txt") Then
 		$mode=FileReadLine(@ScriptDir&"\TESTMODE.txt",1)
 		if $mode=1 then 
-			MsgBox(0,"Test mode", "This is Test mode. All mail send to direct_send@onlinebooking.com.tw",5)
+			MsgBox(0,"Test mode", "This is Test mode. mail send to bryant@net1.com.tw",5)
 			
 		Else
 			MsgBox(0,"Delivery mode", "This is True mail delivery.",5)
@@ -446,3 +459,38 @@ Func _TEST_MODE()
 	
 	return $mode
 EndFunc
+
+
+
+;; Two dimension array
+Func _file2Array($PathnFile, $aColume, $delimiters)
+
+
+	Local $aRecords
+	If Not _FileReadToArray($PathnFile, $aRecords) Then
+		MsgBox(4096, "Error", " Error reading file '" & $PathnFile & "' to Array   error:" & @error)
+		Exit
+	EndIf
+	;c
+	Local $TextToArray[$aRecords[0]][$aColume + 1]
+	;$TextToArray[0][0]=$aRecords[0]
+	Local $aRow
+	For $y = 1 To $aRecords[0]
+		;Msgbox(0,'Record:' & $y, $aRecords[$y])
+
+		$aRow = StringSplit($aRecords[$y], $delimiters)
+		;Msgbox(0,'X ,Colume :', $aRow[0])
+		For $x = 1 To $aRow[0]
+			If StringInStr($aRow[$x], ",") Then
+
+				$aRow[$x] = StringTrimLeft($aRow[$x], 1)
+				;MsgBox(0, "after", $aRow[$x])
+			EndIf
+			$TextToArray[$y - 1][$x - 1] = $aRow[$x]
+		Next
+	Next
+
+	;_ArrayDisplay($TextToArray)
+	Return $TextToArray
+
+EndFunc   ;==>_file2Array
