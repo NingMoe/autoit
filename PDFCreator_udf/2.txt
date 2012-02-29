@@ -1,0 +1,20 @@
+
+Titan King
+http://promoinfoking.blogspot.com/
+
+
+天文百問
+http://www.cwb.gov.tw/V5/education/knowledge/Data/astron/eq_100.htm
+
+[MySQL] 實做 MySQL Master-Master Replication 同步
+http://blog.wu-boy.com/2008/12/30/667/
+
+實踐：使用MMM搭建Mysql集群 
+http://www.allhabit.com/thread-308090-1-1.html
+
+
+[Linux&FreeBSD] Find 指令用法教學
+http://blog.wu-boy.com/2009/01/13/712/
+
+
+changtun2009@googlemail.com

@@ -41,7 +41,7 @@ wireless pass 0936333366
 ®ç¶ékidsburgh
 router 192.168.4.1
 admin/25176455
-wireless pass : 25176455
+wireless pass : 5cf3-fc29-ba60  ;; 20120221 ÅÜ§ó
 Hinet info 74120001/vpqmpvmh
 
 NAS account

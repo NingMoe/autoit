@@ -1,0 +1,8 @@
+2/6  送修 Acer Notebook
+2/7  變更Router Log傳送路俓及建立 log 的分析程式。
+2/10 安裝 PC 的RAM。
+2/14 變更伺服器的對外連線規則。
+2/15 檢查Router 的每日連線記錄: 檢查Router log 發現桃園及內湖個人電腦有中毐的現象。分析及找到解毐的方法。己寄給 Connie及Zoe.
+2/18 檢查 內湖堡對總公司的VPN連線及，檢查 POS系統的連線問題。
+2/19 移轉 www.kidsburgh.com.tw 的DNS record
+2/20 檢查三地的網路流量數據。
