@@ -290,7 +290,7 @@ Func _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, 
 		$objEmail.BodyPart.Charset="utf-8";
         $objEmail.HTMLBody = $as_Body
     Else
-		$objEmail.bodyPart.Charset="utf8";
+		$objEmail.bodyPart.Charset="utf-8";
         $objEmail.Textbody = $as_Body & @CRLF
     EndIf
     If $s_AttachFiles <> "" Then

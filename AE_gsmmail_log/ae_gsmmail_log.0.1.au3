@@ -13,21 +13,7 @@
 ;;
 ;;
 ;;============================
-;;20101116 modify for mail subject that is abstracted from mail body of the html file.
-;;============================
-;;20100721 modify for utf-8 encoding
-;; Use onlinebooking.com.tw as mail server.
-;; send mail by ae_direct_fly@onlinebooking.com.tw and return should be send to direct_send@onlinebooking.com.tw if need to analysis return mail.
-;;============================
-; Mail Account for AE
-; MyOnlineBookingST1@gmail.com
-; myonlinebookingst2@gmail.com
-; myonlinebookingst3@gmail.com
-; pass amextravel
-;
-;;
-;; 20110804 modify for AE staff to use this mail sender.
-; Wait for decision 
+;; 這是為了寫出發簡訊時的每日通話記錄，為了 david 的對帳之用 2012/02
 
 
 #include <array.au3>

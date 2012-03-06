@@ -9,8 +9,10 @@
 #ce ----------------------------------------------------------------------------
 
 ; Script Start - Add your code below here
-
+;
+;
 ;ExtraMail_del_list.txt
+; 這是為了直接刪除資料庫中的無效名單，被退件或是無法送到的名單
 #include <file.au3>
 #include <array.au3>
 #include <mysql.au3>
