@@ -27,7 +27,14 @@
 
 
 #include<array.au3>
-
+#include<file.au3>
+dim $sec=@SEC
+dim $min=@MIN
+Dim $hour=@HOUR
+Dim $day=@MDAY
+Dim $month=@MON
+DIM $year=@YEAR
+dim $today=$year & $month & $day
 
 $delay=1000*10
 $section = IniReadSectionNames(@ScriptDir&"\scanfolder.ini")
@@ -89,7 +96,8 @@ Exit
 
 
 Func _scanfolder ($ini_array)
-	_ArrayDisplay($ini_array)
+	;_ArrayDisplay($ini_array)
+
 	local  $scandir, $file_ext,$content_format,$omit_ext,$action_path,$action,$move_path,$netdrive, $remote_dir
 	local $mount_info
 	
@@ -116,6 +124,7 @@ Func _scanfolder ($ini_array)
 		filecopy($scandir&"\*."&$file_ext, $action_path,9) 	
 		sleep(1000)
 		run ($action)
+		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," 在 "& $scandir &" 下的 " & $file_ext & " 檔案移動到 " & $action_path  )
 		;Run(@ComSpec & " /c " & 'commandName', "", @SW_HIDE) 
 		if  FileExists($scandir&"\*."&$file_ext) then FileMove($scandir&"\*."&$file_ext,$move_path,9)
 		

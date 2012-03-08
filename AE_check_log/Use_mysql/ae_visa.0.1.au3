@@ -22,7 +22,7 @@ Dim $hour=@HOUR
 Dim $day=@MDAY
 Dim $month=@MON
 DIM $year=@YEAR
-
+dim $today=$year & $month & $day
 ;
 Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 Global $oMyRet[2]
@@ -43,8 +43,12 @@ Else
 
 	if FileExists(@ScriptDir & "\_evisa_nbr.txt") then 
 		_FileReadToArray(@ScriptDir & "\_evisa_nbr.txt", $evisa_nbr_txt_array )
+		if IsArray( $evisa_nbr_txt_array ) then filemove (@ScriptDir & "\_evisa_nbr.txt", @ScriptDir & "\evisa_nbr_reprocessed\" & $today& "_evisa_nbr.txt",9 )
 		;_ArrayDisplay($evisa_nbr_txt_array) 
-		if $evisa_nbr_txt_array[1]<>"201222 ;Evisa補單專用，每一行一個ea_nbr" then exit
+		if $evisa_nbr_txt_array[1]<>"201222 ;Evisa補單專用，每一行一個ea_nbr" then 
+			_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log",' EVISA resend 檔案錯誤，沒有 ";Evisa補單專用，每一行一個ea_nbr" 這樣的文字 ')
+			exit
+		EndIf
 		_ArrayDelete($evisa_nbr_txt_array,1)
 		$evisa_nbr_txt_array[0]=$evisa_nbr_txt_array[0]-1
 		;_ArrayDisplay($evisa_nbr_txt_array) 
@@ -56,6 +60,9 @@ EndIf
 
 For $a =1 to $evisa_nbr_txt_array[0] 
 	$evisa_nbr=$evisa_nbr_txt_array[$a]
+	
+	_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log",' Prepare EVISA resend : ' & $evisa_nbr )
+			
 ;;
 ;; Connect My SQL for mail address.
 ;; DB is now at 10.112.55.87
