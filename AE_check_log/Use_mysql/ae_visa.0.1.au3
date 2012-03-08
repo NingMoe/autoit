@@ -10,7 +10,7 @@
 #ce ----------------------------------------------------------------------------
 ;;
 ;;
-
+; 20120308 修改程式，成為被其他程式呼叫的對象，不需要再有GUI
 ;
 #include <array.au3>
 #include <mysql.au3>
@@ -26,16 +26,42 @@ DIM $year=@YEAR
 ;
 Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 Global $oMyRet[2]
+Global $visa_process_number=1  ; Add at the end of the mail
 
-$evisa_nbr=InputBox("Input","這是用來補寄 evisa 的信件的小程式 "&@CRLF&"請輸入 evisa_nbr")
-if $evisa_nbr="" then Exit
+dim $gui_mode=1
+dim $evisa_nbr_txt_array
 
+$gui_mode= _GUI_mode()
+
+
+if $gui_mode then 
+
+	$evisa_nbr=InputBox("Input","這是用來補寄 evisa 的信件的小程式 "&@CRLF&"請輸入 evisa_nbr")
+	if $evisa_nbr="" then Exit
+
+Else
+
+	if FileExists(@ScriptDir & "\_evisa_nbr.txt") then 
+		_FileReadToArray(@ScriptDir & "\_evisa_nbr.txt", $evisa_nbr_txt_array )
+		;_ArrayDisplay($evisa_nbr_txt_array) 
+		if $evisa_nbr_txt_array[1]<>"201222 ;Evisa補單專用，每一行一個ea_nbr" then exit
+		_ArrayDelete($evisa_nbr_txt_array,1)
+		$evisa_nbr_txt_array[0]=$evisa_nbr_txt_array[0]-1
+		;_ArrayDisplay($evisa_nbr_txt_array) 
+		
+	EndIf
+
+
+EndIf
+
+For $a =1 to $evisa_nbr_txt_array[0] 
+	$evisa_nbr=$evisa_nbr_txt_array[$a]
 ;;
 ;; Connect My SQL for mail address.
 ;; DB is now at 10.112.55.87
 ;;
-;dim $db_ip="10.112.55.87"
-dim $db_ip="60.250.18.187"
+dim $db_ip="10.112.55.87"
+;dim $db_ip="60.250.18.187"
 
 ;dim  $my_http_base="st1.onlinebooking.com.tw"
 ;;=============
@@ -56,7 +82,7 @@ dim $test_mode= _TEST_MODE()
 ;;
 ; MYSQL starten, DLL im PATH (enth鄟t auch @ScriptDir), sont Pfad zur DLL angeben. DLL muss libmysql.dll hei絽n.
 _MySQL_InitLibrary()
-If @error Then Exit MsgBox(0, '', "")
+If @error Then Exit MsgBox(0, 'Error while Init MySQL', "Error at Init MySQL Line 80")
 ;MsgBox(0, "DLL Version:",_MySQL_Get_Client_Version()&@CRLF& _MySQL_Get_Client_Info())
 
 $MysqlConn = _MySQL_Init()
@@ -80,6 +106,7 @@ _MySQL_Set_Character_Set($MysqlConn,"big5")
 
 ;$query = "SELECT * FROM extra_email where extra_nbr='00000030640'"
 ;$query = "SELECT * FROM extra_email"
+
 $query = "SELECT * FROM evisa_app where ea_nbr='"& $evisa_nbr &"'"
 
 _MySQL_Real_Query($MysqlConn, $query)
@@ -122,11 +149,26 @@ _MySQL_Close($MysqlConn)
 _MySQL_EndLibrary()
 
 ;MsgBox(0,"Email", "There are :" & (UBound($DB_fetched_array,1)-1) &"  records")
-dim $confirm=0
-   $confirm=MsgBox(1,"Confirm",$DB_fetched_array[1][0] &"  "& $DB_fetched_array[1][12])
-if $confirm= 2 then Exit 
+if $gui_mode then
+	
+	dim $confirm=0
+	$confirm=MsgBox(1,"Confirm",$DB_fetched_array[1][0] &"  "& $DB_fetched_array[1][12])
+	if $confirm= 2 then Exit 
 
+EndIf
 
+if not $DB_fetched_array[1][23] ="" then 
+	$visa_process_number=1
+	if not $DB_fetched_array[1][26] ="" then 
+		$visa_process_number=$visa_process_number+1
+		
+		if not $DB_fetched_array[1][29] ="" then 
+			$visa_process_number=$visa_process_number+1
+		EndIf	
+	EndIf
+EndIf
+
+;MsgBox(0,"visa : at the end", $DB_fetched_array[1][23] &" ; "& $DB_fetched_array[1][26] &" ; " & $DB_fetched_array[1][29] &" --->  "& $visa_process_number)
 for $x=0 to 49 ;$y=0 to (UBound($DB_fetched_array,1)-1)
 	local $string_count
 			;if $DB_fetched_array[0][$x]="visa_item" then 
@@ -135,15 +177,20 @@ for $x=0 to 49 ;$y=0 to (UBound($DB_fetched_array,1)-1)
 			;$DB_fetched_array[1][$x]=    StringTrimRight ( StringTrimLeft ( $DB_fetched_array[1][$x], $string_count )  ,26)
 			
 			;EndIf
-			$mymailbody=$mymailbody & $DB_fetched_array[0][$x] &","& $DB_fetched_array[1][$x] & @CRLF
+			$mymailbody=$mymailbody & $DB_fetched_array[0][$x] &","& $DB_fetched_array[1][$x] & " ";@CRLF
 	
 	
 Next	
-$mymailbody= $mymailbody & "visa," &$DB_fetched_array[1][24] &@CRLF & "send_visa_date," & $DB_fetched_array[1][47] &@CRLF
-;ConsoleWrite ($mymailbody)
-$confirm=MsgBox(1,"mail body", $mymailbody,30)
-if $confirm= 2 then Exit 
+$mymailbody= $mymailbody & "visa," &$visa_process_number & " " & "send_visa_date," & $DB_fetched_array[1][47] &@CRLF
+ConsoleWrite ($mymailbody)
+;_FileWriteLog(@ScriptDir & "\my.log", $mymailbody)
 
+if $gui_mode then 
+	$confirm=0
+	$confirm=MsgBox(1,"mail body", $mymailbody,30)
+	if $confirm= 2 then Exit 
+
+EndIf
 ; This is send gmail  function
 ;
 ;##################################
@@ -172,14 +219,14 @@ $s_ssl = 1     ; Always use 1              ; enables/disables secure socket laye
 ;
 ;
 $m_SmtpServer = "smtp.gmail.com"              ; address for the smtp-server to use - REQUIRED
-$m_FromName = "DSC"                      ; name from who the email was sent
+$m_FromName = "Net1"                      ; name from who the email was sent
 $m_FromAddress = "bryant@digtishuttle.com" ;  address from where the mail should come
 
-$m_ToAddress = "bryant@dynalab.com.tw"   ; destination address of the email - REQUIRED
-$m_Subject =  "24小時隨手查-mail-status"                   ; subject from the email - can be anything you want it to be
-$m_as_Body =  "24小時隨手查-mail-status"             ; the messagebody from the mail - can be left blank but then you get a blank mail
+$m_ToAddress = "bryant@net1.com.tw"   ; destination address of the email - REQUIRED
+$m_Subject =  "EVISA-resend-mail-status"                   ; subject from the email - can be anything you want it to be
+$m_as_Body =  "EVISA-resend-mail-status"             ; the messagebody from the mail - can be left blank but then you get a blank mail
 $m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"             ; the file you want to attach- leave blank if not needed sample :"d:\ibm240KB.jpg"   
-$m_CcAddress = "rita.j.liu@aexp.com"       ; address for cc - leave blank if not needed
+$m_CcAddress =""; "rita.j.liu@aexp.com"       ; address for cc - leave blank if not needed
 $m_BccAddress = ""     ; address for bcc - leave blank if not needed
 $m_Username = "changtun@gmail.com"                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
 $m_Password = "9ps567*9"                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
@@ -196,15 +243,8 @@ Global $oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 ;
 ;;
 ;;
-;dim $1st= "MyOnlineBookingST1@gmail.com"
-;dim $2nd= "myonlinebookingst2@gmail.com"
-;dim $3rd= "myonlinebookingst3@gmail.com"
 
-	;if $test_mode=1 then 
-	;	$end_point=10
-	;Else
-	;	$end_point=(UBound($DB_fetched_array,1)-1)
-	;EndIf
+
 
 for $r=1 to (UBound($DB_fetched_array,1)-1);$end_point  
 	
@@ -213,47 +253,27 @@ for $r=1 to (UBound($DB_fetched_array,1)-1);$end_point
 		DIM $year=@YEAR
 		$m_AttachFiles = @ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 		$as_Body=$mymailbody
-		if StringInStr($as_Body,"[user_email]") then 
-			$as_Body=StringReplace($as_Body,"[user_email]",$DB_fetched_array[$r][0])
-			;$as_Body=StringReplace($as_Body,"[user_email]","ae@delta.com.tw") ; For test only.
-			
-		EndIf
+
 		If $test_mode=1 then
-			MsgBox(0, "TestMode","Mails should send to "&$DB_fetched_array[$r][0]&@CRLF&" Now send to changtun@gmail.com",5)
+			MsgBox(0, "TestMode","Mails should send on ea_nbr : "&$DB_fetched_array[$r][0]&@CRLF&" Now send to changtun@gmail.com",5)
 			$s_ToAddress = "changtun@gmail.com"
 			$s_BccAddress = "";"changtun@gmail.com"  
-		;else	
-			;$s_ToAddress = $DB_fetched_array[$r][0] ;Correct mail to 
+
 		EndIf
-		;$m_ToAddress =	$DB_fetched_array[$r][0] ; 
+
 		$s_Subject = $mymailsubject
-		;$as_Body= "Updated at "&$year&$month&$day& @CRLF &$as_Body ; Correct sentence
-		
-		;$as_Body= "Updated at "&$year&$month&$day& @CRLF & $DB_fetched_array[$r][0] &@CRLF &$as_Body ; for test only. To locate email address in mail body
-		
-		;if mod($r, 3)=1 	then	
-		;$s_Username =$1st		
-		;EndIf
-		;
-		;if mod($r, 3)=2 	Then
-		;$s_Username =$2nd		
-		;EndIf
-		;
-		;if mod($r, 3)=0		then 
-		;$s_Username = $3rd			
-		;EndIf
+	
 	;$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 	$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, $s_Subject, $as_Body, $s_AttachFiles, $s_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 		;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
-		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," Mail Send to "& $DB_fetched_array[$r][0])
+		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," EVISA resend by ea_nbr "& $DB_fetched_array[$r][0])
+		;_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," EVISA resend Data : "& $as_Body )
 		if mod($r, 3)=0		then 
 			sleep(5000)
 		EndIf
-		if mod($r, 1000)=0 Then
-			Dim $day=@MDAY
-			Dim $month=@MON
-			DIM $year=@YEAR
-			;local $my_attach=@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
+		if $r= ( UBound($DB_fetched_array,1)-1) Then
+			
+		;local $my_attach=@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 		;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
 		$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
 
@@ -263,8 +283,10 @@ for $r=1 to (UBound($DB_fetched_array,1)-1);$end_point
 	
 Next
 
+sleep( 15000 )
+Next
 
-
+Exit
 
 
 ;##################################
@@ -295,7 +317,7 @@ Func _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress, 
 		$objEmail.BodyPart.Charset="utf-8";
         $objEmail.HTMLBody = $as_Body
     Else
-		$objEmail.bodyPart.Charset="utf8";
+		$objEmail.bodyPart.Charset="utf-8";
         $objEmail.Textbody = $as_Body & @CRLF
     EndIf
     If $s_AttachFiles <> "" Then
@@ -418,6 +440,27 @@ Func _TEST_MODE()
 	
 	Else
 		MsgBox(0,"Delivery mode", "This is True mail delivery.",5)
+		$mode=0
+	EndIf
+	
+	return $mode
+EndFunc
+
+
+
+Func _GUI_mode()
+	IF FileExists(@ScriptDir&"\ae_visa_gui.txt") Then
+		$mode=FileReadLine(@ScriptDir&"\ae_visa_gui.txt",1)
+		if $mode=1 then 
+			MsgBox(0,"GUI mode", "This is GUI mode. Input ea_nbr manually.",5)
+			
+		Else
+			MsgBox(0,"silent mode", "Read ea_nbr from text file.",5)
+			$mode=0
+		EndIf
+	
+	Else
+		MsgBox(0,"silent mode", "Read ea_nbr from text file.",5)
 		$mode=0
 	EndIf
 	
