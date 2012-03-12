@@ -40,7 +40,9 @@ if $gui_mode then
 	if $evisa_nbr="" then Exit
 
 Else
-
+	;MsgBox(0,"Process name", @ScriptName)
+	;if ProcessExists(@ScriptName) then ProcessWaitClose(@ScriptName)
+	
 	if FileExists(@ScriptDir & "\_evisa_nbr.txt") then 
 		_FileReadToArray(@ScriptDir & "\_evisa_nbr.txt", $evisa_nbr_txt_array )
 		if IsArray( $evisa_nbr_txt_array ) then filemove (@ScriptDir & "\_evisa_nbr.txt", @ScriptDir & "\evisa_nbr_reprocessed\" & $today& "_evisa_nbr.txt",9 )
@@ -278,13 +280,14 @@ for $r=1 to (UBound($DB_fetched_array,1)-1);$end_point
 		if mod($r, 3)=0		then 
 			sleep(5000)
 		EndIf
-		if $r= ( UBound($DB_fetched_array,1)-1) Then
+		if $a= ( $evisa_nbr_txt_array[0] ) Then
 			
 		;local $my_attach=@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"
 		;$rc = _INetSmtpMailCom($m_SmtpServer, $m_FromName, $m_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $m_BccAddress, $m_Username, $m_Password, $IPPort, $ssl)
 		$rc = _INetSmtpMailCom($s_SmtpServer, $s_FromName, $s_FromAddress, $m_ToAddress, $m_Subject, $m_as_Body, $m_AttachFiles, $m_CcAddress, $s_BccAddress, $s_Username, $s_Password, $s_IPPort, $s_ssl)
-
-			sleep(1000*60*5)
+		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," EVISA resend log "& "send to changtun@gmail.com" )
+		
+			;sleep(1000*10)
 		EndIf
 
 	

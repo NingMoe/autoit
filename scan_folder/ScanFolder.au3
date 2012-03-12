@@ -118,7 +118,7 @@ Func _scanfolder ($ini_array)
 		if not FileExists($mount_info[1]) then DriveMapAdd($mount_info[1],$mount_info[2],0,$mount_info[3],$mount_info[4])
 	EndIf
 	
-	MsgBox(0,"Scan folder:", $scandir&"\*."&$file_ext & @CRLF & "Run : " & $action & " at " & $action_path, 5)
+	;MsgBox(0,"Scan folder:", $scandir&"\*."&$file_ext & @CRLF & "Run : " & $action & " at " & $action_path, 5)
 	if FileExists($scandir&"\*."&$file_ext) then 
 		
 		filecopy($scandir&"\*."&$file_ext, $action_path,9) 	
