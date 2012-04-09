@@ -9,7 +9,7 @@ CHT contact 0937-341-148
 
 KIDsburgh contact 0930-266-408  ZoeTseng
 Draytek2910 192.168.0.1 admin/25176455
---> 2011/12/27變更為 Draytek 2950  192.168.0.1 admin/25176455
+--> 2011/12/27變更為 Draytek 2950  192.168.0.1 admin/25!76455
 IPSec VPN PreShareKey:2517645525176455 
 
 Asus WL-520GU Wireless kidsburgh_520
@@ -43,6 +43,13 @@ router 192.168.4.1
 admin/25176455
 wireless pass : 5cf3-fc29-ba60  ;; 20120221 變更
 Hinet info 74120001/vpqmpvmh
+
+
+
+
+
+
+
 
 NAS account
 alice,alicechen,陳秋萍,alicechen@kidsburgh.com.tw,5
