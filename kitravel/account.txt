@@ -1,0 +1,280 @@
+12 ^ 親山農園民宿 ^ 10008 ^ 賴善賢 ^ laisan ^ 813329 ^ (089) 813329 ^ service@kitravel.com.tw ^ 
+12 ^ 親山農園民宿 ^ 10009 ^ 藍宜靜 ^ ejej ^ 112233 ^  ^ service@kitravel.com.tw ^ 
+13 ^ 滬月別館 ^ 10010 ^ 胡云榛 ^ luna77 ^ 8862287 ^ 08-886228 ^ kenting@lula77.net ^ 
+14 ^ 台東少則得民宿 ^ 10011 ^ 台東少則得民宿 ^ lim1991ts ^ boss5836 ^ 0932-731986 ^ lim1991ts@yahoo.com.tw ^ 
+15 ^ 盈家溫泉 ^ 10012 ^ 邱淑芬 ^ fen52281 ^ a165889a ^ 089-561615 ^ fen52281@yahoo.com.tw ^ 
+16 ^ 雲海灣民宿 ^ 10013 ^ 陳宏雲 ^ seabay ^ 280199 ^ 0910-499991 ^ service@kitravel.com.tw ^ 
+17 ^ 逢春園渡假別墅 ^ 10014 ^ 逢春園 ^ spring-villa ^ 9801942 ^ 03-9801942 ^ springgogogo@yahoo.com.tw ^ fengchunvilla
+18 ^ 後湖水月 ^ 10015 ^ 溫建文 ^ houhu ^ houhu ^ 0933-799557 ^ wendell.wen@msa.hinet.net ^ 
+19 ^ 夢田信箱 ^ 10016 ^ 陳金生 ^ dreamhome ^ dreamhome ^ 0925-838871 ^ annelu@dream-home.idv.tw ^ 
+20 ^ 汎水淩山 ^ 10017 ^ 何碩倫 ^ fanlin ^ 038261989 ^ 0917-283401 ^ fanlin571011@yahoo.com.tw ^ 
+21 ^ 海傳 ^ 10018 ^ 陳小姐 ^ viewocean ^ a1b2c3 ^ 03-8348817 ^ viewocean038348817@yahoo.com.tw ^ 
+22 ^ 迴音谷森林 ^ 10019 ^ 阿呈 ^ echovilla ^ villa2007 ^ 0938-803979 ^ echovilla@yahoo.com.tw ^ 
+23 ^ 四年一班 ^ 10020 ^ 林宇宏 ^ class41 ^ club41 ^ (03) 8579345 ^ club41_club41@yahoo.com.tw ^ 
+24 ^ 自己家 ^ 10021 ^ 管家婆 ^ hb849292 ^ 84928492 ^ 0920-750-210 ^ hb849292@ms72.hinet.net ^ 
+25 ^ 牧場旅棧 ^ 10022 ^ 劉協達 ^ ktfarm ^ kt1568 ^ 08-8862993 ^ kt.farm@msa.hinet.net ^ ktfarm
+26 ^ 瑪雅之家 ^ 10023 ^ 林媽媽 ^ maya01 ^ maya ^  ^ maya@seed.net.tw ^ 
+27 ^ 天晴 ^ 10024 ^ 王衛東 ^ kevan3823 ^ 089382396 ^ 0927900900 ^ kevan3823@yahoo.com.tw ^ 
+28 ^ 香蕉灣 ^ 10025 ^ 登鴻 ^ bananabay ^ banana ^ 0928957600 ^ ukbananabay@yahoo.com.tw ^ 
+28 ^ 香蕉灣 ^ 10042 ^ Amy ^ Amy ^ 0307 ^ 0928-957600 ^ ukbananabay@yahoo.com.tw ^ 
+29 ^ 卡米克 ^ 10026 ^ 惠利 ^ comic ^ comic ^ 0933586066 ^ service@kitravel.com.tw ^ comic
+30 ^ 日昇之鄉會館 ^ 10027 ^ 邱 ^ taimali ^ 780460 ^ 089781531 ^ taimali03@taimalifarmer.com.tw ^ taimalifarmer
+31 ^ 換鵝山房 ^ 10029 ^ 小黑 ^ huane ^ huane ^ 089-862415 ^ service@kitravel.com.tw ^ 
+32 ^ 青山農場 ^ 10030 ^ 小蔡 ^ ching3 ^ tsai ^ (089) 781677 ^ tsai963@yahoo.com.tw ^ 
+33 ^ Cats ^ 10031 ^ 素素 ^ cats ^ susu ^ 0914-073170 ^ supinglo@gmail.com ^ 
+34 ^ 法采時光 ^ 10032 ^ 冠羽 ^ facai970 ^ 1234567 ^ 03-8311990 ^ elvis624@yahoo.com.tw ^ 
+35 ^ 柚子 ^ 10033 ^ 柚子 ^ uulo.tw ^ powerhome070201 ^  ^ uulo.tw@yahoo.com.tw ^ 
+36 ^ 法蘭絲花園 ^ 10034 ^ 陳 ^ fgbb0960541123 ^ fran168 ^ 0960-541123 ^ fgbb0960541123@yahoo.com.tw ^ 
+37 ^ 靜廬 ^ 10035 ^ 靜嫻 ^ jinglu ^ 8811989 ^ 0928875084 ^ a7626@xuite.net ^ 
+38 ^ 船帆石600 ^ 10036 ^ 黃清山 ^ ashan ^ 758222 ^ 0921758222 ^ service@kitravel.com.tw ^ 
+39 ^ 小徑 ^ 10037 ^ Bear ^ kenting ^ lu631205 ^ 08-8851031 ^ kt8851031@yahoo.com.tw ^ 
+40 ^ 羅克阿舍 ^ 10038 ^ 雁子 ^ roc ^ usher ^ 0911-777558 ^ service@kitravel.com.tw ^ 
+41 ^ 新芽 ^ 10039 ^ 友嫂 ^ siya ^ 8899127 ^ 08-8899127, 0926684801 ^ service@kitravel.com.tw ^ 
+42 ^ 利嘉 181 ^ 10040 ^ Lulu ^ lulu ^ 512720 ^ 0963-137987, (089) 512720   ^ byc1022@yahoo.com.tw ^ 
+43 ^ 欣綠石頭屋 ^ 10041 ^ 朱大哥 ^ nz9092 ^ 1551 ^ 0932-656080 ^ a73986@yahoo.com.tw ^ shin-liu
+44 ^ 烏那休閒山莊 ^ 10043 ^ Una ^ yangui ^ tsou ^ (07) 6701158 ^ una.tsou@msa.hinet.net ^ 
+45 ^ 風車教堂 ^ 10045 ^ lightj ^ lightj ^ 123456 ^ 0988-253618, (089) 516869 ^ lightj@xuite.net ^ 
+45 ^ 風車教堂 ^ 10044 ^ ch22 ^ ch22 ^ 123456 ^ 0988-253618, (089) 516869 ^ lightj@xuite.net ^ 
+46 ^ 老五民宿 ^ 10046 ^ 盧振旭 ^ oldfive ^ 1005 ^ (049) 2821005 ^ old.five@msa.hinet.net ^ oldfive
+47 ^ 望海樓 ^ 10060 ^ 雲 ^ bay.a ^ 7stars ^ 0911-822771, (03) 8228771  ^ bay7stars@hotmail.com ^ 
+47 ^ 望海樓 ^ 10062 ^ 玉 ^ bay.c ^ 7stars ^ 0911-822771, (03) 8228771  ^ bay7stars@hotmail.com ^ 
+47 ^ 望海樓 ^ 10047 ^ 林育鯤 ^ bayview ^ 7stars ^ 0911-896838, (03) 8228771 ^ bay7stars@hotmail.com ^ 
+47 ^ 望海樓 ^ 10061 ^ 惠 ^ bay.b ^ 7stars ^  ^ bay7stars@hotmail.com ^ 
+48 ^ 紅瓦厝 ^ 10048 ^ 官裕富 ^ redvilla ^ a135678h ^ 0937-262758 ^ a135678h@yahoo.com.tw ^ 
+49 ^ 劦陶宛 ^ 10049 ^ 陳榮吉 ^ a5713000 ^ b31750 ^ (04) 25811141 ^ a5713000@yahoo.com.tw ^ litolone
+50 ^ 天籟園 ^ 10050 ^ 張學能 ^ ed0915207126 ^ 0511 ^ 0915-207126, (04) 25821366 ^ tenlaigarden@yahoo.com.tw ^ 
+51 ^ 東籬居 ^ 10051 ^ 東婆婆 ^ mor0591 ^ 6666 ^ (04) 25931489, 0932-657220 ^ mor0591@hotmail.com.tw ^ 
+52 ^ 竹湖山居 ^ 10052 ^ 賴金田 ^ zhuhu ^ 832383 ^ (089) 832383, 0937-975692 ^ service@kitravel.com.tw ^ juhu
+53 ^ 日光海岸 ^ 10053 ^ 劉天順 ^ coast ^ 6669 ^  ^ coast.liu@msa.hinet.net ^ coast
+54 ^ 挑米農庄 ^ 10054 ^ 劉明環 ^ taumi ^ 0296 ^ 0919-913389 ^ taumi_296@yahoo.com.tw ^ 
+55 ^ 綠屋 ^ 10055 ^ 邱富添 ^ green ^ 0006 ^ 0937-291695 ^ taumi_296@yahoo.com.tw ^ 
+56 ^ 阿姐民宿 ^ 10056 ^ 碩安媽 ^ oldersister ^ 10529 ^ 0918-009279 ^ u6500027@yahoo.com.tw ^ 
+57 ^ 芹壁地中海 ^ 10057 ^ 陳安民 ^ chinbe ^ 6611 ^ 0932925390 ^ service@kitravel.com.tw ^ chinbe-village
+58 ^ 小路 ^ 10058 ^ 鐵爸 ^ nalu ^ coffee ^ 0932-658222 ^ nalu.coffee@msa.hinet.net ^ 
+59 ^ 藍海 ^ 10059 ^ 小珍姐姐 ^ bluesea ^ 914599 ^  ^ sh599iou@yahoo.com.tw ^ 
+60 ^ 塔科馬 ^ 10069 ^ 謝老師 ^ tacoma ^ 3838aaa ^ 0928-569979 ^ emily.chester@msa.hinet.net ^ 
+61 ^ 只在此山中 ^ 10063 ^ 羅昭琴 ^ chin ^ 0226 ^  ^ ching0226sua@yahoo.com.tw ^ 
+62 ^ 阿榮有機茶鳳梨 ^ 10064 ^ 莊孟平 ^ av176827 ^ ie1010 ^ 0928135378 ^ av176827@ms52.hinet.net ^ 
+63 ^ 親山農園賴二哥 ^ 10065 ^ 賴二哥 ^ 713 ^ 71300 ^ 0935712637 ^ serivice@kitravel.comtw ^ 
+64 ^ 小倆口ㄟ番仔厝 ^ 10066 ^ 盈如 ^ coupleinn ^ 123angela ^ (082) 375140, 0920-345748 ^ coupleinn@nkst.com ^ 
+65 ^ 兩點一線 ^ 10067 ^ 洪育錡 ^ 2click ^ 96449 ^ (03) 8333366, 0919-056418 ^ eugene96449@yahoo.com.tw ^ 
+66 ^ 安琪花園 ^ 10068 ^ 李安琪 ^ casadeangie ^ 2256 ^ 0922-657860, (03) 8655227 ^ angiele.e4730@msa.hinet.net ^ casadeangie
+67 ^ 福田瓦舍 ^ 10436 ^ 陳英仁 ^ 31villa ^ ij988ft999 ^ 0988718175 ^ service@31villa.tw  ^ futen
+67 ^ 福田瓦舍 ^ 10484 ^ 陳先生 ^ futenhouse ^ futen ^ 0988718175 ^ service@31villa.com.tw ^ futen
+67 ^ 福田瓦舍 ^ 10070 ^ 趣遊網 ^ futen ^ 515485 ^ 037-876156, 0933-515485 ^ futen_house@yahoo.com.tw ^ futen
+68 ^ 同心園 ^ 10071 ^ 陳英仁 ^ sunshine ^ hoh879996 ^ 0988718175 ^ sunshine_r.r@xuite.net ^ 
+69 ^ 聚樂山莊 ^ 10072 ^ 鄭鎮國 ^ v838920 ^ 2uaujxdr ^ 089530368 ^ happy@minsu123.com ^ 
+70 ^ 流浪珊瑚 ^ 10073 ^ 黃文鳳 ^ coral ^ 9999 ^ 0922821178 ^ hwan6499@ms43.hinet.net ^ 
+71 ^ 布拉諾城堡 ^ 10074 ^ 王予筑 ^ bruno ^ 0313 ^ 089516838, 0921171663 ^ burano.house@msa.hinet.net ^ 
+72 ^ 鄉村故事旅棧 ^ 10075 ^ 陳詠昇 ^ country ^ 5676 ^  ^ country-story-inn@ ^ 
+74 ^ 巴庫拉斯生態農莊 ^ 10076 ^ 宋賢明 ^ bakulasu ^ 9952 ^  0937259 952, 0492741756 ^ service@kitravel.com.tw ^ 
+75 ^ 檜木居 ^ 10077 ^ 葉陳錦 ^ a8546535 ^ c8521156 ^ 0952989894 ^ a8546535@yahoo.com.tw ^ 
+76 ^ 峇里情人 ^ 10078 ^ 盧俊豪 ^ balilover409 ^ 0938985875 ^ 0925261136 ^ balilover409@gmail.com ^ 
+77 ^ 日月星海濱民宿 ^ 10079 ^ 賴品蓁 ^ smshome ^ 8037 ^ 0919908037, 038223446 ^ sunmoonstar0314@yahoo.com.tw ^ 
+78 ^ 花蓮遊民宿 ^ 10080 ^ 張淑美 ^ may ^ 7182 ^ 0932656423 ^ may4601.a923246@msa.hinet.net ^ 
+79 ^ 玫瑰花園 ^ 10081 ^ 劉玲玲 ^ roseland ^ 2828 ^ 0937532828,038825857 ^ roselandlingling@hotmail.com ^ 
+80 ^ 鄉貌休閒民宿 ^ 10085 ^ 王義雲 ^ view ^ 8851 ^ 0937168851 ^ service@kitravel.com.tw ^ 
+81 ^ 靜園渡假別墅 ^ 10082 ^ 黃正棟 ^ yslrt ^ H300y326 ^ 0933985059,039654477 ^ yslrt_jady@yahoo.com.tw ^ 
+82 ^ 橘月 ^ 10083 ^ 呂俊燐 ^ leushyen ^ 8861230 ^ 088861230 ^ orange.minsu@msa.hinet.net ^ 
+83 ^ Q14 ^ 10084 ^ 雅惠 ^ q14 ^ 3834 ^ 0910185193,088863834 ^ service@kitravel.com.tw ^ 
+85 ^ 禧福飯店 ^ 10087 ^ 禧福櫃台 ^ sfdesk ^ 1645 ^  ^ service@kitravel.com.tw ^ 
+85 ^ 禧福飯店 ^ 10086 ^ 徐來城 ^ sfhotel ^ 6655 ^ 3-833-6655 ^ service@kitravel.com.tw ^ 
+86 ^ 陳詩欣民宿 ^ 10088 ^ 董俊男 ^ soshs ^ 9199 ^ 0958777751 ^ soshs0630@yahoo.com.tw ^ 
+87 ^ 汪汪小窩 ^ 10089 ^ 李宗益 ^ louislee ^ 5421 ^ 0953105421 ^ louislee0301@yahoo.com.tw ^ 
+88 ^ 秘境民宿 ^ 10093 ^ 祕境阿信 ^ maymay.shin ^ 456456 ^ 0980292488 ^ maymay1005@yahoo.com.tw ^ 
+88 ^ 秘境民宿 ^ 10090 ^ 徐鳴懋 ^ maymay.abula ^ 707063 ^ 0928707063 ^ maymay1005@yahoo.com.tw ^ 
+88 ^ 秘境民宿 ^ 10533 ^ 阿不拉 ^ abula ^ 707063 ^ 0928707063 ^ maymay1005@yahoo.com.tw ^ 
+88 ^ 秘境民宿 ^ 10365 ^ 秘境阿吉 ^ maymay.fay4280 ^ 0987 ^ 0928707063 ^ maymay.abula@msa.hinet.net ^ 
+89 ^ 泰安驛站 ^ 10091 ^ 歐淑玫 ^ tnstation ^ 5917 ^ 0988605917 ^ stpn@168travel.com.tw ^ 
+90 ^ 鎮海灣休閒民宿 ^ 10092 ^ 陳文學 ^ chenhai ^ 1988 ^ 0936317652 ^ chenhai.j1988@msa.hinet.net ^ 
+91 ^ 麗堤飯店 ^ 10094 ^ 陳招悌 ^ liti ^ 26688 ^ 0919919962 ^ fire02@gsn.gov.tw ^ liti
+92 ^ 馬祖民宿 ^ 10095 ^ 曹秀明 ^ matsubnb ^ 3404 ^ 0921932039 ^ evetsao@yahoo.com ^ 
+93 ^ 北海岸民宿 ^ 10096 ^ 陳嘉文 ^ north ^ 6051 ^ 0928146051 ^ joe55591@yahoo.com.tw ^ north-coast
+94 ^ 夫人民宿 ^ 10108 ^ 王春金 ^ furen ^ 0514 ^ 0932-260514, (0836) 25138 ^ avila@furen.com.tw ^ 
+96 ^ 馬吉民宿 ^ 10100 ^ 馬吉 ^ machi ^ 25286 ^ (0836)25286 ^ service@kitravel.com.tw ^ 
+97 ^ 北成庄民宿 ^ 10101 ^ 陳俊宏 ^ a9617705 ^ a600718 ^ 03-9611229, 0935600718 ^ a9617705@yahoo.com.tw ^ wobo
+98 ^ 綠野仙蹤民宿 ^ 10102 ^ tester ^ abccd ^ 12345 ^  ^ kjy@56168.com.tw ^ 
+98 ^ 綠野仙蹤民宿 ^ 10103 ^ 林彥杏 ^ ozland ^ 14893728 ^ (03)958-2975, 0939582975 ^ greenozland@yahoo.com.tw ^ 
+99 ^ 東風休閒農場 ^ 10104 ^ 顏惠令 ^ a580979 ^ a19631231 ^ (03)958-7511, 0933144238 ^ lon587511@gmail.com ^ 
+100 ^ 台江民宿 ^ 10105 ^ 陳瑞英 ^ taijiang ^ 55256 ^ (0836)55256~9 ^ wflykimo@msn.com ^ 
+100 ^ 台江民宿 ^ 10106 ^ 陳瑞英 ^ wflykimo ^ d8901269 ^  ^ wflykimo@msn.com ^ 
+101 ^ 碧雲天渡假村 ^ 10097 ^ 碧雲天渡假村 ^ bluesky ^ 5471 ^ 0919394930 ^ yes55461@yahoo.com.tw ^ 
+102 ^ 宏瑞民宿 ^ 10107 ^ 王禮端 ^ home ^ 11911 ^ 0836-56598 ^ a23799@yahoo.com.tw ^ 
+103 ^ 龍福山莊 ^ 10110 ^ 王靜怡 ^ pepe ^ 55661 ^ 0919991596 ^ cywang1209@hotmail.com ^ 
+103 ^ 龍福山莊 ^ 10109 ^ 王靜怡 ^ cywang ^ 55661 ^ 0919991596 ^ cywang1209@hotmail.com ^ 
+103 ^ 龍福山莊 ^ 10111 ^ 王靜怡 ^ kelly ^ 55661 ^ 0919991596 ^ cywang1209@hotmail.com ^ 
+104 ^ 老爺大飯店 ^ 10112 ^ 陳子驎 ^ dearlover518 ^ 19840518 ^  ^ drmonica0708@yahoo.com.tw ^ laoye
+105 ^ 海天民宿 ^ 10113 ^ 海天酒店 ^ haiten ^ 26009 ^ (0836) 26899 ^ service@kitravel.com.tw ^ 
+106 ^ 津沙文化村 ^ 10098 ^ 林梅芳 ^ jinsha ^ 6190 ^ 0932-161175, 0836-26190 ^ service@kitravel.com.tw ^ 
+107 ^ 當歸民宿  ^ 10116 ^ 洪崇洧 ^ markhong ^ 0726 ^ 0929-852165  ^ markhong726@yahoo.com.tw ^ 
+108 ^ 春成茶園民宿 ^ 10115 ^ 黃來旺 ^ 582196 ^ j406s ^ 0912095657 ^ liho.huang@gmail.com ^ 
+109 ^ 藍洋洋的家 ^ 10226 ^ 王美鈿 ^ wang4731 ^ 56269 ^ 0836-56269 ^ lienlien1212@yahoo.com.tw ^ 
+110 ^ 五里坡民宿 ^ 10432 ^ 陳士聯 ^ 5km ^ 5555 ^ (049)2802333 ^ service@5km.com.tw ^ 5km
+110 ^ 五里坡民宿 ^ 10421 ^ 陳士聯 ^ service ^ 5kmservice ^ (049)2802333;0956123000 ^ service@5km.com.tw ^ 5km
+110 ^ 五里坡民宿 ^ 10433 ^ 楊士瑤 ^ shiyao ^ 7211 ^ (049)2802333 ^ servce@5km.cm.tw ^ 5km
+110 ^ 五里坡民宿 ^ 10227 ^ 陳士聯 ^ 5km5km ^ 0492802EEE ^ 0956123000 ^ server@5km.com.tw ^ 5km
+111 ^ 蛙塘民宿 ^ 10228 ^ 游家慧 ^ frogpool4 ^ 7550 ^ 039-506527 ^ frogpool4@yahoo.com.tw ^ 
+112 ^ 月牙泉渡假行館 ^ 10229 ^ 李昭宏 ^ lch660312 ^ 660312 ^ 03-9613629, 0922023797 ^ lch660312@yahoo.com.tw ^ yueyaquan
+113 ^ 水筠間民宿 ^ 10230 ^ 陳榮漢 ^ hank570530 ^ cmv560729 ^ 03-9610091 ^ hank570530@yahoo.com.tw ^ water2007
+114 ^ AK House(蘇參店) ^ 10231 ^ 郭玫蘭 ^ akhouse ^ xxx77678 ^ 0858377678 ^ typnet99@gmail.com ^ akhouse
+115 ^ 狗go快樂 ^ 10232 ^ 楊玲惠 ^ XXXgogohappy ^ 0933158888STOP ^ 0933158803 ^ happypetgo@yahoo.com.tw ^ 
+116 ^ 中華科技大學實習旅館 ^ 10233 ^ 陸大康 ^ cust ^ xxxxxx ^ 0937851857, 03-5935707#501 ^ and_2000tw@yahoo.com.tw ^ 
+117 ^ 小琉球漁埕民宿 ^ 10334 ^ 李承家 ^ vlian ^ 8614891xxxxx ^ 0912780138, 08-8612695 ^ agogo77772008@yahoo.com.tw ^ 
+118 ^ 陽光藝花園 ^ 10335 ^ 高丙任 ^ sunshinegarden ^ d22f246 ^ 0986-148604, 07-5224550  ^ adolfo_kao@yahoo.com.tw ^ 
+119 ^ 和田大飯店 ^ 10339 ^ Benjamin (X) ^ benjamin ^ asstd22874 ^ 0929725871, 06-9261616 ^ lleyton0126@gmail.com, legaramir@gmail.com ^ 
+119 ^ 和田大飯店 ^ 10341 ^ Bryan (B) ^ bryan ^ 1POIUP;/ ^ 0929725871, 06-9261616 ^ lleyton0126@gmail.com, legaramir@gmail.com ^ 
+119 ^ 和田大飯店 ^ 10343 ^ Dennis (A) ^ dennis ^ ZMNBVXC ^ 0929725871, 06-9261616 ^ lleyton0126@gmail.com, legaramir@gmail.com ^ 
+119 ^ 和田大飯店 ^ 10340 ^ Mfrontdesk (M) ^ mfrontdesk ^ AEDCRFV ^ 0929725871, 06-9261616 ^ lleyton0126@gmail.com, legaramir@gmail.com ^ 
+119 ^ 和田大飯店 ^ 10342 ^ David (D) ^ david ^ APLMQAZ ^ 0929725871, 06-9261616 ^ lleyton0126@gmail.com, legaramir@gmail.com ^ 
+119 ^ 和田大飯店 ^ 10344 ^ OP ^ OPOP ^ CDEIKM ^ 0929725871, 06-9261616 ^ lleyton0126@gmail.com, legaramir@gmail.com ^ 
+119 ^ 和田大飯店 ^ 10337 ^ Lleyton (S) ^ mhoteltw ^ asstd22874 ^  ^ lleyton0126@gmail.com ^ 
+120 ^ AK House ^ 10338 ^ 發哥 ^ onnut ^ 27869 ^ +66809927869 ^ akhousebkk@gmail.com ^ ak_onnut
+121 ^ 記憶九份民宿 ^ 10345 ^ 范金雪 ^ memory ^ 65485 ^ 2931365485 ^ memoryjiufen@yahoo.com.tw ^ 
+122 ^ 水雲軒民宿 ^ 10347 ^ 林至耕 ^ Jason9815 ^ water781701 ^ 0933781701, 0963032760, 03-9504275 ^ Jason9815@yahoo.com.tw ^ 
+123 ^ 戀戀小棧英式民宿 ^ 10346 ^ 林佳民 ^ ilancat ^ 00863 ^ 0932090720, 03-9500863 ^ bnb.ilan@msa.hinet.net ^ 
+124 ^ 葛瑞絲民宿 ^ 10348 ^ 張豔群 ^ grace ^ 66313 ^ 0933244677, 03-9566313 ^ graceinn@gmail.com ^ 
+125 ^ 上詠旅店 ^ 10349 ^ 顏上詠 ^ sos3210 ^ 61701 ^ 0918694339, (08)8861701  ^ sos3210mail@yahoo.com.tw ^ 
+126 ^ 墾丁尋夢園 ^ 10476 ^ 王麗娟 ^ jenny0898 ^ 0898 ^ (08)8863980 ^ dream088863949@yahoo.com.tw ^ kentingdream
+126 ^ 墾丁尋夢園 ^ 10366 ^ 曹淑芸 ^ dream ^ xxxx ^ 0917687506, (08)8863980  ^ KentingDream@yahoo.com.tw ^ kentingdream
+126 ^ 墾丁尋夢園 ^ 10368 ^ 尋夢園 ^ ktdream ^ 8863980 ^ 0917687506, (08)8863980 ^ kentingdream@yahoo.com.tw ^ kentingdream
+127 ^ 幸福三百米 ^ 10367 ^ 郭哲均 ^ happinessbnb ^ 11110731 ^ 0925067675, (03)9568492 ^ thedew363@yahoo.com.tw ^ 
+128 ^ 元氣老爹 ^ 10369 ^ 呂宛蓁 ^ Genkiidaddy ^ 63036XXX ^ 0988669765, (08)8863036 ^ smallblack0310@hotmail.com ^ 
+129 ^ 松語墅Pine Homestay ^ 10370 ^ 廖繼傑 ^ Pine ^ 12399 ^ 0932212399 ^ bemartyrs@yahoo.com.tw ^ pine
+130 ^ 奇萊亞民宿 ^ 10371 ^ 黃正一 ^ kiraya ^ 905753 ^ 0939905753, 03-8527000 ^ kirayainn@yahoo.com.tw ^ 
+130 ^ 奇萊亞民宿 ^ 10377 ^ 陳薏樺 ^ xe9927 ^ 051616 ^ 03-8527000 ^ XE9927@hotmail.com ^ 
+130 ^ 奇萊亞民宿 ^ 10379 ^ 陳保成 ^ kiraya510 ^ 1878510 ^ 03-8527000 ^ cpc.sl@msa.hinet.net ^ 
+130 ^ 奇萊亞民宿 ^ 10378 ^ 李容蓁 ^ eki062 ^ 062022 ^ 03-8527000 ^ Eki062@yahoo.com.tw ^ 
+131 ^ 楓丹白露民宿 ^ 10372 ^ 張宏毅 ^ 84491413 ^ 2ugirjal ^ 0933560740, 0492801368 ^ a7372524@yahoo.com.tw ^ 
+132 ^ 台北豬窩 ^ 10440 ^ 林佳惠 ^ ELEPHANT818 ^ ELM0323611 ^ 0913337379 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10528 ^ 黃雅婷 ^ asuka ^ 11234 ^ 0911898379 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10446 ^ 霓霓 ^ eva ^ 0046 ^ 0913337379 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10373 ^ 戴秀芳 ^ 0913337379 ^ 68o610 ^ 0913337379 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10427 ^ TAIHSIUFANG ^ TAIHSIUFANG ^ 0911898379 ^ 0911898379 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10439 ^ 陳海倫 ^ HELEN25 ^ 112345 ^ 0913337379 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10541 ^ 陳莉媛 ^ circle ^ 0804 ^ 0911898379  ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10524 ^ 許智凱 ^ kai060 ^ 19800603 ^ 0911898379 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10438 ^ 黃蔻婷 ^ ARYOU_0325 ^ PAULINE ^ 0913337379 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10535 ^ 林昆謙 ^ a20120329 ^ a19890815 ^ 0911898379  ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10428 ^ DABO ^ DABO ^ elephant818 ^ 0919562453 ^ april-0610@hotmail.com ^ april
+132 ^ 台北豬窩 ^ 10449 ^ 喵喵 ^ NICK ^ 19800731 ^ 0913337379 ^ april-0610@hotmail.com ^ april
+133 ^ 芯園我的夢中城堡(民宿合法登記證 20 & 228) 聯合訂房中心 ^ 10375 ^ 李函穎 ^ xinyuan ^ popo1111 ^ 0911332772, 03-9590565 ^ a595585@gmail.com ^ xinyuan
+133 ^ 芯園我的夢中城堡(民宿合法登記證 20 & 228) 聯合訂房中心 ^ 10400 ^ 芯園櫃檯 ^ 9590565 ^ 9595482 ^ 03-9590565 ^ a595585@gmail.com ^ xinyuan
+134 ^ 怡然居攝影風格民宿 ^ 10376 ^ 簡琴南 ^ jhntwroc ^ aa1111 ^ 0931135808 ^ jhn@mail2000.com.tw, errantry.lodge@gmail.com ^ errantry
+135 ^ 九重町客棧 ^ 10401 ^ 吳志明 ^ 19502741 ^ wu1201 ^ 02-24967680, 0927279892 ^ cwcm@cwcm.com.tw ^ 9cd
+136 ^ 華納小筑 ^ 10402 ^ 吳瓊娟 ^ 19399 ^ 68882 ^ (08)8861426;0931768882 ^ warner50620@hotmail.com ^ wanner
+137 ^ 花園紅了民宿 ^ 10403 ^ 潘一美 ^ redgarden ^ kt8851001 ^ 08-8851001;0911183660 ^ red.garden@msa.hinet.net ^ redgarden
+138 ^ 墾丁.愛情海名宿 ^ 10413 ^ 覲華 ^ shine ^ 9488 ^ 08-8861238;0921615115 ^ mdav93@yahoo.com.tw ^ mdav
+138 ^ 墾丁.愛情海名宿 ^ 10415 ^ 紫湄姐 ^ beauty  ^ 611129 ^ 08-8861238;0921615115 ^ mdav93@yahoo.com.tw ^ mdav
+138 ^ 墾丁.愛情海名宿 ^ 10412 ^ 小鄔哥 ^ handsome ^ 0928 ^ 08-8861238;0921615115 ^ mdav93@yahoo.com.tw ^ mdav
+138 ^ 墾丁.愛情海名宿 ^ 10452 ^ 小安 ^ yaya ^ 720220 ^ (08)8861238;0921615115  ^ mdav93@gmail.com  ^ mdav
+138 ^ 墾丁.愛情海名宿 ^ 10414 ^ 慧君 ^ yash8403 ^ 0601 ^ 08-8861238;0921615115 ^ mdav93@yahoo.com.tw ^ mdav
+139 ^ 員山新天地 ^ 10405 ^ 林超鈞 ^ skyline196 ^ s196 ^ 0920357398 ^ ta.yun@msa.hinet.net ^ 
+140 ^ 雲山水小築 ^ 10406 ^ 呂麗君 ^ yun ^ 131846 ^ (02)24962201;0919131846 ^ yunshan.shui@msa.hinet.net ^ cloudvillage
+141 ^ 綠野仙蹤民宿 ^ 10407 ^ 張素菁 ^ best_house ^ 960101 ^ 08-8883811;0927528150 ^ best_house2007a@yahoo.com.tw ^ 
+142 ^ Happy Day快樂日子 ^ 10408 ^ 黃淑惠 ^ happyday ^ H123 ^ 0963109845 ^ happyday88698@yahoo.com.tw ^ happyday
+143 ^ 溪頭中國城茶藝民宿 ^ 10409 ^ 林雪娥 ^ 2691 ^ 4752 ^ 049-2752691;0972064752 ^ a19591222000@yahoo.com.tw ^ 
+144 ^ 蘭陽橋鄉村渡假別墅 ^ 10410 ^ 邱劉玉枝 ^ a655572 ^ b655572 ^ 0921824775;03-9650265;0933244063 ^ a655572@yahoo.com.tw ^ 9569
+145 ^ 五號美術館 ^ 10411 ^ 魚丸 ^ artgalleryn05 ^ 20100811 ^ 0926638593;0973207015;0921615115 ^ mdav93@yahoo.com.tw ^ digu
+145 ^ 五號美術館 ^ 10404 ^ 鄭紫湄 ^ mdav93 ^ 590928 ^ 08-8861238;0921615115 ^ mdav93@yahoo.com.tw ^ digu
+146 ^ 巷子民宿 ^ 10416 ^ 張素菁 ^ doris ^ 28150 ^ (08)8883811;0926054603 ^ best_house2007a@yahoo.com.tw ^ 
+147 ^ 街角精緻民宿 ^ 10417 ^ 吳重霆 ^ corner ^ xxxxxxx ^ 03-8575118;0935611228 ^ t8781264@yahoo.com.tw ^ corner
+148 ^ 洄瀾灣民宿 ^ 10418 ^ 陳坤茂 ^ hualienbay ^ 6737sn ^ (03)8520280;0928299201 ^ andy.x6737@msa.hinet.net ^ hualienbay
+149 ^ 台東旅遊民宿 ^ 10419 ^ 陳啟明 ^ cm7011 ^ 336933 ^ (089)236034;0918336933 ^ cm7011@ms8.hinet.net  ^ gotaitung
+150 ^ 雲頂精緻民宿 ^ 10420 ^ 潘宜雯 ^ cloudtop ^ 608533 ^ (03)8577366;0937608533 ^ cloudtop136@yahoo.com.tw ^ cloudtop
+151 ^ 清境普羅旺斯玫瑰莊園 ^ 10422 ^ 何文宏 ^ prlcj ^ m280397 ^ (049)2803990;0911859220 ^ prlcj@yahoo.com.tw ^ prl
+151 ^ 清境普羅旺斯玫瑰莊園 ^ 10442 ^ 林志翰 ^ diegay ^ diegay1121 ^ (049)2803990;(049)2803976 ^ prlcj@yahoo.com.tw ^ prl
+151 ^ 清境普羅旺斯玫瑰莊園 ^ 10444 ^ 賴志群 ^ horse ^ 69726972 ^ (049)2803990;2803976 ^ prlcj@yahoo.com.tw ^ prl
+151 ^ 清境普羅旺斯玫瑰莊園 ^ 10443 ^ 曾東富 ^ coca0203 ^ 22660523 ^ (049)2803990;(049)2803976 ^ prlcj@yahoo.com.tw ^ prl
+152 ^ 水田衣藝術家民宿與藍屋頂 ^ 10423 ^ 陳巨凱 ^ chenklei ^ 483068 ^ (049)2982022;0932593320 ^ aa.kei@msa.hinet.net ^ akei
+153 ^ 卓也小屋 ^ 10424 ^ 劉慶嶺 ^ joye879198 ^ joye1130 ^ (037)879198;0981023454 ^ joye879198@kimo.com ^ joye
+154 ^ 南庄鳳櫻碧山莊 ^ 10425 ^ 李沛萱 ^ 825679 ^ 825680 ^ (037)825679;0923592912?@ ^ mika037825679@hotmail.com ^ fonen
+155 ^ 南庄晶華民宿 ^ 10426 ^ 劉家迎 ^ j330098 ^ j461005 ^ (037)825666;0928330098 ^ j330098@yahoo.com.tw ^ njh
+156 ^ 米堤園 ^ 10430 ^ 詹子璋 ^ metiyuan ^ 0922513690 ^ (037)824558;0922513690 ^ service@metiyuan.com.tw ^ metiyuan
+157 ^ 雲龍小築 ^ 10429 ^ 鄧雅元 ^ long ^ 2562216 ^ 05-2562216:0930-594435 ^ long.yun@msa.hinet.net:2562216@gmail.com ^ longyun
+158 ^ 漾之谷溫泉民宿 ^ 10431 ^ 秦聰熏 ^ esth0307 ^ 1223 ^ 0492987786;0963435985 ^ m28200@yahoo,com.tw ^ rippling
+159 ^ 大隘山莊 ^ 10434 ^ 魏心渝 ^ wei ^ 5803663 ^ (03)5803663 ^ il0596@yahoo.com.tw  ^ 
+160 ^ 月昇都蘭景觀民宿 ^ 10435 ^ 黃碧雲 ^ moon ^ rise1212 ^ (089)531065;0918118949 ^ mahagala99@gmail.com ^ moonriseinn
+161 ^ 遇見 ^ 10534 ^ 阿不拉 ^ abulam ^ m707063 ^ 0928707063 ^ maymay1005@yahoo.com.tw ^ meetu
+161 ^ 遇見 ^ 10448 ^ 黃欽城 ^ morning ^ 791715 ^ 0918791715 ^ Maymay.meet@msa.hinet.net ^ meetu
+161 ^ 遇見 ^ 10441 ^ 曾琬婷 ^ meetu ^ 14130 ^ 0932462647 ^ Maymay.meet@msa.hinet.net ^ meetu
+161 ^ 遇見 ^ 10529 ^ 簡秀朱 ^ chuchu ^ 8818 ^ 06-9215152 ^ maymay.meet@msa.hinet.net ^ meetu
+162 ^ 栗田庄 ^ 10462 ^ 莊子誼 ^ ltc002 ^ xxxxxxuuu ^ 039-824978 ^ service@ltcvilla.com ^ ltcvilla
+162 ^ 栗田庄 ^ 10445 ^ 陳志碩 ^ ltcvilla ^ xxxxxxuuu ^ 037-824978 ^ service@ltcvilla.com ^ ltcvilla
+162 ^ 栗田庄 ^ 10461 ^ 陳智夫 ^ ltc001 ^ xxxxxxuuu ^ 039-824978 ^ service@ltcvilla.com ^ ltcvilla
+163 ^ 福灣莊園 ^ 10456 ^ 許茹婷 ^ 953344920 ^ 088320111 ^ (08)8320111 ^ villafuwan@gmail.com ^ fuwan
+163 ^ 福灣莊園 ^ 10447 ^ 許華仁 ^ fuwan ^ 23561 ^ (08)8321327;0912023561 ^ palipali@gmail.com ^ fuwan
+164 ^ LUCKY 租屋 ^ 10487 ^ Kiwi ^ Kiwi ^ 1234 ^ 0920936881 ^ luckyrent225@gmail.com  ^ patricia911
+164 ^ LUCKY 租屋 ^ 10465 ^ Vincent ^ Vincent ^ 022228 ^ 0920936881 ^ patriciababy1976@yahoo.com.tw ^ patricia911
+164 ^ LUCKY 租屋 ^ 10489 ^ jing ^ jing ^ 555555 ^  ^ luckyrent225@gmail.c&#8203;om ^ patricia911
+164 ^ LUCKY 租屋 ^ 10480 ^ Semmi ^ semmi ^ 123456 ^  ^ patriciababy1976@yahoo.com.tw ^ patricia911
+164 ^ LUCKY 租屋 ^ 10482 ^ Nelson ^ Nelson ^ 111111 ^ 0920936881 ^ patriciababy1976@yahoo.com.tw ^ patricia911
+164 ^ LUCKY 租屋 ^ 10450 ^ 沈維新 ^ patricia ^ 022227 ^ 0920936881  ^ patriciababy1976@yahoo.com.tw ^ patricia911
+164 ^ LUCKY 租屋 ^ 10486 ^ lai ^ lai ^ 222222 ^ 0958022227 ^ vincentshen89@gmail.com ^ patricia911
+164 ^ LUCKY 租屋 ^ 10466 ^ Kevin ^ Kevin ^ 022229 ^ 0920936881 ^ patriciababy1976@yahoo.com.tw ^ patricia911
+164 ^ LUCKY 租屋 ^ 10492 ^ Jean ^ Jean ^ 888888 ^ 0958022227 ^ vincentshen89@gmail.&#8203;com ^ patricia911
+164 ^ LUCKY 租屋 ^ 10483 ^ Vicky ^ Vicky ^ 222222 ^ 0920936881 ^ luckyrent225@gmail.com  ^ patricia911
+165 ^ 浪漫滿屋民宿 ^ 10451 ^ 莊勝智 ^ full ^ 558325 ^ 0923898417;0919896743  ^ fullhouse@kimo.com ^ full-house
+166 ^ 雲朵 輕民宿 ^ 10453 ^ 尤銘緒 ^ cloud ^ 971118 ^ 0986512066 ^ karenkim19770423@yahoo.com.tw ^ cloudinn
+167 ^ 芬享之家 ^ 10454 ^ 吳明家 ^ sharinggreenhome ^ wu8898269 ^ 0937682021 ^ sharinggreenhome@yahoo.com.tw ^ sharinggreenhome
+168 ^ 雲莊空間密碼民宿(巧克力雲莊) ^ 10455 ^ 呂彩雲 ^ schokolake ^ 996916 ^ 037996916 ^ schokolake@daybreak.com.tw ^ schokolake
+169 ^ 達伶的家 ^ 10457 ^ 陳盈達 ^ dalin ^ 4206 ^ 0922293269 ^ c0922293269@yahoo.com.tw ^ quailking
+171 ^ 庄腳所在 ^ 10460 ^ 陳月麗 ^ mins ^ 9222000 ^ 03-9222000 ^ mins.tw@msa.hinet.net ^ 
+172 ^ 清境峰情 ^ 10463 ^ 廖奕勝 ^ julie4625 ^ qq4625 ^ 0980117752 ^ julie4625@yahoo.com.tw ^ taomt
+173 ^ 茉莉小棧 ^ 10464 ^ 王瓊英 ^ jasmine ^ 015188 ^ 0975-267067 ^ jasmine100888@yahoo.com.tw ^ jasmine
+173 ^ 茉莉小棧 ^ 10459 ^ 王柏楊 ^ jasmine188 ^ 267067 ^ 0975267067 ^ jasmine100888@yahoo.com.tw ^ jasmine
+174 ^ 安逸旅店 ^ 10468 ^ 張麗英 ^ yoyo77010 ^ 870228 ^ 0928242767,083677010 ^ yoyo770102000@yahoo.com.tw ^ annyi
+175 ^ 水岸森林 ^ 10469 ^ 林渭川 ^ river ^ rf9610277 ^ (03) 9610277 ^ service@river-forest.com.tw ^ river-forest
+176 ^ 日月情旅民宿 ^ 10471 ^ 莊心怡 ^ love ^ 898688 ^ 0923898417 ^ fullhouse898@gmail.com ^ sunmoonlove
+177 ^ 福華水世界渡假村(新) ^ 10472 ^ 黃副理 ^ ws-kt ^ 8862241 ^ 08-8862241 ^ wsaa-kt@howard-hotels.com.tw ^ 
+178 ^ 幸福空間/休閒家族渡假窩 ^ 10473 ^ 朱玉雲 ^ qwer ^ 741258963 ^ 0980999150 ^ vv4065@hotmail.com ^ happyspatial
+179 ^ 淳青背包客棧 Kenting Youth Hostel ^ 10474 ^ 林恭玄 ^ ktyh ^ sunny9106002 ^ 0935474083 ^ 8891817@gmail.com ^ ktyh
+180 ^ 海境渡假民宿 ^ 10475 ^ 尤嘉祺 ^ op501 ^ 0934135888 ^ (08)8869638;0981378100 ^ lisa@oceanparadise.com.tw ^ oceanparadise
+181 ^ 芹壁村25號 ^ 10477 ^ 陳惠娟 ^ chinbe25 ^ sammi1977 ^ 0975421178 ^ chinbe25@gmail.com ^ chinbe
+183 ^ 藍山會館 ^ 10478 ^ 許振堂 ^ azurevilla ^ 8568089 ^ 03-8312882 ^ service@azurevilla.com.tw ^ azurehotel
+184 ^ 香格里拉休閒民宿 ^ 10479 ^ 邱曉絹 ^ mouss0214 ^ a02140924 ^ 0919280767 ^ mouss0214@yahoo.com.tw ^ mouss
+185 ^ 艾哇民宿 ^ 10481 ^ 蔡雅倫 ^ lun0118 ^ xxxx ^ 0937575545 ^ lun740118@gmail.com ^ iwow
+186 ^ 12號橋空間 ^ 10485 ^ 周木 ^ jhuu12 ^ 1111 ^ 0920690253 ^ May521216@gmail.com ^ bridge12
+187 ^ 流星花園 ^ 10490 ^ 陸冠全 ^ glp ^ 1111 ^ 0926189173 ^ glp25256262@yahoo.com.tw ^ glp
+188 ^ 政大書城員工招待所 ^ 10491 ^ 安玲萱 ^ vicky.ann ^ 6059 ^ 0980498944 ^ vicky.ann@hotmail.co&#8203;m ^ 
+188 ^ 政大書城員工招待所 ^ 10514 ^ 安玲萱 ^ vickyan9155 ^ xyz23456 ^ 03-8316059 ^ vicky.ann@hotmail.com ^ 
+189 ^ 陽光花園山莊民宿 ^ 10493 ^ 劉宜涵 ^ sunnygarden ^ 3768 ^ 0980433623 ^ cherryhome123@yahoo.com.tw ^ sunnygarden
+190 ^ 松園渡假山莊 ^ 10494 ^ 松園周 ^ pinehome ^ 2993098 ^ 049-2993098 ^ pinehomespa@yahoo.com.tw ^ pinehome
+191 ^ 水鄉豪華渡假villa ^ 10495 ^ 周可茵 ^ watervilla ^ 2993237 ^ 049-2993098 ^ pinehomespa@yahoo.com.tw ^ watervilla
+192 ^ ?娟夢田 ^ 10496 ^ 陽邦傑 ^ ybj530813 ^ ua68130711 ^ 037878388 ^ ybj530813@yahoo.com.tw ^ zjmt
+193 ^ 向陽田園 ^ 10497 ^ 鄭橋澤 ^ sunhouse31 ^ 874028 ^ 0936093205 ^ sunhouse31@gmail.com ^ sungreen
+194 ^ 愛面子民宿 ^ 10499 ^ 雨欣 ^ iza12323 ^ 288857 ^ 037-875766 ^ feller0204@yahoo.com.tw ^ sbc
+194 ^ 愛面子民宿 ^ 10498 ^ 彭妃玉 ^ feller0204 ^ 196078 ^ 0928-196078 ^ feller0204@yahoo.com.tw ^ sbc
+195 ^ 福軒養生館 ^ 10500 ^ 江惠美 ^ fuxuan ^ 2288 ^ 0922282288 ^ fuxuan9803@gmail.com ^ joneshome
+196 ^ 八番坑民宿 ^ 10501 ^ 何維恭 ^ 8fankeng ^ 8023 ^ 0921-618-023 ^ pafan.keng@msa.hinet.net ^ 8fankeng
+197 ^ 雲洞山莊 ^ 10502 ^ 劉淑芳 ^ yundongtom ^ 1123 ^ 0938918690 ^ yundong951536@yahoo.com.tw ^ yundong
+198 ^ 蘭心山莊民宿 ^ 10503 ^ 戴琴文 ^ lansin2951 ^ 2951 ^ 0919171042 ^ dai420206@yahoo.com.tw ^ lansin-villa
+199 ^ 有方公寓 ^ 10504 ^ 張&#28702;文 ^ yourfun ^ trip235 ^ 0922-516052 ^ service@trip235.com ^ yourfun
+200 ^ 優生美地休憩農場 ^ 10505 ^ 王怡婕 ^ usmdwsc ^ usmdwsc12345 ^ (08)8823553 ^ usmd.scs@msa.hinet.net ^ usmd
+201 ^ 墾丁航海民宿 ^ 10506 ^ 彭日宏 ^ a0912093346 ^ 12234 ^ 0933323576 ^ a0912093346@yahoo.com.tw ^ ocean-living
+202 ^ 六星集Me2 villa ^ 10510 ^ Marx ^ marx ^ 1314 ^ 03-5191918 ^ me2@footmassage.com.tw ^ me2villa
+202 ^ 六星集Me2 villa ^ 10507 ^ 賴 ^ footmassage ^ 1918 ^ 02-27622166*32 ^ 99@footmassage.com.tw ^ me2villa
+202 ^ 六星集Me2 villa ^ 10509 ^ Michelle ^ michelle ^ 1215 ^ 0912-295834 ^ me2@footmassage.com.tw ^ me2villa
+202 ^ 六星集Me2 villa ^ 10488 ^ 賴小姐 ^ foot ^ 99123 ^ 0986608588 ^ 99@footmassage.com.tw ^ me2villa
+202 ^ 六星集Me2 villa ^ 10508 ^ wacky ^ wacky ^ 0715 ^ 03-5191918 ^ me2@footmassage.com.tw ^ me2villa
+203 ^ 我的墾丁招待所 ^ 10511 ^ 盧美琴 ^ p852485 ^ 146245 ^ 0919146245 ^ p852485@gmail.com ^ myktvilla
+204 ^ 海閣旅店 ^ 10512 ^ 郭嘉名 ^ chia0606 ^ 634545 ^ 0933-634545 ^ chia0606@ms49.hinet.net ^ haiga
+205 ^ 青山農場 ^ 10513 ^ 蔡政銘 ^ tsai963 ^ 781677 ^ 0970-230021 ^ tsai963@yahoo.com.tw ^ ching3
+206 ^ 宜興園民宿 ^ 10515 ^ 呂增興 ^ eshine999 ^ td3254 ^ 0932-662381 ^ eshine999@hotmail.com ^ eshine999
+207 ^ 南灣漁人碼頭(水漁人旅店) ^ 10516 ^ 姚杏芝 ^ ms8891677 ^ ms8891677 ^ 0912717366 ^ ms.yao@msa.hinet.net ^ waterfisherinn
+208 ^ 大阪六民宿 ^ 10517 ^ 李秀美 ^ db6 ^ 2778 ^ 0910686024 ^ smleetw11@gmail.com ^ daban6
+209 ^ 天際線民宿 ^ 10518 ^ 張沛綺 ^ sky8880101 ^ sky8883467 ^ 08-8880101 ^ sky8880101@gmail.com ^ skyline
+210 ^ 幸福工廠民宿 ^ 10519 ^ 魏瑞欣 ^ minami ^ a1802043 ^ 06-9217080 ^ home.girl@yahoo.com.tw ^ happyfactory
+211 ^ 樂活公寓 ^ 10520 ^ 郭姿攸 ^ eightfloor ^ 11234 ^ 0987450407 ^ eightfloorwind@gmail.com ^ eightfloorwind
+212 ^ 恆春古城民宿 ^ 10521 ^ 蔡宜玲 ^ castle17 ^ 1771 ^ 0982583313 ^ castle17@hotmail.com.tw ^ ancientcastle
+213 ^ 拉飛爾民宿 ^ 10522 ^ Vicky ^ s591377 ^ s7478066 ^ 0933591377 ^ s591377@yahoo.com.tw ^ dragonlodge
+214 ^ 亞維儂民宿 ^ 10523 ^ 曾志暉 ^ avignon ^ 8621 ^ 0920299310 ^ john1mary2@yahoo.com.tw ^ avignon
+215 ^ 幸福墾丁精品旅宿 ^ 10525 ^ 朱小姐 ^ vv4065 ^ qazwsx ^ 0980-999150 ^ vv4065@hotmail.com ^ happykenting
+216 ^ 羊兒煙囪民宿 ^ 10526 ^ 黃德儀 ^ helen1019 ^ 101927 ^ 0936-266489 ^ helen@sheep-chimney.com ^ sheep-chimney
+217 ^ 志耕農背包客Realive ^ 10527 ^ 任聿新 ^ realive ^ rush0101 ^ 0939-709805 ^ frankjen72@gmail.com ^ realive
+218 ^ 卉芯蘭園休閒民宿 ^ 10530 ^ 蘇銀益 ^ huixin ^ huixin8403 ^ 0937-852632 ^ huixin.net123@yahoo.com.tw ^ huixin
+219 ^ 日月潭富豪群渡假民宿 ^ 10531 ^ 林義人 ^ fhsml ^ 2850307 ^ 0922-674783 ^ a2850307@yahoo.com.tw ^ fhsml
+220 ^ 日月星舞民宿 ^ 10532 ^ 沈詠為 ^ wei104104 ^ wei2899347 ^ 0963-104104 ^ wei104104@gmail.com ^ 
+221 ^ 山水田雅舍 ^ 10536 ^ 鍾菁霞 ^ angela1110 ^ tian1226 ^ 0921-708622 ^ tiantianxangela1110@gmail.com ^ shanshuitian
+222 ^ 闔家歡民宿 ^ 10537 ^ 羅淑芬 ^ m4731588 ^ 539549 ^ (049)2896679;0931539549 ^ m4731588@yahoo.com.tw ^ familyfun
+223 ^ 快樂腳休閒屋 ^ 10538 ^ 黃賽花 ^ happyfeet ^ 2897099 ^ 0928-986878 ^ tim6767lucky@yahoo.com.tw ^ happy-feet
+224 ^ 青蛙ㄚ婆ㄟ家 ^ 10540 ^ 王惠美 ^ frogymay ^ 2918863 ^ 0932-670110 ^ frogymay@yahoo.com.tw ^ frogymay

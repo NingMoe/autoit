@@ -120,7 +120,7 @@ Func _scanfolder ($ini_array)
 	
 	;MsgBox(0,"Scan folder:", $scandir&"\*."&$file_ext & @CRLF & "Run : " & $action & " at " & $action_path, 5)
 	if FileExists($scandir&"\*."&$file_ext) then 
-		
+		MsgBox(0,"Scan folder:", $scandir&"\*."&$file_ext & @CRLF & "Run : " & $action & " at " & $action_path, 5)
 		filecopy($scandir&"\*."&$file_ext, $action_path,9) 	
 		sleep(1000)
 		run ($action)
