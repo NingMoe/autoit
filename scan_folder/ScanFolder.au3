@@ -120,13 +120,18 @@ Func _scanfolder ($ini_array)
 	
 	;MsgBox(0,"Scan folder:", $scandir&"\*."&$file_ext & @CRLF & "Run : " & $action & " at " & $action_path, 5)
 	if FileExists($scandir&"\*."&$file_ext) then 
+<<<<<<< HEAD
 		MsgBox(0,"Scan folder:", $scandir&"\*."&$file_ext & @CRLF & "Run : " & $action & " at " & $action_path, 5)
 		filecopy($scandir&"\*."&$file_ext, $action_path,9) 	
+=======
+		
+		filecopy($scandir&"\*."&$file_ext, $action_path &"\",9) 	
+>>>>>>> c67e6e82fe7f6aada98bd36068e9f04b9bb49bc6
 		sleep(1000)
 		run ($action)
 		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," 在 "& $scandir &" 下的 " & $file_ext & " 檔案移動到 " & $action_path  )
 		;Run(@ComSpec & " /c " & 'commandName', "", @SW_HIDE) 
-		if  FileExists($scandir&"\*."&$file_ext) then FileMove($scandir&"\*."&$file_ext,$move_path,9)
+		if  FileExists($scandir&"\*."&$file_ext) then FileMove($scandir&"\*."&$file_ext,$move_path &"\" ,9)
 		
 	EndIf	
 
