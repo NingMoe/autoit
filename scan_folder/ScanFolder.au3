@@ -144,3 +144,8 @@ func _at_script_dir($path)
 	EndIf
 	Return $path
 EndFunc
+
+func _check_first_line()
+	
+	
+EndFunc
