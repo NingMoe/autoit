@@ -49,9 +49,15 @@ func _logsplit(  $PathnFile, $delimiters, $f_count)
 	local $filedate=""
 	
 if FileExists ($PathnFile) then 
-		$f_logfile=FileOpen($PathnFile,0)
+	local $CountLines ,$counter
+		$counter=0
+		$filedate=  StringReplace( StringReplace( StringTrimRight( $current_file , 4) ,"-","")  ,"SyslogCatchAll_","")
+		FileMove($PathnFile , @ScriptDir & "\syslog_backup\SyslogCatchAll_"& $filedate & ".txt",9)
+		$CountLines = _FileCountLines(@ScriptDir & "\syslog_backup\SyslogCatchAll_"& $filedate & ".txt")
+		$f_logfile=FileOpen(@ScriptDir & "\syslog_backup\SyslogCatchAll_"& $filedate & ".txt",0)
 		
 	While 1
+		$counter=$counter+1
 		$line = FileReadLine($f_logfile)
 		If @error = -1 Then ExitLoop
 			;MsgBox(0, "Line read:", $line)
@@ -62,7 +68,7 @@ if FileExists ($PathnFile) then
 			$f_search_word=  StringTrimLeft ( $f_search_word , StringInStr( $line , $delimiters,0,$f_count)  )
 		
 			;MsgBox(0, "Line read:", "Line >>> " & $line & @CRLF &  $f_search_word )
-			$filedate=  StringReplace( StringReplace( StringTrimRight( $current_file , 4) ,"-","")  ,"SyslogCatchAll_","")
+
 			;MsgBox(0,"Current file" , $current_file & " >> " & $filedate )
 			;MsgBox(0, "Line read:", "Line >>> " & $line & @CRLF &  $f_search_word  & @CRLF &  @ScriptDir &"\" &$filedate&"\" &  StringStripWS( StringReplace( $f_search_word,".","_" ) ,8) &".log")
 			$file_to_write= fileopen( @ScriptDir &"\" &$filedate&"\" &  StringStripWS( StringReplace( $f_search_word,".","_" ) ,8) &".log" ,9)
@@ -72,9 +78,10 @@ if FileExists ($PathnFile) then
 			FileClose ($file_to_write )
 			
 		EndIf
+		If MOD ($counter, 500 )=0 then TrayTip ("", "Porcess " & $counter &" / "& $CountLines ,5) 
 	Wend
 	;MsgBox(0,"Move Message",  $PathnFile & @CRLF & @ScriptDir & "\syslog_backup\SyslogCatchAll_"& $filedate & ".txt")
-	FileMove($PathnFile , @ScriptDir & "\syslog_backup\SyslogCatchAll_"& $filedate & ".txt",9)
+
 	
 endif
 
