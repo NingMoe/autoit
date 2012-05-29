@@ -101,6 +101,7 @@ Func _TEST_MODE()
 EndFunc   ;==>_TEST_MODE
 
 Func _array2string_tab($array, $d)
+	; $d 是傳入的 array 的欄位數目
 	Local $y, $x, $i, $string_to_return, $a_line
 	$string_to_return = ''
 	

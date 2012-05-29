@@ -1,6 +1,7 @@
 
 
 func _array2string($array,$d)
+	; $d 是傳入的 array 的欄位數目
 	local $y, $x, $i, $string_to_return ,$a_line
 	$string_to_return=""
 	
