@@ -357,7 +357,7 @@ dim $db_ip="www.kitravel.com.tw"
 ;; This is  connect to My SQL for user email
 ;;
 _MySQL_InitLibrary()
-If @error Then Exit MsgBox(0, '', "")
+If @error Then Exit MsgBox(0, 'Error', " mysql connect error. Check mysql DLL file.")
 ;MsgBox(0, "DLL Version:",_MySQL_Get_Client_Version()&@CRLF& _MySQL_Get_Client_Info())
 
 $MysqlConn = _MySQL_Init()
