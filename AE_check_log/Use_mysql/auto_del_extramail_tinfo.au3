@@ -161,11 +161,11 @@ $m_SmtpServer = "smtp.gmail.com"              ; address for the smtp-server to u
 $m_FromName = "Net1"                      ; name from who the email was sent
 $m_FromAddress = "changtun@gmail.com" ;  address from where the mail should come
 
-$m_ToAddress = "bryant@dynalab.com.tw"   ; destination address of the email - REQUIRED
+$m_ToAddress = "bryant@net1.com.tw"   ; destination address of the email - REQUIRED
 $m_Subject =  $today &" Extra_mail-²M³æ§R°£"                   ; subject from the email - can be anything you want it to be
 $m_as_Body = $mailbody_infunc          ; the messagebody from the mail - can be left blank but then you get a blank mail
 $m_AttachFiles = "";@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"             ; the file you want to attach- leave blank if not needed sample :"d:\ibm240KB.jpg"
-$m_CcAddress =""; "rita.j.liu@aexp.com"       ; address for cc - leave blank if not needed
+$m_CcAddress = "rita.j.liu@aexp.com"       ; address for cc - leave blank if not needed
 $m_BccAddress = ""     ; address for bcc - leave blank if not needed
 $m_Username = "changtun@gmail.com"                    ; username for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
 $m_Password = "9ps567*9"                  ; password for the account used from where the mail gets sent  - Optional (Needed for eg GMail)
