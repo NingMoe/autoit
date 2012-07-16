@@ -16,6 +16,10 @@ Asus WL-520GU Wireless kidsburgh_520
 admin/25176455
 Wireless pass 5cf3-fc29-ba60
 
+
+---> 27973505
+
+
 NAS 192.168.0.250 admin/25176455 
 
 kidsburgh domain
@@ -46,6 +50,10 @@ Hinet info 74120001/vpqmpvmh
 
 
 
+74437438@hinet.net
+wbxsqcha
+
+00-0c-d6-10-27-e7
 
 
 
