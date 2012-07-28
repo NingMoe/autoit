@@ -1,0 +1,82 @@
+#cs ----------------------------------------------------------------------------
+
+ AutoIt Version: 3.3.6.1
+ Author:         myName
+
+ Script Function:
+	Template AutoIt script.
+
+#ce ----------------------------------------------------------------------------
+
+; Script Start - Add your code below here
+
+;#include <Word.au3>
+#include <file.au3>
+#include <array.au3>
+;$oWordApp = _WordCreate ("")
+;$oDoc = _WordDocOpen ($oWordApp, @ScriptDir & "\test2.doc")
+;_WordDocPrint ($oDoc)
+;_WordQuit ($oWordApp, 0)
+
+
+local $work_dir=@ScriptDir & "\hotel_data_files\"
+local $img_dir="d:\pdf_test\"
+local $word_exe_path="D:\Green_app\Office_2003_Portable\office2003\winword.exe "
+local $doc_file , $h_name ,$h_id
+local $sleep_time=5000
+local $png_lst
+
+if FileExists (@ScriptDir & "\print_word.txt") then
+$img_dir=  StringTrimLeft ( FileReadLine( @ScriptDir & "\print_word.txt" , 1) , 8 )
+$word_exe_path = StringTrimLeft (  FileReadLine( @ScriptDir & "\print_word.txt" , 2) , 14 )
+
+;MsgBox(0,"read from file",  $img_dir & @CRLF  & $word_exe_path)
+EndIf
+
+  $doc_file="test3.doc"
+  $h_name="¤s¤ô¥Ð¶®ªÙ"
+  $h_id=221
+
+;MsgBox(0,"Print and wait", $img_dir &  StringTrimRight( $doc_file, 4 ) & "_1.png" )
+
+
+			;$png_lst=_FileListToArray ( $img_dir , "*.png" )
+			;_ArrayDisplay ( $png_lst )
+	;MsgBox(0, "run" , $word_exe_path &"  " & $work_dir  & $h_id &"\"& $doc_file &  " /q /n /mFilePrintDefault /mFileExit")
+
+	run( $word_exe_path &"  " & $work_dir  & $h_id &"\"& $doc_file &  " /q /n /mFilePrintDefault /mFileExit")
+
+	ProcessWait("gswin32c.exe")
+	sleep(5000)
+	;MsgBox(0,"Print and wait", $img_dir &  StringTrimRight( $doc_file,4 ) & "_1.png" )
+
+
+	$doc_file=StringTrimRight( $doc_file,4 )
+		ProcessWaitClose ("gswin32c.exe" )
+		MsgBox(0,"gswin32c.exe ", "Gswin32c.exe closed", 5)
+
+	if FileExists ($img_dir &  $doc_file &"_1.png") then
+		$png_lst=_FileListToArray ( $img_dir,"*.png")
+		;_ArrayDisplay ( $png_lst )
+	EndIf
+
+for $i=1 to UBound ($png_lst)-1
+		;MsgBox( 0,"2nd run ", "convert.exe -trim " & $img_dir & $png_lst[$i] &" -bordercolor white -border 20x20 " & $work_dir & $h_id &"\orderRule_"& $i &".png" )
+		;run ("convert.exe -trim " & $png_lst[$i] &" -bordercolor white -border 20x20 " &  StringTrimRight( $png_lst[$i] ,4) & "_c.png")
+		run ("convert.exe -trim " & $img_dir & $png_lst[$i] &" -bordercolor white -border 20x20 " & $work_dir & $h_id &"\orderRule_"& $i &".png" )
+		ProcessWaitClose ("convert.exe" )
+		sleep(1000)
+		;if FileExists ($img_dir & StringTrimRight( $png_lst[($png_lst)-1] ,4) & "_c.png") then exitloop
+next
+
+
+for $i=1 to UBound ($png_lst)-1
+	;	sleep(1000)
+		if FileExists ($img_dir & $png_lst[$i]) then  FileDelete ( $img_dir & $png_lst[$i] )
+		$png_lst[$i]="orderRule_"&$i &".png"
+	;	;if FileExists ($img_dir & StringTrimRight( $png_lst[($png_lst)-1] ,4) & "_c.png") then exitloop
+next
+
+ ;_ArrayDisplay ( $png_lst)
+
+Exit

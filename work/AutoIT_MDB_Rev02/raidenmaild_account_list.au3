@@ -14,6 +14,7 @@ Dim $month=@MON
 DIM $year=@YEAR
 global $today=$year & $month & $day
 
+
 dim $record_count
 dim $field_array
 dim $record_array
@@ -36,23 +37,23 @@ dim $r_output_path
 dim $array_account_list[$record_count+1][3]
 
 for $x =1 to $record_count
-	
+
 	$record_array =  Example_AccessRecordList(  @ScriptDir & "\raidenmaild.mdb" , "usertable" , $x )
-	if $record_array [10] = 0 then 
-		
+	if $record_array [10] = 0 then
+
 		$array_account_list[$x][2]=$record_array[10]
 		$array_account_list[$x][0]=$record_array[2]
 		$array_account_list[$x][1]=$record_array[1] & "@kidsburgh.com.tw"
-		
+
 		;if $record_array[1]="bryant" then $array_account_list[$x][1]="-"
 		;if $record_array[1]="ksbackup" then $array_account_list[$x][1]="-"
 		;if $record_array[1]="service" then $array_account_list[$x][1]="-"
-		for $r =1 to $r_Hide_list[0] 
+		for $r =1 to $r_Hide_list[0]
 		if $record_array[1]= $r_Hide_list[$r] then $array_account_list[$x][1]="-"
-		
+
 		Next
-		
-		
+
+
 	Else
 		$array_account_list[$x][0]="-" ;$record_array[2]
 		$array_account_list[$x][1]="-";$record_array[1]
@@ -67,8 +68,8 @@ _ArraySort ($array_account_list, 0,0,0,1 )
 $array_html = _template()
 for $x =1 to $record_count
 ;_ArrayDisplay ($array_account_list)
-	
-	if $array_account_list[$x][1]<> "-" then 
+
+	if $array_account_list[$x][1]<> "-" then
 	;$text_html = $text_html & $array_account_list[$x][0] & ' :  <a href="mailto:' &$array_account_list[$x][1]& '">' & $array_account_list[$x][1] & '</a><br>'  & @CRLF
 	$text_html = $text_html &   StringReplace(  StringReplace ( $array_html[2] , "[name]", $array_account_list[$x][0] ) , "[email]" , $array_account_list[$x][1] ) & @CRLF
 	EndIf
@@ -255,9 +256,9 @@ EndFunc
 
 
 func _template()
-local $html_template[4] 
-$html_template[1]="<html>" & _ 
-				  "<head>"  & _  
+local $html_template[4]
+$html_template[1]="<html>" & _
+				  "<head>"  & _
 				  '<meta http-equiv="Content-Language" content="zh-tw">'  & _
 				  '<meta http-equiv="Content-Type" content="text/html; charset=big5">'  & _
 				  "<title>Kidsburgh Email Address</title>"  & _
@@ -266,7 +267,7 @@ $html_template[1]="<html>" & _
 				  "<table width=50% height=100 border=1>" & _
 				  "<caption>Kidsburgh Email Address </caption>"
 
-$html_template[2]='<tr><th> [name] </th>  <td><a href="mailto:[email]">[email]</a> </td></tr>'  
+$html_template[2]='<tr><th> [name] </th>  <td><a href="mailto:[email]">[email]</a> </td></tr>'
 $html_template[3]="</table> Updated : " & $today& "</center></body>"  & _
 				  "</html>"
 
@@ -308,14 +309,14 @@ Func _DB_path()
 	If FileExists(@ScriptDir & "\DB_path.txt") Then
 		$mode = FileReadLine(@ScriptDir & "\DB_path.txt", 1)
 		If $mode = "" Then
-			if FileExists (@ScriptDir & "\raidenmaild.mdb" ) then  
+			if FileExists (@ScriptDir & "\raidenmaild.mdb" ) then
 				MsgBox(0, "DB path", "Email Account DB :" & @ScriptDir & "\raidenmaild.mdb" , 5)
 			Else
-				MsgBox(0,"Error ", @ScriptDir & "\raidenmaild.mdb " & @CRLF  & "File not exists")	
-			EndIf	
+				MsgBox(0,"Error ", @ScriptDir & "\raidenmaild.mdb " & @CRLF  & "File not exists")
+			EndIf
 		Else
 			;$mode <> ""
-			if FileExists ($mode ) then  
+			if FileExists ($mode ) then
 				MsgBox(0, "DB path", "Email Account DB at :" & $mode , 5)
 				if FileExists (@ScriptDir & "\raidenmaild.mdb" ) then FileMove (@ScriptDir & "\raidenmaild.mdb" , @ScriptDir & "\backup_db\"& $today&"_raidenmaild.mdb" ,9)
 				FileCopy ( $mode , @ScriptDir &"\raidenmaild.mdb" )
@@ -323,7 +324,7 @@ Func _DB_path()
 			Else
 				MsgBox(0,"Error 321 ", $mode & @CRLF  & "File not exists")
 				$mode=""
-			EndIf	
+			EndIf
 		EndIf
 
 	Else
@@ -331,11 +332,11 @@ Func _DB_path()
 		;$ans=InputBox("Process mode","高鐵車次資料會輸入資料庫 "&@CRLF& "輸入 N 可以離開")
 
 		$mode = ""
-		if FileExists (@ScriptDir & "\raidenmaild.mdb" ) then  
+		if FileExists (@ScriptDir & "\raidenmaild.mdb" ) then
 			MsgBox(0, "DB path", "Email Account DB :" & @ScriptDir & "\raidenmaild.mdb" , 5)
 		Else
-			MsgBox(0,"Error ", @ScriptDir & "\raidenmaild.mdb " & @CRLF  & "File not exists")	
-		EndIf	
+			MsgBox(0,"Error ", @ScriptDir & "\raidenmaild.mdb " & @CRLF  & "File not exists")
+		EndIf
 		;if $ans="n" or $ans="N" or @error=1 then exit
 
 	EndIf

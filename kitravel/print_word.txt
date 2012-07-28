@@ -1,0 +1,2 @@
+img_dir=d:\pdf_test\
+word_exe_path=D:\Green_app\Office_2003_Portable\office2003\winword.exe
