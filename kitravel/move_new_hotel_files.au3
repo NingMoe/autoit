@@ -33,7 +33,7 @@ $new_hotel_files[3]="b_index.htm"
 $new_hotel_files[4]='orderRule.htm'
 $new_hotel_files[5]='rule.htm'
 $new_hotel_files[6]='orderRule_e.htm'
-$new_hotel_files[7]='rule_e.htm'
+$new_hotel_files[7]='rule_en.htm'
 $new_hotel_files[8]='orderRule_1.png'
 	$current_id =  StringTrimLeft(@ScriptDir, StringInStr(@ScriptDir, "\" ,0,-1) )
 	;MsgBox(0,"current dir", @ScriptDir & @CRLF & $current_id,5)

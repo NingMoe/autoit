@@ -73,56 +73,126 @@ Exit
 func _process_data_file ()
 	local $showup_msg=""
 	local  $data_files = _FileListToArray($work_dir) ; 移入的 doc 及 xls
-	local $hotel_id, $hotel_name, $hotel_phone,$hotel_fax, $hotel_address
+	local $hotel_id, $hotel_name, $hotel_phone,$hotel_fax, $hotel_address, $no ,$no_e
+
+
 	;_ArrayDisplay($data_files)
 	if isarray ($data_files ) then
+
+
 			$no = _ArraySearch($data_files, "-訂房須知.doc", 0, 0, 0, 1)
-			if $no=-1 then return $no
-			$the_doc_file=$data_files[$no]
+			$no_e = _ArraySearch($data_files, "-訂房須知_e.doc", 0, 0, 0, 1)
 
-			$hotel_name = StringLeft($data_files[$no], StringInStr($data_files[$no], "-訂房須知.doc") - 1)
-			$file_same_hid= _ArrayFindAll ($data_files , $hotel_name ,0,0,0,1,1)
-			;MsgBox(0, " Array search ", $hotel_name)
-			;_ArrayDisplay ( $file_same_hid)
-			$hotel_id =  	$return_hotel_data_array [  _ArraySearch ( $return_hotel_data_array, $hotel_name ,0,0,0,1,0,1) ][0]
-			$hotel_phone =  $return_hotel_data_array [  _ArraySearch ( $return_hotel_data_array, $hotel_name ,0,0,0,1,0,1) ][2]
-			$hotel_fax =  	$return_hotel_data_array [  _ArraySearch ( $return_hotel_data_array, $hotel_name ,0,0,0,1,0,1) ][3]
-			$hotel_address= $return_hotel_data_array [  _ArraySearch ( $return_hotel_data_array, $hotel_name ,0,0,0,1,0,1) ][4]
+			;MsgBox(0,"DOC ", "-訂房須知.doc  :  " &  $no  &@CRLF  & "-訂房須知_e.doc : " & $no_e )
+			;$no= $no*$no_e
+			if $no > 0 or  $no_e>0  then
 
 
-			;MsgBox(0, " Array search ", $hotel_id &" -- "& $hotel_phone&" -- "& $hotel_fax &" -- "& $hotel_address)
+				if $no>0 then
+					$the_doc_file=$data_files[$no]
+					$hotel_name = StringLeft($data_files[$no], StringInStr($data_files[$no], "-訂房須知.doc") - 1)
+				Else
+					$the_doc_file=$data_files[$no_e]
+					$hotel_name = StringLeft($data_files[$no], StringInStr($data_files[$no], "-訂房須知_e.doc") - 1)
+				EndIf
 
-			;for $x=0 to UBound($file_same_hid)-1
-			;	$showup_msg= ($x+1)&","& $data_files[$x+1]& " ; " &$showup_msg
-			;Next
-			;MsgBox(0,"file name", $showup_msg)
-			_move_and_print( $the_doc_file, $hotel_name , $hotel_id , $hotel_phone, $hotel_fax, $hotel_address)
+				$file_same_hid= _ArrayFindAll ($data_files , $hotel_name ,0,0,0,1,1)
+				;MsgBox(0, " Array search ", $hotel_name)
+				;_ArrayDisplay ( $file_same_hid)
+				$hotel_id =  	$return_hotel_data_array [  _ArraySearch ( $return_hotel_data_array, $hotel_name ,0,0,0,1,0,1) ][0]
+				$hotel_phone =  $return_hotel_data_array [  _ArraySearch ( $return_hotel_data_array, $hotel_name ,0,0,0,1,0,1) ][2]
+				$hotel_fax =  	$return_hotel_data_array [  _ArraySearch ( $return_hotel_data_array, $hotel_name ,0,0,0,1,0,1) ][3]
+				$hotel_address= $return_hotel_data_array [  _ArraySearch ( $return_hotel_data_array, $hotel_name ,0,0,0,1,0,1) ][4]
+				;MsgBox(0, " Array search ", $hotel_id &" -- "& $hotel_phone&" -- "& $hotel_fax &" -- "& $hotel_address)
+
+				;for $x=0 to UBound($file_same_hid)-1
+				;	$showup_msg= ($x+1)&","& $data_files[$x+1]& " ; " &$showup_msg
+				;Next
+				;MsgBox(0,"file name", $showup_msg)
+				_move_and_print( $the_doc_file, $hotel_name , $hotel_id , $hotel_phone, $hotel_fax, $hotel_address)
+				$no=1
+			Else
+				$no=-1
+			EndIf
 	EndIf
-	return 1
+	return $no
 EndFunc
 
 
 Func _move_and_print($doc_file , $h_name ,$h_id, $hotel_phone, $hotel_fax, $hotel_address)
-	local $all_doc_in_hid
+	local $all_doc_in_hid , $s, $s1 , $swap
+	;local $doc_value=0
+
+
 	if not FileExists ( $work_dir & $h_id) then DirCreate( $work_dir  & $h_id )
 
 	FileMove ( $work_dir& "*"& $h_name &"*" , $work_dir & $h_id )
 
 
 	$all_doc_in_hid=_FileListToArray($work_dir  & $h_id, "*.doc" )
+	_ArraySort(  $all_doc_in_hid ,0 )
 
+if UBound($all_doc_in_hid)>0 then
+	$s=0
+	$s1=0
+	$s = _ArraySearch($all_doc_in_hid, "-入住須知.doc", 0, 0, 0, 1)
+	;ConsoleWrite (@CRLF& _ArraySearch($all_doc_in_hid, "-入住須知.doc", 0, 0, 0, 1) & @CRLF)
+	if $s >0 then
+		$swap=""
+		$s1 = _ArraySearch($all_doc_in_hid, "-訂房須知.doc", 0, 0, 0, 1)
+			if $s1< $s then
+				$swap=$all_doc_in_hid[$s1]
+				$all_doc_in_hid[$s1]= $all_doc_in_hid[$s]
+				$all_doc_in_hid[$s]=$swap
+			EndIf
+
+	EndIf
+
+	$s=0
+	$s1=0
+	$s = _ArraySearch($all_doc_in_hid, "-入住須知_e.doc", 0, 0, 0, 1)
+	if $s >0 then
+		$swap=""
+		$s1 = _ArraySearch($all_doc_in_hid, "-訂房須知_e.doc", 0, 0, 0, 1)
+		if $s1< $s then
+			$swap=$all_doc_in_hid[$s1]
+			$all_doc_in_hid[$s1]= $all_doc_in_hid[$s]
+			$all_doc_in_hid[$s]=$swap
+		EndIf
+
+	EndIf
+
+	$s=0
+	$s1=0
+	$s = _ArraySearch($all_doc_in_hid, "-訂房須知_e.doc", 0, 0, 0, 1)
+	if $s >0 then
+		$swap=""
+		$s1 = _ArraySearch($all_doc_in_hid, "-訂房須知.doc", 0, 0, 0, 1)
+		if $s1< $s then
+			$swap=$all_doc_in_hid[$s1]
+			$all_doc_in_hid[$s1]= $all_doc_in_hid[$s]
+			$all_doc_in_hid[$s]=$swap
+		EndIf
+
+	EndIf
+
+
+
+EndIf
 	;_ArrayDisplay( $all_doc_in_hid )
+
+
 	if UBound($all_doc_in_hid)>0 then
 		if $all_doc_in_hid[0]=1 then
 		;MsgBox(0,"Print 1 file only", $all_doc_in_hid[1] &" ; "& $h_name &" ; "& $h_id , 5)
-		_print_word($doc_file , $h_name ,$h_id, $hotel_phone, $hotel_fax, $hotel_address)
+		_print_word($all_doc_in_hid[1] , $h_name ,$h_id, $hotel_phone, $hotel_fax, $hotel_address)
 		endif
 		;MsgBox(0,"Print file",$doc_file &" ; "& $h_name &" ; "& $h_id )
 		if $all_doc_in_hid[0]>1 then
 			for $a=1 to $all_doc_in_hid[0]
 				; _print_word file 執行列印轉檔及產生 html
 				;MsgBox(0,"Print files : " & $a &"/" & $all_doc_in_hid[0], $all_doc_in_hid[$a] &" ; "& $h_name &" ; "& $h_id )
-				_print_word($doc_file , $h_name ,$h_id, $hotel_phone, $hotel_fax, $hotel_address)
+				_print_word($all_doc_in_hid[$a] , $h_name ,$h_id, $hotel_phone, $hotel_fax, $hotel_address)
 				sleep(3000)
 			next
 		EndIf
