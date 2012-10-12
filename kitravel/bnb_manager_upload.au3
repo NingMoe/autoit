@@ -223,14 +223,21 @@ EndFunc
 
 func _myftp_upload($dir_2_ftp, $h_id)
 
+	;Local $server = '202.168.197.243'
+	;Local $username = 'ivan'
+	;Local $pass = '9ps5678'
+
+
 	Local $server = '202.168.197.243'
-	Local $username = 'ivan'
-	Local $pass = '9ps5678'
+	Local $username = 'kitravel'
+	Local $pass = '2796!233'
 
 	Local $Open = _FTP_Open('MyFTP Control')
 	Local $Conn = _FTP_Connect($Open, $server, $username, $pass,1,6002)
-	_FTP_DirCreate ($Conn, "/kitravel/" & $h_id )
-	_FTP_DirPutContents( $Conn,$dir_2_ftp,"/kitravel/"& $h_id,0 )
+	;_FTP_DirCreate ($Conn, "/kitravel/" & $h_id )
+	;_FTP_DirPutContents( $Conn,$dir_2_ftp,"/kitravel/"& $h_id,0 )
+	_FTP_DirCreate ($Conn, "/upload/" & $h_id )
+	_FTP_DirPutContents( $Conn,$dir_2_ftp,"/upload/"& $h_id,0 )
 	; ...
 	Local $Ftpc = _FTP_Close($Open)
 

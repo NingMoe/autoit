@@ -84,7 +84,14 @@ while 1
 			$sub_array[$b]=$scan_parameter_array[$a][$b]
 		Next
 			;_ArrayDisplay($sub_array)
-			_scanfolder ($sub_array)
+
+			if FileExists($sub_array[1] & "\*." & $sub_array[2]) then
+				MsgBox(0,"sub_array",  " $sub_array[1]\*.$sub_array[2]   "  & $sub_array[1] & "\*." & $sub_array[2] ,5)
+				_scanfolder ($sub_array)
+
+			;Else
+				;MsgBox(0,"No file",  "No file at :  "  & $sub_array[1] & "\*." & $sub_array[2] ,2)
+			EndIf
 	next
 	sleep($delay)
 WEnd
@@ -102,6 +109,7 @@ Func _scanfolder ($ini_array)
 	local $mount_info
 	local $filesize[5] ;, $filesize2 , $filesize3
 	local $filename_to_check , $filename_handle
+
 
 	$scandir= $ini_array[1]
 	$file_ext=$ini_array[2]
@@ -122,17 +130,28 @@ Func _scanfolder ($ini_array)
 
 	;MsgBox(0,"Scan folder:", $scandir&"\*."&$file_ext & @CRLF & "Run : " & $action & " at " & $action_path, 5)
 	if FileExists($scandir&"\*."&$file_ext) then
+
+		 $sec=@SEC
+		 $min=@MIN
+		 $hour=@HOUR
+		 $day=@MDAY
+		 $month=@MON
+		 $year=@YEAR
+		 $today=$year & $month & $day
+
+
+
 		sleep (10*1000)
 		$filename_handle=FileFindFirstFile ( $scandir&"\*."&$file_ext )
 		 $filename_to_check = FileFindNextFile($filename_handle)
 
 		while 1
 			for $x=0 to 4
-				;sleep (2000)
+				sleep (2000)
 
 				$filesize[$x]=0
 				$filesize[$x]= FileGetSize ($scandir&"\" & $filename_to_check)
-				MsgBox(0,"File check size","File size" & $filesize[$x] ,2)
+				;MsgBox(0,"File check size","File size" & $filesize[$x] ,2)
 
 			next
 			if $filesize[0]= $filesize[4] then  ExitLoop
@@ -144,7 +163,7 @@ Func _scanfolder ($ini_array)
 		filecopy($scandir&"\*."&$file_ext, $action_path &"\",9)
 		sleep(1000)
 		run ($action)
-		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," 在 "& $scandir &" 下的 " & $file_ext & " 檔案移動到 " & $action_path  )
+		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," 在 "& $scandir &" 下的 " & $filename_to_check & " 檔案移動到 " & $action_path  )
 		;Run(@ComSpec & " /c " & 'commandName', "", @SW_HIDE)
 		if  FileExists($scandir&"\*."&$file_ext) then FileMove($scandir&"\*."&$file_ext,$move_path &"\" ,9)
 
