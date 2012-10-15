@@ -160,12 +160,12 @@ Func _scanfolder ($ini_array)
 		MsgBox(0,"Scan folder:", $scandir&"\*."&$file_ext & @CRLF & "Run : " & $action & " at " & $action_path, 5)
 		;filecopy($scandir&"\*."&$file_ext, $action_path,9)
 
-		filecopy($scandir&"\*."&$file_ext, $action_path &"\",9)
+		filecopy($scandir&"\*.*", $action_path &"\",9)
 		sleep(1000)
 		run ($action)
 		_FileWriteLog(@ScriptDir&"\"&StringTrimRight(@ScriptName,4)&"_"&$year&$month&$day&".log"," 在 "& $scandir &" 下的 " & $filename_to_check & " 檔案移動到 " & $action_path  )
 		;Run(@ComSpec & " /c " & 'commandName', "", @SW_HIDE)
-		if  FileExists($scandir&"\*."&$file_ext) then FileMove($scandir&"\*."&$file_ext,$move_path &"\" ,9)
+		if  FileExists($scandir&"\*."&$file_ext) then FileMove($scandir&"\*.*",$move_path &"\" ,9)
 
 	EndIf
 

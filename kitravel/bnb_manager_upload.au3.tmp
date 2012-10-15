@@ -64,7 +64,7 @@ EndIf
 
 While 1
 		$istrue = _process_data_file()
-	if $istrue=-1 then exitloop
+	if $istrue<>1 then exitloop
 WEnd
 
 Exit
@@ -78,7 +78,7 @@ func _process_data_file ()
 
 	;_ArrayDisplay($data_files)
 	if isarray ($data_files ) then
-
+			$no=-1
 
 			$no = _ArraySearch($data_files, "-訂房須知.doc", 0, 0, 0, 1)
 			$no_e = _ArraySearch($data_files, "-訂房須知_e.doc", 0, 0, 0, 1)
@@ -115,6 +115,7 @@ func _process_data_file ()
 				$no=-1
 			EndIf
 	EndIf
+	MsgBox(0,"Return value $ no", "Value of : "&$no,5)
 	return $no
 EndFunc
 
@@ -126,7 +127,7 @@ Func _move_and_print($doc_file , $h_name ,$h_id, $hotel_phone, $hotel_fax, $hote
 
 	if not FileExists ( $work_dir & $h_id) then DirCreate( $work_dir  & $h_id )
 
-	FileMove ( $work_dir& "*"& $h_name &"*" , $work_dir & $h_id )
+	FileMove ( $work_dir& "*"& $h_name &"*" , $work_dir & $h_id ,9)
 
 
 	$all_doc_in_hid=_FileListToArray($work_dir  & $h_id, "*.doc" )
@@ -200,7 +201,7 @@ EndIf
 	;MsgBox(0,"ftp folder",  $work_dir & $h_id )
 	_myftp_upload($work_dir & $h_id, $h_id)
 
-	DirMove ($work_dir  , $finished_dir )
+	DirMove ($work_dir& $h_id  , $finished_dir & $h_id, 9 )
 EndFunc
 
 func _kiftp_upload($dir_2_ftp, $h_id)
