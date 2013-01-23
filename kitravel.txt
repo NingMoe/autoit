@@ -1,3 +1,0 @@
-
-訂單備份信發送啟動頁, 視需要隨時寄出備份
-http://www.kitravel.com.tw/servlet/hk.sendDailyBackup
