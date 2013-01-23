@@ -31,6 +31,11 @@ dns.kidsburgh.com.tw 210.68.84.68
 admin.kidsburgh.com.tw 210.68.84.67
 mail.kidsburgh.com.tw 210.61.151.220
 
+windows2008 server
+product-key: YPY23-68C74-KWF8G-TX7J2-FFTHY
+x16-93608
+VIRTUAL-KEY: BPWBK-PRDHH-BWQW9-CTBCV-64893
+
 
 
 內湖kidsburgh 
@@ -57,8 +62,43 @@ wbxsqcha
 
 
 
+京華堡網路 192.168.4.1
+ 
+     帳號： 74319984
+     密碼： riyaixbh
+	 
+	 wireless : 27973505
 
 
+
+
+
+鍋鍋益善 gogoyes
+DNS server 亞太線上
+27973505/27973505
+adsl :
+    帳號： 73996487
+    密碼： eddmcawu
+Wireless:  
+	SSID: gogoyes  / ilovegogoyes
+	login account: gogoyes  / password( 就是shift電話 29322168):@(#@@!^*    
+	SSID : ilovegogoyes /29322168
+printer server	192.168.101.200  MAC: 54-E5-FC-F9-BC-DB
+
+您的用戶識別碼為 :   HN 73996487
+您目前IP配發的狀態為 : 一個固定IP + 七個動態IP 
+配發給您的固定IP為 : 220.132.172.41  
+您的個人聯絡信箱為 : changtun@gmail.com  
+您可以按此申請專屬MSA信箱  
+	
+Teamviewer	947647495 /4266
+	
+	
+kidsburgh 工廠的 adsl 帳密
+74436254@hinet.net
+giakglzg
+	
+	
 NAS account
 alice,alicechen,陳秋萍,alicechen@kidsburgh.com.tw,5
 annie,anniewu,吳云辰,anniewu@kidsburgh.com.tw,5

@@ -1,0 +1,27 @@
+Query order by month
+
+
+select a.HOTELID, a.ORDERNO, a.ORD, a.AMOUNT, a.PRICE,
+         a.ITEMDESC, a.ADULT, a.CHILD, a.ADULTADD, a.ADULTADD_PRICE,
+         a.CHILDADD, a.CHILDADD_PRICE, a.BF, a.BF_PRICE, a.FREEBF,
+         a.MEMO, b.ORDERTIME,  b.USERNAME, b.GENDER, b.COUNTRY, b.IDNO,
+         b.TEL, b.EMERGENCYTEL, b.FAX, b.PEOPLE, b.OPERATORNAME,
+         b.EDITOR, b.MEMO, b.BALANCE, b.STATUS, b.DOWNPAYMENT,
+         b.DPM_LIMIT, b.PAIEDDOWNPAY, b.DOWNPAYDESC, b.DOWNPAYTIME, b.DPM_METHOD,
+         b.PAYOFF, b.PO_TIME, b.PO_METHOD, b.REIMBRUSEMENT, b.REFOUNDDESC,
+         b.RBM_TIME, b.RBM_METHOD, b.EDITTIME, b.PURPOSE, b.ACCOUNTNO,
+         b.ARRIVALTIME, c.EMAIL, c.MEMO, c.INTEREST, c.NICKNAME
+         from hotel_orderitems a left join (hotel_order b, customer c)
+         on b.HOTELID=a.HOTELID and b.ORDERNO=a.ORDERNO and c.HOTELID=b.HOTELID and c.UID=b.UID
+         where b.ORDERTIME>="201205010000" and b.ORDERTIME<"201206010000"  and a.HOTELID=202
+         and a.ACTIVE=1 and a.AMOUNT=1 order by a.HOTELID, a.ORDERNO, a.ORD
+
+		 
+		 
+Output customers
+		 select * from customer where HOTELID='163' INTO OUTFILE "c:/customer_163.txt" ;
+		 
+		 
+		 
+Update Group ID
+update hotel_roominfo set GROUPID=SHOWORDER+1 where HOTELID=163 

@@ -32,6 +32,7 @@ local $png_lst
 local $index, $b_index, $order_confirm, $orderRule, $orderRule_e , $rule, $rule_e , $image_url, $image_hight, $image_hight_sum , $br_counter , $br_string ,$temp_ordeRrule
 local $doc_value=0 , $lang_ext=''
 local $png_name_by_converter=""
+local $png_count , $png_count_1=0 , $png_count_2=0 , $png_count_3=0
 
 if FileExists (@ScriptDir & "\print_word.txt") then
 $img_dir=  StringTrimLeft ( FileReadLine( @ScriptDir & "\print_word.txt" , 1) , 8 )
@@ -90,7 +91,7 @@ EndIf
 			;_ArrayDisplay ( $png_lst )
 	;MsgBox(0, "run" , $word_exe_path &"  " & $work_dir  & $h_id &"\"& $doc_file &  " /q /n /mFilePrintDefault /mFileExit")
 
-	run( $word_exe_path &"  " & $work_dir  & $h_id &"\"& $doc_file &  " /q /n /mFilePrintDefault /mFileExit")
+	run( $word_exe_path &"  " & $work_dir  & $h_id &'\"'& $doc_file &  '" /q /n /mFilePrintDefault /mFileExit')
 
 	ProcessWait("gswin32c.exe")
 	sleep(5000)
@@ -102,6 +103,15 @@ EndIf
 		MsgBox(0,"gswin32c.exe ", "Gswin32c.exe closed", 5)
 
 	if FileExists ($img_dir &  $doc_file &"_1.png") then
+		while 1
+			$png_count_1 = UBound( _FileListToArray ( $img_dir,"*.png") )
+			sleep (5000)
+			$png_count_2 = UBound( _FileListToArray ( $img_dir,"*.png") )
+			sleep (5000)
+			$png_count_3 = UBound( _FileListToArray ( $img_dir,"*.png") )
+			sleep (5000)
+			if $png_count_3=$png_count_1 and $png_count_3=$png_count_2 then ExitLoop
+		WEnd
 		$png_lst=_FileListToArray ( $img_dir,"*.png")
 		;_ArrayDisplay ( $png_lst )
 	EndIf

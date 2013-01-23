@@ -1,0 +1,8 @@
+<20130107>
+<#9:00>
+hour_announce1.mp3;announce4.mp3
+announce1.mp3;announce2.mp3;announce3.mp3
+announce2.mp3;announce3.mp3
+announce3.mp3;announce4.mp3;announce1.mp3
+</#9:00>
+~
