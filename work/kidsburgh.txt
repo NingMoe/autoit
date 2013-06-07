@@ -8,28 +8,25 @@ Gateway: 210.61.151.254
 CHT contact 0937-341-148
 
 KIDsburgh contact 0930-266-408  ZoeTseng
-Draytek2910 192.168.0.1 admin/25176455
---> 2011/12/27變更為 Draytek 2950  192.168.0.1 admin/25!76455
+Draytek 2950  192.168.0.1 admin/25!76455
 IPSec VPN PreShareKey:2517645525176455 
 
 Asus WL-520GU Wireless kidsburgh_520
-admin/25176455
-Wireless pass 5cf3-fc29-ba60
+admin/27973505
+Wireless pass  ---> 27973505
 
 
----> 27973505
-
-
-NAS 192.168.0.250 admin/25176455 
+NAS 192.168.0.250 admin/25!76455 
 
 kidsburgh domain
 網域網址：http://domain.hinet.net/
-帳號：kidsburgh
+帳號： kidsburgh
 密碼： D24D5396
 
 dns.kidsburgh.com.tw 210.68.84.68 
 admin.kidsburgh.com.tw 210.68.84.67
 mail.kidsburgh.com.tw 210.61.151.220
+www.kidsburgh.com.tw 210.21.151.222
 
 windows2008 server
 product-key: YPY23-68C74-KWF8G-TX7J2-FFTHY
@@ -37,11 +34,34 @@ x16-93608
 VIRTUAL-KEY: BPWBK-PRDHH-BWQW9-CTBCV-64893
 
 
+騎士堡總部POS Server的SQL Server登入資訊如下：
+Server name = pos-server
+User ID=sa
+Password=P@ssw0rd
+
+騎士堡總部CRM
+192.168.0.100
+sa/dsc@123
+
+
+VMware DELL 760  192.168.0.253  root/25176455
+  client1  192.168.0.91   Administrator/Kidsburgh@123
+  client2  192.168.0.92 <---> 2013/05/21 移到 192.168.0.252 去了，只留下一個 back image 
+  Client3  192.168.0.88 <---> 2013/05/21 移到 192.168.0.252 去了
+  
+VMware supermicro  192.168.0.252 root/25176455
+	client1 192.168.0.88 Windows2003 Gogoyes Web server 
+	client2 192.168.0.89 Windows2003 Server for manage VMware
+	client3 192.168.0.92 Windows2008 Web Server administrator/25176455
+	client4 192.168.0.86 Windows2003 Fileserver for F/A
+
+
 
 內湖kidsburgh 
 ADSL router
 admin / 0936-333-366  ---> 改為 25176455
-wireless pass : 25176455
+;; wireless pass : 25176455
+wireless : 27973505
 Hinet info  73600503/fgqxolfx
 
 2011/12/27變更為 Draytek 2910  192.168.2.1 admin / 25176455
@@ -50,9 +70,14 @@ wireless pass 0936333366
 桃園kidsburgh
 router 192.168.4.1
 admin/25176455
-wireless pass : 5cf3-fc29-ba60  ;; 20120221 變更
+;; wireless pass : 5cf3-fc29-ba60  ;; 20120221 變更
+wireless : 27973505
 Hinet info 74120001/vpqmpvmh
 
+Security
+http://192.168.6.81
+http://192.168.6.82
+http://192.168.6.83
 
 
 74437438@hinet.net
@@ -69,6 +94,39 @@ wbxsqcha
 	 
 	 wireless : 27973505
 
+http://192.168.4.201:80
+http://192.168.4.202:81
+http://192.168.4.203:82
+http://192.168.4.204:83
+http://192.168.4.205:84
+http://192.168.4.206:85
+	 
+	 
+	 
+
+
+高雄  速博 adsl 
+附掛電話  07-970-5706 , 970-5707 , 970-5708  Fax: 970-5709
+固1 浮 12
+
+IP 1 / 218.211.209.163
+Ip 2 / 122.146.236.5
+	 
+VPN :  kbuser /25!76455	 
+
+
+
+
+
+
+
+
+高雄 左營堡
+adsl : 74723547 / ismiliqi
+
+59.127.189.135  
+
+VPN kao10 /25!76455
 
 
 
@@ -98,6 +156,16 @@ kidsburgh 工廠的 adsl 帳密
 74436254@hinet.net
 giakglzg
 	
+adobe account
+pintsai@kidsburgh.com.tw
+2517645525176455
+
+
+
+
+
+
+
 	
 NAS account
 alice,alicechen,陳秋萍,alicechen@kidsburgh.com.tw,5

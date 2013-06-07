@@ -1,0 +1,11 @@
+Data_Path=E:\workarround\房屋資料\2012-12-01全\txt_split
+Real_Estate_Name=real_estate-
+Rental_Name=rentals-
+DateBetween=7
+LinePerBatch=50000
+county_id
+area_id 
+category
+sqft_min
+floor_min
+age 

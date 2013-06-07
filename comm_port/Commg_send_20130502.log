@@ -1,0 +1,4677 @@
+s
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -84 , NONE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -89 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -32 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -19 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -83 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -91 , WPA2-PERSONAL
+
+ 00:24:6c:21:a1:b0, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -78 , NONE
+
+ 00:24:6c:40:3f:90, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -78 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -82 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -90 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -33 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -54 , WPA2-PERSONAL
+
+ 50:46:
+5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ 00:24:6c:b2:2e:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -90 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ 00:24:6c:40:3d:20, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:42:e2:e0, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -80 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -89 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -78 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -78 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -75 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -84 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:20:a6:56:68:16, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -87 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -52 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -32 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -89 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -90 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -78 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -74 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -78 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -78 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+No.Of AP Found:31
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:13:d4:24:f7:48, audy                            , 01,  INFRA , -90 , WEP
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -91 , NONE
+
+ 00:16:16:15:6b:30, iTaiwan                         , 05,  INFRA , -89 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 00:24:6c:b2:2e:e0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -82 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:29
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -83 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -90 , WPA2-PERSONAL
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ c
+e:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:27
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -88 , WPA2-ENTERPRISE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -90 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -49 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:25
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -88 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 00:24:6c:44:6f:30, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -32 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -68 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -83 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -83 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -81 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -73 , WPA2-ENTERPRISE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -84 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -49 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -46 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ 00:24:6c:b2:2e:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -90 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -77 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -79 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -83 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -90 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -90 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -89 , NONE
+
+ 00:16:16:15:6b:30, iTaiwan                         , 05,  INFRA , -88 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -52 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -68 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -91 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -89 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -80 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -78 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -78 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:13:d4:24:f7:48, audy                            , 01,  INFRA , -91 , WEP
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -53 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -90 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -92 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -91 , WPA2-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:42:e2:e0, WIRELESS                        , 11,  INFRA , -90 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -79 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -83 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -75 , NONE
+
+No.Of AP Found:31
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -87 , WPA2-ENTERPRISE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:60
+, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -51 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -36 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -68 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -86 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -90 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:40:3d:20, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -79 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -75 , NONE
+
+No.Of AP Found:24
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -85 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -84 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -90 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -89 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 9e:4d:ea:00:0a:aa, nccucs                          , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -81 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -78 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -75 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+No.Of AP Found:25
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -88 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                       
+  , 06,  INFRA , -47 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ 00:24:6c:b2:2e:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -88 , WPA-PERSONAL
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 9e:4d:ea:00:0a:aa, nccucs                          , 11,  INFRA , -88 , NONE
+
+ 00:24:6c:42:e2:e0, WIRELESS                        , 11,  INFRA , -90 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+No.Of AP Found:27
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:20:a6:56:68:16, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -91 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -85 , NONE
+
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -86 , WPA2-PERSONAL
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -52 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ 00:24:6c:b2:2e:e0, WIRELESS                        , 07,  INFRA , -90 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -82 , WPA-PERSONAL
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -90 , WPA2-PERSONAL
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -80 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -81 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -79 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -78 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -80 , WPA2-ENTERPRISE
+
+No.Of AP Found:25
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -90 , WPA2-ENTERPRISE
+
+ 00:24:6c:21:99:80, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -91 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -88 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -84 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 00:24:6c:b2:2e:e0, WIRELESS                        , 07,  INFRA , -91 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -87 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:40:3d:20, WIRELESS                        , 11,  INFRA , -90 , NONE
+
+ 00:24:6c:42:e2:e0, WIRELESS                        , 11,  INFRA , -90 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -79 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -82 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -81 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:31
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -90 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -91 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -90 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -89 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -90 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -88 , WPA-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -80 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -89 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -51 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -69 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -76 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -88 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -75 , NONE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:20:a6:56:68:16, WIRELESS                        , 01,  INFRA , -91 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -84 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -85 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:26:5a:ca:79:02, HHH-Office                      , 03,  INFRA , -90 , WPA2-PERSONAL
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -36 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -49 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -69 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -90 , WPA2-PERSONAL
+
+ b8:a3:86:b4:17:a0, Penny House                     , 10,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:40:3d:20, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -81 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -82 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:33
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID        
+             Channel  Type  RSSI Security
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -87 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -85 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -88 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -25 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -83 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -51 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -69 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -50 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -91 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -90 , NONE
+
+ 20:cf:30:87:db:50, LAW(2)                          , 08,  INFRA , -91 , NONE
+
+ b8:a3:86:b4:17:a0, Penny House                     , 10,  INFRA , -91 , WPA2-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -82 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -81 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -91 , WPA2-PERSONAL
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -87 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -84 , WPA2-PERSONAL
+
+ 90:f6:52:3a:ec:5a, TP-LINK_ted&rebecca             , 06,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -53 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -51 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -69 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 20:cf:30:87:db:50, LAW(2)                          , 08,  INFRA , -90 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -90 , WPA2-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -89 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -87 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:32
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -87 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -33 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -51 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12
+c                         , 06,  INFRA , -49 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -83 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -82 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+No.Of AP Found:19
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  
+INFRA , -86 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -49 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -83 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -86 , WPA-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -83 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+No.Of AP Found:27
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -87 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -90 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -39 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -49 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -23 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -90 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ 00:24:6c:21:a1:b0, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -78 , WPA2-ENTERPRISE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:26
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -86 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -88 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -84 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:44:6f:30, WIRELESS                        , 05,  INFRA , -92 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G         
+                 , 06,  INFRA , -36 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -51 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -83 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ 00:24:6c:40:3d:20, WIRELESS                        , 11,  INFRA , -90 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -80 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -81 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -81 , WPA2-ENTERPRISE
+
+No.Of AP Found:33
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -86 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-
+Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -91 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -89 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -84 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -24 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -41 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -81 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -82 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -75 , NONE
+
+No.Of AP Found:29
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+
+ 00:24:6c:21:99:80, WIRELESS                        , 01,  INFRA , -91 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -88 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -38 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -52 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -88 , NONE
+
+ 9e:4d:ea:00:0a:aa, nccucs                          , 11,  INFRA , -90 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -82 , WPA-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -78 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -79 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -74 , NONE
+
+No.Of AP Found:29
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:13:d4:24:f7:48, audy                            , 01,  INFRA , -90 , WEP
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -88 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)         
+       , 01,  INFRA , -88 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -88 , WPA2-ENTERPRISE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -85 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -39 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -59 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -52 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -29 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -76 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -92 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -90 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -87 , WPA-PERSONAL
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -81 , WPA2-ENTERPRISE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -83 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -73 , NONE
+
+No.Of AP Found:22
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -88 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -85 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -45 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -33 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 00:24:6c:49:c1:20, WIRELESS                        , 07,  INFRA , -91 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ 9e:4d:ea:00:0a:aa, nccucs                          , 11,  INFRA , -90 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -81 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -83 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -84 , WPA2-ENTERPRISE
+
+No.Of AP Found:27
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:20:a6:56:68:16, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -87 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -90 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -89 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -88 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -85 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -24 , NONE
+
+ 00:13:f7:8e:73:b7, KITra
+at+wa=rt-n12c
+
+    IP              SubNet         Gateway   
+
+ 192.168.1.99:255.255.255.0:192.168.1.1 
+
+OK
+
+
+
+
+
+at+ndhcp=1
+
+    IP              SubNet         Gateway   
+
+ 192.168.1.141:255.255.255.0:192.168.1.254 
+
+OK
+
+
+
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ bc:ae:c5:c4:1b:ed, IMLab                    
+       , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 00:16:16:15:6b:30, iTaiwan                         , 05,  INFRA , -91 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -69 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -56 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -32 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -24 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -90 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:f0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -82 , WPA2-ENTERPRISE
+
+No.Of AP Found:26
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  I
+NFRA , -90 , NONE
+
+ 00:24:6c:21:99:80, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -87 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -88 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -90 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 06,  INFRA , -90 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -28 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -51 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ 00:24:6c:b2:2e:e0, WIRELESS                        , 07,  INFRA , -92 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -90 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -77 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -82 , WPA2-ENTERPRISE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:29
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:21:a4:20, WIRELESS                        , 01,  INFRA , -90 
+, NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -89 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -88 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -90 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:24:6c:21:99:80, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -82 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -89 , NONE
+
+ 00:16:16:15:6b:30, iTaiwan                         , 05,  INFRA , -89 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 06,  INFRA , -88 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -30 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -53 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -46 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -90 , WPA2-PERSONAL
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -88 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -84 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -83 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+No.Of AP Found:30
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -88 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -88 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 06,  INFRA , -90 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -91 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -49 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -52 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -31 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -87 , WPA-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -90 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -83 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+No.Of AP Found:25
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -89 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -89 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -90 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -84 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:24:6c:49:ba:40, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 06,  INFRA , -89 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -59 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -30 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -54 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -89 , NONE
+
+ 00:24:6c:40:3f:90, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -82 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -84 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -80 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -87 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -87 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -46 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -32 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -54 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -23 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ 00:24:6c:b2:2e:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -75 , NONE
+
+ d8:c7:c8:af:30:f0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:44:81:20, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -81 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -80 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -75 , NONE
+
+No.Of AP Found:27
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -52 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -36 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -23 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -79 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:f0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -75 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -81 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:27
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, 
+CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -36 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -54 , WPA2-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -88 , WPA-PERSONAL
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -87 , WPA2-PERSONAL
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -79 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -81 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -75 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+No.Of AP Found:29
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -85 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86
+ , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -85 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:20:a6:56:68:16, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONEat+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -84 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -88 , WPA2-ENTERPRISE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -89 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -88 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -55 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -23 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -68 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -89 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -88 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:f0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -83 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:29
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:20:a6:56:0a:b9, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -88 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -87 , WPA2-ENTERPRISE
+
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:24:6c:21:99:80, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -89 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -90 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -55 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -23 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -68 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -91 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -83 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -75 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -81 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+No.Of AP Found:30
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS      
+                  , 01,  INFRA , -82 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -88 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -39 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -55 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -88 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -90 , NONE
+
+ 00:24:6c:42:e2:e0, WIRELESS                        , 11,  INFRA , -91 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -90 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -79 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -84 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -87 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+No.Of AP Found:31
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -87 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -90 , WPA2-ENTERPRISE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -89 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -88 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -88 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -64 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -52 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -37 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -23 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -90 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -88 , WPA2-PERSONAL
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -90 , NONE
+
+ 00:24:6c:21:a1:b0, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 06:11:a3:0a:7b:87, nccucs                          , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -88 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -83 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -74 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -90 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -88 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -86 , WPA2-ENTERPRISE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -90 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 06,  INFRA , -88 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -37 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -90 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -88 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -81 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -75 , NONE
+
+ 00:24:6c:21:a1:b0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+No.Of AP Found:27
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID
+                     Channel  Type  RSSI Security
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:24:6c:21:99:80, WIRELESS                        , 01,  INFRA , -91 , NONE
+
+ 00:20:a6:56:68:16, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -86 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -87 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -88 , WPA2-ENTERPRISE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 06,  INFRA , -89 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -89 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -51 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ d8:c7:c8:af:30:80, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -86 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -90 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -85 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -75 , NONE
+
+No.Of AP Found:28
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -90 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi              
+at+wa=rt-n12c
+
+    IP              SubNet         Gateway   
+
+ 192.168.1.99:255.255.255.0:192.168.1.1 
+
+OK
+
+
+
+
+
+at+ndhcp=1
+
+    IP              SubNet         Gateway   
+
+ 192.168.1.141:255.255.255.0:192.168.1.254 
+
+OK
+
+
+
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -87 , NONE
+
+ 00:24:6c:44:6c:60, WIRELESS                        , 05,  INFRA , -84 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -49 , WPA2-PERSONAL
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -87 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -56 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -37 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -83 , WPA-PERSONAL
+
+ 00:24:6c:49:c1:20, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -81 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -84 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -75 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+No.Of AP Found:19
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -73 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -78 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -83 , WPA2-PERSONAL
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -85 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -50 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -51 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -82 , NONE
+
+ 02:21:41:de:8e:d9, HPC5C507                        , 10,  ADHOC , -86 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:19
+
+
+
+OK
+
+at+ws
+
+
+  
+     BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -74 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -52 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -36 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -46 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -26 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+No.Of AP Found:16
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -87 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -72 , NONE
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -89 , WPA2-ENTERPRISE
+
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -27 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -52 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -37 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -83 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -80 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -78 , NONE
+
+No.Of AP Found:17
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -72 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:44:6c:60, WIRELESS                        , 05,  INFRA , -86 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA 
+, -65 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -37 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -25 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -51 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -88 , WPA-PERSONAL
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -86 , WPA2-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -84 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -78 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+No.Of AP Found:17
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:24:6c:21:a4:70, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:44:6c:60, WIRELESS                        , 05,  INFRA , -84 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -46 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -51 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -83 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -79 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -79 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+No.Of AP Found:16
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -75 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -86 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -67 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -86 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -52 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -83 , WPA2-PERSONAL
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:24:6c:b2:3a:40, WIR
+ELESS                        , 11,  INFRA , -89 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:19
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:20:a6:56:68:16, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -84 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:44:6c:60, WIRELESS                        , 05,  INFRA , -87 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -85 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -88 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -52 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -83 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -83 , WPA2-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -81 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:20
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Se
+curity
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -75 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -86 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -84 , WPA2-PERSONAL
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -87 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -56 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -86 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -80 , WPA2-ENTERPRISE
+
+No.Of AP Found:20
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:49:92:c0, WIRELESS                        , 05,  INFRA , -88 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -57 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ 00:24:6c:21:a1:b0, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -78 , NONE
+
+No.Of AP Found:15
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -77 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -83 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:24:6c:40:3e:00, WIRELESS  
+                      , 01,  INFRA , -88 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -36 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -53 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -85 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -78 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -79 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -78 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -78 , WPA2-ENTERPRISE
+
+No.Of AP Found:17
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -75 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:44:6c:60, WIRELESS                        , 05,  INFRA , -85 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -52 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -82 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -78 , WPA2-ENTERPRISE
+
+No.Of AP Found:17
+
+
+
+OK
+
+a
+t+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -74 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -87 , NONE
+
+ 00:24:6c:49:92:c0, WIRELESS                        , 05,  INFRA , -87 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -55 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -86 , WPA2-PERSONAL
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -78 , NONE
+
+No.Of AP Found:15
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -79 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:44:6c:60, WIRELESS                        , 05,  INFRA , -86 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -57 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -88 , WPA-PERSONAL
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:16
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -83 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -56 , NONE
+
+ 00:13:f7:8e:73:b
+7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -33 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -82 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -78 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:12
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -85 , WPA2-PERSONAL
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -85 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -33 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -51 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -83 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                     
+ , 11,  INFRA , -77 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -79 , NONE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+No.Of AP Found:13
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:21:a4:70, WIRELESS                        , 01,  INFRA , -86 , NONE
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -84 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -86 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -55 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -86 , WPA2-PERSONAL
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -87 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -79 , WPA2-ENTERPRISE
+
+No.Of AP Found:14
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -86 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -33 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -58 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -80 , WPA2-ENTERPRISE
+
+No.Of AP Found:14
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -33 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -56 , NONE
+
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -78 , WPA2-ENTERPRISE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -81 , NONE
+
+No.Of AP Found:11
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -75 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -85 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -86 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -88 , WPA2-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -80 , NONE
+
+ 00:0b:86:3a:bb:f0, WIRELESS    
+                    , 11,  INFRA , -86 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -79 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+No.Of AP Found:17
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -80 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -78 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -66 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -56 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -21 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -79 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -87 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:14
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -85 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -85 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -52 , NONE
+
+ 14:d6:4d:7f:71:7a, Greenti                         , 06,  INFRA , -86 , WPA2-PERSONAL
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -22 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -86 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -80 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -73 , NONE
+
+No.Of AP Found:18
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:3e:00, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -72 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  IN
+FRA , -87 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -36 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -49 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -23 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -63 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -82 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -81 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -78 , NONE
+
+No.Of AP Found:15
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -73 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -63 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -17 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -47 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -39 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -83 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -83 , NONE
+
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -86 , WPA2-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -83 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -75 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -84 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+No.Of AP Found:15
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -75 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -16 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -40 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -52 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -63 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -82 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -88 , WPA2-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -81 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+No.Of AP Found:14
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -56 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -40 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -16 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -82 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -87 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -86 , WPA-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -82 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:17
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -16 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -41 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -82 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -84 , WPA-PERSONAL
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -84 , WPA-PERSONAL
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:15
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -46 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -58 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -41 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -16 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -81 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -80 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+No.Of AP Found:14
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -87 , WPA2-PERSONAL
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -84 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -86 , NONE
+
+
+ 14:d6:4d:4d:e8:a5, CHT Wi-Fi Auto                  , 01,  INFRA , -85 , WPA2-ENTERPRISE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:44:6c:60, WIRELESS                        , 05,  INFRA , -88 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -60 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -41 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -16 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -63 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -88 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -83 , NONE
+
+ 00:24:6c:49:c1:20, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -80 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:19
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -85 , WPA2-PERSONAL
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ 00:24:6c:44:6c:60, WIRELESS                        , 05,  INFRA , -85 , NONE
+
+ 00:24:6c:49:92:c0, WIRELESS                        , 05,  INFRA , -87 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -63 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G   
+                       , 06,  INFRA , -40 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -16 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -51 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -86 , WPA-PERSONAL
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -82 , NONE
+
+ 00:24:6c:49:c1:20, WIRELESS                        , 07,  INFRA , -89 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -85 , WPA2-PERSONAL
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -81 , WPA2-ENTERPRISE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -80 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -84 , WPA-PERSONAL
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -77 , NONE
+
+No.Of AP Found:18
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -76 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -51 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -17 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -41 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -81 , WPA2-ENTERPRISE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -81 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -83 , WPA-PERSONAL
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -81 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+No.Of AP Found:16
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -85 , NONE
+
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -81 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -42 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -52 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -16 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -86 , NONE
+
+ 00:24:6c:49:c1:20, WIRELESS                        , 07,  INFRA , -90 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -89 , WPA2-PERSONAL
+
+ 00:0b:86:3a:bb:f0, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -82 , WPA2-ENTERPRISE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -82 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -81 , NONE
+
+No.Of AP Found:15
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -76 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -40 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -53 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -18 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -63 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -82 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -82 , WPA-PERSONAL
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:15
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 14:d2:4d:4d:e8:a5, APTG Wi-Fi                      , 01,  INFRA , -86 , NONE
+
+ 14:d1:4d:4d:e8:a5, CHT Wi-Fi(HiNet)                , 01,  INFRA , -85 , NONE
+
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -72 , NONE
+
+ 00:24:6c:35:89:d0, WIRELESS                        , 05,  INFRA , -86 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -56 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -39 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -17 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -80 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -77 , WPA2-ENTERPRISE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -80 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -81 , NONE
+
+No.Of AP Found:17
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -48 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -39 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -16 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -82 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -86 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -76 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -80 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -76 , WPA2-ENTERPRISE
+
+No.Of AP Found:13
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -75 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -87 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -84 , NONE
+
+ 00:24:6c:49:92:c0, WIRELESS                        , 05,  INFRA , -88 , NONE
+
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -88 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -50 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -39 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -17 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -88 , WPA2-PERSONAL
+
+ 00:24:6c:49:bf:00, WIRELESS                        , 11,  INFRA , -83 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -85 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -84 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -77 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -81 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -77 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -78 , WPA2-ENTERPRISE
+
+No.Of AP Found:18
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ bc:ae:c5:c4:1b:ed, IMLab                           , 01,  INFRA , -87 , WPA2-PERSONAL
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -75 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -83 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -48 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -40 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -17 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -53 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -64 , NONE
+
+ b8:a3:86:4d:67:d4, Fong                            , 07,  INFRA , -85 , WPA-PERSONAL
+
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -87 , WPA2-PERSONAL
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -78 , WPA2-ENTERPRISE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -89 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -83 , WPA-PERSONAL
+
+No.Of AP Found:14
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ 00:24:6c:40:43:90, WIRELESS                        , 01,  INFRA , -84 , NONE
+
+ d8:c7:c8:af:30:d0, WIRELESS                        , 01,  INFRA , -89 , NONE
+
+ 00:24:6c:21:a4:70, WIRELESS                        , 01,  INFRA , -88 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -91 , NONE
+
+ 00:24:6c:44:80:e0, WIRELESS                        , 01,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -81 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -80 , NONE
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -35 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -55 , NONE
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -19 , NONE
+
+ 00:90:cc:b8:74:da, IIC_Sec2                        , 06,  INFRA , -65 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -84 , WPA2-PERSONAL
+
+ b8:a3:86:b4:17:a0, Penny House                     , 10,  INFRA , -88 , WPA2-PERSONAL
+
+
+ 00:24:6c:21:a1:b0, WIRELESS                        , 11,  INFRA , -88 , NONE
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ c8:3a:35:01:75:d0, Tenda_0175D0                    , 11,  INFRA , -85 , WPA-PERSONAL
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -79 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ 9e:4d:ea:00:0a:aa, nccucs                          , 11,  INFRA , -87 , NONE
+
+No.Of AP Found:21
+
+
+
+OK
+
+at+ws
+
+
+       BSSID              SSID                     Channel  Type  RSSI Security
+
+ d8:c7:c8:af:30:60, WIRELESS                        , 01,  INFRA , -82 , NONE
+
+ 00:24:6c:4c:d9:30, WIRELESS                        , 01,  INFRA , -76 , NONE
+
+ 00:0a:79:e7:ae:18, corega                          , 04,  INFRA , -79 , NONE
+
+ 00:23:54:ef:f6:cf, DANN                            , 06,  INFRA , -86 , WPA2-PERSONAL
+
+ f4:6d:04:b3:2c:c4, WL500G                          , 06,  INFRA , -34 , NONE
+
+ 00:13:f7:8e:73:b7, KITravel2                       , 06,  INFRA , -47 , WPA2-PERSONAL
+
+ a0:f3:c1:34:95:28, dd-wrt                          , 06,  INFRA , -20 , NONE
+
+ 50:46:5d:60:14:a6, rt-n12c                         , 06,  INFRA , -53 , NONE
+
+ 00:24:6c:49:c0:e0, WIRELESS                        , 07,  INFRA , -85 , NONE
+
+ d8:c7:c8:af:30:a0, WIRELESS                        , 07,  INFRA , -84 , NONE
+
+ f4:ec:38:c6:7d:ee, Duck                            , 09,  INFRA , -86 , WPA2-PERSONAL
+
+ b8:a3:86:b4:17:a0, Penny House                     , 10,  INFRA , -88 , WPA2-PERSONAL
+
+ ce:5d:4e:eb:ea:c6, CHT Wi-Fi(HiNet)                , 11,  INFRA , -76 , NONE
+
+ 00:50:18:44:65:82, IIC_E                           , 11,  INFRA , -89 , NONE
+
+ 00:24:6c:49:bf:e0, WIRELESS                        , 11,  INFRA , -84 , NONE
+
+ de:5d:4e:eb:ea:c6, APTG Wi-Fi                      , 11,  INFRA , -75 , NONE
+
+ cc:5d:4e:eb:ea:c6, CHT Wi-Fi Auto                  , 11,  INFRA , -75 , WPA2-ENTERPRISE
+
+ 00:24:6c:b2:3a:40, WIRELESS                        , 11,  INFRA , -87 , NONE
+
+No.Of AP Found:18
+
+
+
+OK
+
+at+ws
+
+
+       BSSID      

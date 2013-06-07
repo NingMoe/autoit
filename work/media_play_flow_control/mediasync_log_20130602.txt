@@ -1,0 +1,81 @@
+. 2013-06-02 19:59:23.406 --------------------------------------------------------------------------
+. 2013-06-02 19:59:23.406 WinSCP Version 5.1.5 (Build 3261) (OS 6.1.7601 Service Pack 1)
+. 2013-06-02 19:59:23.407 Configuration: E:\autoit.git\work\media_play_flow_control\WinSCP.ini
+. 2013-06-02 19:59:23.408 Local account: 7458-R61-X200\ivan
+. 2013-06-02 19:59:23.408 Working directory: E:\autoit.git\work\media_play_flow_control
+. 2013-06-02 19:59:23.408 Process ID: 2024
+. 2013-06-02 19:59:23.408 Command-line: E:\autoit.git\work\media_play_flow_control\winscp.exe  /console /log=mediasync_log_20130602.txt /command "option confirm off " "open ftp://kbuser:25176455@mail.kidsburgh.com.tw:6002" "synchronize local  E:\workarround\音樂\syncsample /kshare/mis/syncsample -delete"  "close " "exit"
+. 2013-06-02 19:59:23.408 Time zone: Current: GMT+8, Standard: GMT+8, DST: GMT+9, DST Start: 1899/12/30, DST End: 1899/12/30
+. 2013-06-02 19:59:23.408 Login time: 2013年6月2日 下午 07:59:23
+. 2013-06-02 19:59:23.408 --------------------------------------------------------------------------
+. 2013-06-02 19:59:23.408 Session name: kbuser@mail.kidsburgh.com.tw (Ad-Hoc session)
+. 2013-06-02 19:59:23.408 Host name: mail.kidsburgh.com.tw (Port: 6002)
+. 2013-06-02 19:59:23.408 User name: kbuser (Password: Yes, Key file: No)
+. 2013-06-02 19:59:23.408 Tunnel: No
+. 2013-06-02 19:59:23.408 Transfer Protocol: FTP
+. 2013-06-02 19:59:23.408 Ping type: C, Ping interval: 30 sec; Timeout: 15 sec
+. 2013-06-02 19:59:23.408 Proxy: none
+. 2013-06-02 19:59:23.408 FTP: FTPS: None; Passive: Yes [Force IP: A]
+. 2013-06-02 19:59:23.408 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2013-06-02 19:59:23.408 Cache directory changes: Yes, Permanent: Yes
+. 2013-06-02 19:59:23.408 DST mode: 1; Timezone offset: 0h 0m
+. 2013-06-02 19:59:23.408 --------------------------------------------------------------------------
+. 2013-06-02 19:59:23.414 Connecting to mail.kidsburgh.com.tw:6002 ...
+. 2013-06-02 19:59:23.462 Connected with mail.kidsburgh.com.tw:6002. Waiting for welcome message...
+< 2013-06-02 19:59:23.498 220 DiskStation FTP server ready.
+> 2013-06-02 19:59:23.498 USER kbuser
+< 2013-06-02 19:59:23.531 331 Password required for kbuser.
+> 2013-06-02 19:59:23.531 PASS ********
+< 2013-06-02 19:59:23.584 230 User kbuser logged in.
+> 2013-06-02 19:59:23.584 SYST
+< 2013-06-02 19:59:23.661 215 UNIX Type: L8
+> 2013-06-02 19:59:23.661 FEAT
+< 2013-06-02 19:59:23.687 211- Extensions supported:
+< 2013-06-02 19:59:23.687  AUTH TLS
+< 2013-06-02 19:59:23.687  PBSZ
+< 2013-06-02 19:59:23.687  PROT
+< 2013-06-02 19:59:23.687  SIZE
+< 2013-06-02 19:59:23.687  MDTM
+< 2013-06-02 19:59:23.688  MFMT
+< 2013-06-02 19:59:23.688  REST STREAM
+< 2013-06-02 19:59:23.689  UTF8
+< 2013-06-02 19:59:23.689 211 End.
+> 2013-06-02 19:59:23.689 OPTS UTF8 ON
+< 2013-06-02 19:59:23.715 200 OK, UTF-8 enabled
+. 2013-06-02 19:59:23.715 Connected
+. 2013-06-02 19:59:23.715 --------------------------------------------------------------------------
+. 2013-06-02 19:59:23.715 Using FTP protocol.
+. 2013-06-02 19:59:23.716 Doing startup conversation with host.
+> 2013-06-02 19:59:23.716 PWD
+< 2013-06-02 19:59:23.740 257 "/" is current directory.
+. 2013-06-02 19:59:23.740 Getting current directory name.
+. 2013-06-02 19:59:23.740 Startup conversation with host finished.
+< 2013-06-02 19:59:23.740 Script: Active session: [1] kbuser@mail.kidsburgh.com.tw
+> 2013-06-02 19:59:23.741 Script: synchronize local  E:\workarround\音樂\syncsample /kshare/mis/syncsample -delete
+< 2013-06-02 19:59:23.741 Script: Comparing...
+. 2013-06-02 19:59:23.741 Collecting synchronization list for local directory 'E:\workarround\音樂\syncsample' and remote directory '/kshare/mis/syncsample', mode = Local, params = 0x3 (Delete, NoConfirmation)
+. 2013-06-02 19:59:23.742 Local file 'E:\workarround\音樂\syncsample\.' [2013-06-02T07:13:44.776Z] [0] excluded from synchronization
+. 2013-06-02 19:59:23.742 Local file 'E:\workarround\音樂\syncsample\..' [2013-06-02T07:13:44.776Z] [0] excluded from synchronization
+. 2013-06-02 19:59:23.742 Local file 'E:\workarround\音樂\syncsample\23(0900).mp3' [2013-04-12T10:37:00.000Z] [702171] included to synchronization
+. 2013-06-02 19:59:23.742 Local file 'E:\workarround\音樂\syncsample\Groupon2.zip' [2013-03-22T09:41:00.000Z] [146913] included to synchronization
+. 2013-06-02 19:59:23.742 Retrieving directory listing...
+> 2013-06-02 19:59:23.742 CWD /kshare/mis/syncsample/
+< 2013-06-02 19:59:23.767 250 CWD command successful.
+> 2013-06-02 19:59:23.767 PWD
+< 2013-06-02 19:59:23.791 257 "/kshare/mis/syncsample" is current directory.
+> 2013-06-02 19:59:23.791 TYPE A
+< 2013-06-02 19:59:23.814 200 Type set to A.
+> 2013-06-02 19:59:23.815 PASV
+< 2013-06-02 19:59:23.843 227 Entering Passive Mode (210,61,151,220,199,38)
+> 2013-06-02 19:59:23.843 LIST -a
+< 2013-06-02 19:59:23.892 150 Opening BINARY mode data connection for 'file list'.
+< 2013-06-02 19:59:23.894 226 Transfer complete.
+. 2013-06-02 19:59:23.896 -rwxrwxrwx   1 kbuser   users          702171 Apr 12 18:37 23(0900).mp3
+. 2013-06-02 19:59:23.896 -rwxrwxrwx   1 kbuser   users          146913 Mar 22 17:41 Groupon2.zip
+. 2013-06-02 19:59:23.896 Directory listing successful
+. 2013-06-02 19:59:23.896 ..;D;0;1899-12-30T08:00:00.000Z;"" [0];"" [0];---------;0
+. 2013-06-02 19:59:23.896 23(0900).mp3;-;702171;2013-04-12T10:37:00.000Z;"kbuser" [0];"users" [0];rwxrwxrwx;1
+. 2013-06-02 19:59:23.896 Groupon2.zip;-;146913;2013-03-22T09:41:00.000Z;"kbuser" [0];"users" [0];rwxrwxrwx;1
+< 2013-06-02 19:59:23.900 Script: Nothing to synchronize.
+> 2013-06-02 19:59:23.900 Script: close 
+. 2013-06-02 19:59:23.903 Disconnected from server

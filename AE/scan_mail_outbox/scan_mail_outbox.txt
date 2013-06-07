@@ -1,0 +1,12 @@
+;outbox=\\10.112.55.105\c$\RaidenMAILD\Outboxes\
+outbox=q:\
+
+validate=3   
+
+keyword=To
+
+;keyword2=@TW.ABB.COM
+keyword2=plankton@onlinebooking.com.tw
+
+report_to=changtun@gmail.com
+
